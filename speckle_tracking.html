@@ -180,19 +180,23 @@
             <hr>
             <div class="row justify-content-left">
               <div class="col-12">
-              <h2>Network Architecture</h2>
+              <h2>Methods</h2>
             </div>
               <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-                  <h3>Considering the patient image sequences as visual time-series, we adopted Long-term Recurrent Convolutional Networks (CNN+LSTM) for analysing the echocardiographic videos. <p>Such architectures are a class of models that is both spatially and temporally deep, specifically designed for sequence prediction problems (e.g., order of images) with spatial inputs (e.g. 2D structure or pixels in an image).<p>
-                    The figure to the right provides an overview of the network architecture.<p> The model comprises:<p> <b>(i) CNN unit:</b> for the encoding of spatial information for each frame of an echocardiographic video input<p> <b>(ii) LSTM units:</b> for the decoding of complex temporal information<p> <b>(iii) a regression unit:</b> for the prediction of the frames of interest.
-                    <h3><p><b>Spatial feature extraction:</b> First, a CNN unit is used to extract a spatial feature vector from every cardiac frame in the image sequence. A series of state-of-the-art architectures were employed for the CNN unit. These included ResNet50, InceptionV3, DenseNet, and InceptionResNetV2.
-                    <p><b>Temporal feature extraction:</b> The CNN unit above is only capable of handling a single image, transforming it from input pixels into an internal matrix or vector representation. LSTM units are therefore used to process the image features extracted from the entire image sequence by the CNN, i.e. interpreting the features across time steps. Stacks of LSTM units (1-layer to 4-layers) were explored, where the output of each LSTM unit not in the final layer is treated as input to a unit in the next.
-                    <p><b>Regression unit:</b> Finally, the output of the LSTM unit is regressed to predict the location of ED and ES frames. The model returns a prediction for each frame in the cardiac sequence (timestep).
-                    </h3>
+                  <h3>
+                      In this paper, a new displacement estimation method is introduced by formulating the tracking as an optimisation problem that jointly penalises intensity disparity and motion discontinuity and is, therefore, more robust to the signal decorrelation when compared with previous approaches. The speckle tracking algorithm combines the BM algorithm with a smoothness constraint for a neighbourhood of kernels.<p>
+                          The figure to the right provides an overview of the network architecture.
+                      <p> The model comprises:<p> <b>(i) CNN unit:</b> for the encoding of spatial information for each frame of an echocardiographic video input<p> <b>(ii) LSTM units:</b> for the decoding of complex temporal information<p>
+                          <b>(iii) a regression unit:</b> for the prediction of the frames of interest.
+                          <h3>
+                      <p><b>Spatial feature extraction:</b> First, a CNN unit is used to extract a spatial feature vector from every cardiac frame in the image sequence. A series of state-of-the-art architectures were employed for the CNN unit. These included ResNet50, InceptionV3, DenseNet, and InceptionResNetV2.
+                      <p><b>Temporal feature extraction:</b> The CNN unit above is only capable of handling a single image, transforming it from input pixels into an internal matrix or vector representation. LSTM units are therefore used to process the image features extracted from the entire image sequence by the CNN, i.e. interpreting the features across time steps. Stacks of LSTM units (1-layer to 4-layers) were explored, where the output of each LSTM unit not in the final layer is treated as input to a unit in the next.
+                      <p><b>Regression unit:</b> Finally, the output of the LSTM unit is regressed to predict the location of ED and ES frames. The model returns a prediction for each frame in the cardiac sequence (timestep).
+                  </h3>
                 </div>
                 <div class="col-12 col-md-12 col-lg-6 col-xl-6">
                   <br>
-                  <img class="img-fluid" src="assets/img/projects/phase_detection/echo_architecture.png" alt="echocardiogram" width="450px" height="500px">
+                  <img class="img-fluid" src="assets/img/projects/STE/Highlights.PNG" alt="echocardiogram" width="450px" height="500px">
                 </div>
               </div>
             </div>
