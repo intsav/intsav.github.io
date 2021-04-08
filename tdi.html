@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>PROJECT NAME</title>
+  <title>TDI</title>
   <link href="assets/img/logo.png" rel="icon">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -44,10 +44,10 @@
       <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
         <div class="row">
           <div class="col-12 text-left">
-            <h1>PROJECT TITLE</h1>
-            <h2><i>AUTHOR <sup>1</sup>, AUTHOR <sup>2</sup>, AUTHOR <sup>1</sup>, AUTHOR <sup>2</sup>, AUTHOR <sup>2</sup>, AUTHOR <sup>2</sup>, AUTHOR <sup>1</sup>,<sup>2</sup><i></h2>
-            <h3><sup>1</sup> ORGANISATION <h3>
-            <h3><sup>2</sup> ORGANISATION <h3>
+            <h1>TDI Beat and Keypoint Detection</h1>
+            <h2><i>Elisabeth S Lane <sup>1</sup>, Neda Azarmehr <sup>2</sup>, Jevgeni Jevsikov <sup>1</sup>, James P Howard <sup>2</sup>, Matthew J Shun-shin <sup>2</sup>, Graham D Cole <sup>2</sup>, Darrel P Francis <sup>2</sup>, Massoud Zolgharni <sup>1,2</sup><i></h2>
+            <h3><sup>1</sup> School of Computing and Engineering, University of West London, London, United Kingdom<h3>
+            <h3><sup>2</sup> National Heart and Lung Institute, Imperial College, London, United Kingdom<h3>
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@
           <div class="row justify-content-left">
             <div class="col-12">
               <hr>
-              <h1>PROJECT INTRODUCTION</h1>
+              <h1>We have developed a network capable of accurately detecting multiple heartbeats and S', E' and A' keypoints for each from variable length tissue doppler imaging strips.</h1>
               <br>
             </div>
           </div>
@@ -78,13 +78,27 @@
       <!-- ======= Project Dataset ======= -->
       <div class = "project-dataset">
         <div class="container project-container">
-          <div class="row justify-content-left">
+          <div class="row justify-content-left d-flex flex-wrap align-items-center">
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-            <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
+            <img class="img-fluid" src="assets/img/projects/TDI/data_example.png" alt="TDI example strip">
             </div>
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
               <h2>Dataset</h2>
-              <h3>INFORMATION ABOUT THE DATASET</h3>
+              <h3>Pulsed-wave tissue Doppler traces were acquired from 48 patients (30 male). Patients had a mean age of 64±11 years.
+                The patients investigated were recruited from
+               patients who had undergone echocardiography with Imperial College Healthcare NHS Trust. Only patients in sinus
+               rhythm were included. No other exclusion criteria were
+               applied. The study was approved by the local ethics committee and written informed consent was obtained.
+               Each patient underwent standard tissue Doppler assessment of left ventricular function by an experienced echocardiographer. The operator was advised to optimise the
+               images as would normally be done in clinical practice. For
+               all acquisitions, the sample volume size was 5 mm with a
+               sweep speed of 75 mm/s. Traces from both the septal and
+               lateral annuli were acquired for 30s each. This entire process was conducted three times, with the probe removed
+               from the chest and then placed back on the chest optimally
+               between each recording. A total of six 30-second recordings (three at the septal annulus and three at the lateral
+               annulus) of tissue Doppler data were acquired for each patient.<p>
+               In the example image, each cardiac cycle is indicated by a red vertical line with annotations from two trained experts for each keypoint. Expert 1 is in red, with expert 2 in yellow.
+              </h3>
               <br>
               <div class="text-left">
                 <a class="btn btn-primary" href="#contact" role="button">Download the dataset</a>
@@ -103,11 +117,14 @@
               <h2>Network Architecture</h2>
             </div>
               <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-                  <h3>INFORMATION ABOUT THE ARCHITECTURE</h3>
+                  <h3>The architecture comprises an object detection model for the isolation of complete heartbeats
+                  followed by a keypoint localisation network to identify the S', E' and A' landmarks in each beat object.
+                A sliding window approach was adopted to ensure all possible beats were detected and ensure full utilisation of the available data.</h3>
+                In the example image, bounding boxes generated by the object detector and keypoints localised by the network are displayed.
                 </div>
                 <div class="col-12 col-md-12 col-lg-6 col-xl-6">
                   <br>
-                  <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
+                  <img class="img-fluid" src="assets/img/projects/TDI/example.png" alt="IMAGE PLACEHOLDER">
                 </div>
               </div>
             </div>
@@ -120,7 +137,7 @@
               <div class="col-12">
                 <hr>
                 <h2>Implementation</h2>
-                <h3>IMPLEMENTATION DETAILS</h3>
+                <h3>Coming soon.</h3>
                 <div class="text-left">
                   <br>
                   <a class="btn btn-primary" href="" role="button">Download the code</a>
@@ -143,7 +160,7 @@
             <div class="col-12 col-lg-6 col-md-6">
               <div class="text-left">
                 <h2>Evaluation metrics</h2>
-                <h3>INFORMATION ABOUT EVALUATION METRICS</h3>
+                <h3>Coming soon.</h3>
               </div>
             </div>
 
@@ -169,7 +186,7 @@
             <div class="row justify-content-left">
               <div class="col-12 col-lg-6">
                 <div class="text-left">
-                  <h3>INFORMATION ABOUT RESULTS</h3>
+                  <h3>Coming soon.</h3>
                 </div>
               </div>
               <div class="col-12 col-lg-6 text-center">
@@ -184,7 +201,7 @@
           <div class="section-title">
             <hr>
             <h2>Request Access to the project dataset</h2>
-            <h3>INFORMATION ABOUT ACCESSING THE DATASET</h3>
+            <h3>We aim to make the dataset available for research purposes soon.</h3>
 
             <div class="container">
               <div class="section-title">
