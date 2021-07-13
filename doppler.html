@@ -45,9 +45,9 @@
         <div class="row">
           <div class="col-12 text-left">
             <h1>Mitral Inflow</h1>
-            <h2><i>Jevgeni Jevsikov<sup>1</sup>, AUTHOR <sup>2</sup>, AUTHOR <sup>1</sup>, AUTHOR <sup>2</sup>, AUTHOR <sup>2</sup>, AUTHOR <sup>2</sup>, AUTHOR <sup>1</sup>,<sup>2</sup><i></h2>
-            <h3><sup>1</sup> School of Computing and Engineering, University of West London, London, United Kingdom<h3>
-            <h3><sup>2</sup> ORGANISATION <h3>
+            <h2><i>Jevgeni Jevsikov <sup>1</sup>, Elisabeth S Lane <sup>1</sup>, Eman Alajrami <sup>1</sup>, James P Howard <sup>2</sup>, Matthew J Shun-shin <sup>2</sup>, Graham D Cole <sup>2</sup>, Darrel P Francis <sup>2</sup>, Massoud Zolgharni <sup>1,2</sup><i></h2>
+              <h3><sup>1</sup> School of Computing and Engineering, University of West London, London, United Kingdom<h3>
+              <h3><sup>2</sup> National Heart and Lung Institute, Imperial College, London, United Kingdom<h3>
             </div>
           </div>
         </div>
@@ -66,12 +66,12 @@
             <div class="col-12">
               <hr>
               <h1>PROJECT INTRODUCTION</h1>
-              <h2>This is an introduction to the project</h2>
+              <h2>The project involves detecting E and A mitral inflow peaks using Faster-RCNN and segmentation of the mitral profile using U-net architecture</h2>
               <br>
             </div>
           </div>
             <div class="text-left">
-              <a class="btn btn-primary" href="#" role="button">Download the paper</a>
+              <!-- <a class="btn btn-primary" href="#" role="button">Download the paper</a> -->
             </div>
           </div>
         </div>
@@ -81,14 +81,20 @@
         <div class="container project-container">
           <div class="row justify-content-left">
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-            <img class="img-fluid" src="assets/img/projects/Mitral_Inflow/points.PNG" alt="keypoints">
+            <!-- <img class="img-fluid" src="assets/img/projects/Mitral_Inflow/dataset_sample.png" alt="keypoints"> -->
+
+            <figure>
+              <img class="img-fluid" src="assets/img/projects/Mitral_Inflow/dataset_sample.png" alt="keypoints">
+              <figcaption>Figure 1. Example of an image with labelled keypoints and generated bounding boxes.</figcaption>
+            </figure>
+
             </div>
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
               <h2>Dataset</h2>
-              <h3>INFORMATION ABOUT THE DATASET</h3>
+              <h3>The dataset consists of 495 images, which have annotations of E and A keypoints and binary masks for the profile. <br> <br> The bounding boxes for each heartbeat are generated from keypoints. The bounding boxes are generated for heartbeats that include two beats and heartbeats that include one beat.</h3>
               <br>
               <div class="text-left">
-                <a class="btn btn-primary" href="#contact" role="button">Download the dataset</a>
+                <!-- <a class="btn btn-primary" href="#contact" role="button">Download the dataset</a> -->
               </div>
             </div>
           </div>
@@ -104,11 +110,11 @@
               <h2>Network Architecture</h2>
             </div>
               <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-                  <h3>INFORMATION ABOUT THE ARCHITECTURE</h3>
+                  <h3>IN PROGRESS</h3>
                 </div>
                 <div class="col-12 col-md-12 col-lg-6 col-xl-6">
                   <br>
-                  <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
+                  <!-- <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER"> -->
                 </div>
               </div>
             </div>
@@ -121,7 +127,7 @@
               <div class="col-12">
                 <hr>
                 <h2>Implementation</h2>
-                <h3>IMPLEMENTATION DETAILS</h3>
+                <h3>IN PROGRESS</h3>
                 <div class="text-left">
                   <br>
                   <a class="btn btn-primary" href="" role="button">Download the code</a>
@@ -138,13 +144,13 @@
           <div class="row">
 
             <div class="col-12 col-lg-6 col-md-6 text-center">
-              <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
+              <!-- <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER"> -->
             </div>
 
             <div class="col-12 col-lg-6 col-md-6">
               <div class="text-left">
                 <h2>Evaluation metrics</h2>
-                <h3>INFORMATION ABOUT EVALUATION METRICS</h3>
+                <h3>IN PROGRESS</h3>
               </div>
             </div>
 
@@ -170,11 +176,17 @@
             <div class="row justify-content-left">
               <div class="col-12 col-lg-6">
                 <div class="text-left">
-                  <h3>INFORMATION ABOUT RESULTS</h3>
+                  <h3>IN PROGRESS</h3>
                 </div>
               </div>
               <div class="col-12 col-lg-6 text-center">
-                <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
+                <!-- <img class="img-fluid" src="keyp_detection_sample.png" alt="IMAGE PLACEHOLDER"> -->
+
+                <figure>
+                  <img class="img-fluid" src="assets/img/projects/Mitral_Inflow/keyp_detection_sample.png" alt="keypoints">
+                  <figcaption>Figure 2. Example of keypoint prediction results.</figcaption>
+                </figure>
+
               </div>
             </div>
           </div>
