@@ -103,7 +103,7 @@
               <h3>The relative distribution of echo view classes labelled by the expert cardiologist is displayed in figure and indicates an imbalanced dataset, with a ratio of 3\% (Subcostal-IVC view as the least represented class) to 13\% (PSAX-AV view as the dominant view).</h3>
               <br>
               <div class="text-left">
-                <a class="btn btn-primary" href="#contact" role="button">Download the dataset</a>
+              <!--  <a class="btn btn-primary" href="#contact" role="button">Download the dataset</a>-->
               </div>
             </div>
           </div>
@@ -121,10 +121,11 @@
               <div class="col-12 col-md-12 col-lg-6 col-xl-6">
                 <h3><b> DARTS Method:</b> <P>DARTS method consists of two stages: architecture search and architecture evaluation. <p>Given
                 the input images, it first embarks on an architecture search to explore for a computation cell (a small unit of convolutional layers) as the building block of the neural network architecture.
-<p>
-                  The figure to the right provides an overview of the network architecture.<p> The model comprises:<p> <b>(i) CNN unit:</b> for the encoding of spatial information for each frame of an echocardiographic video input<p> <b>(ii) LSTM units:</b> for the decoding of complex temporal information<p> <b>(iii) a regression unit:</b> for the prediction of the frames of interest.
-                  <h3><p><b>Spatial feature extraction:</b> First, a CNN unit is used to extract a spatial feature vector from every cardiac frame in the image sequence. A series of state-of-the-art architectures were employed for the CNN unit. These included ResNet50, InceptionV3, DenseNet, and InceptionResNetV2.
-                  <p><b>Temporal feature extraction:</b> The CNN unit above is only capable of handling a single image, transforming it from input pixels into an internal matrix or vector representation. LSTM units are therefore used to process the image features extracted from the entire image sequence by the CNN, i.e. interpreting the features across time steps. Stacks of LSTM units (1-layer to 4-layers) were explored, where the output of each LSTM unit not in the final layer is treated as input to a unit in the next.
+                  <p>
+                  The figure to the right provides an overview of the DARTS network architecture.<p> After the architecture search phase is complete and the optimal cell is obtained based on its
+                    validation performance, the final architecture could be formed from one cell or a sequential stack
+                    of cells. The weights of the optimal cell learned during the search stage are then discarded, and
+                    are initialized randomly for retraining the generated neural network model from scratch.
                   <p><b>Regression unit:</b> Finally, the output of the LSTM unit is regressed to predict the location of ED and ES frames. The model returns a prediction for each frame in the cardiac sequence (timestep).
                   </h3>
                 </div>
