@@ -125,7 +125,11 @@
                   The figure to the right provides an overview of the DARTS network architecture.<p> After the architecture search phase is complete and the optimal cell is obtained based on its
                     validation performance, the final architecture could be formed from one cell or a sequential stack
                     of cells. The weights of the optimal cell learned during the search stage are then discarded, and
-                    are initialized randomly for retraining the generated neural network model from scratch.
+                    are initialized randomly for retraining the generated neural network model from scratch. <p> A cell, shown int the top right fig, is an ordered sequence of several nodes in which one or multiple
+                      edges meet. Each node CðiÞ represents a feature map in convolutional networks. Each edge ði; jÞ
+                      is associated with some operation Oði;jÞ
+                      , transforming the node CðiÞ to CðjÞ
+                      . This could be a combination of several operations, such as convolution, max-pooling, and ReLU.
                   <p><b>Regression unit:</b> Finally, the output of the LSTM unit is regressed to predict the location of ED and ES frames. The model returns a prediction for each frame in the cardiac sequence (timestep).
                   </h3>
                 </div>
