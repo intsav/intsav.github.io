@@ -132,7 +132,7 @@
                     operations independently (each trained from scratch), DARTS places all candidate operations on each edge (e.g., 5 × 5 convolution, 3 × 3 convolution, and max-pooling represented in figure to the right.
                     red, blue, and green lines, respectively). This allows sharing and training their weights in a single
                     process. The task of learning the optimal cell is effectively finding the optimal placement of
-operations                    at                   the                    edges.
+                    operations                    at                   the                    edges.
                     The actual operation at each edge is then a linear combination of all candidate operations
 O(i,j), weighted by the softmax output of the architecture parameters α(i,j)arameters α(i,j)
 
