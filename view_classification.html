@@ -127,7 +127,14 @@
                     of cells. The weights of the optimal cell learned during the search stage are then discarded, and
                     are initialized randomly for retraining the generated neural network model from scratch. <p> A cell, shown int the top right fig, is an ordered sequence of several nodes in which one or multiple
                       edges meet. Each node C(i) represents a feature map in convolutional networks. Each edge (i,j) is associated with some operation O(i,j), transforming the node C(i) to C(j)
-                      . This could be a combination of several operations, such as convolution, max-pooling, and ReLU.
+                      . This could be a combination of several operations, such as convolution, max-pooling, and ReLU. Each intermediate node C(i) is computed based on all of its predecessors. Instead of applying a single operation (e.g., 5 × 5 convolution), and evaluating all possible
+                      operations independently (each trained from scratch), DARTS places all candidate operations on each edge (e.g., 5 × 5 convolution, 3 × 3 convolution, and max-pooling represented in figure to the right.
+                      red, blue, and green lines, respectively). This allows sharing and training their weights in a single
+                      process. The task of learning the optimal cell is effectively finding the optimal placement of
+                      operations at the edges.
+                      The actual operation at each edge is then a linear combination of all candidate operations
+                      O(i,j), weighted by the softmax output of the architecture parameters α(i,j)
+
                   <p>
                   </h3>
                 </div>
@@ -145,8 +152,21 @@
             <div class="row justify-content-left">
               <div class="col-12">
                 <hr>
-                <h2>Implementation</h2>
-                <h3>IMPLEMENTATION DETAILS</h3>
+                <h2>Models Training Parameters</h2>
+                <h3><p>Training occurred subsequently, using annotations provided by the expert cardiologist. It was carried out independently for each of the four different image sizes of 32 × 32, 64 × 64, 96 × 96,
+                  and 128 × 128 pixels. Identical training, validation, and testing datasets were used in all network
+                  models. The validation dataset was used for early stopping to avoid redundant training and overfitting. Each model was trained until the validation loss plateaued. The test dataset was used for
+                  the performance assessment of the final trained models. The DARTS models were kept blind to
+                  the test dataset during the stage of architecture search.
+                  Adam optimizer with a learning rate of 10−4 and a maximum number of 800 epochs was used
+                  for training the models. The cross-entropy loss was used as the networks objective function. For
+                  training the DARTS model, a learning rate of 0.1 deemed to be a better compromise between
+                  speed of learning and precision of result and was therefore used. A batch size of 64 or the maximum which could be fitted on the GPU (if <64) was employed.
+                  <p>The dataset is fairly imbalanced with unequal distribution of
+                  different echo views. To prevent potential biases towards more dominant classes, we used online
+                  batch selection where the equal number of samples from each view were randomly drawn (by
+                  over-sampling of underrepresented classes). This led to training on a balanced dataset representing all classes in every epoch. An epoch was still defined as the number of iterations required for
+                  the network to meet all images in the training dataset.</h3>
                 <div class="text-left">
                   <br>
                   <a class="btn btn-primary" href="" role="button">Download the code</a>
