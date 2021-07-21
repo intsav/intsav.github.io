@@ -123,18 +123,18 @@
                 <h3><b> DARTS Method:</b> <P>DARTS method consists of two stages: architecture search and architecture evaluation. <p>Given
                 the input images, it first embarks on an architecture search to explore for a computation cell (a small unit of convolutional layers) as the building block of the neural network architecture.
                   <p>
-                  The figure to the right provides an overview of the DARTS network architecture.<p> After the architecture search phase is complete and the optimal cell is obtained based on its
+                    The figure to the right provides an overview of the DARTS network architecture.<p> After the architecture search phase is complete and the optimal cell is obtained based on its
                     validation performance, the final architecture could be formed from one cell or a sequential stack
                     of cells. The weights of the optimal cell learned during the search stage are then discarded, and
                     are initialized randomly for retraining the generated neural network model from scratch. <p> A cell, shown int the top right fig, is an ordered sequence of several nodes in which one or multiple
-                      edges meet. Each node C(i) represents a feature map in convolutional networks. Each edge (i,j) is associated with some operation O(i,j), transforming the node C(i) to C(j)
-                      . This could be a combination of several operations, such as convolution, max-pooling, and ReLU. Each intermediate node C(i) is computed based on all of its predecessors. Instead of applying a single operation (e.g., 5 × 5 convolution), and evaluating all possible
-                      operations independently (each trained from scratch), DARTS places all candidate operations on each edge (e.g., 5 × 5 convolution, 3 × 3 convolution, and max-pooling represented in figure to the right.
-                      red, blue, and green lines, respectively). This allows sharing and training their weights in a single
-                      process. The task of learning the optimal cell is effectively finding the optimal placement of
-                      operations at the edges.
-                      The actual operation at each edge is then a linear combination of all candidate operations
-                      O(i,j), weighted by the softmax output of the architecture parameters α(i,j)
+                    edges meet. Each node C(i) represents a feature map in convolutional networks. Each edge (i,j) is associated with some operation O(i,j), transforming the node C(i) to C(j)
+                    . This could be a combination of several operations, such as convolution, max-pooling, and ReLU. Each intermediate node C(i) is computed based on all of its predecessors. Instead of applying a single operation (e.g., 5 × 5 convolution), and evaluating all possible
+                    operations independently (each trained from scratch), DARTS places all candidate operations on each edge (e.g., 5 × 5 convolution, 3 × 3 convolution, and max-pooling represented in figure to the right.
+                    red, blue, and green lines, respectively). This allows sharing and training their weights in a single
+                    process. The task of learning the optimal cell is effectively finding the optimal placement of
+operations                    at                   the                    edges.
+                    The actual operation at each edge is then a linear combination of all candidate operations
+O(i,j), weighted by the softmax output of the architecture parameters α(i,j)arameters α(i,j)
 
                   <p>
                   </h3>
