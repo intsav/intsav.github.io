@@ -283,23 +283,10 @@
                   two cells, i.e., architectures with redundancy, were judged as being comparatively inefficient and
                   thus discarded. Figure 3 (left side) also shows the full architecture for the 2-cell-DARTS model
                   for the input image size of 128 × 128 pixels.</h3>
-                  <h2> <b>4.2 View Classification:</b></h2>
-                  <h3> Results for five different network topologies and different image sizes are provided in Table 1.
-                    Despite having significantly fewer trainable parameters, the two DARTS models showed competitive results when compared with the standard classification architectures (i.e., VGG16,
-                    ResNet18, and DenseNet201). The 2-cell-DARTS model, with only ∼0.5-m trainable parameters, achieves the best accuracy (93% to 96%), precision (92.5% to 95.2%), and recall (92.3% to
-                    95.1%) among all networks and across all input image resolutions. Deeper standard neural networks, if employed for echo view detection, would therefore be significantly redundant, with up
-                    to 99% redundancy in trainable parameters.
-                    On the other hand, while maintaining a comparable accuracy to standard network topologies,
-                    the 1-cell-DARTS model has ≤0.09 m trainable parameters and the lowest inference time
-                    amongst all models and across different image resolutions (range 3.6 to 7.2 ms). This would
-                    allow processing about 140 to 280 frames per second, thus making real-time echo view classification feasible.
-                    Compared with manual decision making, this is a significant speedup. Although the identification of the echo view by human operators is almost instantaneous (at least for easy cases),
-                    the average time for the overall process of displaying/identifying/recording the echo view takes
-                    several seconds.
-                    Having fewer trainable parameters, both DARTS models also exhibit faster convergence and
-                    shorter training time per epoch than standard deeper network architectures: 157  116 s versus
-                    622  576 s, respectively, for the training dataset we used.</h3>
 
+                  <img class="img-fluid" src="assets\img\projects\Efficient_Annotations\table1.PNG" alt="Arch search">
+                  <h2> Table 1 Experimental results on the test dataset for input sizes of (32 × 32), (64 × 64), (96 × 96),
+                    and (128 × 128) and different network topologies
               </div>
             </div>
 
