@@ -217,7 +217,7 @@
           <div class="row justify-content-left">
             <div class="col-12">
               <div align="justify">
-                  <div align="justify">
+
               <hr>
               <div class="text-justify">
                 <h2>Evaluation metrics</h2>
@@ -231,30 +231,37 @@
             </div>
           </div>
         </div>
-      </div>
 
-      <div class = "project-evaluation">
+
+      <div class = "project-results">
         <div class="container align-middle">
           <hr>
           <div class="row">
 
             <div class="col-12 col-lg-6 col-md-6 text-center">
-              <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
+              <img class="img-fluid" src="assets\img\projects\view_classification\Arch2.PNG" alt="Arch search">
+              <h3> Fig. 3 Optimal normal and reduction cells for the input image size of 128 × 128 pixels</h3>
             </div>
 
             <div class="col-12 col-lg-6 col-md-6">
-              <div class="text-left">
-                <h2>Evaluation metrics</h2>
-                <h3>Several metrics were employed to evaluate the performance of the investigated models in this
-                  study. Overall accuracy was calculated as the number of correctly classified images as a fraction
-                  of the total number of images. Macro average precision and recall (average overall views of perview measures) were also computed. F1 score was calculated as the harmonic mean of the precision and recall. Since this study is a multi-class problem, F1 score was the weighted average,
-                  where the weight of each class was the number of samples from that class..</h3>
+              <div class="text-justify">
+                <div align="justify">
+                <h2>Results and Discussion</h2>
+                <h2>4.1 Architecture Search:</h2>
+                <h3>The search took ∼6, 23, 42, and 92 h for image sizes of 32 × 32, 64 × 64, 96 × 96, and
+                  128 × 128 pixels, respectively, on the computing infrastructure described earlier.
+                  Figure 3 shows the best convolutional normal and reduction cells obtained for the input image
+                  size of 128 × 128 pixels. The retained operations were 3 × 3 and 5 × 5 dilated convolutions,
+                  3 × 3 max-pooling, and skip-connection. Each cell is assumed to have two inputs which are
+                  the outputs from the previous and penultimate cells. The output of the cell is defined as the
+                  depth-wise concatenation of all nodes in the cell.</h3>
               </div>
             </div>
 
           </div>
         </div>
       </div>
+    </div>
 
       <!-- ======= Project Results ======= -->
       <div class = "project-results">
