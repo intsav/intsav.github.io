@@ -159,6 +159,32 @@
               <div class="col-12">
                 <div align="justify">
                 <hr>
+                <h2><b>Implementation:</b> </h2>
+                <h3><p class="text-justify">PyTorch was used to implement the models. For the computationally intensive stage of
+                  architecture search, a GPU server equipped with 4 NVIDIA TITAN RTX GPUs with 64 GB
+                  of memory was rented. For the subsequent training of the searched networks and also the standard models, the utilized GPU was an Nvidia QUADRO M5000 with 8 GB of memory, representing a more widely accessible hardware for real-time applications. Inference time (latency
+                  time for classifying each image) was also estimated with the trained models running on the GPU.
+                  To this end, a total of 100 images were processed in a loop, and the average time was recorded.
+                  All training/prediction computations were carried using identical hardware and software resources, allowing for a fair comparison of computational time-efficiency between all network models
+                  investigated in this study.
+                  The number of trainable parameters in the model, as well as the training time per epoch was
+                  also recorded for all CNN networks.
+                </h3>
+                <div class="text-left">
+                  <br>
+                <!--  <a class="btn btn-primary" href="" role="button">Download the code</a> -->
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class = "project-Training Parameters">
+          <div class="container">
+            <div class="row justify-content-left">
+              <div class="col-12">
+                <div align="justify">
+                <hr>
                 <h2>Models Training Parameters</h2>
                 <h3><p class="text-justify">Training occurred subsequently, using annotations provided by the expert cardiologist. It was carried out independently for each of the four different image sizes of 32 × 32, 64 × 64, 96 × 96,
                   and 128 × 128 pixels. Identical training, validation, and testing datasets were used in all network
@@ -185,6 +211,28 @@
         </div>
 
       <!-- ======= Project Evaluation ======= -->
+
+      <div class = "project-evaluation">
+        <div class="container">
+          <div class="row justify-content-left">
+            <div class="col-12">
+              <div align="justify">
+                  <div align="justify">
+              <hr>
+              <div class="text-justify">
+                <h2>Evaluation metrics</h2>
+                <h3>Several metrics were employed to evaluate the performance of the investigated models in this
+                  study. Overall accuracy was calculated as the number of correctly classified images as a fraction
+                  of the total number of images. Macro average precision and recall (average overall views of perview measures) were also computed. F1 score was calculated as the harmonic mean of the precision and recall. Since this study is a multi-class problem, F1 score was the weighted average,
+                  where the weight of each class was the number of samples from that class..</h3>
+              </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class = "project-evaluation">
         <div class="container align-middle">
           <hr>
@@ -197,7 +245,10 @@
             <div class="col-12 col-lg-6 col-md-6">
               <div class="text-left">
                 <h2>Evaluation metrics</h2>
-                <h3>Several metrics were employed to evaluate the performance of the investigated models in this study. Overall accuracy was calculated as the number of correctly classified images as a fraction of the total number of images. Macro average precision and recall (average overall views of per-view measures) were also computed. F1 score was calculated as the harmonic mean of the precision and recall. Since this study is a multi-class problem, F1 score was the weighted average, where the weight of each class was the number of samples from that class.</h3>
+                <h3>Several metrics were employed to evaluate the performance of the investigated models in this
+                  study. Overall accuracy was calculated as the number of correctly classified images as a fraction
+                  of the total number of images. Macro average precision and recall (average overall views of perview measures) were also computed. F1 score was calculated as the harmonic mean of the precision and recall. Since this study is a multi-class problem, F1 score was the weighted average,
+                  where the weight of each class was the number of samples from that class..</h3>
               </div>
             </div>
 
