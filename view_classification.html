@@ -162,10 +162,10 @@
                 <h2><b>Implementation:</b> </h2>
                 <h3><p class="text-justify">PyTorch was used to implement the models. For the computationally intensive stage of
                   architecture search, a GPU server equipped with 4 NVIDIA TITAN RTX GPUs with 64 GB
-                  of memory was rented. For the subsequent training of the searched networks and also the standard models, the utilized GPU was an Nvidia QUADRO M5000 with 8 GB of memory, representing a more widely accessible hardware for real-time applications. Inference time (latency
+                  of memory was rented. <p>For the subsequent training of the searched networks and also the standard models, the utilized GPU was an Nvidia QUADRO M5000 with 8 GB of memory, representing a more widely accessible hardware for real-time applications. Inference time (latency
                   time for classifying each image) was also estimated with the trained models running on the GPU.
                   To this end, a total of 100 images were processed in a loop, and the average time was recorded.
-                  All training/prediction computations were carried using identical hardware and software resources, allowing for a fair comparison of computational time-efficiency between all network models
+                  <p>All training/prediction computations were carried using identical hardware and software resources, allowing for a fair comparison of computational time-efficiency between all network models
                   investigated in this study.
                   The number of trainable parameters in the model, as well as the training time per epoch was
                   also recorded for all CNN networks.
@@ -191,7 +191,7 @@
                   models. The validation dataset was used for early stopping to avoid redundant training and overfitting. Each model was trained until the validation loss plateaued. The test dataset was used for
                   the performance assessment of the final trained models. The DARTS models were kept blind to
                   the test dataset during the stage of architecture search.
-                  Adam optimizer with a learning rate of 10−4 and a maximum number of 800 epochs was used
+                  <p>Adam optimizer with a learning rate of 10−4 and a maximum number of 800 epochs was used
                   for training the models. The cross-entropy loss was used as the networks objective function. For
                   training the DARTS model, a learning rate of 0.1 deemed to be a better compromise between
                   speed of learning and precision of result and was therefore used. A batch size of 64 or the maximum which could be fitted on the GPU (if <64) was employed.
@@ -223,7 +223,7 @@
                 <h2>Evaluation metrics</h2>
                 <h3>Several metrics were employed to evaluate the performance of the investigated models in this
                   study. Overall accuracy was calculated as the number of correctly classified images as a fraction
-                  of the total number of images. Macro average precision and recall (average overall views of perview measures) were also computed. F1 score was calculated as the harmonic mean of the precision and recall. Since this study is a multi-class problem, F1 score was the weighted average,
+                  of the total number of images. <p>Macro average precision and recall (average overall views of perview measures) were also computed.<p>F1 score was calculated as the harmonic mean of the precision and recall. Since this study is a multi-class problem, F1 score was the weighted average,
                   where the weight of each class was the number of samples from that class..</h3>
               </div>
               </div>
@@ -239,7 +239,7 @@
           <div class="row">
 
             <div class="col-12 col-lg-6 col-md-6 text-justifyr">
-          
+
               <img class="img-fluid" src="assets\img\projects\view_classification\Arch2.PNG" alt="Arch search">
               <div class="text-justify">
                 <div align="justify">
@@ -250,14 +250,15 @@
                 ResNet18, and DenseNet201). The 2-cell-DARTS model, with only ∼0.5-m trainable parameters, achieves the best accuracy (93% to 96%), precision (92.5% to 95.2%), and recall (92.3% to
                 95.1%) among all networks and across all input image resolutions. Deeper standard neural networks, if employed for echo view detection, would therefore be significantly redundant, with up
                 to 99% redundancy in trainable parameters.
-                On the other hand, while maintaining a comparable accuracy to standard network topologies,
+                <p>On the other hand, while maintaining a comparable accuracy to standard network topologies,
                 the 1-cell-DARTS model has ≤0.09 m trainable parameters and the lowest inference time
                 amongst all models and across different image resolutions (range 3.6 to 7.2 ms). This would
                 allow processing about 140 to 280 frames per second, thus making real-time echo view classification feasible.
                 Compared with manual decision making, this is a significant speedup. Although the identification of the echo view by human operators is almost instantaneous (at least for easy cases),
                 the average time for the overall process of displaying/identifying/recording the echo view takes
                 several seconds.
-                Having fewer trainable parameters, both DARTS models also exhibit faster convergence and
+
+                <p>Having fewer trainable parameters, both DARTS models also exhibit faster convergence and
                 shorter training time per epoch than standard deeper network architectures: 157  116 s versus
                 622  576 s, respectively, for the training dataset we used.</h3>
               </div>
