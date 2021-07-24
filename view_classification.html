@@ -261,6 +261,22 @@
                 <p>Having fewer trainable parameters, both DARTS models also exhibit faster convergence and
                 shorter training time per epoch than standard deeper network architectures: 157  116 s versus
                 622  576 s, respectively, for the training dataset we used.</h3>
+
+                <p> <h3> The confusion matrix for the 2-cell-DARTS model and image resolution of 128 × 128 pixels
+                is provided in Fig. 5. The errors appear predominantly clustered between a certain pair of views
+                which represent anatomically adjacent imaging planes. The A5CH view proves to be the hardest
+                one to detect (accuracy of about 80%), as the network is confused between this view and other
+                apical windows. <p>This is in line with previous observations that the greatest challenge lies in
+                distinguishing between the various apical views.
+                <p>Interestingly, the two views the model found most difficult to correctly differentiate (A4CHLV versus A5CH, and A2CH versus A3CH) were also the two views on which the two experts
+                disagreed most often. <p>The A4CH view is in an anatomical continuity with the A5CH view. The
+                difference is whether the scanning plane has been tilted to bring the aortic valve into view, which
+                would make it A5CH. When the valve is only partially in view, or only in view during part of the
+                cardiac cycle, the decision becomes a judgement call and there is room for disagreement.
+                <p>Similarly, the A3CH view differs from the A2CH view only in a rotation of the probe anticlockwise, again to bring the aortic valve into view
+                It is also interesting to note that the misclassification is not fully asymmetrical. For instance,
+                while 42 cases of A5CH images are confused with A4CH-LV, there are only 14 occasions of
+                A4CH-LV images mistaken for A5CH. </h3>
               </div>
             </div>
             </div>
@@ -289,6 +305,9 @@
                   <img class="img-fluid" src="assets\img\projects\Efficient_Annotations\table1.PNG" alt="Arch search">
                   <h3> Table 1 Experimental results on the test dataset for input sizes of (32 × 32), (64 × 64), (96 × 96),
                     and (128 × 128) and different network topologies </h3>
+                  <img class="img-fluid" src="assets\img\projects\Efficient_Annotations\Confusion matrix.PNG" alt="Conf matrix">
+                  <h3> Fig. 5 Confusion matrix for the 2-cell-DARTS model and input image resolution of
+                    128 × 128 pixels. </h3>
               </div>
             </div>
 
