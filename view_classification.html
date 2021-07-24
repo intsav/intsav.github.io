@@ -129,7 +129,7 @@
                 <div align="justify">
                 <h3><b> DARTS Method:</b> <P>DARTS method consists of two stages: architecture search and architecture evaluation. <p>Given
                 the input images, it first embarks on an architecture search to explore for a computation cell (a small unit of convolutional layers) as the building block of the neural network architecture.
-                  <p class="text-justify">  The figure to the right provides an overview of the DARTS network architecture. <p> After the architecture search phase is complete and the optimal cell is obtained based on its
+                  <p class="text-justify">  Figure 2 provides an overview of the DARTS network architecture. <p> After the architecture search phase is complete and the optimal cell is obtained based on its
                     validation performance, the final architecture could be formed from one cell or a sequential stack
                     of cells. The weights of the optimal cell learned during the search stage are then discarded, and
                     are initialized randomly for retraining the generated neural network model from scratch. <p> A cell, shown int the right fig, is an ordered sequence of several nodes in which one or multiple
@@ -149,6 +149,7 @@
                 <div class="col-12 col-md-12 col-lg-6 col-xl-6">
                   <br>
                   <img class="img-fluid" src="assets\img\projects\view_classification\View classification3.PNG" alt="echocardiogram" width="450px" height="500px">
+                  <h3> Fig. 2  Schematic of a DARTS cell.  </h3>
                 </div>
               </div>
             </div>
@@ -265,7 +266,7 @@
                 622  576 s, respectively, for the training dataset we used.</h3>
 
                 <p><br><br> <br><h3> The confusion matrix for the 2-cell-DARTS model and image resolution of 128 × 128 pixels
-                is provided in Fig. 5. The errors appear predominantly clustered between a certain pair of views
+                is provided in Fig. 4. The errors appear predominantly clustered between a certain pair of views
                 which represent anatomically adjacent imaging planes. The A5CH view proves to be the hardest
                 one to detect (accuracy of about 80%), as the network is confused between this view and other
                 apical windows. <p>This is in line with previous observations that the greatest challenge lies in
@@ -281,8 +282,8 @@
                 A4CH-LV images mistaken for A5CH. </h3>
                 <br> <br>
 
-                <img class="img-fluid" src="assets\img\projects\Efficient_Annotations\fig6.PNG" alt="view classification">
-                <h3> Fig. 6 t-Distributed Stochastic Neighbor Embedding (t-SNE) visualization of 14 echo views from
+                <img class="img-fluid" src="assets\img\projects\view_classification\fig6.PNG" alt="view classification">
+                <h3> Fig. 5 t-Distributed Stochastic Neighbor Embedding (t-SNE) visualization of 14 echo views from
                   the 2-cell-DARTS model </h3>
               </div>
             </div>
@@ -309,16 +310,16 @@
                   thus discarded. Figure 3 (left side) also shows the full architecture for the 2-cell-DARTS model
                   for the input image size of 128 × 128 pixels. <br> <br></h3>
 
-                  <img class="img-fluid" src="assets\img\projects\Efficient_Annotations\table1.PNG" alt="Arch search">
+                  <img class="img-fluid" src="assets\img\projects\view_classification\table1.PNG" alt="Arch search">
                   <h3> Table 1 Experimental results on the test dataset for input sizes of (32 × 32), (64 × 64), (96 × 96),
                     and (128 × 128) and different network topologies </h3>
-                  <img class="img-fluid" src="assets\img\projects\Efficient_Annotations\confusion matrix2.PNG" alt="Conf matrix">
-                  <h3> Fig. 5 Confusion matrix for the 2-cell-DARTS model and input image resolution of
+                  <img class="img-fluid" src="assets\img\projects\view_classification\confusion matrix2.PNG" alt="Conf matrix">
+                  <h3> Fig. 4 Confusion matrix for the 2-cell-DARTS model and input image resolution of
                     128 × 128 pixels. </h3>
                     <br><h3> On the other hand, echo views with distinct characteristics are easier for the model to
                     distinguish. For instance, PLAX-full and Suprasternal seem to have higher rates of correct
                     identification, and the network is confused only on one occasion between these two views.
-                    This is also evident on the t-distributed stochastic neighbor embedding (t-SNE) plot in Fig. 6,
+                    This is also evident on the t-distributed stochastic neighbor embedding (t-SNE) plot in Fig. 5,
                     which displays a planar representation of the internal high-dimensional organization of the 14
                     trained echo view classes within the network’s final hidden layer (i.e., input data of the fully
                     connected layer). Each point in the t-SNE plot represents an echo image from the test dataset.
