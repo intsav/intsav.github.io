@@ -313,13 +313,14 @@
                   <img class="img-fluid" src="assets\img\projects\Efficient_Annotations\confusion matrix2.PNG" alt="Conf matrix">
                   <h3> Fig. 5 Confusion matrix for the 2-cell-DARTS model and input image resolution of
                     128 × 128 pixels. </h3>
-                    <br><br> <p> On the other hand, echo views with distinct characteristics are easier for the model to
+                    <br> On the other hand, echo views with distinct characteristics are easier for the model to
                     distinguish. For instance, PLAX-full and Suprasternal seem to have higher rates of correct
                     identification, and the network is confused only on one occasion between these two views.
                     This is also evident on the t-distributed stochastic neighbor embedding (t-SNE) plot in Fig. 6,
                     which displays a planar representation of the internal high-dimensional organization of the 14
                     trained echo view classes within the network’s final hidden layer (i.e., input data of the fully
-                    connected layer). Each point in the t-SNE plot represents an echo image from the test dataset.<P>Noticeably, not only has the network grouped similar images together (a cluster for each
+                    connected layer). Each point in the t-SNE plot represents an echo image from the test dataset.
+                    <p>Noticeably, not only has the network grouped similar images together (a cluster for each
                     view, displayed with different color), but it has also grouped similar views together (highlighted
                     with a unique background color). For instance, it has placed A5CH (blue) next to A4CH (dark
                     brown), and indeed there is some “interdigitation” of such cases, e.g., for those whose classification between A4CH and A5CH might be debatable. Similarly, at the top right, the network
