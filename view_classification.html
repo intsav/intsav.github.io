@@ -295,8 +295,8 @@
                     A4CH/PSAX mix-up), or views in which a same view-defining structure may be present (case of
                     PSAX-LV/PSAX/AV mix-up).</h3>
 
-                    <h3> <b>Impact of Image Resolution, Quality, and Dataset Size</b>
-                      The models seem to exhibit a plateau of accuracy between the two larger image resolutions
+                    <h3> <br><br> <b>Impact of Image Resolution, Quality, and Dataset Size</b>
+                      <br><p>The models seem to exhibit a plateau of accuracy between the two larger image resolutions
                       of 96 × 96 and 128 × 128 pixels (Fig. 7). On the other hand, for the smaller image size of
                       32 × 32 pixels, the classification performance seems to suffer across all network models, with
                       a 2.3% to 5.1% reduction in accuracy relative to the resolution of 96 × 96 pixels.<br>
@@ -304,9 +304,9 @@
                       image resolutions. Notably, not all echo views are affected similarly using lower image resolutions. The drop in overall performance is therefore predominantly caused by a marked decrease
                       in detection accuracy of only certain views. For instance, A4CH-RV suffers a sharp reduction of
                       >10% in prediction accuracy when dealing with images of 32 × 32 pixels.<br>
-                      Figure 8’s lower panel shows the relative confusion matrix, illustrating the improvement
+                      <br><p>Figure 8’s lower panel shows the relative confusion matrix, illustrating the improvement
                       associated with using image resolution of 96 × 96 versus 32 × 32 pixels. Being already a difficult view to detect even in higher resolution images, A5CH will have 47 more cases of misclassified images when using images of 32 × 32 pixels. Overall, apical views seem to suffer the
-                      most from lower resolution images, being mainly misclassified as other apical views.<br> For instance, the two classes associated with the A4CH will primarily be mistaken for one another.
+                      most from lower resolution images, being mainly misclassified as other apical views.<br><p> For instance, the two classes associated with the A4CH will primarily be mistaken for one another.
                       This is likely because, with a decreased resolution, the details of their distinct features would be
                       less discernible by the network. Conversely, parasternal views seem to be less affected, and still
                       detectable in downsampled images. This could be owing to the fact that the relevant features,
