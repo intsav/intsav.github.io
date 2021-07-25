@@ -312,7 +312,14 @@
                       detectable in downsampled images. This could be owing to the fact that the relevant features,
                       on which the model relies for identifying this view, are still present and visible to the model.
                       Overall, and for almost all echo views, the image size of 96 × 96 pixels appeared to be a good
-                      compromise between classification accuracy and computational costs.
+                      compromise between classification accuracy and computational costs. <br>
+                      <p>To examine the influence of the size of the training dataset on the model’s performance, we
+                      conducted an additional experiment where we split the training data into sub-datasets with strict
+                      inclusion relationship (i.e., having the current sub-dataset a strict subset of the next sub-dataset),
+                      and ensured all the sub-datasets were consistent (i.e., having the same ratio for each echo view as
+                      in the original training dataset). We then retrained all targeted neural networks on these subdatasets from scratch, and investigated how their accuracy varied with respect to the size of the
+                      dataset used for training the model. The size of the validation and testing datasets, however,
+                      remained unchanged.
               </div>
             </div>
             </div>
