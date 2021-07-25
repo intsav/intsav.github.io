@@ -295,7 +295,7 @@
                     A4CH/PSAX mix-up), or views in which a same view-defining structure may be present (case of
                     PSAX-LV/PSAX/AV mix-up).</h3>
 
-                    <h3> <br><br> <b>3. Impact of Image Resolution, Quality, and Dataset Size</b> <br> <br>
+                    <h3> <br><br> <br><b>3. Impact of Image Resolution, Quality, and Dataset Size</b> <br> <br>
                       <br><p>The models seem to exhibit a plateau of accuracy between the two larger image resolutions
                       of 96 × 96 and 128 × 128 pixels (Fig. 7). On the other hand, for the smaller image size of
                       32 × 32 pixels, the classification performance seems to suffer across all network models, with
@@ -304,7 +304,7 @@
                       image resolutions. Notably, not all echo views are affected similarly using lower image resolutions. The drop in overall performance is therefore predominantly caused by a marked decrease
                       in detection accuracy of only certain views. For instance, A4CH-RV suffers a sharp reduction of
                       >10% in prediction accuracy when dealing with images of 32 × 32 pixels.<br>
-                      <br><br><p>Figure 8’s lower panel shows the relative confusion matrix, illustrating the improvement
+                      <br><br><br><p>Figure 8’s lower panel shows the relative confusion matrix, illustrating the improvement
                       associated with using image resolution of 96 × 96 versus 32 × 32 pixels. Being already a difficult view to detect even in higher resolution images, A5CH will have 47 more cases of misclassified images when using images of 32 × 32 pixels. Overall, apical views seem to suffer the
                       most from lower resolution images, being mainly misclassified as other apical views.<br><p> For instance, the two classes associated with the A4CH will primarily be mistaken for one another.
                       This is likely because, with a decreased resolution, the details of their distinct features would be
@@ -320,7 +320,7 @@
                       in the original training dataset). We then retrained all targeted neural networks on these subdatasets from scratch, and investigated how their accuracy varied with respect to the size of the
                       dataset used for training the model. The size of the validation and testing datasets, however,
                       remained unchanged. <br>
-                      <br><br> <p> Figure 9 shows a drop in the classification accuracy across all models when smaller sizes of
+                      <br><br><br> <p> Figure 9 shows a drop in the classification accuracy across all models when smaller sizes of
                       training data are used for training the networks. However, various models are impacted differently. Suffering from redundancy, deeper neural networks require more training data to achieve
                       similar performances. DenseNet, with the largest number of trainable parameters, appears to be the one which suffers the most, with a 20% reduction in its classification accuracy, when only 8%
                       of the training dataset is used. <br>
@@ -329,12 +329,12 @@
                       images (i.e., 50% of the training dataset), both DARTS-based models exhibit superior performance over the deeper networks.
                       Additionally, we hypothesized that the more numerous the echo view classes, the more
                       difficult the task of distinguishing the views for deep learning models, e.g., because of more
-                      chances of misclassifications among classes. <br> <br>This is potentially the underlying reason for the
+                      chances of misclassifications among classes. <br> <br><br>This is potentially the underlying reason for the
                       inconsistent accuracies (84% to 97%) reported in the literature when classifying between
                       6 to 12 different view classes. To investigate this premise, we considered cases when only
                       5 or 7 different echo views were present in the dataset. To this end, rather than reducing the
                       number of classes by merging several views to create new classes which may not be clinically
-                      very helpful, we were selective in choosing some of the existing classes.
+                      very helpful, we were selective in choosing some of the existing classes.</h3>
               </div>
             </div>
             </div>
