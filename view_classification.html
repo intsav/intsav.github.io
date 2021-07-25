@@ -319,7 +319,22 @@
                       and ensured all the sub-datasets were consistent (i.e., having the same ratio for each echo view as
                       in the original training dataset). We then retrained all targeted neural networks on these subdatasets from scratch, and investigated how their accuracy varied with respect to the size of the
                       dataset used for training the model. The size of the validation and testing datasets, however,
-                      remained unchanged.
+                      remained unchanged. <br>
+                      <br> <p> Figure 9 shows a drop in the classification accuracy across all models when smaller sizes of
+                      training data are used for training the networks. However, various models are impacted differently. Suffering from redundancy, deeper neural networks require more training data to achieve
+                      similar performances. DenseNet, with the largest number of trainable parameters, appears to be the one which suffers the most, with a 20% reduction in its classification accuracy, when only 8%
+                      of the training dataset is used. <br>
+                      <p>However, the DARTS-based models appear to be relatively less profoundly affected by the
+                      size of the training dataset, where both models demonstrate no more than 8% drop in their prediction accuracy when deprived of the full training dataset. When using fewer than 12,400
+                      images (i.e., 50% of the training dataset), both DARTS-based models exhibit superior performance over the deeper networks.
+                      Additionally, we hypothesized that the more numerous the echo view classes, the more
+                      difficult the task of distinguishing the views for deep learning models, e.g., because of more
+                      chances of misclassifications among classes. <br>This is potentially the underlying reason for the
+                      inconsistent accuracies (84% to 97%) reported in the literature when classifying between
+                      6 to 12 different view classes. To investigate this premise, we considered cases when only
+                      5 or 7 different echo views were present in the dataset. To this end, rather than reducing the
+                      number of classes by merging several views to create new classes which may not be clinically
+                      very helpful, we were selective in choosing some of the existing classes.
               </div>
             </div>
             </div>
