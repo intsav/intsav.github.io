@@ -439,22 +439,54 @@
             <div class="row justify-content-left">
               <div class="col-12">
                 <div class="text-left">
-                  <h2>Results</h2>
+                  <h2>Study Limitations and Future Work</h2>
                   <p>
                 </div>
               </div>
             </div>
 
 
-            <div class="row justify-content-left">
+            <div class="row justify-content-justify">
               <div class="col-12 col-lg-6">
-                <div class="text-left">
-                  <h3>INFORMATION ABOUT RESULTS</h3>
+                <div class="text-cengter">
+                  <h3>This study sheds light on several possible directions for future work. Herein, we have focused on
+                    the rapid and accurate classification of individual frames from an echo cine loop. Such a task will
+                    be crucial for a real-time view detection system in clinical scenarios where images need to be
+                    processed while they are acquired from the patient and/or where the system is to be used for
+                    operator guidance. However, for offline studies and when the entire cine loop is available, classification of the echo videos could also be of practical use. Some studies have attempted video
+                    classification using the majority vote on some or all frames from a given video.6,34 However, this
+                    approach does not use the temporal information available in the cine loop, such as the movement
+                    of structures during the cardiac cycle. Therefore, a future study could look into using all available
+                    information for view detection. <br>
+                    Our study investigated 2D echocardiography as the clinically relevant modality. Currently,
+                    3D echocardiography suffers from a considerable reduction in frame rate and image quality, and
+                    this has limited its adoption into routine practice over the past decade.46–48 When such issues are
+                    resolved, automatic processing of the 3D modality could also be explored. In the meantime,
+                    2D echocardiography remains unrivalled, particularly when high frame rates are needed.
+                    We investigated the impact of image quality on the classification accuracy for apical fourchamber views only. A more comprehensive examination of the image quality and its influence
+                    on the detection of different echo views would be informative.<br>
+                    The dataset used in this study comprised images acquired using ultrasound equipment from
+                    GE and Philips manufacturers. Although the proposed models do not make any a priori assumptions on data obtained from specific vendors and therefore should be vendor-neutral, echo studies using more diverse ultrasound equipment should still be explored.
+                    Similar to all previous studies, our dataset originated from one medical center, i.e., Imperial
+                    College Healthcare NHS Trust’s echocardiogram database. Representative multi-center patient
+                    data will be essential for ensuring that the developed models will scale up well to other sites and
+                    environments. <br>
+                    Interpreting the results of the proposed models alongside other proposed architectures in the
+                    literature (with a wide range of reported accuracies) was not feasible. This is due to the fact that a
+                    direct comparison of the classification accuracy would require access to the same patient dataset.
+                    At present, no echocardiography dataset and corresponding annotations for view detection are
+                    publicly available.<br>
+                    In order to address such broadly acknowledged shortcomings in the application of deep learning to echocardiography, we are now developing Unity (data.unityimaging.net), a UK collaborative of cardiologists, physiologists and computer scientists, under the aegis of the British
+                    Society of Echocardiography. An image analysis interface has been developed in the form
+                    of a web-based, interactive, real-time platform to capture carefully curated expert annotations
+                    from numerous echo specialists, with patient data provided by over a dozen sites across the UK,
+                    thus ensuring coverage of multiple vendors, systems and environments. All developed models
+                    designed using this annotation biobank (e.g., automated cardiac phase detection,49 left ventricular segmentation,50 and view classification in current study), will be made available under opensource agreements on intsav.github.io.</h3>
                 </div>
               </div>
-              <div class="col-12 col-lg-6 text-center">
+            <!--  <div class="col-12 col-lg-6 text-center">
                 <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
-              </div>
+              </div>-->
             </div>
           </div>
 
