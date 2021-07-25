@@ -97,7 +97,7 @@
             </div>
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
               <div align="justify">
-              <h2>Dataset</h2>
+              <h2><b>Dataset</b></h2>
               <h3>A random sample of 374 echocardiographic examinations of different patients and performed between 2010 and 2020 was extracted from Imperial College Healthcare NHS Trust’s echocardiogram database. The acquisition of the images was performed by experienced echocardiographers and according to standard protocols, using ultrasound equipment from GE and Philips manufacturers.</h3>
 
               <h3>Ethical approval was obtained from the Health Regulatory Agency (Integrated Research Application System identifier 243023). Only studies with full patient demographic data and without intravenous contrast administration were included. Automated anonymization was performed to remove all patient-identifiable information.</h3>
@@ -123,7 +123,7 @@
             <hr>
             <div class="row justify">
               <div class="col-12">
-              <h2>Network Architecture</h2>
+              <h2><b>Network Architecture</b></h2>
             </div>
               <div class="col-12 col-md-12 col-lg-6 col-xl-6">
                 <div align="justify">
@@ -190,7 +190,7 @@
               <div class="col-12">
                 <div align="justify">
                 <hr>
-                <h2>Models Training Parameters</h2>
+                <h2><b>Models Training Parameters</b></h2>
                 <h3><p class="text-justify">Training occurred subsequently, using annotations provided by the expert cardiologist. It was carried out independently for each of the four different image sizes of 32 × 32, 64 × 64, 96 × 96,
                   and 128 × 128 pixels. Identical training, validation, and testing datasets were used in all network
                   models. The validation dataset was used for early stopping to avoid redundant training and overfitting. Each model was trained until the validation loss plateaued. The test dataset was used for
@@ -236,7 +236,7 @@
             </div>
           </div>
         </div>
-
+  <!-- ======= Project Results ======= -->
 
       <div class = "project-results">
         <div class="container align-middle">
@@ -343,7 +343,7 @@
               </div>
             </div>
             </div>
-
+            <!-- ======= Project Results ======= -->
             <div class="col-12 col-lg-6 col-md-6">
               <div class="text-justify">
                 <div align="justify">
@@ -430,7 +430,78 @@
       </div>
     </div>
 
-      <!-- ======= Project Results ======= -->
+  <!-- ======= Project Limitations and conclusion  ======= -->
+    <div class = "project-Limitations and Conclusion">
+      <div class="container">
+        <div class="row justify-content-left">
+          <div class="col-12">
+            <div align="justify">
+            <hr>
+            <h2><b>4. Study Limitations and Future Work</b></h2>
+            <h3><p class="text-justify">TThis study sheds light on several possible directions for future work. Herein, we have focused on
+              the rapid and accurate classification of individual frames from an echo cine loop. Such a task will
+              be crucial for a real-time view detection system in clinical scenarios where images need to be
+              processed while they are acquired from the patient and/or where the system is to be used for
+              operator guidance. However, for offline studies and when the entire cine loop is available, classification of the echo videos could also be of practical use. Some studies have attempted video
+              classification using the majority vote on some or all frames from a given video.6,34 However, this
+              approach does not use the temporal information available in the cine loop, such as the movement
+              of structures during the cardiac cycle. Therefore, a future study could look into using all available
+              information for view detection. <br>
+              Our study investigated 2D echocardiography as the clinically relevant modality. Currently,
+              3D echocardiography suffers from a considerable reduction in frame rate and image quality, and
+              this has limited its adoption into routine practice over the past decade.46–48 When such issues are
+              resolved, automatic processing of the 3D modality could also be explored. In the meantime,
+              2D echocardiography remains unrivalled, particularly when high frame rates are needed.
+              We investigated the impact of image quality on the classification accuracy for apical fourchamber views only. A more comprehensive examination of the image quality and its influence
+              on the detection of different echo views would be informative.<br>
+              The dataset used in this study comprised images acquired using ultrasound equipment from
+              GE and Philips manufacturers. Although the proposed models do not make any a priori assumptions on data obtained from specific vendors and therefore should be vendor-neutral, echo studies using more diverse ultrasound equipment should still be explored.
+              Similar to all previous studies, our dataset originated from one medical center, i.e., Imperial
+              College Healthcare NHS Trust’s echocardiogram database. Representative multi-center patient
+              data will be essential for ensuring that the developed models will scale up well to other sites and
+              environments. <br>
+              Interpreting the results of the proposed models alongside other proposed architectures in the
+              literature (with a wide range of reported accuracies) was not feasible. This is due to the fact that a
+              direct comparison of the classification accuracy would require access to the same patient dataset.
+              At present, no echocardiography dataset and corresponding annotations for view detection are
+              publicly available.<br>
+              In order to address such broadly acknowledged shortcomings in the application of deep learning to echocardiography, we are now developing Unity (data.unityimaging.net), a UK collaborative of cardiologists, physiologists and computer scientists, under the aegis of the British
+              Society of Echocardiography. An image analysis interface has been developed in the form
+              of a web-based, interactive, real-time platform to capture carefully curated expert annotations
+              from numerous echo specialists, with patient data provided by over a dozen sites across the UK,
+              thus ensuring coverage of multiple vendors, systems and environments. All developed models
+              designed using this annotation biobank (e.g., automated cardiac phase detection,49 left ventricular segmentation,50 and view classification in current study), will be made available under opensource agreements on intsav.github.io.</h3>
+
+              <br> <br>
+              <h2><b>5. Conclusion</b></h2>
+             <h3> In this study, efficient CNN architectures are proposed for automated identification of the 2D
+            echocardiographic views. The DARTS method was used in designing optimized architectures for
+            rapid inference while maintaining high accuracy. A dataset of 14 different echocardiographic
+            views was used for training and testing the proposed models. Compared with the standard classification CNN architectures, the proposed models are faster and achieve comparable classification performance. Such models can thus be used for real-time detection of the standard
+            echo views. <br><br>
+            The impact of image quality and size of the training dataset on the efficacy of the models was
+            also investigated. Deeper neural network models, with a large number of redundant trainable parameters, require more training data to achieve similar performances. A direct correlation
+            between the image quality of classification accuracy was observed.
+            The number of different echo views to be detected has a direct impact on the performance of
+            the deep learning models, and must be taken into account for a fair comparison of classification
+            models.<br> <br>
+            Aggressively downsampled images will result in losing relevant features, thus lowering the
+            prediction accuracy. On the other hand, while much larger images may be favored for some finegrained applications (e.g., segmentation), their use for echo view classification would offer only
+            slight improvements in performance (if any) at the expense of more processing and memory
+            requirements.
+            </h3>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <!--  <!======= Project Results =======
       <div class = "project-limitations">
         <div class="container">
           <hr>
@@ -508,7 +579,7 @@
                 </h3>
               </div>
               </div>
-            <!--  <div class="col-12 col-md-12 col-lg-6 col-xl-6  text-justify ">
+            <!- <div class="col-12 col-md-12 col-lg-6 col-xl-6  text-justify ">
                 <br>
                 <div align = "justify">
                   <h2><b>5. Conclusion</b></h2>
@@ -530,8 +601,8 @@
 
                </div>
              </div>-->
-            </div>
-          </div>
+          <!--  </div>
+          </div>-->
 
 
 
