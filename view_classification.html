@@ -294,6 +294,25 @@
                     eyes and are in spatial continuity (case of A4CH/A5CH mix-up), images of poor quality (case of
                     A4CH/PSAX mix-up), or views in which a same view-defining structure may be present (case of
                     PSAX-LV/PSAX/AV mix-up).</h3>
+
+                    <h3> <b>Impact of Image Resolution, Quality, and Dataset Size</b>
+                      The models seem to exhibit a plateau of accuracy between the two larger image resolutions
+                      of 96 × 96 and 128 × 128 pixels (Fig. 7). On the other hand, for the smaller image size of
+                      32 × 32 pixels, the classification performance seems to suffer across all network models, with
+                      a 2.3% to 5.1% reduction in accuracy relative to the resolution of 96 × 96 pixels.<br>
+                      Shown in Fig. 8’s upper panel, is the class-wise view detection accuracy for various input
+                      image resolutions. Notably, not all echo views are affected similarly using lower image resolutions. The drop in overall performance is therefore predominantly caused by a marked decrease
+                      in detection accuracy of only certain views. For instance, A4CH-RV suffers a sharp reduction of
+                      >10% in prediction accuracy when dealing with images of 32 × 32 pixels.<br>
+                      Figure 8’s lower panel shows the relative confusion matrix, illustrating the improvement
+                      associated with using image resolution of 96 × 96 versus 32 × 32 pixels. Being already a difficult view to detect even in higher resolution images, A5CH will have 47 more cases of misclassified images when using images of 32 × 32 pixels. Overall, apical views seem to suffer the
+                      most from lower resolution images, being mainly misclassified as other apical views.<br> For instance, the two classes associated with the A4CH will primarily be mistaken for one another.
+                      This is likely because, with a decreased resolution, the details of their distinct features would be
+                      less discernible by the network. Conversely, parasternal views seem to be less affected, and still
+                      detectable in downsampled images. This could be owing to the fact that the relevant features,
+                      on which the model relies for identifying this view, are still present and visible to the model.
+                      Overall, and for almost all echo views, the image size of 96 × 96 pixels appeared to be a good
+                      compromise between classification accuracy and computational costs.
               </div>
             </div>
             </div>
@@ -339,10 +358,14 @@
                     has discovered that the features of the Subcostal-IVC images (green) are similar to the Subcostal
                     images (red). This shows that the network can point to relationships and organizational patterns
                     efficiently.</h3>
-                    
+
                     <img class="img-fluid" src="assets\img\projects\view_classification\Misclassify.PNG" alt="misclassified">
                     <h3> Fig. 6 Three different misclassified examples predicted by the 2-cell-DARTS model for the image
-                      resolution of 128 × 128 pixels.</h3>
+                      resolution of 128 × 128 pixels</h3>
+                    <img class="img-fluid" src="assets\img\projects\view_classification\fig8.PNG" alt="misclassified">
+                    <h3> Fig. 7 Comparison of accuracy for different classification models and different image resolutions</h3>
+                    <img class="img-fluid" src="assets\img\projects\view_classification\fig9.PNG" alt="misclassified">
+                    <h3> Fig. 8 Accuracy of the 2-cell-DARTS model for various input image resolutions.</h3>
               </div>
             </div>
 
