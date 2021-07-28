@@ -156,7 +156,7 @@
                   of features will increase gradually while during up-sampling stage the original image
                   resolution will recover. Also, cross-over connection is used by concatenating equally
                   size feature maps from down-sampling to the up-sampling to recover features that may
-                  be lost during the down-sampling process.<br>
+                  be lost during the down-sampling process.<br><br>
                   Each down-sampling and up-sampling has five levels, and each level has two convolutional layers with the same number of kernels ranging from 64 to 1024 from top to bottom
                   correspondingly. All convolutions kernels have a size of (3 × 3). For down-sampling
                   Max pooling with size (2 × 2) and equal strides was used.
@@ -164,7 +164,7 @@
                   The SegNet model contains an encoder stage, a corresponding decoder stage followed
                   by a pixel-wise classification layer. In SegNet model, to accomplish non-linear upsampling, the decoder performs pooling indices computed in the max-pooling step of
                   the corresponding encoder. The number of kernels and kernel size was the same as
-                  the U-Net model.<br>
+                  the U-Net model.<br><br>
                   FC-DenseNet model is a relatively more recent model which consists of a downsampling and up-sampling path made of dense block. The down-sampling path is composed of two Transitions Down (TD) while an up-sampling path is containing two
                   Transitions Up (TU). Before and after each dense block, there is concatenation and
                   skip connections (see Fig. 2). The connectivity pattern in the up-sampling is different
@@ -180,7 +180,7 @@
               </div>
                 <div class="col-12 col-md-12 col-lg-6 col-xl-6  text-center ">
                   <br>
-                  <img class="img-fluid" src="assets\img\projects\lv_segmentation\NW Arch.PNG" alt="Architecture">
+                  <img class="img-fluid" src="assets\img\projects\lv_segmentation\Arch.PNG" alt="Architecture">
                   <div align="center">
                   <h3> Fig. 2. Diagram of FC-DenseNet architecture for semantic segmentation </h3>
                 </div>
