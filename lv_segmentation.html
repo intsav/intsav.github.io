@@ -137,8 +137,9 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- ======= Project Architecture ======= -->
+
         <!-- ======= Project Architecture ======= -->
       <div class = "project-architecture">
 
@@ -187,6 +188,7 @@
               </div>
             </div>
           </div>
+
           <!-- ======= Project Implementation ======= -->
           <div class = "project-implementation">
             <div class="container">
@@ -247,44 +249,42 @@
       <!-- ======= Project Results ======= -->
 
       <div class = "project-results">
-        <div class="container">
-          <hr>
 
-            <div class="row justify-content-left">
+          <div class="container">
+            <hr>
+            <div class="row justify">
               <div class="col-12">
-                <div class="text-left">
-                  <h2>b>Experiment Results and Discussion </b><br></h2>
+            <h2><b>Experiment Results and Discussion </b><br></h2>
+            </div>
+              <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                <div align="justify">
+                <h3><br><br> <P> <br>Figure 3 shows example outputs from the three models when trained using annotation
+                 provided by Operator-A (i.e., GTOA). The contour of the predicted segmentation was
+                 used to specify the LV endocardium border. The red, solid line represents the automated
+                 results, while the green line represents the manual annotation.<br>
+                 <br>As can be seen, the U-Net model achieved higher DC (0.98), higher IoU (0.99), and
+                 lower HD (4.24) score. A visual inspection of the automatically detected LV border also
+                 confirms this. The LV border obtained from the SegNet and FC-DenseNet models seems
+                 to be less smooth compared to that in the U-Net model. However, all three models seem
+                 to perform with reasonable accuracy.<br> <br><br><br>
+               <p> Figure 4 illustrates the results for a sample failed case, for which all three models
+                 seem to struggle with the task of LV segmentation. By closer scrutiny of the echo images
+                 for such cases, it is evident that the image quality tends to be lower due to missing borders,presence of speckle noise or artefacts,
+                 and poor contrast between the myocardium and
+                 the blood pool.
+                 <br><br></h3>
 
                 </div>
               </div>
-            </div>
-
-
-            <div class="row justify-content-left">
-              <div class="col-12 col-lg-6">
-                <div class="text-justify">
-                  <h3><br><br><br><br>Figure 3 shows example outputs from the three models when trained using annotation
-                   provided by Operator-A (i.e., GTOA). The contour of the predicted segmentation was
-                   used to specify the LV endocardium border. The red, solid line represents the automated
-                   results, while the green line represents the manual annotation.<br>
-                   <br>As can be seen, the U-Net model achieved higher DC (0.98), higher IoU (0.99), and
-                   lower HD (4.24) score. A visual inspection of the automatically detected LV border also
-                   confirms this. The LV border obtained from the SegNet and FC-DenseNet models seems
-                   to be less smooth compared to that in the U-Net model. However, all three models seem
-                   to perform with reasonable accuracy.<br> <br><br><br>
-                 <p> Figure 4 illustrates the results for a sample failed case, for which all three models
-                   seem to struggle with the task of LV segmentation. By closer scrutiny of the echo images
-                   for such cases, it is evident that the image quality tends to be lower due to missing borders,presence of speckle noise or artefacts,
-                   and poor contrast between the myocardium and
-                   the blood pool.
-                   <br><br></h3>
-              </div>
-              <div class="col-12 col-lg-6 text-center">
-                <img class="img-fluid" src="assets\img\projects\lv_segmentation\result1-1.PNG" alt="Result1">
-                <img class="img-fluid" src="assets\img\projects\lv_segmentation\result2-1.PNG" alt="Result2">
+                <div class="col-12 col-md-12 col-lg-6 col-xl-6  text-center ">
+                  <br>
+                  <img class="img-fluid" src="assets\img\projects\lv_segmentation\result1-1.PNG" alt="results">
+                  <img class="img-fluid" src="assets\img\projects\lv_segmentation\result1-2.PNG" alt="results">
+                </div>
               </div>
             </div>
           </div>
+
 
 
 
