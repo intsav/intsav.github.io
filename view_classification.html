@@ -81,7 +81,7 @@
             </div>
           </div>
           <div class="text-left">
-            <a class="btn btn-primary" href="https://doi.org/10.1117/1.JMI.8.3.034002" role="button">Download the paper</a>
+            <a class="btn btn-primary" href="https://doi.org/10.1117/1.JMI.8.3.034002" role="button">Downl the paper</a>
           </div>
           </div>
         </div>
@@ -225,20 +225,11 @@
 
               <hr>
               <div class="text-justify">
-                <h2><b>Evaluation Measures</b></h2>
-                <h3>The Dice Coefficient (DC), Hausdorff distance (HD), and intersection-over-union (IoU)
-                  also known as the Jaccard index were employed to evaluate the performance and accuracy
-                  of the CNN models in segmenting the LV region. The DC  was calculated to measure
-                  the overlapping regions of the Predicted segmentation (P) and the ground truth (GT).
-                  The range of DC is a value between 0 and 1, which 0 indicates there is not any overlap
-                  between two sets of binary segmentation results while 1, indicates complete overlap.<br>
-                  Also, the HD was calculated using the following formula for the contour of segmentation where, d(j, GT, P) is the distance from contour point j in GT to the closest contour
-                  point in P. The number of pixels on the contour of GT and P specified with O and M
-                  respectively.<br>
-                  Moreover, the IoU was calculated image-by-image between the Predicted segmentation (IP) and the ground truth (GT). For a binary image (one foreground class, one
-                  background class), IoU is defined for the ground truth and predicted segmentation GT
-                  and IP.
-                </h3>
+                <h2><b>Evaluation metrics</b></h2>
+                <h3>Several metrics were employed to evaluate the performance of the investigated models in this
+                  study. Overall accuracy was calculated as the number of correctly classified images as a fraction
+                  of the total number of images. <p>Macro average precision and recall (average overall views of perview measures) were also computed.<p>F1 score was calculated as the harmonic mean of the precision and recall. Since this study is a multi-class problem, F1 score was the weighted average,
+                  where the weight of each class was the number of samples from that class..</h3>
               </div>
               </div>
             </div>
