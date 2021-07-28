@@ -134,50 +134,83 @@
                 manually segmented endocardium by the two operators are highlighted.</h3>
               <br>
             </div>
-              <div class="text-left">
-                <a class="btn btn-primary" href="#contact" role="button">Download the dataset</a>
-              </div>
             </div>
           </div>
         </div>
 
         <!-- ======= Project Architecture ======= -->
+        <!-- ======= Project Architecture ======= -->
       <div class = "project-architecture">
 
           <div class="container">
             <hr>
-            <div class="row justify-content-left">
+            <div class="row justify">
               <div class="col-12">
-              <h2>Network Architecture</h2>
+              <h2><b>Network Architecture</b></h2>
             </div>
               <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-                  <h3>INFORMATION ABOUT THE ARCHITECTURE</h3>
+                <div align="justify">
+                <h3> <P>Standard and well-established U-Net neural network architecture was firstly used
+                  since this architecture is applicable to multiple medical image segmentation problems.
+                  The U-Net architecture comprises of three main steps such as down-sampling, upsampling steps and cross-over connections. During the down-sampling stage, the number
+                  of features will increase gradually while during up-sampling stage the original image
+                  resolution will recover. Also, cross-over connection is used by concatenating equally
+                  size feature maps from down-sampling to the up-sampling to recover features that may
+                  be lost during the down-sampling process.<br>
+                  Each down-sampling and up-sampling has five levels, and each level has two convolutional layers with the same number of kernels ranging from 64 to 1024 from top to bottom
+                  correspondingly. All convolutions kernels have a size of (3 × 3). For down-sampling
+                  Max pooling with size (2 × 2) and equal strides was used.
+                  In addition to the U-net, SegNet and FC-DenseNet models were also investigated.
+                  The SegNet model contains an encoder stage, a corresponding decoder stage followed
+                  by a pixel-wise classification layer. In SegNet model, to accomplish non-linear upsampling, the decoder performs pooling indices computed in the max-pooling step of
+                  the corresponding encoder. The number of kernels and kernel size was the same as
+                  the U-Net model.<br>
+                  FC-DenseNet model is a relatively more recent model which consists of a downsampling and up-sampling path made of dense block. The down-sampling path is composed of two Transitions Down (TD) while an up-sampling path is containing two
+                  Transitions Up (TU). Before and after each dense block, there is concatenation and
+                  skip connections (see Fig. 2). The connectivity pattern in the up-sampling is different
+                  from the down-sampling path. In the down-sampling path, the input to a dense block is
+                  concatenated with its output, leading to linear growth of the number of feature maps,
+                  whereas in the up-sampling path, it is not.
+                  All models produce the output with the same spatial size as the input image
+                  (i.e., 320 × 240).
+
+
+                  </h3>
                 </div>
-                <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+              </div>
+                <div class="col-12 col-md-12 col-lg-6 col-xl-6  text-center ">
                   <br>
-                  <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
+                  <img class="img-fluid" src="assets\img\projects\lv_segmentation\NW Arch.PNG" alt="Architecture">
+                  <div align="center">
+                  <h3> Fig. 2. Diagram of FC-DenseNet architecture for semantic segmentation </h3>
+                </div>
                 </div>
               </div>
             </div>
           </div>
-
-        <!-- ======= Project Implementation ======= -->
-        <div class = "project-implementation">
-          <div class="container">
-            <div class="row justify-content-left">
-              <div class="col-12">
-                <hr>
-                <h2>Implementation</h2>
-                <h3>IMPLEMENTATION DETAILS</h3>
-                <div class="text-left">
-                  <br>
-                  <a class="btn btn-primary" href="" role="button">Download the code</a>
+          <!-- ======= Project Implementation ======= -->
+          <div class = "project-implementation">
+            <div class="container">
+              <div class="row justify-content-left">
+                <div class="col-12">
+                  <div align="justify">
+                  <hr>
+                  <h2><b>Implementation:</b> </h2>
+                  <h3><p class="text-justify">Pytorch was used for the implementations [10], where Adam optimiser with 250 epochs and learning rate of 0.00001 were used for training the models.
+                  The network weights are initialised randomly but differ in range depending on the size
+                  of the previous layer. <br>Negative log-likelihood loss is used as the network’s objective
+                  function. All computations were carried using an Nvidia GeForce GTX 1080 Ti GPU.
+                  All models were trained separately and indecently using the annotations provided
+                  by either of the operators, and following acronyms are used for the sake of simplicity:
+                  GTOA and TOB as ground-truth segmentations provided by Operator-A and Operator-B,
+                  respectively; POA and POB as Predicted LV borders by deep learning models trained
+                  using GTOA and TOB.
+                  </h3>
+                  <div class="text-left">
+                    <br>
+                  <!--  <a class="btn btn-primary" href="" role="button">Download the code</a> -->
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
       <!-- ======= Project Evaluation ======= -->
       <div class = "project-evaluation">
         <div class="container align-middle">
