@@ -276,7 +276,20 @@
                   <p> Figure 4 illustrates the results for a sample failed case, for which all three models
                     seem to struggle with the task of LV segmentation. By closer scrutiny of the echo images
                     for such cases, it is evident that the image quality tends to be lower due to missing borders,presence of speckle noise or artefacts, and poor contrast between the myocardium and
-                    the blood pool.</h3>
+                    the blood pool.
+                    <br><br>
+                        Table 1 provides the average Dice coefficient, Hausdorff distance, and Intersectionover-Union for the three models, across all testing images (199 images).
+                          <br>The U-Net model, in comparison with the SegNet and FC-DenseNet models, achieved relatively
+                          better performance. The average Hausdorff distance, however, was higher for the FCDenseNet, compared to the other two models.<br><br>
+                          For each image, there were four assessments of the LV border; two human and two
+                          automated (trained by the annotation of either of human operators). As shown in Table 2,
+                          the automated models perform similarly to human operators. <br>The automated model
+                          disagrees with the Operator-A, but so does the Operator-B. Since different experts make
+                          different judgments, it is not possible for any automated model to agree with all experts.
+                          However, it is desirable for the automated models do not have larger discrepancies when
+                          compared with the performance of human judgments; that is, to behave approximately
+                          as well as human operators.
+                      </h3>
                 </div>
               <!--  <div align = "center">
                     <img class="img-fluid" src="assets\img\projects\lv_segmentation\table1.PNG" alt="results">
@@ -288,10 +301,13 @@
                 <img class="img-fluid" src="assets\img\projects\lv_segmentation\result1-1.PNG" alt="results">
 
                 <img class="img-fluid" src="assets\img\projects\lv_segmentation\result2-1.PNG" alt="results">
-                <br><br>
-                <h3>Table 1 provides the average Dice coefficient, Hausdorff distance, and Intersectionover-Union for the three models, across all testing images (199 images).
-                  <br>The U-Net model, in comparison with the SegNet and FC-DenseNet models, achieved relatively
-                  better performance. The average Hausdorff distance, however, was higher for the FCDenseNet, compared to the other two models.</h3>
+
+                <img class="img-fluid" src="assets\img\projects\lv_segmentation\table1.PNG" alt="results">
+                <h3>Table 1. Comparison of evaluation measures of  (DC),  (HD), and (IoU) between the three examine models, expressed as mean ± SD</h3>
+                <img class="img-fluid" src="assets\img\projects\lv_segmentation\table2.PNG" alt="results">
+                <h3>Table 2. Comparison of evaluation measures (DC), (HD), and (IoU) for the U-Net model between five possible scenarios</h3>
+
+
               </div>
             </div>
           </div>
