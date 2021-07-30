@@ -39,19 +39,22 @@
     </div>
   </header><!-- End Navigation Bar -->
 
-    <!-- ======= Title Section ======= -->
-    <section id="project-title" class="d-flex align-items-center">
-      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-        <div class="row">
-          <div class="col-12 text-left">
-            <h1>PROJECT TITLE</h1>
-            <h2><i>AUTHOR <sup>1</sup>, AUTHOR <sup>2</sup>, AUTHOR <sup>1</sup>, AUTHOR <sup>2</sup>, AUTHOR <sup>2</sup>, AUTHOR <sup>2</sup>, AUTHOR <sup>1</sup>,<sup>2</sup><i></h2>
-            <h3><sup>1</sup> ORGANISATION <h3>
-            <h3><sup>2</sup> ORGANISATION <h3>
-            </div>
+  <!-- ======= Title Section ======= -->
+  <section id="project-title" class="d-flex align-items-center">
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+      <div class="row">
+        <div class="col-12 text-left">
+          <h1>Segmentation of Left Ventricle in 2D Echocardiography Using Deep Learning</h1>
+          <h2><i>Neda Azarmehr <sup>1,2</sup>, Xujiong Ye<sup>1</sup>, Stefania Sacchi <sup>3</sup>, James P Howard <sup>2</sup>, Darrel P Francis <sup>2</sup>, Massoud Zolgharni <sup>2,4</sup><i></h2>
+          <h3><sup>1</sup> School of Computer Science, University of Lincoln, Lincoln, UK<h3>
+          <h3><sup>2</sup> National Heart and Lung Institute, Imperial College, London, UK<h3>
+          <h3><sup>3</sup> Cardiovascular Rehabilitation Department, San Raffaele University Hospital, Milan, Italy<h3>
+          <h3><sup>4</sup> School of Computing and Engineering, University of West London, London, UK<h3>
           </div>
         </div>
-    </section><!-- End Title -->
+      </div>
+  </section><!-- End Title -->
+
 
     <!-- Main Webpage Section -->
   <main id="project-main">
@@ -64,13 +67,27 @@
         <div class="container">
           <div class="row justify-content-left">
             <div class="col-12">
+              <div align="justify">
               <hr>
-              <h1>PROJECT INTRODUCTION</h1>
+              <h1><b>Abstract</b> </h1>
               <br>
+              <h3> The segmentation of Left Ventricle (LV) is currently carried out manually by the experts, and the automation of this process has proved challenging due
+                to the presence of speckle noise and the inherently poor quality of the ultrasound
+                images. This study aims to evaluate the performance of different state-of-the-art
+                Convolutional Neural Network (CNN) segmentation models to segment the LV
+                endocardium in echocardiography images automatically. Those adopted methods
+                include U-Net, SegNet, and fully convolutional DenseNets (FC-DenseNet). The
+                prediction outputs of the models are used to assess the performance of the CNN
+                models by comparing the automated results against the expert annotations (as the
+                gold standard). Results reveal that the U-Net model outperforms other models by
+                achieving an average Dice coefficient of 0.93 ± 0.04, and Hausdorff distance of
+                4.52 ± 0.90.
+              </h3>
+            </div>
             </div>
           </div>
             <div class="text-left">
-              <a class="btn btn-primary" href="#" role="button">Download the paper</a>
+              <a class="btn btn-primary" href="https://link.springer.com/chapter/10.1007/978-3-030-39343-4_43" role="button">Download the paper</a>
             </div>
           </div>
         </div>
@@ -79,158 +96,269 @@
       <div class = "project-dataset">
         <div class="container project-container">
           <div class="row justify-content-left">
-            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-            <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6" >
+              <div align="center">
+                <br><br><br>
+            <img class="img-fluid" src="assets\img\projects\lv_segmentation\dataset_sample.PNG" alt="IMAGE Dataset">
+            <h3> Fig. 1. An example 2D 4-chamber view. The blue and yellow curves represent the annotations
+              by Operator-A and Operator-B, respectively</h3>
             </div>
+          </div>
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+              <div align="justify">
               <h2>Dataset</h2>
-              <h3>INFORMATION ABOUT THE DATASET</h3>
+              <h3>The study population consisted of 61 patients (30 males), with a mean age of 64 ± 11,
+                who were recruited from patients who had undergone echocardiography with Imperial
+                College Healthcare NHS Trust. Only patients in sinus rhythm were included. No other
+                exclusion criteria were applied. The study was approved by the local ethics committee
+                and written informed consent was obtained.<br>
+                Each patient underwent standard Transthoracic echocardiography using a commercially available ultrasound machine (Philips iE33, Philips Healthcare, UK), and by experienced echocardiographers. Apical 4-chamber views were obtained in the left lateral
+                decubitus position as per standard clinical guidelines [3].
+                All recordings were obtained with a constant image resolution of 480 × 640 pixels.
+                The operators performing the exam were advised to optimise the images as would typically be done in clinical practice. The acquisition period was 10 s to make sure at least
+                three cardiac cycles were present in all cine loops. To take into account, the potential
+                influence of the probe placement (the angle of insonation) on the measurements, the
+                entire process was conducted three times, with the probe removed from the chest and
+                then placed back on the chest optimally between each recording. A total of three 10-s
+                2D cine loops was, therefore, acquired for each patient. The images were stored digitally
+                for subsequent offline analysis.<br>
+                To obtain the gold-standard (ground-truth) measurements, one accredited and experienced cardiology expert manually traced the LV borders. Where the operator judged
+                a beat to be of extremely low quality, the beast was declared invalid, and no annotation was made. We developed a custom-made program which closely replicated the
+                interface of echo hardware. The expert visually inspected the cine loops by controlled
+                animation of the loops using arrow keys and manually traced the LV borders using a
+                trackball for the end-diastolic and end-systolic frames. Three heartbeats (6 manual traces
+                for end-diastolic and end-systolic frames) were measured within each cine loop. Out of
+                1098 available frames (6 patients × 3 positions × 3 heartbeats × 2 ED/ES frames), a
+                total of 992 frames were annotated. To investigate the inter-observer variability, a second operator repeated the LV tracing on 992 frames, blinded to the judgment of the
+                first operator. A typical 2D 4-chamber view is shown in Fig. 1, where the locations of
+                manually segmented endocardium by the two operators are highlighted.</h3>
               <br>
-              <div class="text-left">
-                <a class="btn btn-primary" href="#contact" role="button">Download the dataset</a>
-              </div>
+            </div>
             </div>
           </div>
         </div>
+      </div>
+
 
         <!-- ======= Project Architecture ======= -->
       <div class = "project-architecture">
 
           <div class="container">
             <hr>
-            <div class="row justify-content-left">
+            <div class="row justify">
               <div class="col-12">
-              <h2>Network Architecture</h2>
+              <h2><b>Network Architecture</b></h2>
             </div>
               <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-                  <h3>INFORMATION ABOUT THE ARCHITECTURE</h3>
+                <div align="justify">
+                <h3> <br><P>Standard and well-established U-Net neural network architecture was firstly used
+                  since this architecture is applicable to multiple medical image segmentation problems.
+                  The U-Net architecture comprises of three main steps such as down-sampling, upsampling steps and cross-over connections. During the down-sampling stage, the number
+                  of features will increase gradually while during up-sampling stage the original image
+                  resolution will recover. Also, cross-over connection is used by concatenating equally
+                  size feature maps from down-sampling to the up-sampling to recover features that may
+                  be lost during the down-sampling process.<br><br>
+                  Each down-sampling and up-sampling has five levels, and each level has two convolutional layers with the same number of kernels ranging from 64 to 1024 from top to bottom
+                  correspondingly. All convolutions kernels have a size of (3 × 3). For down-sampling
+                  Max pooling with size (2 × 2) and equal strides was used.
+                  In addition to the U-net, SegNet and FC-DenseNet models were also investigated.
+                  The SegNet model contains an encoder stage, a corresponding decoder stage followed
+                  by a pixel-wise classification layer. In SegNet model, to accomplish non-linear upsampling, the decoder performs pooling indices computed in the max-pooling step of
+                  the corresponding encoder. The number of kernels and kernel size was the same as
+                  the U-Net model.<br><br>
+                  FC-DenseNet model is a relatively more recent model which consists of a downsampling and up-sampling path made of dense block. The down-sampling path is composed of two Transitions Down (TD) while an up-sampling path is containing two
+                  Transitions Up (TU). Before and after each dense block, there is concatenation and
+                  skip connections (see Fig. 2). The connectivity pattern in the up-sampling is different
+                  from the down-sampling path. In the down-sampling path, the input to a dense block is
+                  concatenated with its output, leading to linear growth of the number of feature maps,
+                  whereas in the up-sampling path, it is not.
+                  All models produce the output with the same spatial size as the input image
+                  (i.e., 320 × 240).
+
+
+                  </h3>
                 </div>
-                <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-                  <br>
-                  <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
+              </div>
+                <div class="col-12 col-md-12 col-lg-6 col-xl-6  text-center ">
+                  <img class="img-fluid" src="assets\img\projects\lv_segmentation\Arch.PNG" alt="Architecture">
+                  <div align="center">
+                  <h3> Fig. 2. Diagram of FC-DenseNet architecture for semantic segmentation </h3>
+                </div>
                 </div>
               </div>
             </div>
           </div>
 
-        <!-- ======= Project Implementation ======= -->
-        <div class = "project-implementation">
-          <div class="container">
-            <div class="row justify-content-left">
-              <div class="col-12">
-                <hr>
-                <h2>Implementation</h2>
-                <h3>IMPLEMENTATION DETAILS</h3>
-                <div class="text-left">
-                  <br>
-                  <a class="btn btn-primary" href="" role="button">Download the code</a>
+          <!-- ======= Project Implementation ======= -->
+          <div class = "project-implementation">
+            <div class="container">
+              <div class="row justify-content-left">
+                <div class="col-12">
+                  <div align="justify">
+                  <hr>
+                  <h2><b>Implementation:</b> </h2>
+                  <h3><p class="text-justify">Pytorch was used for the implementations [10], where Adam optimiser with 250 epochs and learning rate of 0.00001 were used for training the models.
+                  The network weights are initialised randomly but differ in range depending on the size
+                  of the previous layer. <br>Negative log-likelihood loss is used as the network’s objective
+                  function. All computations were carried using an Nvidia GeForce GTX 1080 Ti GPU.
+                  All models were trained separately and indecently using the annotations provided
+                  by either of the operators, and following acronyms are used for the sake of simplicity:
+                  GTOA and TOB as ground-truth segmentations provided by Operator-A and Operator-B,
+                  respectively; POA and POB as Predicted LV borders by deep learning models trained
+                  using GTOA and TOB.
+                  </h3>
+                  <div class="text-left">
+                    <br>
+                  <!--  <a class="btn btn-primary" href="" role="button">Download the code</a> -->
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
       <!-- ======= Project Evaluation ======= -->
       <div class = "project-evaluation">
-        <div class="container align-middle">
-          <hr>
-          <div class="row">
+        <div class="container">
+          <div class="row justify-content-left">
+            <div class="col-12">
+              <div align="justify">
 
-            <div class="col-12 col-lg-6 col-md-6 text-center">
-              <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
-            </div>
-
-            <div class="col-12 col-lg-6 col-md-6">
-              <div class="text-left">
-                <h2>Evaluation metrics</h2>
-                <h3>INFORMATION ABOUT EVALUATION METRICS</h3>
+              <hr>
+              <div class="text-justify">
+                <h2><b>Evaluation Measures</b></h2>
+                <h3>The Dice Coefficient (DC), Hausdorff distance (HD), and intersection-over-union (IoU)
+                  also known as the Jaccard index were employed to evaluate the performance and accuracy
+                  of the CNN models in segmenting the LV region. The DC  was calculated to measure
+                  the overlapping regions of the Predicted segmentation (P) and the ground truth (GT).
+                  The range of DC is a value between 0 and 1, which 0 indicates there is not any overlap
+                  between two sets of binary segmentation results while 1, indicates complete overlap.<br><br>
+                  Also, the HD was calculated using the following formula for the contour of segmentation where, d(j, GT, P) is the distance from contour point j in GT to the closest contour
+                  point in P. The number of pixels on the contour of GT and P specified with O and M
+                  respectively.<br>
+                  Moreover, the IoU was calculated image-by-image between the Predicted segmentation (IP) and the ground truth (GT). For a binary image (one foreground class, one
+                background class), IoU is defined for the ground truth and predicted segmentation GT
+                and IP
+              </h3>
+              </div>
               </div>
             </div>
-
+            </div>
           </div>
         </div>
-      </div>
 
       <!-- ======= Project Results ======= -->
+
       <div class = "project-results">
-        <div class="container">
-          <hr>
 
-            <div class="row justify-content-left">
+          <div class="container">
+            <hr>
+            <div class="row justify">
               <div class="col-12">
-                <div class="text-left">
-                  <h2>Results</h2>
-                  <p>
-                </div>
-              </div>
+            <h2><b>Experiment Results and Discussion </b><br></h2>
             </div>
+              <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                <div align="justify">
+                <h3><br><br> <P> <br>Figure 3 shows example outputs from the three models when trained using annotation
+                 provided by Operator-A (i.e., GTOA). The contour of the predicted segmentation was
+                 used to specify the LV endocardium border. The red, solid line represents the automated
+                 results, while the green line represents the manual annotation.<br>
+                 <br>As can be seen, the U-Net model achieved higher DC (0.98), higher IoU (0.99), and
+                 lower HD (4.24) score. A visual inspection of the automatically detected LV border also
+                 confirms this. The LV border obtained from the SegNet and FC-DenseNet models seems
+                 to be less smooth compared to that in the U-Net model. However, all three models seem
+                 to perform with reasonable accuracy.<br> <br><br><br>
+               <p> Figure 4 illustrates the results for a sample failed case, for which all three models
+                 seem to struggle with the task of LV segmentation. By closer scrutiny of the echo images
+                 for such cases, it is evident that the image quality tends to be lower due to missing borders,presence of speckle noise or artefacts,
+                 and poor contrast between the myocardium and
+                 the blood pool.
+                 <br></h3>
 
-
-            <div class="row justify-content-left">
-              <div class="col-12 col-lg-6">
-                <div class="text-left">
-                  <h3>INFORMATION ABOUT RESULTS</h3>
                 </div>
               </div>
-              <div class="col-12 col-lg-6 text-center">
-                <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
+                <div class="col-12 col-md-12 col-lg-6 col-xl-6  text-center ">
+                  <br>
+                  <img class="img-fluid" src="assets\img\projects\lv_segmentation\result1-1.PNG" alt="results">
+                  <img class="img-fluid" src="assets\img\projects\lv_segmentation\result2-1.PNG" alt="results">
+                </div>
               </div>
             </div>
           </div>
 
-    <!-- ======= Contact Section ======= -->
-      <section id="contact" class="contact">
-        <div class="container">
-          <div class="section-title">
-            <hr>
-            <h2>Request Access to the project dataset</h2>
-            <h3>INFORMATION ABOUT ACCESSING THE DATASET</h3>
+          <div class="container">
+            <div class="row align-middle">
+              <div class="col-12 col-lg-7 col-md-7 text-center">
+                <img class="img-fluid" src="assets\img\projects\lv_segmentation\table1.PNG" alt="table1" >
+                <h3>Table 1. Comparison of evaluation measures of (DC), (HD), and (IoU) between the three examine models</h3>
+                <img class="img-fluid" src="assets\img\projects\lv_segmentation\table2.PNG" alt="table1" >
+                <h3>Table 2. Comparison of evaluation measures (DC), (HD), and (IoU) for the U-Net model between five possible scenarios</h3>
+              </div>
 
-            <div class="container">
-              <div class="section-title">
-                <h3><b>If you wish to request access, please complete the form below:<b></h3>
+              <div class="col-12 col-lg-5 col-md-5">
+                <div class="text-justify">
+                  <div align = "justify">
                   <br>
+                  <h3>Table 1 provides the average Dice coefficient, Hausdorff distance, and Intersectionover-Union for the three models, across all testing images (199 images).
+                    <br>The U-Net model, in comparison with the SegNet and FC-DenseNet models, achieved relatively
+                    better performance. The average Hausdorff distance, however, was higher for the FCDenseNet, compared to the other two models.<br><br>
+                    For each image, there were four assessments of the LV border; two human and two
+                    automated (trained by the annotation of either of human operators). As shown in Table 2,
+                    the automated models perform similarly to human operators. <br><br>The automated model
+                    disagrees with the Operator-A, but so does the Operator-B. Since different experts make
+                    different judgments, it is not possible for any automated model to agree with all experts.
+                    However, it is desirable for the automated models do not have larger discrepancies when
+                    compared with the performance of human judgments; that is, to behave approximately
+                    as well as human operators.
+                  </h3>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======= Project Limitations and conclusion  ======= -->
+          <div class = "project Conclusion">
+            <div class="container">
+              <div class="row justify-content-left">
+                <div class="col-12">
+                  <div align="justify">
+                  <hr>
+                  <h2><b>Conclusion and Future Work</b></h2>
+                  <h3><br><p class="text-justify">The time-consuming and operator-dependent process of manual annotation of left ventricle border on a 2D echocardiographic recording could be assisted by the automated
+                        models that do not require human intervention. Our study investigated the feasibility of
+                        such automated models which perform no worse than human experts.<br><br>
+                        The automated models demonstrate larger discrepancies with the gold-standard
+                        annotations when encountered with the lower image qualities. This is potentially caused
+                        by the lack of balanced data in terms of different image quality levels. Since the patient
+                        data in our study was obtained by the expert echocardiographers, the distribution leans
+                        more towards higher average and higher quality images. This may result in the model
+                        forming a bias towards the more condensed quality-level images. Future investigations
+                        will examine the correlation between the performance of the deep learning model and
+                        the image qualities, as well as using more balanced datasets.<br><br>
+                        The patients were a convenience sample drawn from those attending a cardiology
+                        outpatient clinic. They, therefore, may not be representative of patients who enter trials
+                        with particular enrolment criteria or of inpatients or the general population. A further
+                        investigation will look at a wide range of subjects in any cardiovascular disease setting.
+                        The segmentation of other cardiac views, and using data acquired by various ultrasound
+                        vendors can also be considered for a comprehensive examination of the deep learning
+                        models in echocardiography.</h3>
+
                 </div>
-                      <div class="row">
+                </div>
+              </div>
+            </div>
+          </div>
 
-                        <div class="col-12">
-                          <!-- due to GitHub being static, you need to create a form project on https://formspree.io -->
-                          <form action="" method="post" role="form" class="php-email-form">
-                            <div class="row justify-content-center align-middle">
-                              <div class="col-6 form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                              </div>
-                              </div>
-                            <div class="row justify-content-center align-middle">
-                              <div class="col-6 form-group">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                              </div>
-                            </div>
-                            <div class="row justify-content-center align-middle">
-                            <div class="col-6 form-group ">
-                              <input type="text" class="form-control" name="institution" id="subject" placeholder="Institution/Workplace" required>
-                            </div>
-                            </div>
-                            <div class="row justify-content-center align-middle">
-                            <div class="col-9 form-group">
-                              <textarea class="form-control" name="message" rows="5" placeholder="Please let us know why you would like access to this dataset and what you intend to use it for" required></textarea>
-                            </div>
-                            </div>
-                            <br>
-                            <div class="text-center"><button type="submit">Submit</button></div>
-                          </form>
 
-                        </div>
 
-                      </div>
 
-                    </div>
-              </section><!-- End Contact Section -->
 
-          </section><!-- End project-body -->
+                </section><!-- End project-body -->
 
-      </main><!-- End #main -->
+            </main><!-- End #main -->
 
+
+  
   <!-- ======= Footer - DONT CHANGE ======= -->
   <footer id="footer">
 

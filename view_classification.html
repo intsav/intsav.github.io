@@ -65,7 +65,9 @@
         <div class="container">
           <div class="row justify-content-left">
             <div class="col-12">
+              <div align="justify">
               <hr>
+              <h2><b>Abstract</h2>
               <h2>Purpose:</h2>
                 <h3>Echocardiography is the most commonly used modality for assessing the heart in clinical practice. In an echocardiographic exam, an ultrasound probe samples the heart from different orientations and positions, thereby creating different viewpoints for assessing the cardiac function. The determination of the probe viewpoint forms an essential step in automatic echocardiographic image analysis.</h3>
               <h2>Approach:</h2>
@@ -76,10 +78,11 @@
                 <h3>Compared with the standard classification neural network architectures, the proposed models are faster and achieve comparable classification performance. They also require less training data. Such models can be used for real-time detection of the standard views.</h3>
               <br>
             </div>
-          </div>
-            <div class="text-left">
-              <a class="btn btn-primary" href="#" role="button">Download the paper</a>
             </div>
+          </div>
+          <div class="text-left">
+            <a class="btn btn-primary" href="https://doi.org/10.1117/1.JMI.8.3.034002" role="button">Downl the paper</a>
+          </div>
           </div>
         </div>
 
@@ -89,9 +92,12 @@
           <div class="row justify-content-left">
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
             <img class="img-fluid" src="assets/img/projects/view_classification/dataset1.png" alt="dataset">
+            <h3> Fig. 1 Distribution of data in the training, validation and test dataset; values show the number of
+              frames in a given class </h3>
             </div>
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-              <h2>Dataset</h2>
+              <div align="justify">
+              <h2><b>Dataset</b></h2>
               <h3>A random sample of 374 echocardiographic examinations of different patients and performed between 2010 and 2020 was extracted from Imperial College Healthcare NHS Trust’s echocardiogram database. The acquisition of the images was performed by experienced echocardiographers and according to standard protocols, using ultrasound equipment from GE and Philips manufacturers.</h3>
 
               <h3>Ethical approval was obtained from the Health Regulatory Agency (Integrated Research Application System identifier 243023). Only studies with full patient demographic data and without intravenous contrast administration were included. Automated anonymization was performed to remove all patient-identifiable information.</h3>
@@ -102,8 +108,9 @@
 
               <h3>The relative distribution of echo view classes labelled by the expert cardiologist is displayed in figure and indicates an imbalanced dataset, with a ratio of 3\% (Subcostal-IVC view as the least represented class) to 13\% (PSAX-AV view as the dominant view).</h3>
               <br>
+            </div>
               <div class="text-left">
-                <a class="btn btn-primary" href="#contact" role="button">Download the dataset</a>
+              <!--  <a class="btn btn-primary" href="#contact" role="button">Download the dataset</a>-->
               </div>
             </div>
           </div>
@@ -114,16 +121,37 @@
 
           <div class="container">
             <hr>
-            <div class="row justify-content-left">
+            <div class="row justify">
               <div class="col-12">
-              <h2>Network Architecture</h2>
+              <h2><b>Network Architecture</b></h2>
             </div>
               <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-                  <h3>INFORMATION ABOUT THE ARCHITECTURE</h3>
+                <div align="justify">
+                <h3><b> DARTS Method:</b> <P>DARTS method consists of two stages: architecture search and architecture evaluation. <p>Given
+                the input images, it first embarks on an architecture search to explore for a computation cell (a small unit of convolutional layers) as the building block of the neural network architecture.
+                  <p class="text-justify">  Figure 2 provides an overview of the DARTS network architecture. <p> After the architecture search phase is complete and the optimal cell is obtained based on its
+                    validation performance, the final architecture could be formed from one cell or a sequential stack
+                    of cells. The weights of the optimal cell learned during the search stage are then discarded, and
+                    are initialized randomly for retraining the generated neural network model from scratch. <p> A cell, shown in figure 2, is an ordered sequence of several nodes in which one or multiple
+                    edges meet. Each node C(i) represents a feature map in convolutional networks. Each edge (i,j) is associated with some operation O(i,j), transforming the node C(i) to C(j)
+                    . This could be a combination of several operations, such as convolution, max-pooling, and ReLU. Each intermediate node C(i) is computed based on all of its predecessors. Instead of applying a single operation (e.g., 5 × 5 convolution), and evaluating all possible
+                    operations independently (each trained from scratch), DARTS places all candidate operations on each edge (e.g., 5 × 5 convolution, 3 × 3 convolution, and max-pooling represented in figure to the right.
+                    red, blue, and green lines, respectively). This allows sharing and training their weights in a single
+                    process. The task of learning the optimal cell is effectively finding the optimal placement of
+                    operations                    at                   the                    edges.
+                    The actual operation at each edge is then a linear combination of all candidate operations
+                    O(i,j), weighted by the softmax output of the architecture parameters α(i,j).
+
+                  <p>
+                  </h3>
                 </div>
-                <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+              </div>
+                <div class="col-12 col-md-12 col-lg-6 col-xl-6  text-center ">
                   <br>
-                  <img class="img-fluid" src="assets/img/projects/view_classification/cell.png" alt="echocardiogram" width="450px" height="500px">
+                  <img class="img-fluid" src="assets\img\projects\view_classification\DARTA.PNG" alt="DARTS" width="450px" height="500px">
+                  <div align="center">
+                  <h3> Fig. 2  Schematic of a DARTS cell.  </h3>
+                </div>
                 </div>
               </div>
             </div>
@@ -134,114 +162,343 @@
           <div class="container">
             <div class="row justify-content-left">
               <div class="col-12">
+                <div align="justify">
                 <hr>
-                <h2>Implementation</h2>
-                <h3>IMPLEMENTATION DETAILS</h3>
+                <h2><b>Implementation:</b> </h2>
+                <h3><p class="text-justify">PyTorch was used to implement the models. For the computationally intensive stage of
+                  architecture search, a GPU server equipped with 4 NVIDIA TITAN RTX GPUs with 64 GB
+                  of memory was rented. <p>For the subsequent training of the searched networks and also the standard models, the utilized GPU was an Nvidia QUADRO M5000 with 8 GB of memory, representing a more widely accessible hardware for real-time applications. Inference time (latency
+                  time for classifying each image) was also estimated with the trained models running on the GPU.
+                  To this end, a total of 100 images were processed in a loop, and the average time was recorded.
+                  <p>All training/prediction computations were carried using identical hardware and software resources, allowing for a fair comparison of computational time-efficiency between all network models
+                  investigated in this study.
+                  The number of trainable parameters in the model, as well as the training time per epoch was
+                  also recorded for all CNN networks.
+                </h3>
                 <div class="text-left">
                   <br>
-                  <a class="btn btn-primary" href="" role="button">Download the code</a>
+                <!--  <a class="btn btn-primary" href="" role="button">Download the code</a> -->
                 </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class = "project-Training Parameters">
+          <div class="container">
+            <div class="row justify-content-left">
+              <div class="col-12">
+                <div align="justify">
+                <hr>
+                <h2><b>Models Training Parameters</b></h2>
+                <h3><p class="text-justify">Training occurred subsequently, using annotations provided by the expert cardiologist. It was carried out independently for each of the four different image sizes of 32 × 32, 64 × 64, 96 × 96,
+                  and 128 × 128 pixels. Identical training, validation, and testing datasets were used in all network
+                  models. The validation dataset was used for early stopping to avoid redundant training and overfitting. Each model was trained until the validation loss plateaued. The test dataset was used for
+                  the performance assessment of the final trained models. The DARTS models were kept blind to
+                  the test dataset during the stage of architecture search.
+                  <p>Adam optimizer with a learning rate of 10−4 and a maximum number of 800 epochs was used
+                  for training the models. The cross-entropy loss was used as the networks objective function. For
+                  training the DARTS model, a learning rate of 0.1 deemed to be a better compromise between
+                  speed of learning and precision of result and was therefore used. A batch size of 64 or the maximum which could be fitted on the GPU (if <64) was employed.
+                  <p>The dataset is fairly imbalanced with unequal distribution of
+                  different echo views. To prevent potential biases towards more dominant classes, we used online
+                  batch selection where the equal number of samples from each view were randomly drawn (by
+                  over-sampling of underrepresented classes). This led to training on a balanced dataset representing all classes in every epoch. An epoch was still defined as the number of iterations required for
+                  the network to meet all images in the training dataset.</h3>
+                <div class="text-left">
+                  <br>
+                <!--  <a class="btn btn-primary" href="" role="button">Download the code</a> -->
+                </div>
+              </div>
               </div>
             </div>
           </div>
         </div>
 
       <!-- ======= Project Evaluation ======= -->
+
       <div class = "project-evaluation">
+        <div class="container">
+          <div class="row justify-content-left">
+            <div class="col-12">
+              <div align="justify">
+
+              <hr>
+              <div class="text-justify">
+                <h2><b>Evaluation metrics</b></h2>
+                <h3>Several metrics were employed to evaluate the performance of the investigated models in this
+                  study. Overall accuracy was calculated as the number of correctly classified images as a fraction
+                  of the total number of images. <p>Macro average precision and recall (average overall views of perview measures) were also computed.<p>F1 score was calculated as the harmonic mean of the precision and recall. Since this study is a multi-class problem, F1 score was the weighted average,
+                  where the weight of each class was the number of samples from that class..</h3>
+              </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+  <!-- ======= Project Results ======= -->
+
+      <div class = "project-results">
         <div class="container align-middle">
           <hr>
           <div class="row">
 
-            <div class="col-12 col-lg-6 col-md-6 text-center">
-              <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
-            </div>
+            <div class="col-12 col-lg-6 col-md-6 text-justify">
 
+              <img class="img-fluid" src="assets\img\projects\view_classification\Arch2.PNG" alt="Arch search">
+              <div class="text-justify">
+                <div align="justify">
+              <h3> Fig. 3 Optimal normal and reduction cells for the input image size of 128 × 128 pixels</h3>
+              <h2><p> <br> <b>2. View Classification:</b></h2>
+              <h3> Results for five different network topologies and different image sizes are provided in Table 1.
+                Despite having significantly fewer trainable parameters, the two DARTS models showed competitive results when compared with the standard classification architectures (i.e., VGG16,
+                ResNet18, and DenseNet201). <br><p><br>The 2-cell-DARTS model, with only ∼0.5-m trainable parameters, achieves the best accuracy (93% to 96%), precision (92.5% to 95.2%), and recall (92.3% to
+                95.1%) among all networks and across all input image resolutions. Deeper standard neural networks, if employed for echo view detection, would therefore be significantly redundant, with up
+                to 99% redundancy in trainable parameters.<br>
+                <p>On the other hand, while maintaining a comparable accuracy to standard network topologies,
+                the 1-cell-DARTS model has ≤0.09 m trainable parameters and the lowest inference time
+                amongst all models and across different image resolutions (range 3.6 to 7.2 ms). <p>This would
+                allow processing about 140 to 280 frames per second, thus making real-time echo view classification feasible.
+                Compared with manual decision making, this is a significant speedup. Although the identification of the echo view by human operators is almost instantaneous (at least for easy cases),
+                the average time for the overall process of displaying/identifying/recording the echo view takes
+                several seconds.
+
+                <p>Having fewer trainable parameters, both DARTS models also exhibit faster convergence and
+                shorter training time per epoch than standard deeper network architectures: 157  116 s versus
+                622  576 s, respectively, for the training dataset we used.</h3>
+
+                <p><br><br> <br><h3> The confusion matrix for the 2-cell-DARTS model and image resolution of 128 × 128 pixels
+                is provided in Fig. 4. The errors appear predominantly clustered between a certain pair of views
+                which represent anatomically adjacent imaging planes. The A5CH view proves to be the hardest
+                one to detect (accuracy of about 80%), as the network is confused between this view and other
+                apical windows. <p>This is in line with previous observations that the greatest challenge lies in
+                distinguishing between the various apical views.
+                <p>Interestingly, the two views the model found most difficult to correctly differentiate (A4CHLV versus A5CH, and A2CH versus A3CH) were also the two views on which the two experts
+                disagreed most often. <p>The A4CH view is in an anatomical continuity with the A5CH view. The
+                difference is whether the scanning plane has been tilted to bring the aortic valve into view, which
+                would make it A5CH. When the valve is only partially in view, or only in view during part of the
+                cardiac cycle, the decision becomes a judgement call and there is room for disagreement.
+                <p>Similarly, the A3CH view differs from the A2CH view only in a rotation of the probe anticlockwise, again to bring the aortic valve into view
+                It is also interesting to note that the misclassification is not fully asymmetrical. For instance,
+                while 42 cases of A5CH images are confused with A4CH-LV, there are only 14 occasions of
+                A4CH-LV images mistaken for A5CH. </h3>
+                <br> <br>
+
+                <img class="img-fluid" src="assets\img\projects\view_classification\fig6.PNG" alt="view classification">
+                <h3> Fig. 5 t-Distributed Stochastic Neighbor Embedding (t-SNE) visualization of 14 echo views from
+                  the 2-cell-DARTS model </h3>
+
+                  <br><br> <h3> Figure 6 shows examples of misclassified cases, when the prediction of the 2-cell-DARTS
+                    model disagreed with the expert annotation. The error can be explained by the inherent difficulty
+                    of deciding, even for cardiologist experts, between views that are similar in appearance to human
+                    eyes and are in spatial continuity (case of A4CH/A5CH mix-up), images of poor quality (case of
+                    A4CH/PSAX mix-up), or views in which a same view-defining structure may be present (case of
+                    PSAX-LV/PSAX/AV mix-up).</h3>
+
+                    <br><br> <h2><b>3. Impact of Image Resolution, Quality, and Dataset Size</b></h2>
+                    <h3>  <br><p>The models seem to exhibit a plateau of accuracy between the two larger image resolutions
+                      of 96 × 96 and 128 × 128 pixels (Fig. 7). On the other hand, for the smaller image size of
+                      32 × 32 pixels, the classification performance seems to suffer across all network models, with
+                      a 2.3% to 5.1% reduction in accuracy relative to the resolution of 96 × 96 pixels.<br>
+                      <p>Shown in Fig. 8’s upper panel, is the class-wise view detection accuracy for various input
+                      image resolutions. Notably, not all echo views are affected similarly using lower image resolutions. The drop in overall performance is therefore predominantly caused by a marked decrease
+                      in detection accuracy of only certain views. For instance, A4CH-RV suffers a sharp reduction of
+                      >10% in prediction accuracy when dealing with images of 32 × 32 pixels.<br>
+                      <br><br><br><p>Figure 8’s lower panel shows the relative confusion matrix, illustrating the improvement
+                      associated with using image resolution of 96 × 96 versus 32 × 32 pixels. Being already a difficult view to detect even in higher resolution images, A5CH will have 47 more cases of misclassified images when using images of 32 × 32 pixels. Overall, apical views seem to suffer the
+                      most from lower resolution images, being mainly misclassified as other apical views.<br><p> For instance, the two classes associated with the A4CH will primarily be mistaken for one another.
+                      This is likely because, with a decreased resolution, the details of their distinct features would be
+                      less discernible by the network. Conversely, parasternal views seem to be less affected, and still
+                      detectable in downsampled images. This could be owing to the fact that the relevant features,
+                      on which the model relies for identifying this view, are still present and visible to the model.
+                      Overall, and for almost all echo views, the image size of 96 × 96 pixels appeared to be a good
+                      compromise between classification accuracy and computational costs. <br>
+                      <p>To examine the influence of the size of the training dataset on the model’s performance, we
+                      conducted an additional experiment where we split the training data into sub-datasets with strict
+                      inclusion relationship (i.e., having the current sub-dataset a strict subset of the next sub-dataset),
+                      and ensured all the sub-datasets were consistent (i.e., having the same ratio for each echo view as
+                      in the original training dataset). We then retrained all targeted neural networks on these subdatasets from scratch, and investigated how their accuracy varied with respect to the size of the
+                      dataset used for training the model. The size of the validation and testing datasets, however,
+                      remained unchanged. <br>
+                      <br><br><br> <p> Figure 9 shows a drop in the classification accuracy across all models when smaller sizes of
+                      training data are used for training the networks. However, various models are impacted differently. Suffering from redundancy, deeper neural networks require more training data to achieve
+                      similar performances. DenseNet, with the largest number of trainable parameters, appears to be the one which suffers the most, with a 20% reduction in its classification accuracy, when only 8%
+                      of the training dataset is used. <br>
+                      <p>However, the DARTS-based models appear to be relatively less profoundly affected by the
+                      size of the training dataset, where both models demonstrate no more than 8% drop in their prediction accuracy when deprived of the full training dataset. When using fewer than 12,400
+                      images (i.e., 50% of the training dataset), both DARTS-based models exhibit superior performance over the deeper networks.
+                      Additionally, we hypothesized that the more numerous the echo view classes, the more
+                      difficult the task of distinguishing the views for deep learning models, e.g., because of more
+                      chances of misclassifications among classes. <br> <br><br>This is potentially the underlying reason for the
+                      inconsistent accuracies (84% to 97%) reported in the literature when classifying between
+                      6 to 12 different view classes. To investigate this premise, we considered cases when only
+                      5 or 7 different echo views were present in the dataset. To this end, rather than reducing the
+                      number of classes by merging several views to create new classes which may not be clinically
+                      very helpful, we were selective in choosing some of the existing classes.</h3>
+
+                      <img class="img-fluid" src="assets\img\projects\view_classification\table2.PNG" alt="table2">
+                      <h3> Table 2 The dependence of overall accuracy on the number of echo views </h3>
+                      <img class="img-fluid" src="assets\img\projects\view_classification\img quality.PNG" alt="img quality">
+                      <h3> Fig 10 Correlation between the classification accuracy and the image quality </h3>
+              </div>
+            </div>
+            </div>
+            <!-- ======= Project Results ======= -->
             <div class="col-12 col-lg-6 col-md-6">
-              <div class="text-left">
-                <h2>Evaluation metrics</h2>
-                <h3>Several metrics were employed to evaluate the performance of the investigated models in this study. Overall accuracy was calculated as the number of correctly classified images as a fraction of the total number of images. Macro average precision and recall (average overall views of per-view measures) were also computed. F1 score was calculated as the harmonic mean of the precision and recall. Since this study is a multi-class problem, F1 score was the weighted average, where the weight of each class was the number of samples from that class.</h3>
+              <div class="text-justify">
+                <div align="justify">
+              <h2><b>Results and Discussion</h2>
+                <h2>1. Architecture Search:</b></h2>
+                <h3>The search took ∼6, 23, 42, and 92 h for image sizes of 32 × 32, 64 × 64, 96 × 96, and
+                  128 × 128 pixels, respectively, on the computing infrastructure described earlier.
+                  Figure 3 shows the best convolutional normal and reduction cells obtained for the input image
+                  size of 128 × 128 pixels. The retained operations were 3 × 3 and 5 × 5 dilated convolutions,
+                  3 × 3 max-pooling, and skip-connection. Each cell is assumed to have two inputs which are
+                  the outputs from the previous and penultimate cells. The output of the cell is defined as the
+                  depth-wise concatenation of all nodes in the cell.
+                  <p>Two network architectures were assembled from the optimal cell; “1-cell-DARTS” composed of one cell only,
+                  and “2-cell-DARTS” formed from a sequential stack of two cells.
+                  Addition of more cells to the network architecture did not significantly improve the prediction
+                  accuracy, as reported in the next section, but increased the number of trainable parameters in the
+                  model and thus the inference time for view classification. Therefore, the models with more than
+                  two cells, i.e., architectures with redundancy, were judged as being comparatively inefficient and
+                  thus discarded. Figure 3 (left side) also shows the full architecture for the 2-cell-DARTS model
+                  for the input image size of 128 × 128 pixels. <br> <br></h3>
+
+                  <img class="img-fluid" src="assets\img\projects\view_classification\table1.PNG" alt="Arch search">
+                  <h3> Table 1 Experimental results on the test dataset for input sizes of (32 × 32), (64 × 64), (96 × 96),
+                    and (128 × 128) and different network topologies </h3>
+                  <img class="img-fluid" src="assets\img\projects\view_classification\confusion matrix2.PNG" alt="Conf matrix">
+                  <h3> Fig. 4 Confusion matrix for the 2-cell-DARTS model and input image resolution of
+                    128 × 128 pixels. </h3>
+                    <br><h3> On the other hand, echo views with distinct characteristics are easier for the model to
+                    distinguish. For instance, PLAX-full and Suprasternal seem to have higher rates of correct
+                    identification, and the network is confused only on one occasion between these two views.
+                    This is also evident on the t-distributed stochastic neighbor embedding (t-SNE) plot in Fig. 5,
+                    which displays a planar representation of the internal high-dimensional organization of the 14
+                    trained echo view classes within the network’s final hidden layer (i.e., input data of the fully
+                    connected layer). Each point in the t-SNE plot represents an echo image from the test dataset.
+                    <p><br>Noticeably, not only has the network grouped similar images together (a cluster for each
+                    view, displayed with different color), but it has also grouped similar views together (highlighted
+                    with a unique background color). For instance, it has placed A5CH (blue) next to A4CH (dark
+                    brown), and indeed there is some “interdigitation” of such cases, e.g., for those whose classification between A4CH and A5CH might be debatable. Similarly, at the top right, the network
+                    has discovered that the features of the Subcostal-IVC images (green) are similar to the Subcostal
+                    images (red). This shows that the network can point to relationships and organizational patterns
+                    efficiently.</h3>
+
+                    <div  align = "center">
+                    <img class="img-fluid" src="assets\img\projects\view_classification\Misclassify.PNG" alt="misclassified">
+                    <h3> Fig. 6 Three different misclassified examples predicted by the 2-cell-DARTS model for the image
+                      resolution of 128 × 128 pixels</h3>
+
+
+                      <img class="img-fluid" src="assets\img\projects\view_classification\fig7.PNG" alt="comparision" align = "center">
+                      <h3> Fig. 7 Comparison of accuracy for different classification models and different image resolutions</h3>
+                      <img class="img-fluid" src="assets\img\projects\view_classification\accuracy.PNG" alt="accuracy">
+                      <h3> Fig. 8 Accuracy of the 2-cell-DARTS model for various input image resolutions</h3>
+                      <img class="img-fluid" src="assets\img\projects\view_classification\comp accuracy.PNG" alt="comp accuracy">
+                      <h3> Fig. 9 Comparison of accuracy of different classification models for image size</h3>
+                </div>
+                <br> <h3>For each study,we aimed at including views representing anatomically adjacent or similar imaging planes such
+                  as apical windows (thus challenging for the models to distinguish), as well as other echo
+                  windows. The list of echo views included in each study is provided in Table 2.
+                  The results show an increase in the overall prediction accuracy for the two DARTS-based
+                  models, when given the task of detecting fewer echo view classes and despite having relatively
+                  smaller training datasets to learn from. The 1-cell-DARTS model shows 8% improvement in its
+                  performance when the number of echo views is reduced from 14 to 5. The 2-cell-DARTS model
+                  reaches a maximum accuracy of 99.3%, i.e., higher than any previously reported accuracies for
+                  echo view classification. This highlights the fact that for a direct comparison of the classification
+                  accuracy between the models reported in literature, the number of different echo windows
+                  included in the study must be taken into account. <br>
+                  <p><br> Finally, in order to study the impact of image quality on the classification performance, we
+                  asked a second expert cardiologist to provide an assessment of image quality in the A4CH-LV
+                  views, and assign a quality label to each image where the quality was classified into 5 grades:
+                  very poor, poor, average, good, and excellent. Figure 10 shows the relationship between the
+                  classification accuracy of the 2-cell-DARTS model and the image quality in the test dataset.
+                  The area of the bubbles represents the relative frequency of the images in that quality score
+                  category, with the good category as the dominant grade. This is likely because the image acquisition had been performed mainly by experienced echocardiographers.<br>
+                 <br>The correlation between the classification accuracy and the image quality is evident (p-value
+                  of 0.01). Images labeled as having “excellent” quality, indicated the highest classification accuracy of ∼100%. It is apparent that the discrepancy between the model’s prediction and the expert
+                  annotation is higher in poor quality images. This could potentially be due to the fact that poorly
+                  visible chambers with a low degree of endocardial border delineation could result in some views
+                  being mistaken for other apical windows.
               </div>
             </div>
 
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- ======= Project Results ======= -->
-      <div class = "project-results">
-        <div class="container">
-          <hr>
-
-            <div class="row justify-content-left">
-              <div class="col-12">
-                <div class="text-left">
-                  <h2>Results</h2>
-                  <p>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="row justify-content-left">
-              <div class="col-12 col-lg-6">
-                <div class="text-left">
-                  <h3>INFORMATION ABOUT RESULTS</h3>
-                </div>
-              </div>
-              <div class="col-12 col-lg-6 text-center">
-                <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
-              </div>
-            </div>
-          </div>
-
-    <!-- ======= Contact Section ======= -->
-      <section id="contact" class="contact">
-        <div class="container">
-          <div class="section-title">
+  <!-- ======= Project Limitations and conclusion  ======= -->
+    <div class = "project-Limitations and Conclusion">
+      <div class="container">
+        <div class="row justify-content-left">
+          <div class="col-12">
+            <div align="justify">
             <hr>
-            <h2>Request Access to the project dataset</h2>
-            <h3>INFORMATION ABOUT ACCESSING THE DATASET</h3>
+            <h2><b>4. Study Limitations and Future Work</b></h2>
+            <h3><p class="text-justify">TThis study sheds light on several possible directions for future work. Herein, we have focused on
+              the rapid and accurate classification of individual frames from an echo cine loop. Such a task will
+              be crucial for a real-time view detection system in clinical scenarios where images need to be
+              processed while they are acquired from the patient and/or where the system is to be used for
+              operator guidance. However, for offline studies and when the entire cine loop is available, classification of the echo videos could also be of practical use. Some studies have attempted video
+              classification using the majority vote on some or all frames from a given video.6,34 However, this
+              approach does not use the temporal information available in the cine loop, such as the movement
+              of structures during the cardiac cycle. Therefore, a future study could look into using all available
+              information for view detection. <br>
+              <br>Our study investigated 2D echocardiography as the clinically relevant modality. Currently,
+              3D echocardiography suffers from a considerable reduction in frame rate and image quality, and
+              this has limited its adoption into routine practice over the past decade.46–48 When such issues are
+              resolved, automatic processing of the 3D modality could also be explored. In the meantime,
+              2D echocardiography remains unrivalled, particularly when high frame rates are needed.
+              We investigated the impact of image quality on the classification accuracy for apical fourchamber views only. A more comprehensive examination of the image quality and its influence
+              on the detection of different echo views would be informative.<br>
+              <br>The dataset used in this study comprised images acquired using ultrasound equipment from
+              GE and Philips manufacturers. Although the proposed models do not make any a priori assumptions on data obtained from specific vendors and therefore should be vendor-neutral, echo studies using more diverse ultrasound equipment should still be explored.
+              Similar to all previous studies, our dataset originated from one medical center, i.e., Imperial
+              College Healthcare NHS Trust’s echocardiogram database. Representative multi-center patient
+              data will be essential for ensuring that the developed models will scale up well to other sites and
+              environments. <br>
+              Interpreting the results of the proposed models alongside other proposed architectures in the
+              literature (with a wide range of reported accuracies) was not feasible. This is due to the fact that a
+              direct comparison of the classification accuracy would require access to the same patient dataset.
+              At present, no echocardiography dataset and corresponding annotations for view detection are
+              publicly available.<br>
+              In order to address such broadly acknowledged shortcomings in the application of deep learning to echocardiography, we are now developing Unity (data.unityimaging.net), a UK collaborative of cardiologists, physiologists and computer scientists, under the aegis of the British
+              Society of Echocardiography. An image analysis interface has been developed in the form
+              of a web-based, interactive, real-time platform to capture carefully curated expert annotations
+              from numerous echo specialists, with patient data provided by over a dozen sites across the UK,
+              thus ensuring coverage of multiple vendors, systems and environments. All developed models
+              designed using this annotation biobank (e.g., automated cardiac phase detection,49 left ventricular segmentation,50 and view classification in current study), will be made available under opensource agreements on intsav.github.io.</h3>
 
-            <div class="container">
-              <div class="section-title">
-                <h3><b>If you wish to request access, please complete the form below:<b></h3>
-                  <br>
-                </div>
-                      <div class="row">
+              <br> <br>
+              <h2><b>5. Conclusion</b></h2>
+             <h3> In this study, efficient CNN architectures are proposed for automated identification of the 2D
+            echocardiographic views. The DARTS method was used in designing optimized architectures for
+            rapid inference while maintaining high accuracy. A dataset of 14 different echocardiographic
+            views was used for training and testing the proposed models. Compared with the standard classification CNN architectures, the proposed models are faster and achieve comparable classification performance. Such models can thus be used for real-time detection of the standard
+            echo views. <br><br>
+            The impact of image quality and size of the training dataset on the efficacy of the models was
+            also investigated. Deeper neural network models, with a large number of redundant trainable parameters, require more training data to achieve similar performances. A direct correlation
+            between the image quality of classification accuracy was observed.
+            The number of different echo views to be detected has a direct impact on the performance of
+            the deep learning models, and must be taken into account for a fair comparison of classification
+            models.<br> <br>
+            Aggressively downsampled images will result in losing relevant features, thus lowering the
+            prediction accuracy. On the other hand, while much larger images may be favored for some finegrained applications (e.g., segmentation), their use for echo view classification would offer only
+            slight improvements in performance (if any) at the expense of more processing and memory
+            requirements.
+            </h3>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-                        <div class="col-12">
-                          <!-- due to GitHub being static, you need to create a form project on https://formspree.io -->
-                          <form action="" method="post" role="form" class="php-email-form">
-                            <div class="row justify-content-center align-middle">
-                              <div class="col-6 form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                              </div>
-                              </div>
-                            <div class="row justify-content-center align-middle">
-                              <div class="col-6 form-group">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                              </div>
-                            </div>
-                            <div class="row justify-content-center align-middle">
-                            <div class="col-6 form-group ">
-                              <input type="text" class="form-control" name="institution" id="subject" placeholder="Institution/Workplace" required>
-                            </div>
-                            </div>
-                            <div class="row justify-content-center align-middle">
-                            <div class="col-9 form-group">
-                              <textarea class="form-control" name="message" rows="5" placeholder="Please let us know why you would like access to this dataset and what you intend to use it for" required></textarea>
-                            </div>
-                            </div>
-                            <br>
-                            <div class="text-center"><button type="submit">Submit</button></div>
-                          </form>
 
-                        </div>
 
-                      </div>
 
-                    </div>
-              </section><!-- End Contact Section -->
 
           </section><!-- End project-body -->
 
