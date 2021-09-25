@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ======= Head Section - DON'T CHANGE ======= -->
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>TDI</title>
+  <link href="assets/img/logo.png" rel="icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<!-- ======= Body Section ======= -->
+<body>
+  <!-- ======= Navigation Bar - DON'T CHANGE ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="index.html">Home</a></li>
+          <li><a class="nav-link scrollto" href="index.html #services">Projects</a></li>
+          <li><a class="nav-link scrollto" href="index.html #team">Team</a></li>
+          <li><a class="nav-link scrollto" href="index.html #contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+    </div>
+  </header><!-- End Navigation Bar -->
+
+    <!-- ======= Title Section ======= -->
+    <section id="project-title" class="d-flex align-items-center">
+      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+        <div class="row">
+          <div class="col-12 text-left">
+            <h1>TDI Beat and Keypoint Detection</h1>
+            <h2><i>Elisabeth S Lane <sup>1</sup>, Jevgeni Jevsikov <sup>1</sup>, Eman Alajrami <sup>1</sup>, James P Howard <sup>2</sup>, Matthew J Shun-shin <sup>2</sup>, Graham D Cole <sup>2</sup>, Darrel P Francis <sup>2</sup>, Massoud Zolgharni <sup>1,2</sup><i></h2>
+            <h3><sup>1</sup> School of Computing and Engineering, University of West London, London, United Kingdom<h3>
+            <h3><sup>2</sup> National Heart and Lung Institute, Imperial College, London, United Kingdom<h3>
+            </div>
+          </div>
+        </div>
+    </section><!-- End Title -->
+
+    <!-- Main Webpage Section -->
+  <main id="project-main">
+
+    <!-- ======= Project Body Section ======= -->
+    <section id="project-body">
+
+      <!-- ======= Project Introduction ======= -->
+      <div class="project-intro">
+        <div class="container">
+          <div class="row justify-content-left">
+            <div class="col-12">
+              <hr>
+              <h1>We have developed a network capable of accurately detecting multiple heartbeats and S', E' and A' keypoints for each from variable length tissue doppler imaging strips.</h1>
+              <br>
+            </div>
+          </div>
+            <div class="text-left">
+              <a class="btn btn-primary" href="https://link.springer.com/article/10.1007/s10554-017-1092-4" role="button">Download the paper</a>
+            </div>
+          </div>
+        </div>
+
+      <!-- ======= Project Dataset ======= -->
+      <div class = "project-dataset">
+        <div class="container project-container">
+          <div class="row justify-content-left d-flex flex-wrap align-items-center">
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+            <img class="img-fluid" src="assets/img/projects/TDI/data_example.png" alt="TDI example strip">
+            </div>
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+              <h2>Dataset</h2>
+              <h3>Pulsed-wave tissue Doppler traces were acquired from 48 patients (30 male). Patients had a mean age of 64±11 years.
+                The patients investigated were recruited from
+               patients who had undergone echocardiography with Imperial College Healthcare NHS Trust. Only patients in sinus
+               rhythm were included. No other exclusion criteria were
+               applied. The study was approved by the local ethics committee and written informed consent was obtained.
+               Each patient underwent standard tissue Doppler assessment of left ventricular function by an experienced echocardiographer. The operator was advised to optimise the
+               images as would normally be done in clinical practice. For
+               all acquisitions, the sample volume size was 5 mm with a
+               sweep speed of 75 mm/s. Traces from both the septal and
+               lateral annuli were acquired for 30s each. This entire process was conducted three times, with the probe removed
+               from the chest and then placed back on the chest optimally
+               between each recording. A total of six 30-second recordings (three at the septal annulus and three at the lateral
+               annulus) of tissue Doppler data were acquired for each patient.<p>
+               In the example image, each cardiac cycle is indicated by a red vertical line with annotations from two trained experts for each keypoint. Expert 1 is a cross, with expert 2 a square.
+              </h3>
+              <br>
+              <div class="text-left">
+                <a class="btn btn-primary" href="#contact" role="button">Download the dataset</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======= Project Architecture ======= -->
+      <div class = "project-architecture">
+
+          <div class="container">
+            <hr>
+            <div class="row justify-content-left">
+              <div class="col-12">
+              <h2>Network Architecture</h2>
+            </div>
+              <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                  <h3>The architecture comprises an object detection model for the isolation of complete heartbeats
+                  followed by a keypoint localisation network to identify the S', E' and A' landmarks in each beat object.
+                A sliding window approach was adopted to ensure all possible beats were detected and ensure full utilisation of the available data.</h3>
+                In the example image, bounding boxes generated by the object detector and keypoints localised by the network are displayed.
+                </div>
+                <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                  <br>
+                  <img class="img-fluid" src="assets/img/projects/TDI/example.png" alt="IMAGE PLACEHOLDER">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- ======= Project Implementation ======= -->
+        <div class = "project-implementation">
+          <div class="container">
+            <div class="row justify-content-left">
+              <div class="col-12">
+                <hr>
+                <h2>Implementation</h2>
+                <h3>Coming soon.</h3>
+                <div class="text-left">
+                  <br>
+                  <a class="btn btn-primary" href="" role="button">Download the code</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- ======= Project Evaluation ======= -->
+      <div class = "project-evaluation">
+        <div class="container align-middle">
+          <hr>
+          <div class="row">
+
+            <div class="col-12 col-lg-6 col-md-6 text-center">
+              <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
+            </div>
+
+            <div class="col-12 col-lg-6 col-md-6">
+              <div class="text-left">
+                <h2>Evaluation metrics</h2>
+                <h3>Coming soon.</h3>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ======= Project Results ======= -->
+      <div class = "project-results">
+        <div class="container">
+          <hr>
+
+            <div class="row justify-content-left">
+              <div class="col-12">
+                <div class="text-left">
+                  <h2>Results</h2>
+                  <p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row justify-content-left">
+              <div class="col-12 col-lg-6">
+                <div class="text-left">
+                  <h3>Coming soon.</h3>
+                </div>
+              </div>
+              <div class="col-12 col-lg-6 text-center">
+                <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
+              </div>
+            </div>
+          </div>
+
+    <!-- ======= Contact Section ======= -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <div class="section-title">
+            <hr>
+            <h2>Request Access to the project dataset</h2>
+            <h3>We aim to make the dataset available for research purposes soon.</h3>
+
+            <div class="container">
+              <div class="section-title">
+                <h3><b>If you wish to request access, please complete the form below:<b></h3>
+                  <br>
+                </div>
+                      <div class="row">
+
+                        <div class="col-12">
+                          <!-- due to GitHub being static, you need to create a form project on https://formspree.io -->
+                          <form action="" method="post" role="form" class="php-email-form">
+                            <div class="row justify-content-center align-middle">
+                              <div class="col-6 form-group">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                              </div>
+                              </div>
+                            <div class="row justify-content-center align-middle">
+                              <div class="col-6 form-group">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                              </div>
+                            </div>
+                            <div class="row justify-content-center align-middle">
+                            <div class="col-6 form-group ">
+                              <input type="text" class="form-control" name="institution" id="subject" placeholder="Institution/Workplace" required>
+                            </div>
+                            </div>
+                            <div class="row justify-content-center align-middle">
+                            <div class="col-9 form-group">
+                              <textarea class="form-control" name="message" rows="5" placeholder="Please let us know why you would like access to this dataset and what you intend to use it for" required></textarea>
+                            </div>
+                            </div>
+                            <br>
+                            <div class="text-center"><button type="submit">Submit</button></div>
+                          </form>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+              </section><!-- End Contact Section -->
+
+          </section><!-- End project-body -->
+
+      </main><!-- End #main -->
+
+  <!-- ======= Footer - DONT CHANGE ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>IntSav Research Group</h3>
+            <p>
+              C/O Professor Massoud Zolgharni <br>
+              University of West London<br>
+              St Mary's Rd <br>
+              Ealing,<br>
+              London, England.<br>
+              W5 5RF<br><br>
+              <strong>Phone:</strong> 0800 036 8888<br>
+              <strong>Email:</strong> Massoud.Zolgharni@uwl.ac.uk<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://www.uwl.ac.uk/research/research-centres/intelligent-sensing">UWL homepage</a></li>
+            </ul>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>IntSaV</span></strong>. All Rights Reserved
+        </div>
+
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
