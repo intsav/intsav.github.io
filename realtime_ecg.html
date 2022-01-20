@@ -44,8 +44,8 @@
       <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
         <div class="row">
           <div class="col-12 text-left">
-            <h1>A Deep Learning Approach to Monitor and Detect Arrhythmia using Wearable Technology</h1>
-            <h2><i>Henrique Ribeiro <sup>1</sup>, AUTHOR <sup>2</sup>, AUTHOR <sup>1</sup>, AUTHOR <sup>2</sup>, AUTHOR <sup>2</sup>, AUTHOR <sup>2</sup>, Massoud Zolgharni <sup>1</sup>,<sup>2</sup><i></h2>
+            <h1>ECG-based Real-time Arrhythmia Monitoring Using Quantized Deep Neural Networks: A Feasibility Study</h1>
+            <h2><i>Henrique Ribeiro <sup>1</sup>, Ahran Arnold <sup>2</sup>, James P Howard <sup>2</sup>, Matthew J Shun-Shin <sup>2</sup>, Ying Zhang <sup>1</sup>, Darrel P Francis <sup>2</sup>, Zachary Whinnett <sup>2</sup>, Massoud Zolgharni <sup>1</sup>,<sup>2</sup><i></h2>
             <h3><sup>1</sup> School of Computing and Engineering, University of West London, London, United Kingdom <h3>
             <h3><sup>2</sup> National Heart and Lung Institute, Imperial College, London, United Kingdom <h3>
             </div>
@@ -65,7 +65,7 @@
           <div class="row justify-content-left">
             <div class="col-12">
               <hr>
-              <h1>We have developed a modular and automated system capable of detecting heart diseases in real-time utilising electrocardiogram signals.</h1>
+              <h1>We have developed an modular, lightweight and automated system capable of detecting heart diseases in real-time utilising electrocardiogram signals and deep neural networks.</h1>
               <br>
             </div>
           </div>
@@ -80,11 +80,11 @@
         <div class="container project-container">
           <div class="row justify-content-left">
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-            <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
+            <img class="img-fluid" src="assets/img/projects/ECG/mit-bih-db_class-dist.png" alt="IMAGE PLACEHOLDER">
             </div>
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
               <h2>Dataset</h2>
-              <h3>INFORMATION ABOUT THE DATASET</h3>
+              <h3>In this study, the publicly available PhysioNet MIT-BIH ECG Arrhythmia Database was used. The database contains 48 half-hour excerpts of ambulatory ECG recordings, obtained from 47 subjects. Twenty-three recordings were chosen at random from a set of 4000 24-hour ambulatory ECG recordings collected from a mixed population of inpatients The remaining 25 recordings were selected from the same set to include less common but clinically significant arrhythmias that would not be well-represented in a small random sample. The recordings were digitized at 360 samples per second. Two or more cardiologists independently annotated each record, resulting in reference annotations for each beat; with approximately 110,000 annotations in the entire database. The annotations are divided into 5 categories as per guidelines of the Association for the Advancement of Medical Instrumentation (AAMI) EC57 standard in 1998. In each recording, the first channel is the modified-lead II (MLII), and the second is fixed as one of V1, V2, V4, and V5 depending on the recording. Since MLII is available in all recordings and considering the fact it has been shown that the use of this lead would be sufficient to achieve high accuracy, we therefore, adopted MLII data in this study. In order to make the processing feasible with limited computational resources (e.g., edge computing), the long recordings were fragmented into time windows of 1s, thus each containing a fixed length of 360 data points. Based on the cardiologist annotations assigned to the original ECG, each time window was labeled as follows: if the entire segment was annotated as one class, the time window was assigned to that class; if there was a change in the expert annotation within the 1s time-window, then the predominant class was assumed as the label for the entire segment.</h3>
               <br>
               <div class="text-left">
                 <a class="btn btn-primary" href="#contact" role="button">Download the dataset</a>
@@ -103,11 +103,11 @@
               <h2>Network Architecture</h2>
             </div>
               <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-                  <h3>INFORMATION ABOUT THE ARCHITECTURE</h3>
+                  <h3>A 1D convolutional neural network was trained for the task of arrhythmia classification. Convolution layers have 32 kernels of size 5, employs connections in a similar manner to Residual Connections. Each convolution layer is followed by 5 residual blocks composed of 2 convolution layers, 2 ReLU (Rectified Linear Unit) activations, and a max-pooling of stride 2 and size 5 in all pooling layers, the operation that extracts the maximum value output within the specified size-shifting along the direction of the time-series. Followed by one fully connected (FC) layer containing 32 neurons. The fully connected layer is interconnected to all units in the forward layer. To predict the output class probabilities, a softmax layer is applied to output structural-state identification results. The probabilities of all predictive prospects are measured, thus the final result represents the one with the highest possibility.</h3>
                 </div>
                 <div class="col-12 col-md-12 col-lg-6 col-xl-6">
                   <br>
-                  <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
+                  <img class="img-fluid" src="assets/img/projects/ECG/ecg-1d_cnn.png" alt="IMAGE PLACEHOLDER">
                 </div>
               </div>
             </div>
