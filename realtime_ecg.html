@@ -120,10 +120,13 @@
               <div class="col-12">
                 <hr>
                 <h2>Implementation</h2>
-                <h3>IMPLEMENTATION DETAILS</h3>
+                <h3>Given that the dataset is fairly imbalanced with unequal distribution of different arrhythmia classes. To prevent potential biases towards more dominant classes, the approach of random over-sampling examples (ROSE) was adopted, which augments the data after removing the baseline. This resulted in a balanced dataset, with 76,607 samples for each arrhythmia class. The dataset was then randomly split into training (287,276 samples) and validation (95,759 samples), with testing samples selective split prior to over-sampling (3500 samples). The network was implemented using the Tensorflow library. The loss function used was cross-entropy on the softmax predicted outputs. Adam optimizer was applied with decaying learning rates reducing at a factor of 0.75 for every ten thousand iterations. Training the entire network takes less than 15 minutes with a mini-batch size of 256 samples over 100 epochs using an Nvidia Tesla P100 processor. The validation dataset was used for early stopping to avoid redundant training and overfitting, with patience of 10 epochs. The model was trained until the validation loss plateaued.
+                  <p>
+                    Edge and wearable devices have relatively much smaller, low-power, and slower processors, compared to desktop processors. Therefore, for the continuous execution of the arrhythmia classifier on such devices with limited memory and computational power and in order to meet the timing requirements, further optimization of the model was applied to reduce its size (smaller storage size and less memory usage) and latency, while maintaining (or with little degradation in) the model accuracy. To this end, post-training full integer quantization was adopted and applied to the CNN model developed using Tensorflow Lite deep learning library. The full integer (8-bit) quantization technique, approximates floating-point values in the trained model, layer by layer. Per-channel weights are represented by int8 two’s complement values in the range [-127, 127] with zero-point equal to 0. Per-tensor activations/inputs are represented by int8 two’s complement values in the range [-128, 127], with a zero point in the same range. In thisprocess, only floating-point weights are quantized to 8-bit integer precision in a bit-by-bit operation, in an iterative process until the network is fully mapped. As a proof of concept, two hardware platforms were used as examples of edge low-powered processors for running the quantized neural network: ARM Cortex A53 and ARM Cortex A55.
+                </h3>
                 <div class="text-left">
                   <br>
-                  <a class="btn btn-primary" href="" role="button">Download the code</a>
+                  <a class="btn btn-primary" href="https://github.com/intsav" role="button">Download the code</a>
                 </div>
               </div>
             </div>
@@ -136,14 +139,13 @@
           <hr>
           <div class="row">
 
-            <div class="col-12 col-lg-6 col-md-6 text-center">
-              <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
-            </div>
+
 
             <div class="col-12 col-lg-6 col-md-6">
               <div class="text-left">
                 <h2>Evaluation metrics</h2>
-                <h3>INFORMATION ABOUT EVALUATION METRICS</h3>
+                <h3>The classification was evaluated using the standard measures: classification accuracy (Acc), sensitivity (Sen), specificity (Spe), 𝐹 1 score, and confusion matrix. Besides accuracy, execution time (computational intensity) and power consumption of the arrhythmia classifier were also measured as the other two important factors, particularly for the application of continuous monitoring on wearable devices.The inference time was measured by recording the average time in milliseconds for all predictions made on the test dataset. In order to be able to measure the battery usage by the smartphone application, the fully charged phone was left idle in flight mode for 12 hours, and the dropped battery percentage was recorded at the end of this period. The battery was then fully charged again, and the application was kept continuously running for the same period of time, and the battery percentage was recorded. The difference in the two percentages was assumed to be the quicker battery drainage due to the application. The energy E (Wh) in Watt-hours was then estimated. Additionally, the energy consumption E per prediction (i.e., classifying each ECG segment) was estimated in Joules.
+                </h3>
               </div>
             </div>
 
@@ -173,7 +175,7 @@
                 </div>
               </div>
               <div class="col-12 col-lg-6 text-center">
-                <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
+                <img class="img-fluid" src="assets/img/projects/ECG/ecg-experiment1.png" alt="IMAGE PLACEHOLDER">
               </div>
             </div>
           </div>
