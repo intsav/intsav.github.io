@@ -139,9 +139,6 @@
           <hr>
           <div class="row">
 
-
-
-
               <div class="text-left">
                 <h2>Evaluation metrics</h2>
                 <h3>The classification was evaluated using the standard measures: classification accuracy (Acc), sensitivity (Sen), specificity (Spe), 𝐹 1 score, and confusion matrix. Besides accuracy, execution time (computational intensity) and power consumption of the arrhythmia classifier were also measured as the other two important factors, particularly for the application of continuous monitoring on wearable devices.The inference time was measured by recording the average time in milliseconds for all predictions made on the test dataset. In order to be able to measure the battery usage by the smartphone application, the fully charged phone was left idle in flight mode for 12 hours, and the dropped battery percentage was recorded at the end of this period. The battery was then fully charged again, and the application was kept continuously running for the same period of time, and the battery percentage was recorded. The difference in the two percentages was assumed to be the quicker battery drainage due to the application. The energy E (Wh) in Watt-hours was then estimated. Additionally, the energy consumption E per prediction (i.e., classifying each ECG segment) was estimated in Joules.
@@ -171,7 +168,11 @@
             <div class="row justify-content-left">
               <div class="col-12 col-lg-6">
                 <div class="text-left">
-                  <h3>INFORMATION ABOUT RESULTS</h3>
+                  <h3>The prediction results for the arrhythmia classifier (non-quantized) when applied to the test dataset. It shows that the model was able to correlate the characteristics with the correspondent arrhythmia. The model detected all of the anomalous segments for Ventricular Ectopic Beat (V class) reliably. Only for one anomaly, Fusion of Ventricular and Normal (F class), the detection was relatively less reliable with a sensitivity of 99.70%, probably because of the F class being the least represented class in the dataset (0.5% of the dataset). Overall, 99.88% of anomalous segments in the test set were detected. Of the normal heartbeats, 0.25% were falsely indicated as being anomalous.
+                    <p>
+                      The quantized classifier showed a small degradation in performance as shown in Table 3; a minute drop in accuracy (≤0.3%) across all class types; sensitivity and specificity were above 99.1% and 99.3% for all anomaly types, respectively. the quantized model however achieved significant improvements in inference (prediction) time, with a reduced inference time per classification of 12.13±0.61 (11.99, 31.14) and 7.69±0.58 (7.00, 24.00) and 4.76±0.04 (4.70, 12.17) milliseconds on the GPU, smartphone, and Raspberry Pi processors, respectively. The reduction in the model size was also noticeable; the size of the quantized model was 93 kB, compared to 853 kB for the original model.
+                    <p>
+                      The battery usage for the arrhythmia classification application using the quantized classifier was 2.04Wh for 12 hours of continuous running. Considering only the nominal power rating of 0.765W for the smartphone CPU used in this study and the average inference time of 7.65ms, the energy consumption per prediction was 5.85mJ. The energy consumption for the Raspberry Pi CPU with a nominal power rating of 0.9W and average inference time of 4.76ms was 4.28mJ, compared with 178.88mJ for the non-quantized classifier with an average inference time of 198.75ms.                  </h3>                                
                 </div>
               </div>
               <div class="col-12 col-lg-6 text-center">
@@ -179,7 +180,8 @@
               </div>
             </div>
           </div>
-
+    
+    <!--
     <!-- ======= Contact Section ======= -->
       <section id="contact" class="contact">
         <div class="container">
@@ -228,6 +230,7 @@
 
                     </div>
               </section><!-- End Contact Section -->
+              -->
 
           </section><!-- End project-body -->
 
