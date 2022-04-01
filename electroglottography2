@@ -1,0 +1,404 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<!-- ======= Head Section - DON'T CHANGE ======= -->
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Electroglottography</title>
+    <link href="assets/img/logo.png" rel="icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<!-- ======= Body Section ======= -->
+<body>
+    <!-- ======= Navigation Bar - DON'T CHANGE ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto" href="index.html">Home</a></li>
+                    <li><a class="nav-link scrollto" href="index.html#projects">Projects</a></li>
+                    <li><a class="nav-link scrollto" href="index.html#team">Team</a></li>
+                    <li><a class="nav-link scrollto" href="index.html#partners">Partners</a></li>
+                    <li><a class="nav-link scrollto" href="https://intsav.github.io/index.html#contact">Contact</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+        </div>
+    </header><!-- End Navigation Bar -->
+    <!-- ======= Title Section ======= -->
+    <section id="project-title" class="d-flex align-items-center">
+        <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+            <div class="row">
+                <div class="col-12 text-left">
+                    <h1 style = "font-size: 36px">Development of a novel Electroglottography sensors system, using advanced electronics design and deep learning, with improved applicability and usability</h1>
+                    <h2><i>Eugenio Donati <sup>1</sup>, Christos Chousidis <sup>1</sup>, Massoud Zolgharni <sup>1</sup><i></h2>
+                    <h3>
+                        <sup>1</sup>School of Computing and Engineering, University of West London, London, United Kingdom <h3>
+
+                </div>
+            </div>
+        </div>
+    </section><!-- End Title -->
+    <!-- Main Webpage Section -->
+    <main id="project-main">
+
+        <!-- ======= Project Body Section ======= -->
+        <section id="project-body">
+
+            <!-- ======= Project Introduction ======= -->
+            <div class="project-intro">
+              <div class="container">
+                <div class="row justify-content-left">
+                  <div class="col-12">
+                    <div align="justify">
+                    <hr>
+                    <h1><b>Project Introduction</b> </h1>
+                    <br>
+                    <h3> Electroglottography (EGG), is able to deliver unique information about human voice and phonation. This project is set to overcome the limitation of EGG in terms of usability and employability. The implementation of Deep learning is focused towards two main objectives: the classification of voice acts for further implementations, and the self-calibration of the system. Such improvement of the EGG aims to make the technology more employed in voice disorder evaluation of pre-diagnosis as well as broadening the spectrum of possible applications.<br><br>
+                    </h3>
+                  </div>
+                  </div>
+                </div>
+                <div class="container">
+                        <table width = "100%" style = "text-align: center">
+                          <tr>
+                              <td width = "50%">
+                                <img src = "assets\img\projects\Electroglottography\EGG signal.jpg" width = "70% "  height=" 250 px" >
+                               </td>
+
+
+                                <td width = "50%">
+                                  <img src = "assets\img\projects\Electroglottography\EGG2.PNG" width = "70%"  height=" 250 px" >
+                                </td>
+                          </tr>
+
+
+                         </table>
+                </div>
+                  <div class="text-left">
+                    <a class="btn btn-primary" href="https://www.sciencedirect.com/science/article/pii/S2772528622000036" role="button">Download the paper</a>
+                  </div>
+                  <hr>
+            <!--      <div class="row">
+                       <div class="column"  width = " " ></div>
+                       <div class="column"></div>
+                  </div>-->
+
+
+                </div>
+              </div>
+
+
+            <!-- ======= Project Dataset ======= -->
+
+                <div class = "project-dataset">
+                  <div class="container project-container">
+                    <div class="row justify-content-left">
+                      <div class="col-12 col-md-12 col-lg-6 col-xl-6" >
+                        <div align="center">
+
+                           <img class="img-fluid" src="assets\img\projects\Electroglottography\Dataset.PNG" width = "50% "  height=" 50%" alt="IMAGE Dataset">
+
+                      </div>
+                    </div>
+                      <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                        <div align="justify">
+
+                        <h2><b>Dataset</b></h2> <br>
+                        <h3>The dataset was built with an EGG developed by the team recording voice acts by different users.
+                          The dataset is comprised of two sections: voice acts recognition and calibration.</h3>
+
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ======= Project Architecture ======= -->
+
+                <div class = "project-architecture">
+
+                    <div class="container">
+                      <hr>
+                      <div class="row justify">
+                        <div class="col-12">
+                        <h2><b>Network Architecture</b></h2>
+                      </div>
+                        <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                          <div align="justify">
+                          <h3> <br>For the processing of the EGG data, we employed the use of Mel Frequency Cepstrum Coefficients (MFFC).
+                            This delivers a series of frequency coefficients over 20 frequency bands.
+                            The resulting array is the data being fed to the network.<br><br>
+
+                          <b>  The network is therefore comprised as follows: </b><br><br>
+
+                            Input layer -> 20 Neurons<br><br>
+                            2 Hidden layers -> 5 Neurons<br><br>
+                            Output Layer -> 1 Neuron for binary classification<br><br>
+
+
+                          </h3> <br> <br>
+                          <h2><b>Implementation</b></h2> <br><br>
+                          <h3>The models were implemented in Python within the TensorFlow 2.0 framework.</h3><br> <br>
+                          <h3>The figure on the right shows the general flowchart for the implemntation process for EGG to voice converter.</h3>
+                          </div>
+                        </div>
+                          <div class="col-12 col-md-12 col-lg-6 col-xl-6  text-center ">
+                            <img class="img-fluid" src="assets\img\projects\Electroglottography\Flowchart1.gif" alt="Flowchart">
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+        <!--        <div class="project-architecture">
+
+                    <div class="container">
+                        <hr>
+                        <div class="row justify-content-left">
+                            <div class="col-12">
+                                <h2><b>Network Architecture</b></h2>
+                            </div>
+                            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                                <h3><br>For the processing of the EGG data, we employed the use of Mel Frequency Cepstrum Coefficients (MFFC).
+                                  This delivers a series of frequency coefficients over 20 frequency bands.
+                                  The resulting array is the data being fed to the network.<br><br>
+
+                                <b>  The network is therefore comprised as follows: </b><br><br>
+
+                                  Input layer -> 20 Neurons<br><br>
+                                  2 Hidden layers -> 5 Neurons<br><br>
+                                  Output Layer -> 1 Neuron for binary classification<br><br>
+                                </h3>
+                            </div>
+                          <!  <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                                <br>
+                                <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
+                            </div> -->
+                      <!--  </div>
+                    </div>
+                </div>-->
+
+                <!-- ======= Project Implementation ======= -->
+          <!--      <div class="project-implementation">
+                    <div class="container">
+                        <div class="row justify-content-left">
+                            <div class="col-12 col-lg-6 col-md-6">
+                              <div align = "left">
+                                <hr>
+                                <h2><b>Implementation</b></h2> <br>
+                                <h3>The models were implemented in Python within the TensorFlow 2.0 framework.</h3><br> <br>
+                                <h3>The following figure shows the general flowchart for the implemntation process for EGG to voice converter.</h3>
+                            </div>
+                          </div>
+                            <div class="col-12 col-lg-6 col-md-6">
+                              <div align = "center"
+                                <img class="img-fluid" src="assets\img\projects\Electroglottography\Flowchart1.gif" alt="IMAGE PLACEHOLDER">
+                            </div>
+                          </div>
+
+
+                    </div>
+                </div>
+              </div> -->
+
+                <!-- ======= Project Evaluation ======= -->
+                <div class="project-evaluation">
+                    <div class="container align-middle">
+                        <hr>
+                        <div class="row">
+
+                            <div class="col-12 col-lg-6 col-md-6 text-center">
+                                <img class="img-fluid" src="assets\img\projects\Electroglottography\Assessment.jpg" alt="IMAGE PLACEHOLDER">
+                            </div>
+
+                            <div class="col-12 col-lg-6 col-md-6">
+                                <div align="justify">
+                                    <h2><b>Performance assessment</b></h2>
+                                    <h3>The completed system was assessed in a real-time situation by embedding the PD patch onto a Bela board.
+                                      Bela is a development platform specifically designed for audio DSP offering built-in converters and high performances for real-time signal processing with a latency as low as 100 μs [18].
+                                      The Ableton Live Digital Audio Workstation (DAW) was used, and Ableton Operator virtual synthesiser was employed as the receiving MIDI instrument.
+                                      To evaluate both the performances of the system and the efficiency of EGG, four elements were recorded simultaneously.
+                                      During every single use, the following elements were recorded in the DAW:<br><br>
+                                        - Audio from the voice (microphone)<br>
+                                        - EGG output<br>
+                                        - Output of the receiving MIDI device<br>
+                                        - MIDI note message<br><br>
+
+T                                       he subjects were required to perform a single note and two note sequences (staccato and legato) to evaluate the
+                                      functioning of both MIDI note allocation and pitch-bend processing.
+                                      A spectral analysis was conducted to evaluate whether both the MIDI notes and the synthesiser output matched the
+                                      frequency of the recorded voice and EGG</h3>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ======= Project Results ======= -->
+                <div class="project-results">
+                    <div class="container">
+                        <hr>
+
+                        <div class="row justify-content-left">
+                            <div class="col-12">
+                                <div class="text-left">
+                                    <h2><b>Results</b></h2>
+                                    <p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row justify-content-left">
+                            <div class="col-12 col-lg-6">
+                                <div align="justify">
+                                    <h3><br>The experiments presented in this chapter showed that EGG can be successfully used for an efficient and
+                                      accurate conversion of voice-to-MIDI in a near real-time environment. <br>
+                                      The main limitation showed by the system is represented by the latency between a phonation act and the delivery
+                                      of the MIDI messages. The performance assessment shows a latency of ∼20 ms that, despite acceptable in perceptual
+                                      terms, would require for optimal real-time operation to be reduced to 10-15 ms</h3>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 text-center">
+                                <img class="img-fluid" src="assets\img\projects\Electroglottography\results.jpg" alt="IMAGE PLACEHOLDER">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ======= Contact Section =======
+                    <section id="contact" class="contact">
+                        <div class="container">
+                            <div class="section-title">
+                                <hr>
+                                <h2>Request Access to the project dataset</h2>
+                                <h3>INFORMATION ABOUT ACCESSING THE DATASET</h3>
+
+                                <div class="container">
+                                    <div class="section-title">
+                                        <h3><b>If you wish to request access, please complete the form below:<b></h3>
+                                        <br>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-12"> -->
+                                            <!-- due to GitHub being static, you need to create a form project on https://formspree.io -->
+                                      <!--      <form action="" method="post" role="form" class="php-email-form">
+                                                <div class="row justify-content-center align-middle">
+                                                    <div class="col-6 form-group">
+                                                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                                                    </div>
+                                                </div>
+                                                <div class="row justify-content-center align-middle">
+                                                    <div class="col-6 form-group">
+                                                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                                                    </div>
+                                                </div>
+                                                <div class="row justify-content-center align-middle">
+                                                    <div class="col-6 form-group ">
+                                                        <input type="text" class="form-control" name="institution" id="subject" placeholder="Institution/Workplace" required>
+                                                    </div>
+                                                </div>
+                                                <div class="row justify-content-center align-middle">
+                                                    <div class="col-9 form-group">
+                                                        <textarea class="form-control" name="message" rows="5" placeholder="Please let us know why you would like access to this dataset and what you intend to use it for" required></textarea>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="text-center"><button type="submit">Submit</button></div>
+                                            </form>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                    </section> --><!-- End Contact Section -->
+
+        </section><!-- End project-body -->
+
+    </main><!-- End #main -->
+    <!-- ======= Footer - DONT CHANGE ======= -->
+    <footer id="footer">
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h3>IntSav Research Group</h3>
+                        <p>
+                            C/O Professor Massoud Zolgharni <br>
+                            University of West London<br>
+                            St Mary's Rd <br>
+                            Ealing,<br>
+                            London, England.<br>
+                            W5 5RF<br><br>
+                            <strong>Phone:</strong> 0800 036 8888<br>
+                            <strong>Email:</strong> Massoud.Zolgharni@uwl.ac.uk<br>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="https://www.uwl.ac.uk/research/research-centres/intelligent-sensing">UWL homepage</a></li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container d-md-flex py-4">
+
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>IntSaV</span></strong>. All Rights Reserved
+                </div>
+
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/purecounter/purecounter.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
