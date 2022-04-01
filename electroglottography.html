@@ -30,9 +30,9 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto" href="index.html">Home</a></li>
-                    <li><a class="nav-link scrollto" href="https://intsav.github.io/index.html#projects">Projects</a></li>
-                    <li><a class="nav-link scrollto" href="https://intsav.github.io/index.html#team">Team</a></li>
-                    <li><a class="nav-link scrollto" href="https://intsav.github.io/index.html#partners">Partners</a></li>
+                    <li><a class="nav-link scrollto" href="index.html#projects">Projects</a></li>
+                    <li><a class="nav-link scrollto" href="index.html#team">Team</a></li>
+                    <li><a class="nav-link scrollto" href="index.html#partners">Partners</a></li>
                     <li><a class="nav-link scrollto" href="https://intsav.github.io/index.html#contact">Contact</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
@@ -44,7 +44,7 @@
         <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
             <div class="row">
                 <div class="col-12 text-left">
-                    <h1>Development of a novel Electroglottography sensors system, using advanced electronics design and deep learning, with improved applicability and usability</h1>
+                    <h1 style = "font-size: 36px">Development of a novel Electroglottography sensors system, using advanced electronics design and deep learning, with improved applicability and usability</h1>
                     <h2><i>Eugenio Donati <sup>1</sup>, Christos Chousidis <sup>1</sup>, Massoud Zolgharni <sup>1</sup><i></h2>
                     <h3>
                         <sup>1</sup>School of Computing and Engineering, University of West London, London, United Kingdom <h3>
@@ -73,9 +73,26 @@
                   </div>
                   </div>
                 </div>
+                <div class="container">
+                        <table width = "100%" style = "text-align: center">
+                          <tr>
+                              <td width = "50%">
+                                <img src = "assets\img\projects\Electroglottography\EGG signal.jpg" width = "70% "  height=" 250 px" >
+                               </td>
+
+
+                                <td width = "50%">
+                                  <img src = "assets\img\projects\Electroglottography\EGG2.PNG" width = "70%"  height=" 250 px" >
+                                </td>
+                          </tr>
+
+
+                         </table>
+                </div>
                   <div class="text-left">
                     <a class="btn btn-primary" href="https://www.sciencedirect.com/science/article/pii/S2772528622000036" role="button">Download the paper</a>
                   </div>
+                  <hr>
             <!--      <div class="row">
                        <div class="column"  width = " " ></div>
                        <div class="column"></div>
@@ -86,8 +103,6 @@
               </div>
 
 
-
-
             <!-- ======= Project Dataset ======= -->
 
                 <div class = "project-dataset">
@@ -95,14 +110,14 @@
                     <div class="row justify-content-left">
                       <div class="col-12 col-md-12 col-lg-6 col-xl-6" >
                         <div align="center">
-                          <br>
-                           <img class="img-fluid" src="assets\img\projects\Electroglottography\Dataset.PNG" alt="IMAGE Dataset">
+
+                           <img class="img-fluid" src="assets\img\projects\Electroglottography\Dataset.PNG" width = "50% "  height=" 50%" alt="IMAGE Dataset">
 
                       </div>
                     </div>
                       <div class="col-12 col-md-12 col-lg-6 col-xl-6">
                         <div align="justify">
-                          <br><br>
+
                         <h2><b>Dataset</b></h2> <br>
                         <h3>The dataset was built with an EGG developed by the team recording voice acts by different users.
                           The dataset is comprised of two sections: voice acts recognition and calibration.</h3>
@@ -208,13 +223,26 @@
                         <div class="row">
 
                             <div class="col-12 col-lg-6 col-md-6 text-center">
-                                <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
+                                <img class="img-fluid" src="assets\img\projects\Electroglottography\Assessment.jpg" alt="IMAGE PLACEHOLDER">
                             </div>
 
                             <div class="col-12 col-lg-6 col-md-6">
-                                <div class="text-left">
-                                    <h2>Evaluation metrics</h2>
-                                    <h3>INFORMATION ABOUT EVALUATION METRICS</h3>
+                                <div align="justify">
+                                    <h2><b>Performance assessment</b></h2>
+                                    <h3>The completed system was assessed in a real-time situation by embedding the PD patch onto a Bela board.
+                                      Bela is a development platform specifically designed for audio DSP offering built-in converters and high performances for real-time signal processing with a latency as low as 100 μs [18].
+                                      The Ableton Live Digital Audio Workstation (DAW) was used, and Ableton Operator virtual synthesiser was employed as the receiving MIDI instrument.
+                                      To evaluate both the performances of the system and the efficiency of EGG, four elements were recorded simultaneously.
+                                      During every single use, the following elements were recorded in the DAW:<br><br>
+                                        - Audio from the voice (microphone)<br>
+                                        - EGG output<br>
+                                        - Output of the receiving MIDI device<br>
+                                        - MIDI note message<br><br>
+
+T                                       he subjects were required to perform a single note and two note sequences (staccato and legato) to evaluate the
+                                      functioning of both MIDI note allocation and pitch-bend processing.
+                                      A spectral analysis was conducted to evaluate whether both the MIDI notes and the synthesiser output matched the
+                                      frequency of the recorded voice and EGG</h3>
                                 </div>
                             </div>
 
@@ -230,7 +258,7 @@
                         <div class="row justify-content-left">
                             <div class="col-12">
                                 <div class="text-left">
-                                    <h2>Results</h2>
+                                    <h2><b>Results</b></h2>
                                     <p>
                                 </div>
                             </div>
@@ -239,12 +267,16 @@
 
                         <div class="row justify-content-left">
                             <div class="col-12 col-lg-6">
-                                <div class="text-left">
-                                    <h3>INFORMATION ABOUT RESULTS</h3>
+                                <div align="justify">
+                                    <h3><br>The experiments presented in this chapter showed that EGG can be successfully used for an efficient and
+                                      accurate conversion of voice-to-MIDI in a near real-time environment. <br>
+                                      The main limitation showed by the system is represented by the latency between a phonation act and the delivery
+                                      of the MIDI messages. The performance assessment shows a latency of ∼20 ms that, despite acceptable in perceptual
+                                      terms, would require for optimal real-time operation to be reduced to 10-15 ms</h3>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-6 text-center">
-                                <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
+                                <img class="img-fluid" src="assets\img\projects\Electroglottography\results.jpg" alt="IMAGE PLACEHOLDER">
                             </div>
                         </div>
                     </div>
