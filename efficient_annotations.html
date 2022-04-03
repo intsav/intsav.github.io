@@ -44,7 +44,7 @@
       <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
         <div class="row">
           <div class="col-12 text-left">
-            <h1>Effecint Annotations</h1>
+            <h1>Efficient Approaches for Creating a Biobank of Expert Annotations for Deep Learning Developments in Echocardiography</h1>
             <h2><i> Eman Alajrami <sup>1</sup>, Elisabeth S Lane <sup>1</sup>, Jevgeni Jevsikov <sup>1</sup>, James P Howard <sup>2</sup>, Matthew J Shun-shin <sup>2</sup>, Graham D Cole <sup>2</sup>, Darrel P Francis <sup>2</sup>, Massoud Zolgharni <sup>1,2</sup><i></h2>
               <h3><sup>1</sup> School of Computing and Engineering, University of West London, London, United Kingdom<h3>
               <h3><sup>2</sup> National Heart and Lung Institute, Imperial College, London, United Kingdom<h3>
@@ -65,18 +65,21 @@
         <div class="container">
           <div class="row justify-content-left">
             <div class="col-12">
+                  <div align="justify">
               <hr>
-              <h1>Imperfect annotations is a well-known challenge in image segmenation.<br>
-                This project aims to provide soultions for limited annotaions and
-                noisy annotations in order to improve medical image segmetation results. </h1>
+              <h1>Project Introduction </h1>
               <br>
-              <!--
-                  <img class="Tricuspid Segmentation" src="assets\img\projects\Efficient_Annotations\Segment.PNG" alt="Tricupid">-->
+              <h3> Deep learning models require large annotated datasets with accurate annotations for the training.
+                It is rare to have perfectly annotated datasets in medical images since it is expensive and time-consuming.
+                Thus, imperfect datasets negatively affect the accuracy of medical image analysis, classification, and segmentation;
+                an essential image processing step for most deep learning models in computer vision.
+                This research aims to discover state-of-the-art techniques for handling the challenges of dataset annotations
+                 (scarce annotations and noisy annotations) in the domain of medical images, particularly echocardiographic images.
+              </h3>
             </div>
           </div>
-            <div class="text-left">
-          <!--    <a class="btn btn-primary" href="#" role="button">Download the paper</a> -->
-            </div>
+        </div>
+
           </div>
         </div>
 
@@ -87,18 +90,25 @@
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
 
             <figure>
-              <img class="Sample_img" src="assets\img\projects\Efficient_Annotations\Segment.PNG" alt="Annotation" width="600" height="400">
+              <img class="Sample_img" src="assets\img\projects\Efficient_Annotations\sample LV2.PNG" alt="Annotation" width="600" height="400">
               <figcaption>Example of a sample image from the dataset.</figcaption>
             </figure>
 
             </div>
             <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+                <div align="justify">
               <h2>Dataset</h2>
-              <h3>The dataset will be used is Doppler images </h3>
+              <h3>Real-world patient datasets will be used. It will be provided by the project collaborators and clinical partners,
+                the School of Medicine, Imperial College, London. They will provide access to their patient datasets and studies.
+                In addition, the clinical staff will be available to provide support and advice for cardiac images annotations.
+                  The dataset that will be used for this project is the echocardiogram for the Left Ventricle (LV) of the heart.
+                  It includes 3065 images that will be used for training, testing, and validation.
+                  The labels are obtained as coordinates of the LV from JSON files, then the data preprocessing is performed by
+                  creating the masks and cleaning the dataset.
+                  </h3>
               <br>
-              <div class="text-left">
+            </div>
 
-              </div>
             </div>
           </div>
         </div>
