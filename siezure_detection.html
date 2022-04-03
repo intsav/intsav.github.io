@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ======= Head Section - DON'T CHANGE ======= -->
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Siezure Detection</title>
+  <link href="assets/img/logo.png" rel="icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<!-- ======= Body Section ======= -->
+<body>
+  <!-- ======= Navigation Bar - DON'T CHANGE ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="index.html">Home</a></li>
+          <li><a class="nav-link scrollto" href="index.html #services">Projects</a></li>
+          <li><a class="nav-link scrollto" href="index.html #team">Team</a></li>
+          <li><a class="nav-link scrollto" href="index.html #contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+    </div>
+  </header>
+<!-- End Navigation Bar -->
+
+    <!-- ======= Title Section ======= -->
+    <section id="project-title" class="d-flex align-items-center">
+      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+        <div class="row">
+          <div class="col-12 text-left">
+            <h1>Predicting Epileptic Seizures With a Stacked Long Short-Term Memory Network</h1>
+            <h2><i>Jamie Pordoy <sup>1</sup>, Ying Zhang <sup>2</sup>, Nasser Matoorian <sup>3</sup>, Massoud Zolgharni <sup>4</sup>
+            <h3><sup>1</sup> University of West London <h3>
+            </div>
+          </div>
+        </div>
+    </section>
+<!-- End Title -->
+
+
+  <!-- Main Webpage Section -->
+  <main id="project-main">
+
+    <!-- ======= Project Body Section ======= -->
+    <section id="project-body">
+
+      <!-- ======= Project Introduction ======= -->
+      <div class="project-intro">
+        <div class="container">
+          <div class="row justify-content-left">
+            <div class="col-12">
+              <hr>
+              <h1>PROJECT INTRODUCTION</h1>
+              <br>
+              <p>Although literature supports the notion that seizure detection algorithms require the ability to differentiate convulsive movements from common everyday activities,
+              little has been done to achieve this. Seizure detection algorithms are commonly trained using sequential event prediction, where the measurements from past seizures are used to
+              predict future occurrences. This approach has maintained a high false positive rate throughout the subject field, as the detection process fails to account for movements
+              that share the same spatial coordinates, often incorrectly classifying unrelated movements as a positive event. Therefore, seizure detection algorithms need to distinguish non-seizure 
+              movements from the rhythmic jerking and convulsions observed during a generalised event.</p>
+
+              <p>This paper addresses this problem at an algorithmic level, and develops a deep learning  model for accelerometer detection that combines activity recognition with traditional
+              accelerometer based seizure detection techniques.</p>
+            </div>
+          </div>
+            <div class="text-left">
+              <a class="btn btn-primary" href="https://github.com/jpordoy/PhD-Research-Publications/raw/main/Movement%20Recognition/Second_Revision_IJAAIML-%5BFINAL_CHECK%5D.pdf" role="button">Download the paper</a>
+            </div>
+          </div>
+        </div>
+
+
+      <!-- ======= Project Dataset ======= -->
+      <div class = "project-dataset">
+        <div class="container project-container">
+          <div class="row justify-content-left">
+            <div class="col-12 col-md-12 col-lg-7 col-xl-7">
+              <div class="text-center">
+            <img class="img-fluid" src="assets/img/projects/seizure_detection/xyz.png" alt="IMAGE PLACEHOLDER">
+            <figcaption style="margin-top:15px;">A timesequence of x,y,z data</figcaption>
+            </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-5 col-xl-5"  >
+              <h2>Dataset</h2>
+              <div class="text-left">
+
+                <p>For this research project data was collected from 10 participants (eight healthy adults and two with juvenile myoclonic epilepsy (JME) using a wrist-worn tri-axial ACM and gyroscope
+                 operating at a frequency of 25Hz. Spanning a 48-hour period, participants were 
+                instructed to carry out the following movements</p>
+
+                <p>Brush teeth, Downstairs, Jogging, Lie-down, Make sandwich, Seizure, Sitting, Sleeping, Standing, Upstairs, Walking, Watching TV</p>
+
+                <p>The movements were selected using the list by Lockman et al [12],  who identified several movements that share similar coordinates in three-dimensional space with a generalised seizure. 
+                12 epileptic seizures were recorded from the two adults diagnosed with epilepsy, whilst a further 34 seizures were simulated by the remaining participants. 
+                Video recordings of simulated and non-simulated seizures were used to accurately guide participants when recreating the muscle twitches and convulsions seen in a generalised onset.</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-left">
+
+
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+              <br>
+          
+          <h2>Feature Engineering and pre-processing</h2>
+          <div class="text-left">
+
+                <p>Participants performed each movement 5 times with a maximum duration of 30 seconds for each movement. The data recorded for each movement was then converted into a series of fixed length time sequences, 
+                each spanning 10 seconds and containing 200 (20 records p/s * 10 second time segment ) records per fixed length sequence.</p> 
+            </div>
+          </div>
+          <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+          <div class="row">
+            <div class="col-md-2" ></div>
+            <div class="col-md-10 text-center" >           
+              <img class="img-fluid" src="assets/img/projects/seizure_detection/patient.PNG" alt="Patient1" style="width:100%"> 
+              <figcaption style="margin-top:15px;">Participant mimicking a generalised tonic-clonic seizure.</figcaption>   
+            </div>
+            </div>
+           </div>
+          </div>
+        </div>
+
+        <!-- ======= Project Architecture ======= -->
+      <div class = "project-architecture">
+
+          <div class="container">
+            <hr>
+            <div class="row justify-content-left">
+              <div class="col-12">
+              <h2>Network Architecture</h2>
+              <p>This research project used a stacked LSTM neural network for multi-class classification of fixed length time sequences. The model consists of 2 fully connected layers and 2 stacked LSTM layers with 64 LSTM units in each. A ReLU activation function was used to feed data from the fully connected layers to the LSTM units in Layer 1.</p>
+               
+              <div class="text-center">
+              <img class="img-fluid" src="assets/img/projects/seizure_detection/ddh-Page-3.drawio (2).png" alt="model" style="">
+              <figcaption style="margin-top:15px;">Network Architecture</figcaption>
+              </div>
+
+            <br/>
+
+            <p>The following components were used to construct the model.</p>            
+            </div>
+                  <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                    <h6><Strong>L2 Regularisation</Strong></h6>
+                      <p>The model used an L2 regularizer to  prevent overfitting and reduce generalisation errors without altering the training error value.</p>
+                    <h6><Strong>Loss Function</Strong></h6>
+                      <p>The model used a cross-entropy loss (log loss) function for single label categorisation. The L2 regularizer was then used with a cross-entropy loss function to improve the networks performance.</p>
+                    <h6><Strong>Softmax Function</Strong></h6>
+                      <p>A softmax function was used for the final layer of the network and takes an input vector of K-values and transforms it into a vector of K-values that have a combined sum of 1 so that they can be used as probability measures
+                        for multi-class classification.</p>
+                    <h6><Strong>Adaptive Moment Estimation</Strong></h6>
+                      <p>The model used the Adam stochastic optimisation algorithm as it combines the advantages of Adaptive Gradient (AdaGrad) and Root Mean Square Propagation (RMSProp) for first-order gradient-based optimisation of the stochastic objective function.</p>
+                </div>
+
+                <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                  <br>
+                  <div class="text-center">
+                  <p style="text-align:center;"><img class="img-fluid" src="assets/img/projects/seizure_detection/cell.png" alt="cell" style="width:80%" ></p>
+                  <figcaption style="margin-top:15px;">The structure of a single LSTM unit.</figcaption>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- ======= Project Implementation ======= -->
+        <div class = "project-implementation">
+          <div class="container">
+            <div class="row justify-content-left">
+              <div class="col-12">
+                <hr>
+          
+              <div class="text-left">
+          <div class="row">
+
+            <div class="col-12 col-lg-6 col-md-6 text-center">
+              <img class="img-fluid" src="assets/img/projects/seizure_detection/training.png" alt="IMAGE PLACEHOLDER">
+              <figcaption style="margin-top:15px;">Training accuracy and loss for a stacked LSTM network.</figcaption>
+            </div>
+
+            <div class="col-12 col-lg-6 col-md-6">
+              <div class="text-left">
+                <h2>Implementation</h2>
+                  <p>The model was developed using the Python programming language, with the Tensor Flow 2.0 framework and Keras dp learning library. 
+                  Google Colab was used as the development environment for this research. Colab’s data analysis and graphical processing tools were leveraged 
+                  during the training and testing of the model to reduce development time.</p>
+                              
+                  <h6><Strong>Train/Test Split</Strong></h6>
+                  <p>After preprocessing, the dataset was split into a 75:25 ratio with 75% of the data allocated to train the model and the remaining 25% used to test its performance.</p>
+
+                  <h6><Strong>Learning Rate</Strong></h6>
+                  <p>The learning rate passed to the models ADAM optimizer was set at 0.0025</p>
+
+                  <h6><Strong>L2 Loss</Strong></h6>
+                  <p>The L2 regularizer used a pre-set L2 loss measure of 0.0015.</p>
+
+                  <h6><Strong>Epochs</Strong></h6>
+                  <p>The model was trained for 50 epochs. As accuracy increases the loss value decreases until they both stabilise at 35 and 50 epochs, respectively.</p>
+                <br/>
+                <br/>
+              </div>
+            </div>
+
+           </div>
+
+              </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- ======= Project Evaluation ======= -->
+      <div class = "project-evaluation">
+        <div class="container align-middle">
+          <hr>
+          <div class="row">
+
+            <div class="col-12 col-lg-6 col-md-6 text-left">
+                <h2>Evaluation metrics</h2>
+                <p>A series of experiments were conducted to evaluate the performance of the developed
+                LSTM network. The experiments evaluate the networks classification capabilities when
+                differentiating types of movement.</p>
+                <p>A confusion matrix was used to summarises the predicted and actual values outputted by the model. These values are then classified as True-positive (TP), False-positive (FP), True-negative (TN) and False-negative (FN). </p>
+                <br/>
+                <br/>
+                <p>The output values of the confusion matrix were then used to measure the model’s  performance regarding accuracy, precision, recall and f-measure.</p>
+            </div>
+            <div class="col-12 col-lg-6 col-md-6" style="padding:50px">
+              <div class="text-center">
+              <img class="img-fluid" src="assets/img/projects/seizure_detection//cm1.png" alt="">
+               <figcaption style="margin-top:15px;">Classification Performance Measures.</figcaption>
+              </div>
+            </div>
+          </div>
+        </div>    
+      </div>
+
+      <!-- ======= Project Results ======= -->
+      <div class = "project-results">
+        <div class="container">
+          <hr>
+
+            <div class="row justify-content-left">
+              <div class="col-12">
+                <div class="text-left">
+                  <h2>Results</h2>
+                  <p>
+                </div>
+              </div>
+            </div>
+              <p> The following table shows the precision, recall and f-measure scores for the model based on the classified results for each movement in our dataset. Precision represents the proportion of positive predictions that were made, thus the network distinguished epileptic seizures 92% of the time. </p>
+
+              <p>A recall score of 87% was recorded, which indicates the number of times a positive value was correctly identified for each activity. Furthermore, the recorded f-measure (harmonic mean) was recorded at 89%, 
+              which was above expected results.
+              The LSTM model distinguished several types of movement before predicting a generalised seizure, with accuracy and loss score of 94.74% and 0.334 respectively.</p>
+
+              <p>The LSTM model distinguished several types of movement before predicting a generalised seizure, with an accuracy and loss score of 94.74% and 0.334 respectively. </p>
+
+
+          <div class="row justify-content-left">
+            <div class="col-12 col-lg-6">
+              <div class="text-left">
+               <div class="text-center">
+                 <p style="margin-top:25px;"></p> <img class="img-fluid" src="assets/img/projects/seizure_detection/graph.png" alt="precision and recall" style="width:100%">
+                  <figcaption style="margin-top:15px;">Precision, Recall and f-Measure Results</figcaption>
+                </div>
+               </div>
+              </div>
+
+              <div class="col-12 col-lg-6 text-center">
+                <p style="margin-top:25px;">
+                <img class="img-fluid" src="assets/img/projects/seizure_detection/graph2.png" alt="precision and recall" ></p>
+               <figcaption style="margin-top:15px;">Accuracy and Loss Results</figcaption>
+                </div>
+                <br/><br/>
+              </div>
+            </div>
+          </div>
+
+
+    <!-- ======= Contact Section ======= -->
+
+
+          </section><!-- End project-body -->
+
+      </main><!-- End #main -->
+
+  <!-- ======= Footer - DONT CHANGE ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>IntSav Research Group</h3>
+            <p>
+              C/O Professor Massoud Zolgharni <br>
+              University of West London<br>
+              St Mary's Rd <br>
+              Ealing,<br>
+              London, England.<br>
+              W5 5RF<br><br>
+              <strong>Phone:</strong> 0800 036 8888<br>
+              <strong>Email:</strong> Massoud.Zolgharni@uwl.ac.uk<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://www.uwl.ac.uk/research/research-centres/intelligent-sensing">UWL homepage</a></li>
+            </ul>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>IntSaV</span></strong>. All Rights Reserved
+        </div>
+
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
