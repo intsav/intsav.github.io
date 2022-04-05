@@ -30,9 +30,14 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto" href="index.html">Home</a></li>
-          <li><a class="nav-link scrollto" href="index.html #services">Projects</a></li>
-          <li><a class="nav-link scrollto" href="index.html #team">Team</a></li>
+          <li><a class="nav-link scrollto" href="index.html #projects">Projects</a></li>
+          <li><a class="nav-link scrollto" href="index.html #team">People</a></li>
+          <li><a class="nav-link scrollto" href="index.html #resources">Resources</a></li>
+          <li><a class="nav-link scrollto" href="index.html #funding">Funding</a></li>
+          <li><a class="nav-link scrollto" href="index.html #partners">Partners</a></li>
+          <li><a class="nav-link scrollto" href="index.html #workwithus">Vacancies</a></li>
           <li><a class="nav-link scrollto" href="index.html #contact">Contact</a></li>
+        </ul>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
@@ -46,8 +51,8 @@
         <div class="row">
           <div class="col-12 text-left">
             <h1>Predicting Epileptic Seizures With a Stacked Long Short-Term Memory Network</h1>
-            <h2><i>Jamie Pordoy <sup>1</sup>, Ying Zhang <sup>2</sup>, Nasser Matoorian <sup>3</sup>, Massoud Zolgharni <sup>4</sup>
-            <h3><sup>1</sup> University of West London <h3>
+          <!--  <h2><i>Jamie Pordoy <sup>1</sup>, Ying Zhang <sup>2</sup>, Nasser Matoorian <sup>3</sup>, Massoud Zolgharni <sup>4</sup>
+            <h3><sup>1</sup> University of West London <h3> -->
             </div>
           </div>
         </div>
@@ -72,16 +77,16 @@
               <p>Although literature supports the notion that seizure detection algorithms require the ability to differentiate convulsive movements from common everyday activities,
               little has been done to achieve this. Seizure detection algorithms are commonly trained using sequential event prediction, where the measurements from past seizures are used to
               predict future occurrences. This approach has maintained a high false positive rate throughout the subject field, as the detection process fails to account for movements
-              that share the same spatial coordinates, often incorrectly classifying unrelated movements as a positive event. Therefore, seizure detection algorithms need to distinguish non-seizure 
+              that share the same spatial coordinates, often incorrectly classifying unrelated movements as a positive event. Therefore, seizure detection algorithms need to distinguish non-seizure
               movements from the rhythmic jerking and convulsions observed during a generalised event.</p>
 
               <p>This paper addresses this problem at an algorithmic level, and develops a deep learning  model for accelerometer detection that combines activity recognition with traditional
               accelerometer based seizure detection techniques.</p>
             </div>
           </div>
-            <div class="text-left">
+          <!--  <div class="text-left">
               <a class="btn btn-primary" href="https://github.com/jpordoy/PhD-Research-Publications/raw/main/Movement%20Recognition/Second_Revision_IJAAIML-%5BFINAL_CHECK%5D.pdf" role="button">Download the paper</a>
-            </div>
+            </div> -->
           </div>
         </div>
 
@@ -101,13 +106,13 @@
               <div class="text-left">
 
                 <p>For this research project data was collected from 10 participants (eight healthy adults and two with juvenile myoclonic epilepsy (JME) using a wrist-worn tri-axial ACM and gyroscope
-                 operating at a frequency of 25Hz. Spanning a 48-hour period, participants were 
+                 operating at a frequency of 25Hz. Spanning a 48-hour period, participants were
                 instructed to carry out the following movements</p>
 
                 <p>Brush teeth, Downstairs, Jogging, Lie-down, Make sandwich, Seizure, Sitting, Sleeping, Standing, Upstairs, Walking, Watching TV</p>
 
-                <p>The movements were selected using the list by Lockman et al [12],  who identified several movements that share similar coordinates in three-dimensional space with a generalised seizure. 
-                12 epileptic seizures were recorded from the two adults diagnosed with epilepsy, whilst a further 34 seizures were simulated by the remaining participants. 
+                <p>The movements were selected using the list by Lockman et al [12],  who identified several movements that share similar coordinates in three-dimensional space with a generalised seizure.
+                12 epileptic seizures were recorded from the two adults diagnosed with epilepsy, whilst a further 34 seizures were simulated by the remaining participants.
                 Video recordings of simulated and non-simulated seizures were used to accurately guide participants when recreating the muscle twitches and convulsions seen in a generalised onset.</p>
 
               </div>
@@ -118,20 +123,20 @@
 
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
               <br>
-          
+
           <h2>Feature Engineering and pre-processing</h2>
           <div class="text-left">
 
-                <p>Participants performed each movement 5 times with a maximum duration of 30 seconds for each movement. The data recorded for each movement was then converted into a series of fixed length time sequences, 
-                each spanning 10 seconds and containing 200 (20 records p/s * 10 second time segment ) records per fixed length sequence.</p> 
+                <p>Participants performed each movement 5 times with a maximum duration of 30 seconds for each movement. The data recorded for each movement was then converted into a series of fixed length time sequences,
+                each spanning 10 seconds and containing 200 (20 records p/s * 10 second time segment ) records per fixed length sequence.</p>
             </div>
           </div>
           <div class="col-12 col-md-12 col-lg-6 col-xl-6">
           <div class="row">
             <div class="col-md-2" ></div>
-            <div class="col-md-10 text-center" >           
-              <img class="img-fluid" src="assets/img/projects/seizure_detection/patient.PNG" alt="Patient1" style="width:100%"> 
-              <figcaption style="margin-top:15px;">Participant mimicking a generalised tonic-clonic seizure.</figcaption>   
+            <div class="col-md-10 text-center" >
+              <img class="img-fluid" src="assets/img/projects/seizure_detection/patient.PNG" alt="Patient1" style="width:100%">
+              <figcaption style="margin-top:15px;">Participant mimicking a generalised tonic-clonic seizure.</figcaption>
             </div>
             </div>
            </div>
@@ -147,7 +152,7 @@
               <div class="col-12">
               <h2>Network Architecture</h2>
               <p>This research project used a stacked LSTM neural network for multi-class classification of fixed length time sequences. The model consists of 2 fully connected layers and 2 stacked LSTM layers with 64 LSTM units in each. A ReLU activation function was used to feed data from the fully connected layers to the LSTM units in Layer 1.</p>
-               
+
               <div class="text-center">
               <img class="img-fluid" src="assets/img/projects/seizure_detection/ddh-Page-3.drawio (2).png" alt="model" style="">
               <figcaption style="margin-top:15px;">Network Architecture</figcaption>
@@ -155,7 +160,7 @@
 
             <br/>
 
-            <p>The following components were used to construct the model.</p>            
+            <p>The following components were used to construct the model.</p>
             </div>
                   <div class="col-12 col-md-12 col-lg-6 col-xl-6">
                     <h6><Strong>L2 Regularisation</Strong></h6>
@@ -186,7 +191,7 @@
             <div class="row justify-content-left">
               <div class="col-12">
                 <hr>
-          
+
               <div class="text-left">
           <div class="row">
 
@@ -198,10 +203,10 @@
             <div class="col-12 col-lg-6 col-md-6">
               <div class="text-left">
                 <h2>Implementation</h2>
-                  <p>The model was developed using the Python programming language, with the Tensor Flow 2.0 framework and Keras dp learning library. 
-                  Google Colab was used as the development environment for this research. Colab’s data analysis and graphical processing tools were leveraged 
+                  <p>The model was developed using the Python programming language, with the Tensor Flow 2.0 framework and Keras dp learning library.
+                  Google Colab was used as the development environment for this research. Colab’s data analysis and graphical processing tools were leveraged
                   during the training and testing of the model to reduce development time.</p>
-                              
+
                   <h6><Strong>Train/Test Split</Strong></h6>
                   <p>After preprocessing, the dataset was split into a 75:25 ratio with 75% of the data allocated to train the model and the remaining 25% used to test its performance.</p>
 
@@ -250,7 +255,7 @@
               </div>
             </div>
           </div>
-        </div>    
+        </div>
       </div>
 
       <!-- ======= Project Results ======= -->
@@ -268,7 +273,7 @@
             </div>
               <p> The following table shows the precision, recall and f-measure scores for the model based on the classified results for each movement in our dataset. Precision represents the proportion of positive predictions that were made, thus the network distinguished epileptic seizures 92% of the time. </p>
 
-              <p>A recall score of 87% was recorded, which indicates the number of times a positive value was correctly identified for each activity. Furthermore, the recorded f-measure (harmonic mean) was recorded at 89%, 
+              <p>A recall score of 87% was recorded, which indicates the number of times a positive value was correctly identified for each activity. Furthermore, the recorded f-measure (harmonic mean) was recorded at 89%,
               which was above expected results.
               The LSTM model distinguished several types of movement before predicting a generalised seizure, with accuracy and loss score of 94.74% and 0.334 respectively.</p>
 
@@ -293,6 +298,35 @@
                 <br/><br/>
               </div>
             </div>
+
+            <div class="container">
+              <hr>
+            <div class="row justify-content-left">
+              <div class="col-12">
+                <div class="text-left">
+                      <h1> <b> Project Team </b></h1>
+                      <h6> <a href="https://www.linkedin.com/in/jamiepordoy/" target="_blank" rel="noopener noreferrer"> Jamie Pordoy </a></h6>
+                      <h6>  <a href="https://www.linkedin.com/in/dr-ying-zhang-96a05628/?originalSubdomain=uk" target="_blank" rel="noopener noreferrer"> Ying Zhang </a></h6>
+                      <h6>  <a href="https://www.uwl.ac.uk/staff/nasser-matoorianpour" target="_blank" rel="noopener noreferrer"> Nasser Matoorian </a></h6>
+
+                      <h6> <a href="https://www.uwl.ac.uk/staff/massoud-zolgharni" target="_blank" rel="noopener noreferrer"> Massoud Zolgharni  </a></h6>
+                </div >
+             </div>
+          </div>
+        </div>
+        <div class="container">
+          <hr>
+
+            <div class="row justify-content-left">
+              <div class="col-12">
+                <div class="text-left">
+                  <h1> <b>  References</b> </h1>
+                  <br>
+                  <h3> <a  href="https://www.semanticscholar.org/paper/Predicting-epileptic-seizures-with-a-stacked-long-Pordoy-Zhang/7948986db19a5f18b8848090925f646274cdde0a" >Predicting Epileptic Seizures With a Stacked Long Short-Term Memory Network</a></h3>
+
+                </div>
+              </div>
+            </div>
           </div>
 
 
@@ -306,35 +340,7 @@
   <!-- ======= Footer - DONT CHANGE ======= -->
   <footer id="footer">
 
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
 
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>IntSav Research Group</h3>
-            <p>
-              C/O Professor Massoud Zolgharni <br>
-              University of West London<br>
-              St Mary's Rd <br>
-              Ealing,<br>
-              London, England.<br>
-              W5 5RF<br><br>
-              <strong>Phone:</strong> 0800 036 8888<br>
-              <strong>Email:</strong> Massoud.Zolgharni@uwl.ac.uk<br>
-            </p>
-          </div>
-
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="https://www.uwl.ac.uk/research/research-centres/intelligent-sensing">UWL homepage</a></li>
-            </ul>
-          </div>
-
-
-        </div>
-      </div>
-    </div>
 
     <div class="container d-md-flex py-4">
 
