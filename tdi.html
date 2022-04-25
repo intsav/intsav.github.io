@@ -48,10 +48,11 @@
       <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
         <div class="row">
           <div class="col-12 text-left">
-            <h1>TDI Beat and Keypoint Detection</h1>
-        <!--    <h2><i>Elisabeth S Lane <sup>1</sup>, Jevgeni Jevsikov <sup>1</sup>, Eman Alajrami <sup>1</sup>, James P Howard <sup>2</sup>, Matthew J Shun-shin <sup>2</sup>, Graham D Cole <sup>2</sup>, Darrel P Francis <sup>2</sup>, Massoud Zolgharni <sup>1,2</sup><i></h2>
+            <h1>Automated Multibeat Tissue Doppler Echocardiography Analysis Using Deep Neural Networks</h1>
+            <h2><i>Elisabeth S Lane <sup>1</sup>, Jevgeni Jevsikov <sup>1</sup>, Niti Dhutia <sup>2</sup>, Matthew J Shun-shin <sup>3</sup>, Darrel P Francis <sup>3</sup>, Massoud Zolgharni <sup>1,3</sup><i></h2>
             <h3><sup>1</sup> School of Computing and Engineering, University of West London, London, United Kingdom<h3>
-            <h3><sup>2</sup> National Heart and Lung Institute, Imperial College, London, United Kingdom<h3> -->
+            <h3><sup>2</sup> New York University, Abu Dhabi<h3>
+            <h3><sup>3</sup> National Heart and Lung Institute, Imperial College, London, United Kingdom<h3>
             </div>
           </div>
         </div>
@@ -69,9 +70,11 @@
           <div class="row justify-content-left">
             <div class="col-12">
               <hr>
-              <h1><b>Project Introduction</b> </h1><br>
-              <h1>We have developed a network capable of accurately detecting multiple heartbeats and S', E' and A'
-                 keypoints for each from variable length tissue doppler imaging strips.</h1>
+              <h1><b>Abstract</b> </h1><br>
+              <h1>Tissue Doppler Imaging is an essential echocardiographic technique for the non-invasive assessment of myocardial blood velocity. Interpretation by trained experts is time-consuming
+                and disruptive to workflow. This study presents an automated deep learning model, trained
+                and tested on Doppler strips of arbitrary length, capable of rapid beat detection and Cartesian coordinate localisation of peak velocities with accuracy indistinguishable from human
+                experts, but with greater speed.</h1>
               <br>
             </div>
           </div>
@@ -89,20 +92,14 @@
             <img class="img-fluid" src="assets/img/projects/TDI/data_example.png" alt="TDI example strip">
             </div>
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-              <h2>Dataset</h2>
-              <h3>Pulsed-wave tissue Doppler traces were acquired from 48 patients (30 male). Patients had a mean age of 64±11 years.
-                The patients investigated were recruited from
-               patients who had undergone echocardiography with Imperial College Healthcare NHS Trust. Only patients in sinus
-               rhythm were included. No other exclusion criteria were
-               applied. The study was approved by the local ethics committee and written informed consent was obtained.
-               Each patient underwent standard tissue Doppler assessment of left ventricular function by an experienced echocardiographer. The operator was advised to optimise the
-               images as would normally be done in clinical practice. For
-               all acquisitions, the sample volume size was 5 mm with a
-               sweep speed of 75 mm/s. Traces from both the septal and
-               lateral annuli were acquired for 30s each. This entire process was conducted three times, with the probe removed
-               from the chest and then placed back on the chest optimally
-               between each recording. A total of six 30-second recordings (three at the septal annulus and three at the lateral
-               annulus) of tissue Doppler data were acquired for each patient.<p>
+              <h2>Introduction</h2>
+              <h3>Tissue Doppler imaging (TDI) is a relatively new echocardiographic technique that uses
+                Doppler principles to measure the velocity of myocardial motion. Clinical guidelines recommend averaging peak velocity measurements over a minimum of three consecutive beats. However, echocardiographers often select beats they consider an
+                average representative sample which may contribute to test-retest variability, leading to
+                diagnostic errors. A reliable and objective automated system would
+                save valuable resources for health services and has potential to improve patient outcomes
+                by averaging measurements over more beats. By removing manual detection, specialists’
+                time can be better spent acquiring more high-quality beats, reducing subjectivity and cost.<p>
                In the example image, each cardiac cycle is indicated by a red vertical line with annotations from two trained experts for each keypoint. Expert 1 is a cross, with expert 2 a square.
               </h3>
               <br>
@@ -120,17 +117,29 @@
             <hr>
             <div class="row justify-content-left">
               <div class="col-12">
-              <h2>Network Architecture</h2>
+              <h2>Method</h2>
             </div>
-              <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-                  <h3>The architecture comprises an object detection model for the isolation of complete heartbeats
-                  followed by a keypoint localisation network to identify the S', E' and A' landmarks in each beat object.
-                A sliding window approach was adopted to ensure all possible beats were detected and ensure full utilisation of the available data.</h3>
-                In the example image, bounding boxes generated by the object detector and keypoints localised by the network are displayed.
+              <div class="col-12 col-md-12 col-lg-6 col-xl-8">
+                  <h3>TDI traces were acquired from 48 patients with a mean age of 64±11 years, from both the
+                    septal and lateral annuli. Information about the dataset and patient characteristics can be
+                    found in. Six recordings were acquired for each patient and reconstructed into a continuous Doppler strip with a resolution of 900 x 1300 pixels. Information
+                    about the reconstruction methods can be found in. The dataset
+                    comprises 280 Doppler strips (5,327 beats). Annotations are from three expert clinicians;
+                    ground-truth labels for Model training and evaluation were calculated as the expert consensus. Additionally, for the purpose of investigating inter-observer variability, three additional
+                    networks were trained on individual expert labels, named Model-1, Model-2 and Model-3, respectively.
+                    <br>The network architecture is two-fold:<br><br>
+                    <b>A.</b> Heartbeats are detected/isolated
+                    (without the need for ECG signal)
+                    as a ROI by the Mask R-CNN architecture with a ResNet101 backbone. Images are resized and
+                    zero padded to 1024x1024 pixels<br><br>
+                    <b>B1-B3.</b> ROI is cropped and resized to 192 x 192 pixels and input
+                    to a convolutional heatmap regression model to predict Cartesian coordinates for systolic and diastolic
+                    peak velocities (S’, E’ and A’), as
+                    shown in the figure to the right.</h3>
                 </div>
-                <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                <div class="col-12 col-md-12 col-lg-6 col-xl-4">
                   <br>
-                  <img class="img-fluid" src="assets/img/projects/TDI/example.png" alt="IMAGE PLACEHOLDER">
+                  <img class="img-fluid" src="assets/img/projects/TDI/pipeline.jpg" alt="Entire Pipeline">
                 </div>
               </div>
             </div>
@@ -142,64 +151,133 @@
             <div class="row justify-content-left">
               <div class="col-12">
                 <hr>
-                <h2>Implementation</h2>
-                <h3>Coming soon.</h3>
+                <h2>Results and Discussion</h2>
+                <h3>Computation time for manual peak velocity annotations by human experts, compared to
+                  the automated model, was calculated over an average sample of 25 heartbeats; 4.76 seconds
+                  and 0.18 milliseconds, respectively. Cartesian coordinates in pixels were converted into
+                  Velocity measurements in cm/s.</h3>
+                  <br>
+                  <img class="img-fluid" src="assets/img/projects/TDI/plots.png" alt="Plots" width="800px" height="700px">
+                  <br><br>
+                  <h3>The figure above shows mean septal S’, E’ and A’ velocity estimates and standard deviations
+                    using the experts consensus (red) and the Model (black) for each patient. Circular markers represent the mean and vertical bars represent the standard deviation. Patients have been
+                    placed in ascending order of the average velocity.
+                    Table 1 details Bland–Altman bias and 95% limits of agreement when comparing expert
+                    annotations and Model predictions for peak tissue Doppler velocity measurements at the
+                    septal and lateral annulus.
+                    We demonstrate the performance of the proposed Model is akin to human experts; detection
+                    error is within the range of calculated inter-observer variability, however processing time is
+                    greatly reduced.</h3><br><br>
+
+                    <div class="table-responsive">
+                      <table class="table table-hover table-light align-middle">
+                    			<thead>
+                    				<tr>
+                    					<th rowspan="2">Model/Expert</th>
+                    					<th colspan="3">Septal annulus</th>
+                    					<th colspan="3">Lateral annulus</th>
+                    				</tr>
+                    				<tr>
+                    					<th>S'</th>
+                    					<th>E'</th>
+                    					<th>A'</th>
+                              <th>S'</th>
+                    					<th>E'</th>
+                    					<th>A'</th>
+                    				</tr>
+                    			</thead>
+                    			<tbody>
+                            <tr>
+                              <td colspan="7"><b>Human performance</b></td>
+                            </tr>
+                    				<tr>
+                    					<td>Exp 1,2 vs. Expert-3</td>
+                    					<td>0.13±0.59</td>
+                    					<td>-0.18±0.59</td>
+                    					<td>-0.06±0.84</td>
+                    					<td>0.33±0.91</td>
+                              <td>0.15±0.92</td>
+                    					<td>0.11±0.84</td>
+                    				</tr>
+                            <tr>
+                    					<td>Exp 1,3 vs. Expert-2</td>
+                    					<td>0.06±0.50</td>
+                    					<td>-0.22±0.60</td>
+                    					<td>0.29±0.70</td>
+                    					<td>0.33±0.87</td>
+                              <td>0.12±0.80</td>
+                    					<td>0.17±0.75</td>
+                    				</tr>
+                            <tr>
+                    					<td>Exp 2,3 vs. Expert-1</td>
+                    					<td>-0.19±0.63</td>
+                    					<td>-0.04±0.56</td>
+                    					<td>-0.24±0.69</td>
+                    					<td>-0.66±0.94</td>
+                              <td>-0.27±0.77</td>
+                    					<td>-0.27±0.78</td>
+                    				</tr>
+                            <tr>
+                    					<td>Expert consensus</td>
+                    					<td>-0.14±0.67</td>
+                    					<td>0.06±0.70</td>
+                    					<td>-0.08±0.90</td>
+                    					<td>-0.44±1.10</td>
+                              <td>-0.19±0.97</td>
+                    					<td>-0.17±0.92</td>
+                    				</tr>
+                            <tr>
+                              <td colspan="7"><b>Machine performance</b></td>
+                            </tr>
+                            <tr>
+                    					<td>Exp 1, 2 vs. Model-3</td>
+                    					<td>-0.01±0.82</td>
+                    					<td>-0.42±1.00</td>
+                    					<td>-0.11±0.85</td>
+                    					<td>0.59±0.93</td>
+                              <td>0.08±1.32</td>
+                    					<td>0.38±1.87</td>
+                    				</tr>
+                            <tr>
+                    					<td>Exp 1, 3 vs. Model-2</td>
+                    					<td>0.04±0.93</td>
+                    					<td>0.15±0.94</td>
+                    					<td>0.44±0.98</td>
+                    					<td>0.50±0.93</td>
+                              <td>0.19±1.10</td>
+                    					<td>0.21±1.66</td>
+                    				</tr>
+                            <tr>
+                    					<td>Exp 2, 3 vs. Model-1</td>
+                    					<td>-0.12±0.97</td>
+                    					<td>-0.17±0.94</td>
+                    					<td>-0.15±0.99</td>
+                    					<td>-0.11±1.02</td>
+                              <td>-0.04±0.93</td>
+                    					<td>-0.04±1.35</td>
+                    				</tr>
+                            <tr>
+                    					<td>Expert consensus vs. Model</td>
+                    					<td>-0.07±0.78</td>
+                    					<td>-0.22±0.92</td>
+                    					<td>-0.02±0.88</td>
+                    					<td>-0.38±0.81</td>
+                              <td>-0.06±0.84</td>
+                    					<td>0.19±1.38</td>
+                    				</tr>
+                    			</tbody>
+                    		</table>
+                    </div>
+                </div>
+              </div>
                 <div class="text-left">
                   <br>
-                  <a class="btn btn-primary" href="" role="button">Download the code</a>
+                  <a class="btn btn-primary" href="https://github.com/elisabethlane/Keypoint-Detection-Multi-Stage-Heatmap-Regression" role="button">Download the code</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-      <!-- ======= Project Evaluation ======= -->
-      <div class = "project-evaluation">
-        <div class="container align-middle">
-          <hr>
-          <div class="row">
-
-            <div class="col-12 col-lg-6 col-md-6 text-center">
-              <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
-            </div>
-
-            <div class="col-12 col-lg-6 col-md-6">
-              <div class="text-left">
-                <h2>Evaluation metrics</h2>
-                <h3>Coming soon.</h3>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- ======= Project Results ======= -->
-      <div class = "project-results">
-        <div class="container">
-          <hr>
-
-            <div class="row justify-content-left">
-              <div class="col-12">
-                <div class="text-left">
-                  <h2>Results</h2>
-                  <p>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="row justify-content-left">
-              <div class="col-12 col-lg-6">
-                <div class="text-left">
-                  <h3>Coming soon.</h3>
-                </div>
-              </div>
-              <div class="col-12 col-lg-6 text-center">
-                <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
-              </div>
-            </div>
-          </div>
 
     <!-- ======= Contact Section ======= -->
       <section id="contact" class="contact">
@@ -218,7 +296,7 @@
 
                         <div class="col-12">
                           <!-- due to GitHub being static, you need to create a form project on https://formspree.io -->
-                          <form action="" method="post" role="form" class="php-email-form">
+                          <form action="https://formspree.io/f/meqnpebo" method="post" role="form" class="php-email-form">
                             <div class="row justify-content-center align-middle">
                               <div class="col-6 form-group">
                                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
