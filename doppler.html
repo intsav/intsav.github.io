@@ -2,13 +2,16 @@
 <html lang="en">
 
 <!-- ======= Head Section - DON'T CHANGE ======= -->
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Mitral Inflow</title>
   <link href="assets/img/logo.png" rel="icon">
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +25,7 @@
 </head>
 
 <!-- ======= Body Section ======= -->
+
 <body>
   <!-- ======= Navigation Bar - DON'T CHANGE ======= -->
   <header id="header" class="fixed-top">
@@ -43,21 +47,18 @@
     </div>
   </header><!-- End Navigation Bar -->
 
-    <!-- ======= Title Section ======= -->
-    <section id="project-title" class="d-flex align-items-center">
-      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-        <div class="row">
-        <!--  <div class="col-12 text-left"> -->
-            <h1>Mitral Inflow</h1>
-          <!--  <h2><i>Jevgeni Jevsikov <sup>1</sup>, Elisabeth S Lane <sup>1</sup>, Eman Alajrami <sup>1</sup>, James P Howard <sup>2</sup>, Matthew J Shun-shin <sup>2</sup>, Graham D Cole <sup>2</sup>, Darrel P Francis <sup>2</sup>, Massoud Zolgharni <sup>1,2</sup><i></h2>
-              <h3><sup>1</sup> School of Computing and Engineering, University of West London, London, United Kingdom<h3>
-              <h3><sup>2</sup> National Heart and Lung Institute, Imperial College, London, United Kingdom<h3> -->
-            </div>
-          </div>
+  <!-- ======= Title Section ======= -->
+  <section id="project-title" class="d-flex align-items-center">
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+      <div class="row">
+        <div class="col-12 text-left">
+          <h1>Automated Analysis of Mitral Inflow Doppler using Convolutional Neural Networks</h1>
         </div>
-    </section><!-- End Title -->
+      </div>
+    </div>
+  </section><!-- End Title -->
 
-    <!-- Main Webpage Section -->
+  <!-- Main Webpage Section -->
   <main id="project-main">
 
     <!-- ======= Project Body Section ======= -->
@@ -69,205 +70,261 @@
           <div class="row justify-content-left">
             <div class="col-12">
               <hr>
-              <h1><b>PROJECT INTRODUCTION </b></h1>
-              <h2>The project involves detecting E and A mitral inflow peaks using Faster-RCNN and segmentation of the mitral profile using U-net architecture</h2>
+              <h1><b>Abstract</b> </h1><br>
+              <h1>
+                Doppler echocardiography is commonly used for functional assessment of heart valves such as mitral
+                valve.
+                Currently, the measurements are made manually which is a laborious and subjective process.
+                We have demonstrated the feasibility of using neural networks to fully automate the process of mitral v
+                alve inflow measurements. Experiments show that the automated system yields comparable performance to
+                the experts.</h1>
               <br>
             </div>
           </div>
-            <div class="text-left">
-              <!-- <a class="btn btn-primary" href="#" role="button">Download the paper</a> -->
-            </div>
-          </div>
+          <!--  <div class="text-left">
+              <a class="btn btn-primary" href="https://link.springer.com/article/10.1007/s10554-017-1092-4" role="button">Download the paper</a>
+            </div>-->
         </div>
+      </div>
 
       <!-- ======= Project Dataset ======= -->
-      <div class = "project-dataset">
+      <div class="project-dataset">
         <div class="container project-container">
-          <div class="row justify-content-left">
+          <div class="row justify-content-left d-flex flex-wrap align-items-center">
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-            <!-- <img class="img-fluid" src="assets/img/projects/Mitral_Inflow/dataset_sample.png" alt="keypoints"> -->
-
-            <figure>
-              <img class="img-fluid" src="assets/img/projects/Mitral_Inflow/dataset_sample.png" alt="keypoints">
-              <figcaption>Figure 1. Example of an image with labelled keypoints and generated bounding boxes.</figcaption>
-            </figure>
-
+              <img class="img-fluid" src="assets/img/projects/Mitral_Inflow/dataset_sample2.png" alt="Mitral inflow example image">
             </div>
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-              <h2><b>Dataset</b></h2>
-              <h3>The dataset consists of 495 images, which have annotations of E and A keypoints and binary masks for the profile. <br> <br> The bounding boxes for each heartbeat are generated from keypoints. The bounding boxes are generated for heartbeats that include two beats and heartbeats that include one beat.</h3>
+              <h2>Introduction</h2>
+              <h3>
+                Transmitral Doppler echocardiography has become the primary mode of noninvasive assessment of
+                diastolic filling and function. The physiology of ventricular filling is reflected by the transmitral
+                Doppler velocity profile which is comprised of two distinct components (waves); the E-wave (early phase
+                ventricular filling) and the A-wave (atrial phase of ventric- ular filling)). Accurate analysis of
+                Doppler echocardiographic images is therefore of crucial importance. Current clinical practice requires
+                sonographers to manually perform velocity measurements on Doppler traces , which often results in high
+                intra- and inter-observer variability. Automated systems could help
+                standardise measurement protocol and reduce the amount of time spent on these measurements, thereby
+                improving clinical workflow.
+              </h3>
               <br>
               <div class="text-left">
-                <!-- <a class="btn btn-primary" href="#contact" role="button">Download the dataset</a> -->
+                <a class="btn btn-primary" href="#contact" role="button">Download the dataset</a>
               </div>
             </div>
           </div>
         </div>
 
         <!-- ======= Project Architecture ======= -->
-      <div class = "project-architecture">
+        <div class="project-architecture">
 
           <div class="container">
             <hr>
             <div class="row justify-content-left">
               <div class="col-12">
-              <h2><b>Network Architecture</b></h2>
-            </div>
-              <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-                  <h3>IN PROGRESS</h3>
-                </div>
-                <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                <h2>Method</h2>
+              </div>
+              <div class="col-12 col-md-12 col-lg-6 col-xl-8">
+                <h3>
+
+
+                  A random sample of 500 echocardiographic examinations of different patients was extracted from
+                  Imperial College Healthcare NHS Trust’s echocardiogram database. The acquisition of the images was
+                  performed by experienced echocardiographers and according to standard protocols, using ultrasound
+                  equipment from GE and Philips manufacturers. Ethical ap- proval was obtained from the Health
+                  Regulatory Agency (Integrated Research Application System identifier 243023). Mitral inflow Doppler
+                  images were then annotated manually by expert cardiologists, selecting the E- and A-wave peak
+                  coordinates. DICOM-formatted images of varying image sizes images were zero-padded to the size of
+                  1024x1024 pixels. The cardiologist’s annotations of the images were used as the ground truth (400 for
+                  training, and 100 for testing).
                   <br>
-                  <!-- <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER"> -->
-                </div>
+                  A schematic diagram of the full deep learning pipeline is illustrated in Figure 1. In order to
+                  detect/isolate heartbeats, Faster-RCNN object-detection architecture was used. All over- lapping
+                  bounding box predictions are processed using non-maximum suppression method. Predicted bounding boxes
+                  with probability over 70% are then passed to a landmark detec- tion model based on architecture
+                  proposed in (Wei et al., 2016). The predicted heatmaps are then used to extract the location of the E-
+                  and A-waves for all the heartbeats present in the Doppler image. TensorFlow was used to implement the
+                  models, running on Nvidia RTX3090 GPU. <br>
+                  <br>
+                  <br>
+                  <i>
+
+
+                    Shih-En Wei, Varun Ramakrishna, Takeo Kanade, and Yaser Sheikh. Convolutional pose machines. In
+                    Proceedings of the IEEE conference on Computer Vision and Pattern Recog- nition, pages 4724–4732,
+                    2016.
+                  </i>
+                </h3>
+              </div>
+              <div class="col-12 col-md-12 col-lg-6 col-xl-4">
+                <br>
+
+                <figure>
+                  <img class="img-fluid" src="assets/img/projects/Mitral_Inflow/Pipeline_new.png" alt="Entire Pipeline">
+
+                  <figcaption>Figure 1: Full pipeline. a) Original Doppler image as input with no pre-processing. b)
+                    Faster-RCNN detects/seperates every heartbeat present in the image. c) Isolated heartbeats are
+                    cropped. d) Landmark detection model predicts heatmaps. e) E- and A-wave peak points are obtained
+                    from the heatmaps. f) Peak velocities from all heartbeats are put back on the Doppler image.
+                  </figcaption>
+                </figure>
+
+
+                <!-- <img class="img-fluid" src="assets/img/projects/Mitral_Inflow/Pipeline_new.png" alt="Entire Pipeline"> -->
               </div>
             </div>
           </div>
+        </div>
 
         <!-- ======= Project Implementation ======= -->
-        <div class = "project-implementation">
+        <div class="project-implementation">
           <div class="container">
             <div class="row justify-content-left">
               <div class="col-12">
                 <hr>
-                <h2><b>Implementation</b></h2>
-                <h3>IN PROGRESS</h3>
-                <div class="text-left">
-                  <br>
-                  <!-- <a class="btn btn-primary" href="" role="button">Download the code</a> -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      <!-- ======= Project Evaluation ======= -->
-      <div class = "project-evaluation">
-        <div class="container align-middle">
-          <hr>
-          <div class="row">
-
-            <div class="col-12 col-lg-6 col-md-6 text-center">
-              <!-- <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER"> -->
-            </div>
-
-            <div class="col-12 col-lg-6 col-md-6">
-              <div class="text-left">
-                <h2><b>Evaluation metrics</b></h2>
-                <h3>IN PROGRESS</h3>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- ======= Project Results ======= -->
-      <div class = "project-results">
-        <div class="container">
-          <hr>
-
-            <div class="row justify-content-left">
-              <div class="col-12">
-                <div class="text-left">
-                  <h2><b>Results </b></h2>
-                  <p>
-                </div>
-              </div>
-            </div>
-
-            <div class="row justify-content-left">
-              <div class="col-12 col-lg-6">
-                <div class="text-left">
-                  <h3>IN PROGRESS</h3>
-                </div>
-              </div>
-              <div class="col-12 col-lg-6 text-center">
-                <!-- <img class="img-fluid" src="keyp_detection_sample.png" alt="IMAGE PLACEHOLDER"> -->
+                <h2>Results</h2>
+                <h3>Figure 2 upper row shows Bland-Altman plots for the pool of heartbeats across all patients. Bias for
+                  the automated measurements versus the expert measurements was less than 1 cm/s for both E- and A-wave
+                  peak velocities. The lower row shows the same plots, but for a patient-by-patient analysis, where all
+                  heartbeats present in a Doppler image for each patient are averaged. The standard deviation in both
+                  beat-by-beat and patient-by-patient analyses for the A-wave was larger; indicating that this peak was
+                  harder to detect/measure than the E-wave. The image datasets, code, and trained networks
+                  generated/developed in this study are made freely-available for future benchmarking.</h3>
+                <br>
 
                 <figure>
-                  <img class="img-fluid" src="assets/img/projects/Mitral_Inflow/keyp_detection_sample.png" alt="keypoints">
-                  <figcaption>Figure 2. Example of keypoint prediction results.</figcaption>
+                  <img class="img-fluid" src="assets/img/projects/Mitral_Inflow/BAplots.png" alt="Plots" width="800px"
+                    height="700px">
+
+
+                  <figcaption>
+                    Figure 2: Bland-Altman plots for automated vs. manual measurements.
+                  </figcaption>
                 </figure>
 
+
+                <!-- <img class="img-fluid" src="assets/img/projects/Mitral_Inflow/BAplots.png" alt="Plots" width="800px" height="700px"> -->
+
+
+                <!-- <div class="text-left">
+              <br>
+              <a class="btn btn-primary"
+                href="URL HERE"
+                role="button">Download the code</a>
+            </div> -->
               </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+          <div class="container">
+            <div class="section-title">
+              <hr>
+              <h2>Request Access to the project dataset</h2>
+              <h3>We aim to make the dataset available for research purposes soon.</h3>
 
               <div class="container">
-                <hr>
+                <div class="section-title">
+                  <h3><b>If you wish to request access, please complete the form below:<b></h3>
+                  <br>
+                </div>
+                <div class="row">
 
-                  <div class="row justify-content-left">
-                    <div class="col-12">
-                      <div class="text-left">
-                        <h1> <b> Project Team <b></h1> <br>
-                          <h6>  <a href="https://twitter.com/intsav_?lang=en-gb" target="_blank" rel="noopener noreferrer"> Jevgeni Jevsikov</a></h6>
-                          <h6> <a href="https://elisabethlane.github.io/" target="_blank" rel="noopener noreferrer"> Elisabeth S Lane  </a></h6>
-                          <h6> <a href="https://www.researchgate.net/profile/Eman-Alajrami" target="_blank" rel="noopener noreferrer"> Eman Alajrami </a> </h6>
-                          <h6> <a href="https://www.uwl.ac.uk/staff/massoud-zolgharni" target="_blank" rel="noopener noreferrer"> Massoud Zolgharni  </a></h6>
-
+                  <div class="col-12">
+                    <!-- due to GitHub being static, you need to create a form project on https://formspree.io -->
+                    <form action="https://formspree.io/f/meqnpebo" method="post" role="form" class="php-email-form">
+                      <div class="row justify-content-center align-middle">
+                        <div class="col-6 form-group">
+                          <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                            required>
+                        </div>
                       </div>
-                    </div>
+                      <div class="row justify-content-center align-middle">
+                        <div class="col-6 form-group">
+                          <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
+                            required>
+                        </div>
+                      </div>
+                      <div class="row justify-content-center align-middle">
+                        <div class="col-6 form-group ">
+                          <input type="text" class="form-control" name="institution" id="subject"
+                            placeholder="Institution/Workplace" required>
+                        </div>
+                      </div>
+                      <div class="row justify-content-center align-middle">
+                        <div class="col-9 form-group">
+                          <textarea class="form-control" name="message" rows="5"
+                            placeholder="Please let us know why you would like access to this dataset and what you intend to use it for"
+                            required></textarea>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="text-center"><button type="submit">Submit</button></div>
+                    </form>
+
                   </div>
 
                 </div>
 
-
-
+              </div>
             </div>
-          </div>
-          <div class="container">
-            <hr>
+            <div class="container">
+              <hr>
 
               <div class="row justify-content-left">
                 <div class="col-12">
                   <div class="text-left">
-                    <h1>  <b> References </b></h1>
+                    <h1> <b> Project Team <b></h1> <br>
+
+
+                      <h6> <a href="https://twitter.com/intsav_?lang=en-gb" target="_blank" rel="noopener noreferrer">
+                        Jevgeni Jevsikov</a></h6>
+
+                    <h6> <a href="https://elisabethlane.github.io/" target="_blank" rel="noopener noreferrer"> Elisabeth
+                        S
+                        Lane </a></h6>
+
+                    <h6> <a href="https://www.uwl.ac.uk/staff/massoud-zolgharni" target="_blank"
+                        rel="noopener noreferrer"> Massoud Zolgharni </a></h6>
 
                   </div>
                 </div>
               </div>
 
             </div>
-        </div>
 
 
+<!-- 
+            <div class="container">
+              <hr>
 
-          </section>
-          <!-- End project-body -->
+              <div class="row justify-content-left">
+                <div class="col-12">
+                  <div class="text-left">
+                    <h1> <b> References </b></h1>
+                    <br>
+                    <h3> <a href="https://link.springer.com/article/10.1007/s10554-017-1092-4">TDI Beat and Keypoint
+                        Detection</a></h3>
+                  </div>
+                </div>
+              </div>
 
-      </main><!-- End #main -->
+            </div> -->
+          </div>
+        </section><!-- End Contact Section -->
+
+    </section><!-- End project-body -->
+
+  </main><!-- End #main -->
 
   <!-- ======= Footer - DONT CHANGE ======= -->
   <footer id="footer">
 
-<!--    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>IntSav Research Group</h3>
-            <p>
-              C/O Professor Massoud Zolgharni <br>
-              University of West London<br>
-              St Mary's Rd <br>
-              Ealing,<br>
-              London, England.<br>
-              W5 5RF<br><br>
-              <strong>Phone:</strong> 0800 036 8888<br>
-              <strong>Email:</strong> Massoud.Zolgharni@uwl.ac.uk<br>
-            </p>
-          </div>
-
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="https://www.uwl.ac.uk/research/research-centres/intelligent-sensing">UWL homepage</a></li>
-            </ul>
-          </div>
 
 
-        </div>
-      </div>
-    </div> -->
+
 
     <div class="container d-md-flex py-4">
 
@@ -288,7 +345,8 @@
   </footer><!-- End Footer -->
 
   <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/aos/aos.js"></script>
