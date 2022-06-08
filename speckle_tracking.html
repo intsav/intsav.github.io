@@ -113,12 +113,8 @@
                   <h3>
                       In this paper, a new displacement estimation method is introduced by formulating the tracking as an optimisation problem that jointly penalises intensity disparity and motion discontinuity and is, therefore, more robust to the signal decorrelation when compared with previous approaches. The speckle tracking algorithm combines the BM algorithm with a smoothness constraint for a neighbourhood of kernels.<p>
                           The figure to the right provides an overview of the network architecture.
-                      <p> The model comprises:<p> <b>(i) CNN unit:</b> for the encoding of spatial information for each frame of an echocardiographic video input<p> <b>(ii) LSTM units:</b> for the decoding of complex temporal information<p>
-                          <b>(iii) a regression unit:</b> for the prediction of the frames of interest.
-                          <h3>
-                      <p><b>Spatial feature extraction:</b> First, a CNN unit is used to extract a spatial feature vector from every cardiac frame in the image sequence. A series of state-of-the-art architectures were employed for the CNN unit. These included ResNet50, InceptionV3, DenseNet, and InceptionResNetV2.
-                      <p><b>Temporal feature extraction:</b> The CNN unit above is only capable of handling a single image, transforming it from input pixels into an internal matrix or vector representation. LSTM units are therefore used to process the image features extracted from the entire image sequence by the CNN, i.e. interpreting the features across time steps. Stacks of LSTM units (1-layer to 4-layers) were explored, where the output of each LSTM unit not in the final layer is treated as input to a unit in the next.
-                      <p><b>Regression unit:</b> Finally, the output of the LSTM unit is regressed to predict the location of ED and ES frames. The model returns a prediction for each frame in the cardiac sequence (timestep).
+                      <p>
+
                   </h3>
                 </div>
                 <div class="col-12 col-md-12 col-lg-6 col-xl-6">
@@ -136,11 +132,9 @@
               <div class="col-12">
                 <hr>
                 <h2>Implementation</h2>
-                <h3>The models were implemented using the TensorFlow 2.0 deep learning framework and trained using an NVIDIA GeForce ® GTX 1080 Ti GPU.<p>
-                  Random, on the fly augmentation prevented overfitting, such as rotating between -10 and 10 degrees and spatial cropping between 0 and 10 pixels along each axis.<p>
-                  Throughout the study, training was conducted over 70 epochs with a batch size of 2 for all models.
-                  The PACS-dataset was used to train the models, with a data split of 60%, 20% and 20% for training, validation and testing, respectively.<p>
-                  During testing, a sliding window of 30 frames in width with a stride of one was applied, allowing up to 30 predictions of differing temporal importance to be calculated for each timestep. Toward the end of each video, should a segment be fewer than 30 frames in length, it was zero-padded with the added frames removed after completion. Experimentation proved a stack of 2 LSTM layers was the optimum configuration across all models.</h3>
+                <h3>
+                  TBC
+                </h3>
                 <div class="text-left">
                   <br>
                   <a class="btn btn-primary" href="https://github.com/intsav/EchoPhaseDetection" role="button">Download the code</a>
@@ -157,15 +151,13 @@
           <div class="row">
 
             <div class="col-12 col-lg-6 col-md-6 text-center">
-              <img class="img-fluid" src="assets/img/projects/phase_detection/aaFD.png" alt="aaFD">
+            <!--  <img class="img-fluid" src="assets/img/projects/phase_detection/aaFD.png" alt="aaFD"> -->
             </div>
 
             <div class="col-12 col-lg-6 col-md-6">
               <div class="text-left">
                 <h2>Evaluation metrics</h2>
-                <h3>As the primary endpoint for frame detection, evaluation of trained network predictions measures the difference between each labelled target, either ED or ES, and the timestep prediction.<p>
-                    Average Absolute Frame Difference (aaFD) notation is applied (to the left), where <i>N</i> is the number of events within the test dataset.<p>
-                    The signed mean (μ) and standard deviation (σ) of the error (i.e. frame differences) were also calculated.
+                <h3>
                 </h3>
               </div>
             </div>
@@ -183,7 +175,7 @@
               <div class="col-12">
                 <div class="text-left">
                   <h2>Results</h2>
-                  <h3><b>PACS-dataset:</b></h3>
+                  <h3><b> </b></h3>
                   <p>
                 </div>
               </div>
@@ -193,12 +185,12 @@
             <div class="row justify-content-left">
               <div class="col-12 col-lg-6">
                 <div class="text-left">
-                  <h3>The average time (mean±SD) taken by the operators to manually annotate ED/ES frames was 26±11 seconds, per event. The equivalent time for our automated models, executed on the GPU, was less than 1.5 seconds; significantly faster than the human-led process.</h3>
-                  <h3>Examples of two random patient videos for which the frame detection error is zero, as well as when there is a disagreement between the model’s predictions and expert annotations can be seen to the right. </h3>
+                  <h3> </h3>
+                  <h3>  </h3>
                 </div>
               </div>
               <div class="col-12 col-lg-6 text-center">
-                <img class="img-fluid" src="assets/img/projects/phase_detection/pacs-examples.png" alt="pacs examples">
+              <!--  <img class="img-fluid" src="assets/img/projects/phase_detection/pacs-examples.png" alt="pacs examples"> -->
               </div>
             </div>
           </div>
@@ -206,14 +198,13 @@
           <div class="container">
             <div class="row align-middle">
               <div class="col-12 col-lg-7 col-md-7 text-center">
-                <img class="img-fluid" src="assets/img/projects/phase_detection/pacs-results.png" alt="pacs results" width="625px">
+              <!--  <img class="img-fluid" src="assets/img/projects/phase_detection/pacs-results.png" alt="pacs results" width="625px"> -->
               </div>
 
               <div class="col-12 col-lg-5 col-md-5">
                 <div class="text-left align-middle">
                   <br>
-                  <h3>The table to the left details the error in ED and ES frame detection for all videos in the PACS-dataset. The results indicate the level of disagreement between Operator-1 annotations, considered as the ground-truth, compared with automated predictions and those made by Operator-2.
-                  </h3>
+                  <h3>  </h3>
               </div>
             </div>
           </div>
@@ -223,13 +214,12 @@
           <div class="row">
             <div class=" col-12 col-lg-8 col-md-8">
               <div class="text-left align-middle">
-                <h3>The table to the right provides a comparison between the performance of the model and previously reported deep learning results.
-                  The model outperforms almost all existing approaches, indicating smaller discrepancies with the ground-truth from which it has learnt. However, caution is necessary, as different studies have used different private patient datasets, presumably with various levels of image quality and experience of human experts for annotations. Therefore, a direct comparison between the reported accuracies may not be as informative as desired. However, the proposed model’s removal of all pre-processing steps and its capacity to identify multiple heartbeats in one long video is an indisputable advantage.</h3>
-                  <h3>For details about the comparable studies, please see the references in our published paper</h3>
+                <h3> </h3>
+                  <h3> </h3>
               </div>
             </div>
             <div class="col-12 col-lg-4 col-md-4 text-center align-middle">
-              <img class="img-fluid" src="assets/img/projects/phase_detection/previously-reported-results.png" alt="pacs reported results" >
+              <!--<img class="img-fluid" src="assets/img/projects/phase_detection/previously-reported-results.png" alt="pacs reported results" > -->
             </div>
           </div>
         </div>
@@ -238,16 +228,16 @@
                 <div class="row justify-content-left align-middle">
                   <div class="col-12 col-lg-6 col-md-6">
                     <div class="text-left align-middle">
-                      <h3><b>Multibeat-dataset:</b></h3><br>
-                        <h3>The Multibeat dataset was annotated by 5 experts, one of whom annotated twice for the evaluation of intra-observer variability. We refer to Operator-1a as the first set of annotations, and Opoerator-1b as the second set of annotations by the same expert</h3>
-                        <h3>The table to the right details detection errors between Operator-1 and detections made by the model and other operators. The model disagrees with Operator-1, as do Operators 2-5. Indeed, Operator-1 disagreed with themselves on their second annotation attempt. The smallest error was the discrepancy between the two annotations on separate occasions by the same operator (i.e. intra-observer variability), with a mean difference -0.22±2.76 and 0.25±3.75 for ED and ES events, respectively.</h3>
-                      <h3>The range of mean difference between two different operators (i.e. inter-observer variability) was [-0.87, -5.51]±[2.29, 4.26] and [-0.97, -3.46]±[3.67, 4.68] for ED and ES events, respectively. The model discrepancy falls within the range of inter-observer variability. Clearly demonstrating the reliability of the model in frame detection, compared with the experienced human experts.</h3>
+                      <h3><b> </b></h3><br>
+                        <h3> </h3>
+                        <h3> </h3>
+                      <h3>  </h3>
                     </div>
                   </div>
 
                   <div class="col-12 col-lg-6 col-md-6 text-center align-middle">
                     <br><br>
-                    <img class="img-fluid" src="assets/img/projects/phase_detection/multibeat-results.png" alt="multibeat img" >
+                <!--    <img class="img-fluid" src="assets/img/projects/phase_detection/multibeat-results.png" alt="multibeat img" > -->
                   </div>
                 </div>
             </div>
@@ -255,14 +245,12 @@
             <div class="container">
               <div class="row justify-content-left align-middle">
                 <div class="col-12">
-                  <h3><b>EchoNet-dataset:</b></h3><br>
+                  <h3><b> </b></h3><br>
                   <h3>
-                    Previously, the proposed model was compared against alternative reported approaches. However, each study used a different private dataset, making a direct comparison extremely difficult. Here, we applied our model to the publicly available EchoNet-dataset, allowing for future studies to be benchmarked against ours. Like the MultiBeat-dataset, no further training was carried out, and the dataset was used in its entirety for testing.
-                    From the total number of videos (10,000), 810 were excluded owing to one of the ED or ES events occurring in the penultimate or final frame in the video, hence being unsuitable.  EchoNet was made available for a challenge focused on segmentation of the left ventricular. Therefore, it was acceptable to have ED or ES events occurring in first or last frames. The retained 9,190 videos were fed into the model, when no resampling of the images was required as the dataset is provided with a resolution of 112×112 pixels; identical to the input size of our model.
-                    An aaFD of 2.30 and 3.49 frames was obtained for ES and ES events, respectively and the mean frame difference was 0.16±3.56 and 2.64±3.59 for ED and ES; well within the range of inter-observer variability already observed.
+
                   </h3>
                   <br>
-                  <h3><b><i>If you have any questions about this work, please email Elisabeth.Lane@uwl.ac.uk</b></i></h3>
+                  <h3><b><i> </b></i></h3>
                 </div>
               </div>
             </div>
@@ -273,7 +261,7 @@
 
 
     <!-- ======= Contact Section ======= -->
-      <section id="contact" class="contact">
+<!--      <section id="contact" class="contact">
         <div class="container">
           <div class="section-title">
             <hr>
@@ -345,8 +333,8 @@
 
           </div>
 
-        </div>
-      </section><!-- End Contact Section -->
+        </div> -->
+    <!--  </section>  --> <!-- End Contact Section -->
       <div class="container">
         <hr>
       <div class="row justify-content-left">
@@ -354,7 +342,7 @@
           <div class="text-left">
                 <h1> <b> Project Team </b></h1>
                 <h6>  <a href="https://www.sheffield.ac.uk/dentalschool/our-people/academic-staff/neda-azarmehr" target="_blank" rel="noopener noreferrer"> Neda Azarmehr </a></h6>
-        
+
 
                 <h6> <a href="https://www.uwl.ac.uk/staff/massoud-zolgharni" target="_blank" rel="noopener noreferrer"> Massoud Zolgharni  </a></h6>
           </div >
