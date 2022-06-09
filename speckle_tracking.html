@@ -70,7 +70,11 @@
           <div class="row justify-content-left">
             <div class="col-12">
               <hr>
-              <h1>Our team has developed an an optimised-based block matching algorithm to perform speckle tracking iteratively. The proposed technique was evaluated using healthy and ischaemic cases.</h1>
+              <h1>Our team has developed an an optimised-based block matching algorithm to perform speckle tracking iteratively.
+                In this project, a new displacement estimation method is introduced by formulating the tracking as an optimisation
+                problem that jointly penalises intensity disparity and motion discontinuity and is, therefore, more robust to the
+                signal decorrelation when compared with previous approaches. The speckle tracking algorithm combines the BM algorithm with
+                a smoothness constraint for a neighbourhood of kernels. The proposed technique was evaluated using healthy and ischaemic cases.</h1>
               <br>
             </div>
           </div>
@@ -85,15 +89,27 @@
         <div class="container project-container">
           <div class="row justify-content-left">
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-            <img class="img-fluid" src="assets/img/projects/STE/Highlights.PNG" alt="echocardiogram">
+            <img class="img-fluid" src="assets\img\projects\STE\dataset.PNG" alt="echocardiogram">
             </div>
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-              <h2>Dataset</h2>
-              <h3>We used a publicly available synthetic echocardiographic dataset with known ground-truth (exact solutions) from several major vendors. Synthetic ultrasound images from 7 major vendors have been provided: GE, Hitachi-Aloka, Esaote, Philips, Samsung, Siemens, and Toshiba.</h3>
+                <div align="justify">
+              <h2>Dataset</h2> <br>
+              <h3>We used a publicly available synthetic echocardiographic dataset with known ground-truth (exact solutions) from several major vendors.
+                Synthetic ultrasound images from 7 major vendors have been provided: GE, Hitachi-Aloka, Esaote, Philips, Samsung, Siemens, and Toshiba.
+                <br> <br>
+                To take realistic speckle texture for each vendor, scattering amplitude was sampled from a 2D real clinical recording
+                ultrasound as a template. Then, an electromechanical cardiac model was used to relocate the scatterers inside the
+                myocardium and to have a realistic heart motion in the simulated images. Moreover, synthetic probe settings such as
+                scan depth, focus depth, beam density, etc. were specialised by using the values communicated by each vendor upon
+                signature of nondisclosure agreements.
+
+
+              </h3>
               <br>
               <div class="text-left">
                 <a class="btn btn-primary" href="https://ieeexplore.ieee.org/document/8234682" role="button">Download the dataset</a>
               </div>
+            </div>
             </div>
           </div>
         </div>
@@ -107,156 +123,133 @@
             <hr>
             <div class="row justify-content-left">
               <div class="col-12">
+
               <h2>Methods</h2>
             </div>
               <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                  <div align="justify">
                   <h3>
-                      In this paper, a new displacement estimation method is introduced by formulating the tracking as an optimisation problem that jointly penalises intensity disparity and motion discontinuity and is, therefore, more robust to the signal decorrelation when compared with previous approaches. The speckle tracking algorithm combines the BM algorithm with a smoothness constraint for a neighbourhood of kernels.<p>
-                          The figure to the right provides an overview of the network architecture.
-                      <p>
+
+                    <p> <b> Standard block matching </b> <br><br>
+                      Classic BM begins by positioning a window on one frame and searching for a pattern with the most similar features
+                      within the dimensions of the placed window in the next frame. A cluster of speckles can be combined into one functional unit which is
+                       called a kernel; each kernel has a unique fingerprint that is determined using a similarity measure and can be
+                       tracked throughout the entire cine loop by the BM algorithm. In the reference frame (first image in Fig. 1, the
+                       current frame or a frame at time t0), the region of interest (blue square) has speckle patterns. In the next frame
+                       (a frame at time t + 1), a broad region of the image is searched for a similar speckle pattern. The location whose
+                       speckle pattern matches best is considered to be the estimated new location of the original kernel, thereby providing an
+                       estimated displacement vector. <br>
+                       This procedure is repeated across the whole of the reference frame, obtaining a displacement map between the two images. Repeating this procedure across the whole image sequence produces a vector field across space and time. In this study, sum of squared differences (SSD) is used as a similarity measure which calculates the difference between the intensity pattern of a grid of pixels (original kernel) in one frame and a set of identically sized kernels in the next frame, to find the best-matched kernel.<br><br>
+
+
+                       <img class="img-fluid" src="assets\img\projects\STE\fig2.PNG" alt="echocardiogram"> <br>
+                       <h3> Fig. 2 Flowchart showing the steps involved in solving the proposed optimisation-based tracking algorithm </h3>
+
+
+
 
                   </h3>
+                </div>
                 </div>
                 <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-                  <br>
-                  <img class="img-fluid" src="assets/img/projects/STE/Highlights.PNG" alt="echocardiogram" width="450px" height="500px">
+                  <div align="justify">
+                  <br> <br>
+                  <img class="img-fluid" src="assets\img\projects\STE\fig1.PNG" alt="echocardiogram" width="450px" height="500px"> <br><br>
+                  <h3> Fig. 1 Speckle tracking using BM where a region in the image (kernel) is selected and sought for in the next image by
+                    sequentially trying out different positions, testing the similarity between the kernel and the pattern observed in that position. The position
+                    where the similarity between the kernel and the observed pattern is maximal is accepted as the new position of the original kernel </h3>
+
+                    <br><br><br>
+                    <h3> <p> <b>Proposed optimised block matching approach </b> <br> <br>
+
+                      In this paper, a new displacement estimation method is introduced by formulating the tracking as an optimisation problem that jointly
+                      penalises intensity disparity and motion discontinuity and is, therefore, more robust to the signal decorrelation when compared with
+                      previous approaches. The speckle tracking algorithm combines the BM algorithm with a smoothness constraint for a neighbourhood of kernels,
+                      and minimises the cost function. Fig 2 to the left shows the flow chart of the steps involved in solving the proposed optimisation-based
+                      tracking algorithm. <br><br>
+                      <b>Tracking parameters</b> <br> <br>
+                      The standard BM was carried out with a kernel size of (11×11) pixels with a spacing of 1 pixel,
+                      providing a dense solution. This kernel size is deemed to be a good compromise for the optimum tracking accuracy. <br>
+                      For the optimised BM approach, the number of iterations was set to 20, which was deemed to be a good compromise between the accuracy and computational run time; a threshold for which the solution was converged and any further update in the displacement vectors were insignificant.
+                      The parameter λ was 0.3, giving more emphasis to the data term versus the regularisation term in the cost function equation.
+                      Larger values of λ tend to heavily regularise the displacement vectors, which would result in an unrealistically uniform vector
+                      field where most of the vectors are aligned. A neighbourhood of (45×45) kernels was included in the iterations for updating the
+                      solution for the central kernel. The tracking accuracy was estimated by comparing the displacement field obtained from the speckle
+                      tracking algorithms and the ground-truth
+
+
+                     </p>
+                     </h3>
+
+                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-        <!-- ======= Project Implementation ======= -->
-        <div class = "project-implementation">
-          <div class="container">
-            <div class="row justify-content-left">
-              <div class="col-12">
-                <hr>
-                <h2>Implementation</h2>
-                <h3>
-                  TBC
-                </h3>
-                <div class="text-left">
-                  <br>
-                <!--  <a class="btn btn-primary" href="https://github.com/intsav/EchoPhaseDetection" role="button">Download the code</a> -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-      <!-- ======= Project Evaluation ======= -->
-      <div class = "project-evaluation">
-        <div class="container align-middle">
-          <hr>
-          <div class="row">
-
-            <div class="col-12 col-lg-6 col-md-6 text-center">
-            <!--  <img class="img-fluid" src="assets/img/projects/phase_detection/aaFD.png" alt="aaFD"> -->
-            </div>
-
-            <div class="col-12 col-lg-6 col-md-6">
-              <div class="text-left">
-                <h2>Evaluation metrics</h2>
-                <h3>
-                </h3>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- ======= Project Results ======= -->
-      <div class = "project-results">
-        <div class="container">
-          <hr>
-
-            <div class="row justify-content-left">
-              <div class="col-12">
-                <div class="text-left">
-                  <h2>Results</h2>
-                  <h3><b> </b></h3>
-                  <p>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="row justify-content-left">
-              <div class="col-12 col-lg-6">
-                <div class="text-left">
-                  <h3> </h3>
-                  <h3>  </h3>
-                </div>
-              </div>
-              <div class="col-12 col-lg-6 text-center">
-              <!--  <img class="img-fluid" src="assets/img/projects/phase_detection/pacs-examples.png" alt="pacs examples"> -->
-              </div>
-            </div>
-          </div>
-
-          <div class="container">
-            <div class="row align-middle">
-              <div class="col-12 col-lg-7 col-md-7 text-center">
-              <!--  <img class="img-fluid" src="assets/img/projects/phase_detection/pacs-results.png" alt="pacs results" width="625px"> -->
-              </div>
-
-              <div class="col-12 col-lg-5 col-md-5">
-                <div class="text-left align-middle">
-                  <br>
-                  <h3>  </h3>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="container">
-          <div class="row">
-            <div class=" col-12 col-lg-8 col-md-8">
-              <div class="text-left align-middle">
-                <h3> </h3>
-                  <h3> </h3>
-              </div>
-            </div>
-            <div class="col-12 col-lg-4 col-md-4 text-center align-middle">
-              <!--<img class="img-fluid" src="assets/img/projects/phase_detection/previously-reported-results.png" alt="pacs reported results" > -->
-            </div>
-          </div>
-        </div>
+          <div class = "project-results">
 
               <div class="container">
-                <div class="row justify-content-left align-middle">
-                  <div class="col-12 col-lg-6 col-md-6">
-                    <div class="text-left align-middle">
-                      <h3><b> </b></h3><br>
-                        <h3> </h3>
-                        <h3> </h3>
-                      <h3>  </h3>
+                <hr>
+                <div class="row justify-content-left">
+                  <div class="col-12">
+
+                  <h2>Results</h2>
+                </div>
+                  <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                      <div align="justify">
+                      <h3>
+
+                        <p> <b><br>  Displacement vector field </b> <br><br><br>
+                          The tracking parameters were similar for all vendors and cases. The algorithm returned a dense displacement
+                          field between pairs of consecutive frames. Figure 3 illustrates an example A4C view from the healthy Siemens
+                          sequence in the rapid ejection phase (peak systole), together with the corresponding ground-truth. a Zoomed view of LV cropped from the original image. b Ground-truth.
+                            c–d Displacement fields obtained from standard BM and optimised BM approach in the rapid ejection phase, respectively.
+                          <br><br>The computed displacement vector field by the two tracking approaches (standard BM and optimised BM approach)
+                          is also shown. The presence of noise in the results is evident in the standard BM technique, whereas the optimised
+                          BM approach seems to suffer less from this problem. <br><br>    </h3>
+
+
+                      <img class="img-fluid" src="assets\img\projects\STE\fig4.PNG" alt="echocardiogram">
+                           <h3> Fig 4: Boxplots of the error for the healthy sequence from Siemens.  </h3> <br><br>
+
+                         </p> <b>Regional and global strain measurements</b><br> <br>
+                        Regional (segmental) longitudinal strain values were calculated from the estimated displacement vector field. Figure 6 displays the violin plots of the regional strain error
+                        the difference between the speckle tracked and the ground-truth) for all LV segments, for the same image sequence as shown in Figs. 3 and 4.
+                        <br> <br> Top: an A4C view with the LV myocardium segmentation regions overlaid. <br> <br>Below: violin plots of the error in the segmental strain
+                        measurements for the healthy synthetic sequence from Siemens. The solid black line represents mean,
+                        and the green line represents the median; the box signifies the quartiles, and the whiskers represent the 2.5% and 97.5% percentiles
+                        <br><br>
+                        More results and details are in the full paper, the link is in the refereces section. 
+
+
+                    </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                      <div align="justify">
+                      <br> <br>
+                      <img class="img-fluid" src="assets\img\projects\STE\fig3.PNG" alt=" examples">
+                      <h3> Fig 3: an example A4C view from the healthy Siemens sequence in the rapid ejection phase </h3> <br><br>
+
+                      <h3>Figure 4 shows the distribution of error for the same image sequence, obtained from both
+                        tracking methods. The displacement errors across all vendors for their corresponding healthy image sequences are shown in Fig. 5. The error is computed as the magnitude of the difference between the calculated and ground-truth
+                          displacement vectors and is provided for standard (left) and proposed (right) tracking methods. The x-axis shows the frame number
+                      </h3> <br>
+
+                      <img class="img-fluid" src="assets\img\projects\STE\fig6.PNG" alt="echocardiogram">
+                           <h3> Fig 6: Top: an A4C view with the LV myocardium segmentation regions overlaid. Below: violin plots of the error
+                             in the segmental strain measurements for the healthy synthetic sequence from Siemens.  </h3>
+
+
+
+
+                       </div>
                     </div>
                   </div>
-
-                  <div class="col-12 col-lg-6 col-md-6 text-center align-middle">
-                    <br><br>
-                <!--    <img class="img-fluid" src="assets/img/projects/phase_detection/multibeat-results.png" alt="multibeat img" > -->
-                  </div>
-                </div>
-            </div>
-
-            <div class="container">
-              <div class="row justify-content-left align-middle">
-                <div class="col-12">
-                  <h3><b> </b></h3><br>
-                  <h3>
-
-                  </h3>
-                  <br>
-                  <h3><b><i> </b></i></h3>
                 </div>
               </div>
-            </div>
 
-          </div>
-        </div>
 
 
 
