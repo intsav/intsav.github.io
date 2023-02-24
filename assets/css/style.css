@@ -980,3 +980,7 @@ margin-right: auto;
   max-width: 100%;
   height: auto;
 }
+
+.caption {
+    text-align: center;
+}
