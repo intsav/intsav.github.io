@@ -48,7 +48,7 @@
       <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
         <div class="row">
           <div class="col-12 text-left">
-            <h1>Efficient Approaches for Creating a Biobank of Expert Annotations for Deep Learning Developments in Echocardiography</h1>
+            <h1>Deep Active Learning for Left Ventricle Segmentation in Echocardiography</h1>
           <!--  <h2><i> Eman Alajrami <sup>1</sup>, Elisabeth S Lane <sup>1</sup>, Jevgeni Jevsikov <sup>1</sup>, James P Howard <sup>2</sup>, Matthew J Shun-shin <sup>2</sup>, Graham D Cole <sup>2</sup>, Darrel P Francis <sup>2</sup>, Massoud Zolgharni <sup>1,2</sup><i></h2>
               <h3><sup>1</sup> School of Computing and Engineering, University of West London, London, United Kingdom<h3>
               <h3><sup>2</sup> National Heart and Lung Institute, Imperial College, London, United Kingdom<h3> -->
@@ -73,12 +73,13 @@
               <hr>
               <h1><b>Project Introduction </b> </h1>
               <br>
-              <h3> Deep learning models require large annotated datasets with accurate annotations for the training.
-                It is rare to have perfectly annotated datasets in medical images since it is expensive and time-consuming.
-                Thus, imperfect datasets negatively affect the accuracy of medical image analysis, classification, and segmentation;
-                an essential image processing step for most deep learning models in computer vision.
-                This research aims to discover state-of-the-art techniques for handling the challenges of dataset annotations
-                 (scarce annotations and noisy annotations) in the domain of medical images, particularly echocardiographic images.
+              <h3> The training of advanced deep learning algorithms for medical image interpretation requires precisely
+                annotated datasets, which is laborious and expensive. Therefore, this research investigates state-of-the-art
+                active learning methods for utilising limited annotations when performing automated left ventricle
+                segmentation in echocardiography. Our experiments reveal that the performance of different sampling strategies varies between datasets from the same domain. Further, an optimised method for representativeness sampling is introduced, combining images from feature-based outliers to the most representative samples for label acquisition. The proposed method significantly outperforms the current literature and demonstrates convergence with minimal annotations. We demonstrate that careful
+                selection of images can reduce the number of images needed to be annotated by up to 70%. This research can
+                therefore present a cost-effective approach to handling datasets with limited expert annotations in
+                echocardiography.
               </h3>
             </div>
           </div>
@@ -94,7 +95,7 @@
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
 
             <figure>
-              <img class="Sample_img" src="assets\img\projects\Efficient_Annotations\sample LV2.PNG" alt="Annotation" >
+              <img class="Sample_img" src="assets\img\projects\Efficient_Annotations\Sample_image.png" alt="Annotation" width="500" height="400">
               <figcaption>Sample image and its mask from the dataset</figcaption>
             </figure>
 
@@ -102,13 +103,18 @@
             <div class="col-6 col-md-6 col-lg-6 col-xl-6">
                 <div align="justify">
               <h2><b>Dataset</b></h2>
-              <h3>Real-world patient datasets will be used. It will be provided by the project collaborators and clinical partners,
-                the School of Medicine, Imperial College, London. They will provide access to their patient datasets and studies.
-                In addition, the clinical staff will be available to provide support and advice for cardiac images annotations.<br>
-                  The dataset that will be used for this project is the echocardiogram for the Left Ventricle (LV) of the heart.
-                  It includes 3065 images that will be used for training, testing, and validation.
-                  The labels are obtained as coordinates of the LV from JSON files, then the data preprocessing is performed by
-                  creating the masks and cleaning the dataset.
+              <h3>Two different datasets of cardiac imaging are used for our experiments:
+                the CAMUS dataset and the Unity dataset.<br><br>
+                <b>CAMUS dataset</b> is a public, fully annotated dataset for 2D echocardiographic assessment that
+                contains 500 images from 2D apical four-champers and two-champers view sequences. <br><br>
+                <b>Unity dataset</b>is a private dataset extracted from 1224 videos of the apical four-chamber echocardiographic view retrieved
+                from Imperial College Healthcare NHS Trust's echocardiogram database.
+                The images are obtained using ultrasound equipment from GE and Philips manufacturers.
+                The acquisition of these images is ethically approved by the Health Regulatory Agency
+                (Integrated Research Application System identifier 243023).
+                It contains 2800 images sampled from different points in the cardiac cycle and labelled by a pool of
+                experts using our in-house online labelling platform (https://unityimaging.net).
+                This dataset was used for model developments (i.e., training and validation) and split into 70% for training, 15% for validation and 15% for testing.
                   </h3>
               <br>
             </div>
@@ -127,17 +133,23 @@
               <h2><b>Network Architecture</b></h2>
             </div>
               <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-                  <h3><br><br>For medical image analysis, the most appropriate architecture that has been used is U-Net, a fully convolutional neural network.
-                    It is fast, outperforming the prior best medical imaging segmentation methods (Ronneberger, Fischer and Brox, 2015).<br><br>
-                     Figure 1 shows the U-Net architecture that has a U-shape for encoder and decoder processes.
-                     It is the most used architecture in cardiovascular image analysis for segmentation tasks.<br><br>
-                     In this project U-Net architecture with batch normalization will be used as the base model for LV image segmentation.
+                  <h3><br><br>The customised Bayesian U-Net architecture is illustrated in the figure to the right.
+                    First, we used Conv2D with a kernel size of 3x3, Batch normalisation, and a "RELU" activation function for
+                    the encoder blocks, followed by Maxpooling 2x2. Then, a Dropout layer is added with a Dropout probability
+                    of 0.1.
+                    At the centre, Bottleneck,  two Conv2D followed by a Dropout layer with a Dropout probability of 0.25 are used.
+                     Next, for the decoder blocks, we used Conv2DTranspose with a kernel size of 2x2, followed by a
+                     concatenation layer, a Dropout layer with a Dropout probability of 0.1, Batch normalisation, and a
+                     "RELU" activation. Then, two Conv2D with a kernel size of 3x3, Batch normalisation, and a "RELU"
+                     activation. Finally, a Conv2D with a kernel size of 1x1 with "Sigmoid" activation is added for the
+                     output layer.
+
 
                    </h3>
                 </div>
                 <div class="col-12 col-md-12 col-lg-6 col-xl-6">
 
-                     <img class="img-fluid" src="assets\img\projects\Efficient_Annotations\Unet Model.PNG" alt="IMAGE PLACEHOLDER" width="450" height="400">
+                     <img class="img-fluid" src="assets\img\projects\Efficient_Annotations\Unet_no_num.jpeg" alt="IMAGE PLACEHOLDER" width="500" height="450">
                 </div>
               </div>
             </div>
