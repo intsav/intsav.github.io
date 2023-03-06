@@ -47,7 +47,7 @@
         <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
             <div class="row">
                 <div class="col-12 text-left">
-                    <h1 style = "font-size: 36px">Development of a novel Electroglottography sensors system, using advanced electronics design and deep learning, with improved applicability and usability</h1>
+                    <h1 style = "font-size: 36px">An efficient phonation-driven control system using laryngeal bioimpedance and machine learning</h1>
                   <!--  <h2><i>Eugenio Donati <sup>1</sup>, Christos Chousidis <sup>1</sup>, Massoud Zolgharni <sup>1</sup><i></h2>
                     <h3>
                         <sup>1</sup>School of Computing and Engineering, University of West London, London, United Kingdom <h3> -->
@@ -71,7 +71,16 @@
                     <hr>
                     <h1><b>Project Introduction</b> </h1>
                     <br>
-                    <h3> Electroglottography (EGG), is able to deliver unique information about human voice and phonation. This project is set to overcome the limitation of EGG in terms of usability and employability. The implementation of Deep learning is focused towards two main objectives: the classification of voice acts for further implementations, and the self-calibration of the system. Such improvement of the EGG aims to make the technology more employed in voice disorder evaluation of pre-diagnosis as well as broadening the spectrum of possible applications.<br><br>
+                    <h3> Laryngeal bioimpedance can deliver unique information about human
+                      voice and phonation. This project is comprised of two aspects: the development of a
+                      self-calibrating laryngeal bioimpedance measurement system and its application in voice
+                      features extraction. The implementation of Artificial Neural Networks is focused on the
+                      near real-time classification of
+                      voice acts in the distinction between speech and singing. One of the main contributions
+                      of this project is represented by the creation of a unique dataset of laryngeal bioimpedance
+                      measurements for the training of Artificial Neural Networks. The development of a self-calibrating
+                      measurement system, alongside the derived dataset, aims to make the technology more employed in voice
+                      disorder evaluation and pre-diagnosis as well as broadening the spectrum of possible applications.<br><br>
                     </h3>
                   </div>
                   </div>
@@ -81,7 +90,7 @@
                   <div class="col-12 col-md-12 col-lg-6 col-xl-6" >
                     <div align="center">
 
-                       <img class="img-fluid" src="assets\img\projects\Electroglottography\EGG signal.jpg" width = "100% "  height=" 100%"  alt="IMAGE Dataset">
+                       <img class="img-fluid" src="assets\img\projects\Electroglottography\Fig1.png" width = "100% "  height=" 100%"  alt="IMAGE Dataset">
 
                   </div>
                 </div>
@@ -133,8 +142,8 @@
                         <div align="justify">
 
                         <h2><b>Dataset</b></h2> <br>
-                        <h3>The dataset was built with an EGG developed by the team recording voice acts by different users.
-                          The dataset is comprised of two sections: <br> - Voice acts recognition <br> - calibration.</h3>
+                        <h3>A laryngeal bioimpedance measurement system developed by the team was used to record voice acts from different users. <br>
+                          The dataset is comprised of two sections: <br>singing voices and speaking voices.</h3>
 
                       </div>
                       </div>
@@ -154,25 +163,29 @@
                       </div>
                         <div class="col-12 col-md-12 col-lg-6 col-xl-6">
                           <div align="justify">
-                          <h3> <br>For the processing of the EGG data, we employed the use of Mel Frequency Cepstrum Coefficients (MFFC).
-                            This delivers a series of frequency coefficients over 20 frequency bands.
-                            The resulting array is the data being fed to the network.<br><br>
+                          <h3> <br>For the processing of the data, we employed the use of Mel Frequency
+                            Cepstrum Coefficients (MFFC). This delivers a series of frequency coefficients
+                            over 20 frequency bands. The resulting array is the data being fed to the network.
 
-                          <b>  The network is therefore comprised as follows: </b><br><br>
 
-                            Input layer -> 20 Neurons<br><br>
-                            2 Hidden layers -> 5 Neurons<br><br>
-                            Output Layer -> 1 Neuron for binary classification<br><br>
+<br><br>The network is therefore comprised as follows:<br><br>
+
+Input layer: has 20 Neurons<br><br>
+1 Hidden layer: has 40 Neurons<br><br>
+Output Layer:  has 1 Neuron for binary classification
+<br><br>
+  <h3>The figure on the right shows the network architecture.</h3>
+
 
 
                           </h3> <br> <br>
                           <h2><b>Implementation</b></h2> <br><br>
                           <h3>The models were implemented in Python within the TensorFlow 2.0 framework.</h3><br> <br>
-                          <h3>The figure on the right shows the general flowchart for the implemntation process for EGG to voice converter.</h3>
+
                           </div>
                         </div>
                           <div class="col-12 col-md-12 col-lg-6 col-xl-6  text-center ">
-                            <img class="img-fluid" src="assets\img\projects\Electroglottography\Flowchart1.gif" alt="Flowchart">
+                            <img class="img-fluid" src="assets\img\projects\Electroglottography\Net.png" alt="Flowchart">
 
                           </div>
                         </div>
@@ -235,28 +248,31 @@
                     <div class="container align-middle">
                         <hr>
                         <div class="row">
+                          <div class="row justify-content-left">
+                            <div class="col-12">
+                              <div align="justify">
+                                <h2><b>Performance assessment</b></h2>
+                              </div>
 
+                            <div class="col-12">
+                              <div align="center">
+                                <img class="img-fluid" src="assets\img\projects\Electroglottography\Assessment1.png" alt="IMAGE PLACEHOLDER">
+                                <div class="caption" >Accuracy comparison by the number of neurons for the hidden layer</div>
+
+                            </div>
+                          </div>
+                          </div>
                             <div class="col-12 col-lg-6 col-md-6 text-center">
-                                <img class="img-fluid" src="assets\img\projects\Electroglottography\Assessment.jpg" alt="IMAGE PLACEHOLDER">
+                                <img class="img-fluid" src="assets\img\projects\Electroglottography\Assessment2.png" alt="IMAGE PLACEHOLDER">
+                                <div class="caption" >Model accuracy for 40 hidden neurons </div>
+
                             </div>
 
-                            <div class="col-12 col-lg-6 col-md-6">
+                            <div class="col-12 col-lg-6 col-md-6 text-center">
                                 <div align="justify">
-                                    <h2><b>Performance assessment</b></h2>
-                                    <h3>The completed system was assessed in a real-time situation by embedding the PD patch onto a Bela board.
-                                      Bela is a development platform specifically designed for audio DSP offering built-in converters and high performances for real-time signal processing with a latency as low as 100 μs [18].
-                                      The Ableton Live Digital Audio Workstation (DAW) was used, and Ableton Operator virtual synthesiser was employed as the receiving MIDI instrument.
-                                      To evaluate both the performances of the system and the efficiency of EGG, four elements were recorded simultaneously.
-                                      During every single use, the following elements were recorded in the DAW:<br><br>
-                                        - Audio from the voice (microphone)<br>
-                                        - EGG output<br>
-                                        - Output of the receiving MIDI device<br>
-                                        - MIDI note message<br><br>
+                                  <img class="img-fluid" src="assets\img\projects\Electroglottography\Assessment3.png" alt="IMAGE PLACEHOLDER">
+                                  <div class="caption" >Confusion matrix for “unseen” data </div>
 
-T                                       he subjects were required to perform a single note and two note sequences (staccato and legato) to evaluate the
-                                      functioning of both MIDI note allocation and pitch-bend processing.
-                                      A spectral analysis was conducted to evaluate whether both the MIDI notes and the synthesiser output matched the
-                                      frequency of the recorded voice and EGG</h3>
                                 </div>
                             </div>
 
@@ -265,7 +281,7 @@ T                                       he subjects were required to perform a s
                 </div>
 
                 <!-- ======= Project Results ======= -->
-                <div class="project-results">
+          <!--      <div class="project-results">
                     <div class="container">
                         <hr>
 
@@ -295,7 +311,7 @@ T                                       he subjects were required to perform a s
                         </div>
 
 
-                    </div>
+                    </div> -->
 
                     <div class="container">
                       <hr>
@@ -321,8 +337,9 @@ T                                       he subjects were required to perform a s
                             <div class="col-12">
                               <div class="text-left">
                                 <h1>  <b> References </b></h1>
-                                <h3> <a  href="https://www.sciencedirect.com/science/article/pii/S2772528622000036" > Development of a novel Electroglottography sensors system, using advanced electronics design and deep learning</a></h3>
-
+                                <h3> <a  href="https://www.sciencedirect.com/science/article/pii/S2772528622000036" target="_blank" rel="noopener noreferrer"> Development of a novel Electroglottography sensors system, using advanced electronics design and deep learning</a></h3>
+                                <h3> <a  href="https://ieeexplore.ieee.org/document/9856413 " target="_blank" rel="noopener noreferrer"> Electroglottography based voice-to-MIDI real time converter with AI voice act classification
+                                </a></h3>
 
                               </div>
                             </div>
