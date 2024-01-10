@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ======= Head Section - DON'T CHANGE ======= -->
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Real-time ECG Analysis Completed</title>
+  <link href="assets/img/logo.png" rel="icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<!-- ======= Body Section ======= -->
+<body>
+  <!-- ======= Navigation Bar - DON'T CHANGE ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="index.html">Home</a></li>
+          <li><a class="nav-link scrollto" href="index.html#projects">Projects</a></li>
+          <li><a class="nav-link scrollto" href="index.html#team">People</a></li>
+          <li><a class="nav-link scrollto" href="index.html#resources">Resources</a></li>
+          <li><a class="nav-link scrollto" href="index.html#funding">Funding</a></li>
+          <li><a class="nav-link scrollto" href="index.html#partners">Partners</a></li>
+          <li><a class="nav-link scrollto" href="index.html#workwithus">Vacancies</a></li>
+          <li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li>
+        </ul>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+    </div>
+  </header><!-- End Navigation Bar -->
+
+    <!-- ======= Title Section ======= -->
+    <section id="project-title" class="d-flex align-items-center">
+      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+        <div class="row">
+          <div class="col-12 text-left">
+            <h1>ECG-based Real-time Arrhythmia Monitoring Using Quantized Deep Neural Networks: A Feasibility Study</h1>
+          <!--  <h2><i>Henrique Ribeiro <sup>1</sup>, Ahran Arnold <sup>2</sup>, James P Howard <sup>2</sup>, Matthew J Shun-Shin <sup>2</sup>, Ying Zhang <sup>1</sup>, Darrel P Francis <sup>2</sup>, Zachary Whinnett <sup>2</sup>, Massoud Zolgharni <sup>1</sup>,<sup>2</sup><i></h2>
+            <h3><sup>1</sup> School of Computing and Engineering, University of West London, London, United Kingdom <h3>
+            <h3><sup>2</sup> National Heart and Lung Institute, Imperial College, London, United Kingdom <h3> -->
+            </div>
+          </div>
+        </div>
+    </section><!-- End Title -->
+
+    <!-- Main Webpage Section -->
+  <main id="project-main">
+
+    <!-- ======= Project Body Section ======= -->
+    <section id="project-body">
+
+      <!-- ======= Project Introduction ======= -->
+      <div class="project-intro">
+        <div class="container">
+          <div class="row justify-content-left">
+            <div class="col-12">
+              <hr>
+              <h1>We have developed an modular, lightweight and automated system capable of detecting heart diseases in real-time utilising electrocardiogram signals and deep neural networks.</h1>
+              <br>
+            </div>
+          </div>
+        <!--    <div class="text-left">
+              <a class="btn btn-primary" href="#" role="button">Download the paper</a>
+            </div> -->
+          </div>
+        </div>
+
+      <!-- ======= Project Dataset ======= -->
+      <div class = "project-dataset">
+        <div class="container project-container">
+          <div class="row justify-content-left">
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+              <p><p>
+            <img class="img-fluid" src="assets\img\projects\ECG\Figure1_h.jpeg" alt="IMAGE PLACEHOLDER">
+            </div>
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+               <div align="justify">
+              <h2>Dataset</h2>
+              <h3>In this study, the publicly available PhysioNet MIT-BIH ECG Arrhythmia Database was used. The database contains 48 half-hour excerpts of ambulatory ECG recordings, obtained from 47 subjects. Twenty-three recordings were chosen at random from a set of 4000 24-hour ambulatory ECG recordings collected from a mixed population of inpatients The remaining 25 recordings were selected from the same set to include less common but clinically significant arrhythmias that would not be well-represented in a small random sample. The recordings were digitized at 360 samples per second. Two or more cardiologists independently annotated each record, resulting in reference annotations for each beat; with approximately 110,000 annotations in the entire database. The annotations are divided into 5 categories as per guidelines of the Association for the Advancement of Medical Instrumentation (AAMI) EC57 standard in 1998. In each recording, the first channel is the modified-lead II (MLII), and the second is fixed as one of V1, V2, V4, and V5 depending on the recording. Since MLII is available in all recordings and considering the fact it has been shown that the use of this lead would be sufficient to achieve high accuracy, we therefore, adopted MLII data in this study. In order to make the processing feasible with limited computational resources (e.g., edge computing), the long recordings were fragmented into time windows of 1s, thus each containing a fixed length of 360 data points. Based on the cardiologist annotations assigned to the original ECG, each time window was labeled as follows: if the entire segment was annotated as one class, the time window was assigned to that class; if there was a change in the expert annotation within the 1s time-window, then the predominant class was assumed as the label for the entire segment.</h3>
+              <br>
+              <div class="text-left">
+                <a class="btn btn-primary" href="https://physionet.org/content/mitdb/1.0.0/" role="button">Download the dataset</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======= Project Architecture ======= -->
+      <div class = "project-architecture">
+
+          <div class="container">
+            <hr>
+            <div class="row justify-content-left">
+              <div class="col-12">
+                <p><p>
+              <h2>Network Architecture</h2>
+            </div>
+              <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                <div align="justify">
+                  <h3><br> <br> A 1D convolutional neural network was trained for the task of arrhythmia classification. Convolution layers have 32 kernels of size 5, employs connections in a similar manner to Residual Connections. Each convolution layer is followed by 5 residual blocks composed of 2 convolution layers, 2 ReLU (Rectified Linear Unit) activations, and a max-pooling of stride 2 and size 5 in all pooling layers, the operation that extracts the maximum value output within the specified size-shifting along the direction of the time-series. Followed by one fully connected (FC) layer containing 32 neurons. The fully connected layer is interconnected to all units in the forward layer. To predict the output class probabilities, a softmax layer is applied to output structural-state identification results. The probabilities of all predictive prospects are measured, thus the final result represents the one with the highest possibility.</h3>
+                </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                  <br>
+                  <img class="img-fluid" src="assets/img/projects/ECG/ecg-1d_cnn.png" alt="IMAGE PLACEHOLDER">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- ======= Project Implementation ======= -->
+        <div class = "project-implementation">
+          <div class="container">
+            <div class="row justify-content-left">
+              <div class="col-12">
+                 <div align="justify">
+                <hr>
+                <h2>Implementation</h2>
+                <h3>Given that the dataset is fairly imbalanced with unequal distribution of different arrhythmia classes. To prevent potential biases towards more dominant classes, the approach of random over-sampling examples (ROSE) was adopted, which augments the data after removing the baseline. This resulted in a balanced dataset, with 76,607 samples for each arrhythmia class. The dataset was then randomly split into training (287,276 samples) and validation (95,759 samples), with testing samples selective split prior to over-sampling (3500 samples). The network was implemented using the Tensorflow library. The loss function used was cross-entropy on the softmax predicted outputs. Adam optimizer was applied with decaying learning rates reducing at a factor of 0.75 for every ten thousand iterations. Training the entire network takes less than 15 minutes with a mini-batch size of 256 samples over 100 epochs using an Nvidia Tesla P100 processor. The validation dataset was used for early stopping to avoid redundant training and overfitting, with patience of 10 epochs. The model was trained until the validation loss plateaued.
+                  <p>
+                    Edge and wearable devices have relatively much smaller, low-power, and slower processors, compared to desktop processors. Therefore, for the continuous execution of the arrhythmia classifier on such devices with limited memory and computational power and in order to meet the timing requirements, further optimization of the model was applied to reduce its size (smaller storage size and less memory usage) and latency, while maintaining (or with little degradation in) the model accuracy. To this end, post-training full integer quantization was adopted and applied to the CNN model developed using Tensorflow Lite deep learning library. The full integer (8-bit) quantization technique, approximates floating-point values in the trained model, layer by layer. Per-channel weights are represented by int8 two’s complement values in the range [-127, 127] with zero-point equal to 0. Per-tensor activations/inputs are represented by int8 two’s complement values in the range [-128, 127], with a zero point in the same range. In thisprocess, only floating-point weights are quantized to 8-bit integer precision in a bit-by-bit operation, in an iterative process until the network is fully mapped. As a proof of concept, two hardware platforms were used as examples of edge low-powered processors for running the quantized neural network: ARM Cortex A53 and ARM Cortex A55.
+                </h3>
+                <div class="text-left">
+                  <br>
+                  <a class="btn btn-primary" href="https://github.com/intsav" role="button">Download the code</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- ======= Project Evaluation ======= -->
+      <div class = "project-evaluation">
+        <div class="container">
+          <hr>
+          <div class="row">
+             <div align="justify">
+              <div class="text-left">
+                <h2>Evaluation metrics</h2>
+                <h3>The classification was evaluated using the standard measures: classification accuracy (Acc), sensitivity (Sen), specificity (Spe), 𝐹 1 score, and confusion matrix. Besides accuracy, execution time (computational intensity) and power consumption of the arrhythmia classifier were also measured as the other two important factors, particularly for the application of continuous monitoring on wearable devices.The inference time was measured by recording the average time in milliseconds for all predictions made on the test dataset. In order to be able to measure the battery usage by the smartphone application, the fully charged phone was left idle in flight mode for 12 hours, and the dropped battery percentage was recorded at the end of this period. The battery was then fully charged again, and the application was kept continuously running for the same period of time, and the battery percentage was recorded. The difference in the two percentages was assumed to be the quicker battery drainage due to the application. The energy E (Wh) in Watt-hours was then estimated. Additionally, the energy consumption E per prediction (i.e., classifying each ECG segment) was estimated in Joules.
+                </h3>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+      <!-- ======= Project Results ======= -->
+      <div class = "project-results">
+        <div class="container">
+          <hr>
+
+            <div class="row justify-content-left">
+              <div class="col-12">
+                <div class="text-left">
+                  <h2>Results</h2>
+                  <p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row justify-content-left">
+              <div class="col-12 col-lg-6">
+                 <div align="justify">
+                <div class="text-left">
+                  <h3>The prediction results for the arrhythmia classifier (non-quantized) when applied to the test dataset. It shows that the model was able to correlate the characteristics with the correspondent arrhythmia. The model detected all of the anomalous segments for Ventricular Ectopic Beat (V class) reliably. Only for one anomaly, Fusion of Ventricular and Normal (F class), the detection was relatively less reliable with a sensitivity of 99.70%, probably because of the F class being the least represented class in the dataset (0.5% of the dataset). Overall, 99.88% of anomalous segments in the test set were detected. Of the normal heartbeats, 0.25% were falsely indicated as being anomalous.
+                    <p>
+                      The quantized classifier showed a small degradation in performance as shown in the Table; a minute drop in accuracy (≤0.3%) across all class types; sensitivity and specificity were above 99.1% and 99.3% for all anomaly types, respectively. the quantized model however achieved significant improvements in inference (prediction) time, with a reduced inference time per classification of 12.13±0.61 (11.99, 31.14) and 7.69±0.58 (7.00, 24.00) and 4.76±0.04 (4.70, 12.17) milliseconds on the GPU, smartphone, and Raspberry Pi processors, respectively. The reduction in the model size was also noticeable; the size of the quantized model was 93 kB, compared to 853 kB for the original model.
+                  </h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-6 text-center">
+                <img class="img-fluid" src="assets/img/projects/ECG/ecg-results.png" alt="IMAGE PLACEHOLDER">
+              </div>
+            </div>
+          <p><p>
+
+            <div class="row justify-content-left">
+                <div class="col-12 col-lg-6 col-md-6 text-center">
+                  <img class="img-fluid" src="assets/img/projects/ECG/ecg-experiment1.png" alt="IMAGE PLACEHOLDER">
+              </div>
+
+
+              <div class="col-12 col-lg-6">
+
+                <div align="justify">
+                <div class="text-left">
+                  <h3>
+                      The battery usage for the arrhythmia classification application using the quantized classifier was 2.04Wh
+                      for 12 hours of continuous running. Considering only the nominal power rating of 0.765W for the smartphone
+                      (ARM-A55) CPU used in this study and the average inference time of 7.65ms, the energy consumption per
+                      prediction was 5.85mJ. The energy consumption for the Raspberry Pi (ARM-A53) CPU with a nominal power
+                      rating of 0.9W and average inference time of 4.76ms was 4.28mJ, compared with 178.88mJ for the
+                      non-quantized classifier with an average inference time of 198.75ms.<br>
+                      To further demonstrate feasibility, a wearable ECG garment was developed incorporating an embedded
+                      system (AMR Cortex M4 microcontroller) paired with a single-lead ECG module (AD8232) connected to graphene
+                      rubberised electrodes. The wearable is capable of processing ECG signals at 360Hz, segment beats using
+                      Zeelenberg algorithm for R-peak detection, paired with an acceleration-based noise detection and mitigation.
+                      The system is also capable of predicting arrhythmia efficiently consuming 5.73 mJ per inference, with nominal
+                      power rating of 0.025 W.
+                    <p><p>
+                      The availability of low-cost systems for continuous ambulatory cardiac monitoring would provide privacy,
+                      energy efficiency, low latency, low storage usage, and portability, empowering clinicians in the accurate
+                      diagnosis of early cardiac diseases, and constant monitoring of patients. Using such wearable devices on
+                      a continuous basis will potentially be highly beneficial in early detection and prevention of medical
+                      complications and emergencies, particularly in cardiac patients and among elderly populations.
+                  </h3>
+                  </div>
+                </div>
+          </div>
+          </div>
+        </div>
+
+
+          <div class="container">
+            <div class="row justify-content-left">
+              <div class="col-12">
+              <img class="img-fluid" src="assets\img\projects\ECG\Figure2_h.jpeg" alt="IMAGE PLACEHOLDER">
+              </div>
+            </div>
+          <!--    <div class="text-left">
+                <a class="btn btn-primary" href="#" role="button">Download the paper</a>
+              </div> -->
+            </div>
+
+        <div class="container">
+          <hr>
+        <div class="row justify-content-left">
+          <div class="col-12">
+            <div class="text-left">
+                  <h1> <b> Project Team </b></h1>
+                  <h6> <a href="https://www.linkedin.com/in/henrique-r-049993172" target="_blank" rel="noopener noreferrer"> Henrique Ribeiro  </a></h6>
+                  <h6>  <a href="https://www.uwl.ac.uk/staff/nasim-dadashi-serej" target="_blank" rel="noopener noreferrer"> Nasim Dadashi Serej </a></h6>
+                  <h6> <a href="https://www.uwl.ac.uk/staff/massoud-zolgharni" target="_blank" rel="noopener noreferrer"> Massoud Zolgharni  </a></h6>
+            </div >
+         </div>
+      </div>
+    </div>
+    <div class="container">
+      <hr>
+
+        <div class="row justify-content-left">
+          <div class="col-12">
+            <div class="text-left">
+              <h1> <b>  References</b> </h1>
+              <br>
+              <h3> <a  href="https://www.sciencedirect.com/science/article/abs/pii/S0010482522000415" >ECG-based Real-time Arrhythmia Monitoring Using Quantized Deep Neural Networks: A Feasibility Study</a></h3>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      </div>
+
+
+    <!-- ======= Contact Section ======= -->
+         <!--
+      <section id="contact" class="contact">
+        <div class="container">
+          <div class="section-title">
+            <hr>
+            <h2>Request Access to the project dataset</h2>
+            <h3>INFORMATION ABOUT ACCESSING THE DATASET</h3>
+
+            <div class="container">
+              <div class="section-title">
+                <h3><b>If you wish to request access, please complete the form below:<b></h3>
+                  <br>
+                </div>
+                      <div class="row">
+
+                        <div class="col-12">
+
+                          <form action="" method="post" role="form" class="php-email-form">
+                            <div class="row justify-content-center align-middle">
+                              <div class="col-6 form-group">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                              </div>
+                              </div>
+                            <div class="row justify-content-center align-middle">
+                              <div class="col-6 form-group">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                              </div>
+                            </div>
+                            <div class="row justify-content-center align-middle">
+                            <div class="col-6 form-group ">
+                              <input type="text" class="form-control" name="institution" id="subject" placeholder="Institution/Workplace" required>
+                            </div>
+                            </div>
+                            <div class="row justify-content-center align-middle">
+                            <div class="col-9 form-group">
+                              <textarea class="form-control" name="message" rows="5" placeholder="Please let us know why you would like access to this dataset and what you intend to use it for" required></textarea>
+                            </div>
+                            </div>
+                            <br>
+                            <div class="text-center"><button type="submit">Submit</button></div>
+                          </form>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+              </section> <! End Contact Section -->
+
+
+          </section><!-- End project-body -->
+
+      </main><!-- End #main -->
+
+  <!-- ======= Footer - DONT CHANGE ======= -->
+  <footer id="footer">
+
+  <!--  <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>IntSav Research Group</h3>
+            <p>
+              C/O Professor Massoud Zolgharni <br>
+              University of West London<br>
+              St Mary's Rd <br>
+              Ealing,<br>
+              London, England.<br>
+              W5 5RF<br><br>
+              <strong>Phone:</strong> 0800 036 8888<br>
+              <strong>Email:</strong> Massoud.Zolgharni@uwl.ac.uk<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://www.uwl.ac.uk/research/research-centres/intelligent-sensing">UWL homepage</a></li>
+            </ul>
+          </div>
+
+
+        </div>
+      </div>
+    </div> -->
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>IntSaV</span></strong>. All Rights Reserved
+        </div>
+
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href=" https://twitter.com/hdmribeiro" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="https://www.facebook.com/henrique.dm.ribeiro" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <!--
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        -->
+        <a href=" https://www.linkedin.com/in/hdmribeiro" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
