@@ -47,457 +47,356 @@
       </nav>
     </div>
   </header><!-- End Header -->
-
   <!-- ======= Title Section ======= -->
-  <section id="title" class="d-flex align-items-center">
+  <section id="project-title" class="d-flex align-items-center">
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-9 col-lg-9 text-center">
-          <h3></h3>
-          <h1>Unity Biobank</h1>
-          <h2>Collaborative projects to build an open-access biobank of echocardiographic images and annotations for AI development</h2>
+      <div class="row">
+        <!--<div class="col-12 text-left"> -->
+          <h1>Segmentation of Left Ventricle in 2D Echocardiography Using Deep Learning</h1>
+        <!-- <h2><i>Neda Azarmehr <sup>1,2</sup>, Xujiong Ye<sup>1</sup>, Stefania Sacchi <sup>3</sup>, James P Howard <sup>2</sup>, Darrel P Francis <sup>2</sup>, Massoud Zolgharni <sup>2,4</sup><i></h2>
+          <h3><sup>1</sup> School of Computer Science, University of Lincoln, Lincoln, UK<h3>
+          <h3><sup>2</sup> National Heart and Lung Institute, Imperial College, London, UK<h3>
+          <h3><sup>3</sup> Cardiovascular Rehabilitation Department, San Raffaele University Hospital, Milan, Italy<h3>
+          <h3><sup>4</sup> School of Computing and Engineering, University of West London, London, UK<h3>
+          </div>-->
         </div>
       </div>
-
   </section><!-- End Title -->
 
-  <main id="main">
-    <!-- ======= Projects Section ======= -->
-    <section id="projects" class="projects section-bg">
 
-      <div class="container" data-aos="fade-up">
-        <div class="row justify-content-center">
-          <div class="col-9 text-center">
-            <div class="section-title">
-              <h2>Open Projects</h2>
-              <h4>You can participate in any of the on-going projects</h4>
+    <!-- Main Webpage Section -->
+  <main id="project-main">
+
+    <!-- ======= Project Body Section ======= -->
+    <section id="project-body">
+
+      <!-- ======= Project Introduction ======= -->
+      <div class="project-intro">
+        <div class="container">
+          <div class="row justify-content-left">
+            <div class="col-12">
+              <div align="justify">
+              <hr>
+              <h1><b>Project Introduction</b> </h1>
+              <br>
+              <h3> The segmentation of Left Ventricle (LV) is currently carried out manually by the experts,
+                 and the automation of this process has proved challenging due
+                to the presence of speckle noise and the inherently poor quality of the ultrasound
+                images. This study aims to evaluate the performance of different state-of-the-art
+                Convolutional Neural Network (CNN) segmentation models to segment the LV
+                endocardium in echocardiography images automatically. Those adopted methods
+                include U-Net, SegNet, and fully convolutional DenseNets (FC-DenseNet). The
+                prediction outputs of the models are used to assess the performance of the CNN
+                models by comparing the automated results against the expert annotations (as the
+                gold standard). Results reveal that the U-Net model outperforms other models by
+                achieving an average Dice coefficient of 0.93 ± 0.04, and Hausdorff distance of
+                4.52 ± 0.90.
+              </h3>
+            </div>
+            </div>
+          </div>
+
+          </div>
+        </div>
+
+      <!-- ======= Project Dataset ======= -->
+      <div class = "project-dataset">
+        <div class="container project-container">
+          <div class="row justify-content-left">
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6" >
+              <div align="center">
+                <br><br><br>
+            <img class="img-fluid" src="assets\img\projects\lv_segmentation\dataset_sample.PNG" alt="IMAGE Dataset">
+            <h3> Fig. 1. An example 2D 4-chamber view. The blue and yellow curves represent the annotations
+              by Operator-A and Operator-B, respectively</h3>
+            </div>
+          </div>
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+              <div align="justify">
+              <h2>Dataset</h2>
+              <h3>The study population consisted of 61 patients (30 males), with a mean age of 64 ± 11,
+                who were recruited from patients who had undergone echocardiography with Imperial
+                College Healthcare NHS Trust. Only patients in sinus rhythm were included. No other
+                exclusion criteria were applied. The study was approved by the local ethics committee
+                and written informed consent was obtained.<br>
+                Each patient underwent standard Transthoracic echocardiography using a commercially available ultrasound machine (Philips iE33, Philips Healthcare, UK), and by experienced echocardiographers. Apical 4-chamber views were obtained in the left lateral
+                decubitus position as per standard clinical guidelines [3].
+                All recordings were obtained with a constant image resolution of 480 × 640 pixels.
+                The operators performing the exam were advised to optimise the images as would typically be done in clinical practice. The acquisition period was 10 s to make sure at least
+                three cardiac cycles were present in all cine loops. To take into account, the potential
+                influence of the probe placement (the angle of insonation) on the measurements, the
+                entire process was conducted three times, with the probe removed from the chest and
+                then placed back on the chest optimally between each recording. A total of three 10-s
+                2D cine loops was, therefore, acquired for each patient. The images were stored digitally
+                for subsequent offline analysis.<br>
+                To obtain the gold-standard (ground-truth) measurements, one accredited and experienced cardiology expert manually traced the LV borders. Where the operator judged
+                a beat to be of extremely low quality, the beast was declared invalid, and no annotation was made. We developed a custom-made program which closely replicated the
+                interface of echo hardware. The expert visually inspected the cine loops by controlled
+                animation of the loops using arrow keys and manually traced the LV borders using a
+                trackball for the end-diastolic and end-systolic frames. Three heartbeats (6 manual traces
+                for end-diastolic and end-systolic frames) were measured within each cine loop. Out of
+                1098 available frames (6 patients × 3 positions × 3 heartbeats × 2 ED/ES frames), a
+                total of 992 frames were annotated. To investigate the inter-observer variability, a second operator repeated the LV tracing on 992 frames, blinded to the judgment of the
+                first operator. A typical 2D 4-chamber view is shown in Fig. 1, where the locations of
+                manually segmented endocardium by the two operators are highlighted.</h3>
+              <br>
+            </div>
             </div>
           </div>
         </div>
       </div>
 
-      
+
+        <!-- ======= Project Architecture ======= -->
+      <div class = "project-architecture">
+
+          <div class="container">
+            <hr>
+            <div class="row justify">
+              <div class="col-12">
+              <h2><b>Network Architecture</b></h2>
+            </div>
+              <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                <div align="justify">
+                <h3> <br><P>Standard and well-established U-Net neural network architecture was firstly used
+                  since this architecture is applicable to multiple medical image segmentation problems.
+                  The U-Net architecture comprises of three main steps such as down-sampling, upsampling steps and cross-over connections. During the down-sampling stage, the number
+                  of features will increase gradually while during up-sampling stage the original image
+                  resolution will recover. Also, cross-over connection is used by concatenating equally
+                  size feature maps from down-sampling to the up-sampling to recover features that may
+                  be lost during the down-sampling process.<br><br>
+                  Each down-sampling and up-sampling has five levels, and each level has two convolutional layers with the same number of kernels ranging from 64 to 1024 from top to bottom
+                  correspondingly. All convolutions kernels have a size of (3 × 3). For down-sampling
+                  Max pooling with size (2 × 2) and equal strides was used.
+                  In addition to the U-net, SegNet and FC-DenseNet models were also investigated.
+                  The SegNet model contains an encoder stage, a corresponding decoder stage followed
+                  by a pixel-wise classification layer. In SegNet model, to accomplish non-linear upsampling, the decoder performs pooling indices computed in the max-pooling step of
+                  the corresponding encoder. The number of kernels and kernel size was the same as
+                  the U-Net model.<br><br>
+                  FC-DenseNet model is a relatively more recent model which consists of a downsampling and up-sampling path made of dense block. The down-sampling path is composed of two Transitions Down (TD) while an up-sampling path is containing two
+                  Transitions Up (TU). Before and after each dense block, there is concatenation and
+                  skip connections (see Fig. 2). The connectivity pattern in the up-sampling is different
+                  from the down-sampling path. In the down-sampling path, the input to a dense block is
+                  concatenated with its output, leading to linear growth of the number of feature maps,
+                  whereas in the up-sampling path, it is not.
+                  All models produce the output with the same spatial size as the input image
+                  (i.e., 320 × 240).
+
+
+                  </h3>
+                </div>
+              </div>
+                <div class="col-12 col-md-12 col-lg-6 col-xl-6  text-center ">
+                  <img class="img-fluid" src="assets\img\projects\lv_segmentation\Arch.PNG" alt="Architecture">
+                  <div align="center">
+                  <h3> Fig. 2. Diagram of FC-DenseNet architecture for semantic segmentation </h3>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ======= Project Implementation ======= -->
+          <div class = "project-implementation">
             <div class="container">
-        <div class="row justify-content-center">
-
-          <div class="col-6 col-md-3" data-aos-delay="100">
-            <div class="icon-box iconbox-blue">
-              <div class="icon">
-                <a href="biobank.html">
-                  <img src="assets/img/projects/Biobank/Foreshortening/Illustration.png" alt="Project icon" class="project-img">
-                </a>
+              <div class="row justify-content-left">
+                <div class="col-12">
+                  <div align="justify">
+                  <hr>
+                  <h2><b>Implementation:</b> </h2>
+                  <h3><p class="text-justify">Pytorch was used for the implementations [10], where Adam optimiser with 250 epochs and learning rate of 0.00001 were used for training the models.
+                  The network weights are initialised randomly but differ in range depending on the size
+                  of the previous layer. <br>Negative log-likelihood loss is used as the network’s objective
+                  function. All computations were carried using an Nvidia GeForce GTX 1080 Ti GPU.
+                  All models were trained separately and indecently using the annotations provided
+                  by either of the operators, and following acronyms are used for the sake of simplicity:
+                  GTOA and TOB as ground-truth segmentations provided by Operator-A and Operator-B,
+                  respectively; POA and POB as Predicted LV borders by deep learning models trained
+                  using GTOA and TOB.
+                  </h3>
+                  <div class="text-left">
+                    <br>
+                  <!--  <a class="btn btn-primary" href="" role="button">Download the code</a> -->
+                  </div>
+                </div>
               </div>
-              <h4><a href="biobank.html">Foreshortening</a></h4>
-              <p>Image quality - A4C foreshortening</p>
             </div>
           </div>
-          
-          
-     
+        </div>
+      <!-- ======= Project Evaluation ======= -->
+      <div class = "project-evaluation">
+        <div class="container">
+          <div class="row justify-content-left">
+            <div class="col-12">
+              <div align="justify">
 
-          <div class="col-6 col-md-3" data-aos-delay="100">
-            <div class="icon-box iconbox-blue">
-              <div class="icon">
-                <a href="realtime_ecg.html">
-                  <img src="assets/img/projects/Biobank/Alignment/Niti.jpg" alt="Project icon" class="project-img">
-                </a>
+              <hr>
+              <div class="text-justify">
+                <h2><b>Evaluation Measures</b></h2>
+                <h3>The Dice Coefficient (DC), Hausdorff distance (HD), and intersection-over-union (IoU)
+                  also known as the Jaccard index were employed to evaluate the performance and accuracy
+                  of the CNN models in segmenting the LV region. The DC  was calculated to measure
+                  the overlapping regions of the Predicted segmentation (P) and the ground truth (GT).
+                  The range of DC is a value between 0 and 1, which 0 indicates there is not any overlap
+                  between two sets of binary segmentation results while 1, indicates complete overlap.<br><br>
+                  Also, the HD was calculated using the following formula for the contour of segmentation where, d(j, GT, P) is the distance from contour point j in GT to the closest contour
+                  point in P. The number of pixels on the contour of GT and P specified with O and M
+                  respectively.<br>
+                  Moreover, the IoU was calculated image-by-image between the Predicted segmentation (IP) and the ground truth (GT). For a binary image (one foreground class, one
+                background class), IoU is defined for the ground truth and predicted segmentation GT
+                and IP
+              </h3>
               </div>
-              <h4><a href="realtime_ecg.html">Alignment/Rotation</a></h4>
-              <p>Image quality - A4C on-axis vs off-axis</p>
-            </div>
-          </div>
-
-          
-          
-          
-          
-          
-                <div class="container" data-aos="fade-up">
-        <div class="row justify-content-center">
-          <div class="col-9 text-center">
-            <div class="section-title">
-              <h2>Completed Projects</h2>
-              <h4>Available datasets (images and labells)</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      
-          <div class="col-6 col-md-3" data-aos-delay="100">
-            <div class="icon-box iconbox-blue">
-              <div class="icon">
-                <a href="phase_detection.html">
-                  <img src="assets/img/projects/phase_detection/heart-beat.png" alt="Project icon" class="project-img">
-                </a>
               </div>
-              <h4><a href="phase_detection.html">Phase Detection</a></h4>
-              <p>Multibeat echocardiographic phase detection</p>
+            </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- ======= Project Results ======= -->
+
+      <div class = "project-results">
+
+          <div class="container">
+            <hr>
+            <div class="row justify">
+              <div class="col-12">
+            <h2><b>Experiment Results and Discussion </b><br></h2>
+            </div>
+              <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                <div align="justify">
+                <h3><br><br> <P> <br>Figure 3 shows example outputs from the three models when trained using annotation
+                 provided by Operator-A (i.e., GTOA). The contour of the predicted segmentation was
+                 used to specify the LV endocardium border. The red, solid line represents the automated
+                 results, while the green line represents the manual annotation.<br>
+                 <br>As can be seen, the U-Net model achieved higher DC (0.98), higher IoU (0.99), and
+                 lower HD (4.24) score. A visual inspection of the automatically detected LV border also
+                 confirms this. The LV border obtained from the SegNet and FC-DenseNet models seems
+                 to be less smooth compared to that in the U-Net model. However, all three models seem
+                 to perform with reasonable accuracy.<br> <br><br><br>
+               <p> Figure 4 illustrates the results for a sample failed case, for which all three models
+                 seem to struggle with the task of LV segmentation. By closer scrutiny of the echo images
+                 for such cases, it is evident that the image quality tends to be lower due to missing borders,presence of speckle noise or artefacts,
+                 and poor contrast between the myocardium and
+                 the blood pool.
+                 <br></h3>
+
+                </div>
+              </div>
+                <div class="col-12 col-md-12 col-lg-6 col-xl-6  text-center ">
+                  <br>
+                  <img class="img-fluid" src="assets\img\projects\lv_segmentation\result1-1.PNG" alt="results">
+                  <img class="img-fluid" src="assets\img\projects\lv_segmentation\result2-1.PNG" alt="results">
+                </div>
+              </div>
             </div>
           </div>
 
-          
-                    <div class="col-6 col-md-3" data-aos-delay="100">
-            <div class="icon-box iconbox-blue">
-              <div class="icon">
-                <a href="doppler.html">
-                  <img src="assets/img/projects/Mitral_Inflow/MIPW.png" alt="Project icon" class="project-img">
-                </a>
+          <div class="container">
+            <div class="row align-middle">
+              <div class="col-12 col-lg-7 col-md-7 text-center">
+                <img class="img-fluid" src="assets\img\projects\lv_segmentation\table1.PNG" alt="table1" >
+                <h3>Table 1. Comparison of evaluation measures of (DC), (HD), and (IoU) between the three examine models</h3>
+                <img class="img-fluid" src="assets\img\projects\lv_segmentation\table2.PNG" alt="table1" >
+                <h3>Table 2. Comparison of evaluation measures (DC), (HD), and (IoU) for the U-Net model between five possible scenarios</h3>
               </div>
 
-              <h4><a href="doppler.html">Mitral Inflow</a></h4>
-              <p>Mitral Inflow Analysis</p>
-            </div>
-          </div>
-          
-          <div class="col-6 col-md-3" data-aos-delay="100">
-            <div class="icon-box iconbox-blue">
-              <div class="icon">
-                <a href="tdi.html">
-                  <img src="assets/img/projects/TDI/TDI-Med-57.png" alt="Project icon" class="project-img">
-                </a>
+              <div class="col-12 col-lg-5 col-md-5">
+                <div class="text-justify">
+                  <div align = "justify">
+                  <br>
+                  <h3>Table 1 provides the average Dice coefficient, Hausdorff distance, and Intersectionover-Union for the three models, across all testing images (199 images).
+                    <br>The U-Net model, in comparison with the SegNet and FC-DenseNet models, achieved relatively
+                    better performance. The average Hausdorff distance, however, was higher for the FCDenseNet, compared to the other two models.<br><br>
+                    For each image, there were four assessments of the LV border; two human and two
+                    automated (trained by the annotation of either of human operators). As shown in Table 2,
+                    the automated models perform similarly to human operators. <br><br>The automated model
+                    disagrees with the Operator-A, but so does the Operator-B. Since different experts make
+                    different judgments, it is not possible for any automated model to agree with all experts.
+                    However, it is desirable for the automated models do not have larger discrepancies when
+                    compared with the performance of human judgments; that is, to behave approximately
+                    as well as human operators.
+                  </h3>
               </div>
-              <h4><a href="tdi.html">Tissue Doppler Imaging</a></h4>
-              <p>Automated analysis of tissue Doppler images</p>
             </div>
-          </div>
-          
-
-
-        </div>
-      </div>
-
-    </section><!-- End Projects Section -->
-
-
-
-    <!-- ======= Resources Section ======= -->
-    <section id="resources" class="resources section-bg">
-      <div class="container-fluid" data-aos="fade-up">
-        <div class="row justify-content-center">
-          <div class="col-9 text-center">
-            <div class="section-title">
-              <h2>Resources</h2>
-
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="container">
-        <div class="row">
+        <!-- ======= Project Limitations and conclusion  ======= -->
+          <div class = "project Conclusion">
+            <div class="container">
+              <div class="row justify-content-left">
+                <div class="col-12">
+                  <div align="justify">
+                  <hr>
+                  <h2><b>Conclusion and Future Work</b></h2>
+                  <h3><br><p class="text-justify">The time-consuming and operator-dependent process of manual annotation of left ventricle border on a 2D echocardiographic recording could be assisted by the automated
+                        models that do not require human intervention. Our study investigated the feasibility of
+                        such automated models which perform no worse than human experts.<br><br>
+                        The automated models demonstrate larger discrepancies with the gold-standard
+                        annotations when encountered with the lower image qualities. This is potentially caused
+                        by the lack of balanced data in terms of different image quality levels. Since the patient
+                        data in our study was obtained by the expert echocardiographers, the distribution leans
+                        more towards higher average and higher quality images. This may result in the model
+                        forming a bias towards the more condensed quality-level images. Future investigations
+                        will examine the correlation between the performance of the deep learning model and
+                        the image qualities, as well as using more balanced datasets.<br><br>
+                        The patients were a convenience sample drawn from those attending a cardiology
+                        outpatient clinic. They, therefore, may not be representative of patients who enter trials
+                        with particular enrolment criteria or of inpatients or the general population. A further
+                        investigation will look at a wide range of subjects in any cardiovascular disease setting.
+                        The segmentation of other cardiac views, and using data acquired by various ultrasound
+                        vendors can also be considered for a comprehensive examination of the deep learning
+                        models in echocardiography.</h3>
 
-
-          <h4><b>Code Repositories </b></h4>
-          <h6>In the wake of open science, our priority has been the full publication of details of all methods
-            developed in research so that they can be reproduced, criticised, and improved upon. We make all our
-            research materials, including the datasets, code of experiments, and analyses, freely available at our
-            GitHub page: <a href="https://github.com/intsav" target="_blank"
-              rel="noopener noreferrer">github.com/intsav</a></h6>
-          <h3> </h3>
-          <h3> </h3>
-          <h3> </h3>
-
-          <h4><b>Datasets </b></h4>
-
-          <h6>The dataset for each project is described/provided in the PROJECTS section.</h6>
-          <h6>Under the aegis of the British Society of Echocardiography, IntSaV is also contributing to the development
-            of, and therefore has access to, the UK’s largest biobank of echo expertise: <a
-              href="https://data.unityimaging.net/" target="_blank" rel="noopener noreferrer">data.unityimaging.net</a>
-          </h6>
-          <h3> </h3>
-          <h3> </h3>
-          <h3> </h3>
-
-
-          <h4><b>Equipment</b></h4>
-          <ul>
-            <h5>
-              <li>Ultrasound Scanners</li>
-            </h5>
-            <ul type="square">
-              <li>SonixTouch Q+ Ultrasound Machine</li>
-              <li>GE Vivid I Ultrasound Machine</li>
-              <li>Philips iE33 Ultrasound Machine</li>
-              <li>Various ultrasound phantoms</li>
-            </ul>
-            <!--    <h6>SonixTouch Q+ Ultrasound Machine</h6>
-              <h6>GE Vivid I Ultrasound Machine</h6>
-              <h6>Philips iE33 Ultrasound Machine</h6>
-              <h6>Various ultrasound phantoms</h6>
-              <h3> </h3> -->
-            <h5>
-              <li>Computing</li>
-            </h5>
-            <ul type="square">
-              <li>GPU Servers</li>
-              <li>RAID Servers</li>
-              <li>Custom Software Repositories</li>
-            </ul>
-
-            <h5>
-              <li>Misc. electronics</li>
-            </h5>
-            <ul type="square">
-              <li>3D Printer</li>
-              <li>Polhemus motion tracking system</li>
-            </ul>
-
-
-        </div>
-      </div>
-    </section><!-- End Resources Section -->
-
-
-
-    <!-- ======= funding Section ======= -->
-    <section id="funding" class="funding section-bg">
-      <div class="container-fluid" data-aos="fade-up">
-        <div class="row justify-content-center">
-          <div class="col-9 text-center">
-            <div class="section-title">
-              <h2>Funding</h2>
-
+                </div>
+                </div>
+              </div>
             </div>
+
+                <div class="container">
+                  <hr>
+
+                    <div class="row justify-content-left">
+                      <div class="col-12">
+                        <div class="text-left">
+                              <h1> <b> Project Team </b></h1>
+                                  <h6>  <a href="https://www.uwl.ac.uk/staff/neda-azarmehr" target="_blank" rel="noopener noreferrer"> Neda Azarmehr </a></h6>
+                                <h6> <a href="https://www.uwl.ac.uk/staff/massoud-zolgharni" target="_blank" rel="noopener noreferrer"> Massoud Zolgharni  </a></h6>
+                        </div >
+                     </div>
+                  </div>
+                </div>
+            <div class="container">
+              <!-- test -->
+              <hr>
+
+                <div class="row justify-content-left">
+                  <div class="col-12">
+                    <div class="text-left">
+                      <h1> <b>  References</b> </h1>
+                      <br>
+                      <h3> <a  href="https://link.springer.com/chapter/10.1007/978-3-030-39343-4_43" >Segmentation of Left Ventricle in 2D Echocardiography Using Deep Learning</a></h3>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
           </div>
-        </div>
-      </div>
 
-      <div class="container">
-        <div class="row">
-
-          <h6>We are grateful to the following institutions for funding and support:</h6>
-          <h3> </h3>
-          <h3> </h3>
-          <h3> </h3>
-
-          <h4><a href="https://royalsociety.org/grants-schemes-awards/" target="_blank" rel="noopener noreferrer">Royal
-              Society</a></h4>
-          <h6>2023-2024: £20k, Research Grant (RGS\R2\222049), Optimising 3D bioprinting for tissue regenerative
-            medicine using AI.</h6>
-          <h6>In collaboration with <a
-              href="https://www.uwl.ac.uk/research/research-centres-and-groups/biotherapeutic-drug-development?redirect=1&source=biotherapeutic-drug-development"
-              target="_blank" rel="noopener noreferrer">Biotherapeutic Research Group</a> </h6>
-          <h3> </h3>
-          <h3> </h3>
-          <h3> </h3>
-          <h3> </h3>
-          <h3> </h3>
-
-
-          <h4><a href="https://www.bhf.org.uk" target="_blank" rel="noopener noreferrer">British Heart Foundation</a>
-          </h4>
-          <h6>2022-2027: £305k, Programme Grant (RG/F/22/110059), UNITY: UK Collaborative for integrating AI into
-            echocardiography.</h6>
-          <h6>A strong collaboration with <a href="https://www.bsecho.org" target="_blank"
-              rel="noopener noreferrer">BSE</a>, <a href="https://www.imperial.ac.uk/nhli" target="_blank"
-              rel="noopener noreferrer">NHLI</a>, <a href="https://www.nhlbi.nih.gov/" target="_blank"
-              rel="noopener noreferrer">NIH</a>, <a href="https://www.visioneng.org.uk/" target="_blank"
-              rel="noopener noreferrer">LoVE</a>, <a
-              href="https://pure.qub.ac.uk/en/organisations/school-of-electronics-electrical-engineering-and-computer-science"
-              target="_blank" rel="noopener noreferrer">Queen's</a>, and 21 Hospitals across the UK (Total £1.5m) </h6>
-          <h3> </h3>
-          <h3> </h3>
-          <h6>2020-2023: £150k, Project Grant (PG/19/78/34733), Tensor-mapping to resolve the Achilles heel of
-            echocardiographic strain imaging.</h6>
-          <h6>In collaboration with <a href="https://www.imperial.ac.uk/nhli" target="_blank"
-              rel="noopener noreferrer">NHLI</a> (Total £257k) </h6>
-          <h3> </h3>
-          <h3> </h3>
-          <h3> </h3>
-
-          <h4><a href="https://erc.europa.eu/" target="_blank" rel="noopener noreferrer">European Research Council</a>
-          </h4>
-          <h6>2011-2017: €1.54m, Starting Grant (ERC-2011-StG_20101109), Rapid reliable volume status and ventricular
-            function assessment by non-specialist staff using innovative imaging in clinical practice. </h6>
-          <h6>In collaboration with <a href="http://www.ffch.org" target="_blank" rel="noopener noreferrer">The
-              International Centre for Circulatory Health (ICCH)</a> </h6>
-          <h3> </h3>
-          <h3> </h3>
-          <h3> </h3>
-
-          <h4><a href="https://www.slb.com/who-we-are/schlumberger-foundation" target="_blank"
-              rel="noopener noreferrer">Schlumberger Foundation</a></h4>
-          <h6>2021-2024: PhD Studentship</h6>
-          <h3> </h3>
-          <h3> </h3>
-          <h3> </h3>
-
-          <h4><a href="https://www.ffwg.org.uk" target="_blank" rel="noopener noreferrer">Funds for Women Graduates</a>
-          </h4>
-          <h6>2022-2023: Study Grant; Eman Alajrami</h6>
-          <h3> </h3>
-          <h3> </h3>
-          <h3> </h3>
-
-
-        </div>
-      </div>
-    </section><!-- End funding Section -->
-
-
-
-    <!-- ======= Project-partners Section ======= -->
-    <section id="partners" class="partners section-bg">
-      <div class="container-fluid" data-aos="fade-up">
-        <div class="row justify-content-center">
-          <div class="col-9 text-center">
-            <div class="section-title">
-              <h2>Our Partners</h2>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
-            <a href="https://www.nvidia.com/en-gb/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/img/partners/Nvidia.png" class="img-fluid" alt="">
-            </a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
-            <a href="https://www.imperial.nhs.uk/our-locations/hammersmith-hospital" target="_blank"
-              rel="noopener noreferrer">
-              <img src="assets/img/partners/hammersmith.jpg" class="img-fluid" alt="">
-            </a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
-            <a href="https://www.imperial.ac.uk/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/img/partners/imperial.png" class="img-fluid" alt="">
-            </a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
-            <a href="https://www.visioneng.org.uk/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/img/partners/LoVE.jpg" class="img-fluid" alt="">
-            </a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
-            <a href="https://www.imperial.ac.uk/nhli" target="_blank" rel="noopener noreferrer">
-              <img src="assets/img/partners/NHLI.jpg" class="img-fluid" alt="">
-            </a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
-            <a href="https://bsecho.org/home/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/img/partners/BSE.png" class="img-fluid" alt="">
-            </a>
-          </div>
-        </div>
-      </div>
-    </section><!-- End partners Section -->
+      <!--    <div class="text-center">
+            <a class="btn btn-primary" href="https://link.springer.com/chapter/10.1007/978-3-030-39343-4_43" role="button">Download the paper</a>
+          </div>-->
 
 
 
 
+                </section><!-- End project-body -->
 
-    <!-- ======= workwithus Section ======= -->
-    <section id="workwithus" class="funding section-bg">
-      <div class="container-fluid" data-aos="fade-up">
-        <div class="row justify-content-center">
-          <div class="col-9 text-center">
-            <div class="section-title">
-              <h2>Work with us</h2>
+            </main><!-- End #main -->
 
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="row">
-
-          <ul>
-            <h5> Why work with us:</h5>
-            <ul type="square">
-              <li>We are a team of deeply passionate, creative problems solvers. From AI researchers and data
-                scientists, to engineers and clinicians throughout the country, we work with our partners to transform
-                the AI technologies.</li>
-              <li>As part of our team, you can contribute to shaping how our world – through next generation
-                advancements in AI.</li>
-
-            </ul>
-            <h3> </h3>
-            <br>
-
-
-            <h5> Entry requirements for PhD positions:</h5>
-            <ul type="square">
-              <li>MSc degree with Merit or above or have equivalent postgraduate or research experience.</li>
-              <li>Applicants need to have a strong academic record. They should have a good ability in analytical
-                methods and programming.</li>
-              <li>International applicants only: an IELTS score of 6.5 or higher (with no element under 6.0). Applicants
-                with a previous degree obtained in the UK are exempt from this requirement.</li>
-            </ul>
-            <h3> </h3>
-            <br>
-
-
-
-
-            <h5>Available Postdoctoral and Research Assistant Positions:</h5>
-            <h6> We currently have an open Research Assistant/Associate position in super-resolution ultrasound imaging
-              in vivo. .</h6>
-            <ul type="square">
-              <li><a href="https://jobs.uwl.ac.uk/Vacancy.aspx?ref=COMP0038" target="_blank"
-                  rel="noopener noreferrer">5-year RA post - Artificial Intelligence in Cardiovascular Imaging</a></li>
-            </ul>
-            <h3> </h3>
-            <br>
-
-
-            <h5>Available PhD projects:</h5>
-            <h6> The specific topics of research change according to our research strategy, but available projects will
-              be consistent with the ones presented above. All projects involve considerable interaction with other
-              research group memebers. The PhD students working on multidisciplinary research projects are supported by
-              a sizeable supervisory team with subject specialist knowledge.</h6>
-            <h6> For further information about possible PhD positions, please contact core academics in People section
-              above.</h6>
-            <h6> We are currently recruiting for the below specific projects:</h6>
-            <ul type="square">
-              <li><a href="https://intsav.github.io/biopriniting.html" target="_blank"
-                  rel="noopener noreferrer">AI-aided design of 3D printing of in-situ polymerising collagen for
-                  development of scaffold for retinal regeneration</a></li>
-              <li><a href="https://intsav.github.io/spinal.html" target="_blank" rel="noopener noreferrer">Developing AI
-                  techniques to quantify vertebral damage and predict progressive vertebral deformity using plain
-                  radiographs</a></li>
-              <li><a href="https://intsav.github.io/loss.html" target="_blank" rel="noopener noreferrer">Designing
-                  custom loss functions for echocardiographic image interpretations using deep learning</a></li>
-              <li><a href="https://intsav.github.io/Gait_Gender_Classification.html" target="_blank"
-                  rel="noopener noreferrer">Gait Gender Classification Using Neural Networks</a></li>
-              <li><a href="https://intsav.github.io/encoders.html" target="_blank" rel="noopener noreferrer">Developing
-                  Echocardiographic Encoders Using Self-Supervised Learning</a></li>
-              <li><a href="https://intsav.github.io/echo_text_image_fusion.html" target="_blank"
-                  rel="noopener noreferrer">Integrative AI for Echocardiographic Diagnosis: Enhancing Interpretation
-                  through Text-Image Fusion</a></li>
-              <li><a href="https://intsav.github.io/tbi.html" target="_blank"
-                  rel="noopener noreferrer">Prognosis Prediction in Traumatic Brain Injury: A Novel AI Framework </a></li>
-              <li><a href="https://intsav.github.io/strain.html" target="_blank"
-                  rel="noopener noreferrer">Leveraging AI for Regional Strain Estimation in Echocardiography </a></li>
-              <li><a href="https://intsav.github.io/sclerosis.html" target="_blank"
-                  rel="noopener noreferrer">Analyzing morphological alternations of vessels in multiple Sclerosis using SLO images of the eyes </a></li>
-
-
-
-            </ul>
-            <h3> </h3>
-            <br>
-
-            <br>
-            <h5><a href="https://www.uwl.ac.uk/research/research-degrees/applying-phd#PhDscholarships" target="_blank"
-                rel="noopener noreferrer">Scholarships</a></h5>
-            <h6> VC Scholarships are available for PhD research positions for Home/UK students only. PhD programmes are
-              funded for a 3-year period, and can start in Feb, May, and September each year. Funding is generous,
-              including PhD bursaries at the standard rate and paid registration fees.</h6>
-            <h3> </h3>
-
-
-        </div>
-      </div>
-    </section><!-- End workwithus Section -->
-
-
-
-  </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
