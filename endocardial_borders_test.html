@@ -24,6 +24,28 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+        #image-map-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .map-overlay {
+            position: absolute;
+            background-color: rgba(255, 0, 0, 0); /* Initially transparent */
+            transition: background-color 0.3s;    /* Smooth transition on hover */
+            width: 500px; /* Adjust according to image width */
+            height: 500px; /* Adjust according to image height */
+        }
+
+        .map-overlay:hover {
+            background-color: rgba(0, 0, 255, 0.4);
+        }
+    </style>
+
+
+  
 </head>
 
 <!-- ======= Body Section ======= -->
@@ -87,6 +109,16 @@
 
   <div style="text-align: center;">
       <img src="assets/img/projects/Biobank/Border_Visibility/A4C_segments.png" alt="Workplace" usemap="#workmap">
+
+        <a href="#Apex" class="map-overlay" style="clip-path: polygon(189px 232px, 188px 202px, 203px 194px, 231px 191px, 262px 201px);"></a>
+        <a href="#Apical septal" class="map-overlay" style="clip-path: polygon(202px 297px, 231px 293px, 225px 258px, 223px 231px, 226px 222px, 226px 219px, 189px 235px, 195px 246px, 197px 272px);"></a>
+        <a href="#Apical lateral" class="map-overlay" style="clip-path: polygon(291px 272px, 322px 251px, 267px 201px, 230px 217px, 232px 221px, 257px 236px);"></a>
+        <a href="#Mid inferoseptal" class="map-overlay" style="clip-path: polygon(203px 300px, 233px 295px, 247px 350px, 219px 356px);"></a>
+        <a href="#Mid anterolateral" class="map-overlay" style="clip-path: polygon(324px 253px, 293px 273px, 334px 337px, 370px 312px, 346px 279px);"></a>
+        <a href="#Basal inferoseptal" class="map-overlay" style="clip-path: polygon(220px 359px, 235px 409px, 256px 404px, 255px 383px, 248px 352px);"></a>
+        <a href="#Basal anterolateral" class="map-overlay" style="clip-path: polygon(371px 314px, 335px 338px, 357px 381px, 361px 398px, 397px 385px, 394px 364px, 382px 333px);"></a>
+    
+    
       <map name="workmap">
         <area shape="poly" coords="189,232,188,202,203,194,231,191,262,201" href="#Apex">
         <area shape="poly" coords="202,297,231,293,225,258,223,231,226,222,226,219,189,235,195,246,197,272" href="#Apical septal">
