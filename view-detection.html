@@ -7,9 +7,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Foreshortening</title>
+  <title>Echo View Classification</title>
   <!-- IntSaV Logo-->
-  <link href="assets/img/projects/Biobank/Foreshortening/Illustration.png" rel="icon">
+  <link href="assets/img/projects/view_classification/classification.png" rel="icon">
   <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -49,7 +49,7 @@
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
       <div class="row">
         <!--<div class="col-12 text-left"> -->
-          <h1>A4C Foreshortening</h1>
+          <h1>Echo View Classification</h1>
         </div>
       </div>
   </section><!-- End Title -->
@@ -70,8 +70,8 @@
               <hr>
               <h1><b>Project Description</b> </h1>
               <br>
-              <h3> Foreshortening in echocardiography refers to a common issue where the ultrasound beam doesn't capture the true apex of the left ventricle (LV). Instead, it cuts through a point above and anterior to the actual apex. This leads to a distorted image of the LV, making it appear shorter and rounder than its actual elongated, bullet-like shape. This project aims to create a dataset of A4C images with varying degrees of foreshortening.
-              </h3>
+              <h2> We are training an AI model for detailed classification of echocardiographic views, covering 47 distinct categories. Due to the large number of views, some challenging cases may arise. For instance, certain views, such as the apical 3-chamber and apical 4-chamber, can look very similar, making it difficult to determine the correct label. Please examine the image carefully to distinguish between these views. Additionally, if an image does not fit any of the available categories, select the "None of the above" option when labelling.
+              </h2>
             </div>
             </div>
           </div>
@@ -79,41 +79,69 @@
         <br>
           <br>
           
-          
-<div class="row"> 
-  <div class="col-6 col-md-3" data-aos-delay="100">
-    <div class="icon-box iconbox-blue">
-      <div class="icon">
-        <img src="assets/img/projects/Biobank/Foreshortening/Illustration.png" height="300" >
+        <div class="text-center">
+            <img class="img-fluid" src="assets/img/projects/Biobank/View_Classification/View_Classification.png" style="width: 50%; height: auto;">
       </div>
-      <a href="https://doi.org/10.1109/TUFFC.2020.2981037" target="_blank">Illustration of apical foreshortening</a> 
-    </div>
-  </div>
-
-  <div class="col-6 col-md-6" data-aos-delay="100"> 
-    <div class="icon-box iconbox-blue">
-      <div class="icon">
-        <img src="assets/img/projects/Biobank/Foreshortening/example.jpg" height="300">
-      </div>
-      <a href="https://www.renalfellow.org/2019/09/20/focused-cardiac-ultrasound-for-the-nephrologist-the-apical-window/" target="_blank">Examples of normal apical view and foreshortening</a> 
-    </div>
-  </div>
-</div>
       
 <br>
 <br>
       
    
      
-          <div align="center">    
-            <h1>Watch a 1-minute demo video</h1>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/T5krbz3gw4A?si=3tzBvRSyfd_uB3Oc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
+        <div align="center">    
+          <h1>Watch a 1-minute demo video</h1>
+          <br>
+          <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/T5krbz3gw4A?si=3tzBvRSyfd_uB3Oc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+      </div>
           
 <br>
-<br>         
+<br>
 
-<a href="https://unityimaging.net/compare/biobank-a4c-quality-foreshortening" class="btn-get-started scrollto" style="padding: 20px 40px; background-color: #007bff; color: white; border-radius: 10px; text-decoration: none; margin-bottom: 20px; font-size: 30px;" target="_blank"> Start Labelling </a>
+<div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-9 text-center">
+            <div class="section-title">
+              <h2>Start Labelling</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    <br>
+           
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-bottom: 20px; max-width: 1200px;">
+    
+    <a href="https://unityimaging.net/fiducial/uwl-echo-naidoo-view-classification-relabel-apical" 
+     class="btn-get-started scrollto" 
+     style="padding: 15px 30px; background-color: #007bff; color: white; border-radius: 10px; text-decoration: none; font-size: 20px;" 
+     target="_blank"> Apical Views </a>
+
+    <a href="https://unityimaging.net/fiducial/uwl-echo-naidoo-view-classification-relabel-doppler" 
+     class="btn-get-started scrollto" 
+     style="padding: 15px 30px; background-color: #007bff; color: white; border-radius: 10px; text-decoration: none; font-size: 20px;" 
+     target="_blank"> Doppler Views </a>
+
+    <a href="https://unityimaging.net/fiducial/uwl-echo-naidoo-view-classification-relabel-mmode" 
+     class="btn-get-started scrollto" 
+     style="padding: 15px 30px; background-color: #007bff; color: white; border-radius: 10px; text-decoration: none; font-size: 20px;" 
+     target="_blank"> M-mode Views </a>
+  
+    <a href="https://unityimaging.net/fiducial/uwl-echo-naidoo-view-classification-relabel-plax" 
+     class="btn-get-started scrollto" 
+     style="padding: 15px 30px; background-color: #007bff; color: white; border-radius: 10px; text-decoration: none; font-size: 20px;" 
+     target="_blank"> PLAX Views </a>
+
+    <a href="https://unityimaging.net/fiducial/uwl-echo-naidoo-view-classification-relabel-psax" 
+     class="btn-get-started scrollto" 
+     style="padding: 15px 30px; background-color: #007bff; color: white; border-radius: 10px; text-decoration: none; font-size: 20px;" 
+     target="_blank"> PSAX Views </a>
+
+    <a href="https://unityimaging.net/fiducial/uwl-echo-naidoo-view-classification-relabel-sub" target" 
+     class="btn-get-started scrollto" 
+     style="padding: 15px 30px; background-color: #007bff; color: white; border-radius: 10px; text-decoration: none; font-size: 20px;" 
+     target="_blank"> Subcostal/Suprasternal Views </a>
+
+  </div>    
+
       
           
        </div>
