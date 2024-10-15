@@ -462,7 +462,11 @@
         .table-container {
             display: flex;
             justify-content: space-between;
-            gap: 20px; /* Space between the tables */
+            gap: 20px;
+        }
+        .table-section {
+            width: 45%;
+            text-align: center;
         }
         table {
             width: 45%;
@@ -478,9 +482,8 @@
         th {
             background-color: #f2f2f2;
         }
-        .section-title h2 {
+        h2 {
             margin: 10px 0;
-            text-align: center;
         }
     </style>
 </head>
@@ -497,6 +500,8 @@
     </div>
 
     <div class="table-container">
+        <div class="table-section">
+            <h2>Doppler Views:</h2>
       <table>
         <tr>
           <th>View</th>
@@ -535,7 +540,10 @@
           <td>Tissue Doppler of the right ventricular free wall</td>
         </tr>
       </table>
+      </div>
 
+      <div class="table-section">
+        <h2>PLAX Views:</h2>
       <table>
         <tr>
           <th>View</th>
@@ -574,6 +582,29 @@
           <td>Parasternal inflow view including tricuspid valve</td>
         </tr>
       </table>
+      </div>
+
+      <div class="table-section">
+        <h2>Subcostal Views:</h2>
+      <table>
+    <tr>
+      <th>View</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>subcostal-heart</td>
+      <td>Subcostal window, focused on the heart</td>
+    </tr>
+    <tr>
+      <td>subcostal-ivc</td>
+      <td>Subcostal window, focused on the inferior vena canva</td>
+    </tr>
+    <tr>
+      <td>suprasternal</td>
+      <td>Suprasternal view</td>
+    </tr>
+  </table>
+    </div>
     </div>   
 
 
