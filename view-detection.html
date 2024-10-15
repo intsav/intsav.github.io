@@ -457,9 +457,123 @@
   <br>
   <br>
 
-      
-    
-    
+  <style>
+        .table-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px; /* Space between the tables */
+        }
+        table {
+            width: 45%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .section-title h2 {
+            margin: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-9 text-center">
+            <div class="section-title">
+              <h2>Doppler Views:</h2>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <tr>
+          <th>View</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>doppler-ao-descending</td>
+          <td>Spectral Doppler of the descending aorta</td>
+        </tr>
+        <tr>
+          <td>doppler-mv</td>
+          <td>Spectral Doppler of the mitral valve</td>
+        </tr>
+        <tr>
+          <td>doppler-av</td>
+          <td>Spectral Doppler of the aortic valve</td>
+        </tr>
+        <tr>
+          <td>doppler-pv</td>
+          <td>Spectral Doppler of the pulmonary valve</td>
+        </tr>
+        <tr>
+          <td>doppler-tv</td>
+          <td>Spectral Doppler of the tricuspid valve</td>
+        </tr>
+        <tr>
+          <td>doppler-tissue-lateral</td>
+          <td>Tissue Doppler of the left ventricular lateral wall</td>
+        </tr>
+        <tr>
+          <td>doppler-tissue-septal</td>
+          <td>Tissue Doppler of the left ventricular septal wall</td>
+        </tr>
+        <tr>
+          <td>doppler-tissue-rv</td>
+          <td>Tissue Doppler of the right ventricular free wall</td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <th>View</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>plax-full-out</td>
+          <td>Parasternal long-axis, zoomed out</td>
+        </tr>
+        <tr>
+          <td>plax-full-lv</td>
+          <td>Parasternal long-axis, focused on the left ventricle</td>
+        </tr>
+        <tr>
+          <td>plax-full-la</td>
+          <td>Parasternal long-axis, focused on the left atrium</td>
+        </tr>
+        <tr>
+          <td>plax-full-rv-ao</td>
+          <td>Parasternal long-axis, focused on the right ventricle and aorta</td>
+        </tr>
+        <tr>
+          <td>plax-full-mv</td>
+          <td>Parasternal long-axis, centered on the mitral valve</td>
+        </tr>
+        <tr>
+          <td>plax-valves-av</td>
+          <td>Parasternal long-axis, focused on the aortic valve</td>
+        </tr>
+        <tr>
+          <td>plax-valves-mv</td>
+          <td>Parasternal long-axis, focused on the mitral valve</td>
+        </tr>
+        <tr>
+          <td>plax-tv</td>
+          <td>Parasternal inflow view including tricuspid valve</td>
+        </tr>
+      </table>
+    </div>   
 
 
       
