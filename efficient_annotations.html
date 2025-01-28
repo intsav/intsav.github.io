@@ -48,7 +48,7 @@
       <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
         <div class="row">
           <div class="col-12 text-left">
-            <h1>Deep Active Learning for Left Ventricle Segmentation in Echocardiography</h1>
+            <h1>Active Learning for creating a Biobank of expert annotations in Echocardiography</h1>
           <!--  <h2><i> Eman Alajrami <sup>1</sup>, Elisabeth S Lane <sup>1</sup>, Jevgeni Jevsikov <sup>1</sup>, James P Howard <sup>2</sup>, Matthew J Shun-shin <sup>2</sup>, Graham D Cole <sup>2</sup>, Darrel P Francis <sup>2</sup>, Massoud Zolgharni <sup>1,2</sup><i></h2>
               <h3><sup>1</sup> School of Computing and Engineering, University of West London, London, United Kingdom<h3>
               <h3><sup>2</sup> National Heart and Lung Institute, Imperial College, London, United Kingdom<h3> -->
@@ -71,17 +71,13 @@
             <div class="col-12">
                   <div align="justify">
               <hr>
-              <h1><b>Project Introduction </b> </h1>
+              <h1><b>Introduction </b> </h1>
               <br>
-              <h3> The training of advanced deep learning algorithms for medical image interpretation requires precisely
-                annotated datasets, which is laborious and expensive. Therefore, this research investigates state-of-the-art
-                active learning methods for utilising limited annotations when performing automated left ventricle
-                segmentation in echocardiography. Our experiments reveal that the performance of different sampling strategies varies between datasets from the same domain. Further, an optimised method for representativeness sampling is introduced, combining images from feature-based outliers to the most representative samples for label acquisition. The proposed method significantly outperforms the current literature and demonstrates convergence with minimal annotations. We demonstrate that careful
-                selection of images can reduce the number of images needed to be annotated by up to 70%. This research can
-                therefore present a cost-effective approach to handling datasets with limited expert annotations in
-                echocardiography.
+              <h3> This project addresses the challenge of scarce annotations; using deep learning and active learning (AL) techniques to reduce annotation costs and efforts while maintaining high segmentation accuracy and improving clinical workflow efficiency.
               </h3>
-            </div>
+              <h3> This work presents several AL methods, contributing to the cost-effective medical image annotation. The first project comprehensively evaluates existing AL approaches, establishing a valuable baseline for comparing different strategies. The second project explores ensemble-based AL techniques, leveraging different loss functions and uncertainty scoring methods. In the third project, a novel semi-supervised active learning method is developed, combining pseudo-labels from model predictions with expert annotations. The final project introduces an optimised clustering method using Fuzzy C-means for diversity sampling. </h3>
+              <h3> The outcome of the AL study was utilised to create a biobank of echo images for several projects to rank images and videos based on diversity. This method ensures that clinicians focus on labelling the images that will most effectively improve the AI model's performance, reducing the overall number of images that need to be annotated.</h3>
+                </div>
           </div>
         </div>
 
@@ -104,12 +100,11 @@
             <div class="col-6 col-md-6 col-lg-6 col-xl-6">
                 <div align="justify">
               <h2><b>Dataset</b></h2>
-              <h3>Two different datasets of cardiac imaging are used for our experiments:
-                the CAMUS dataset and the Unity dataset.<br><br>
-                <b>CAMUS dataset</b> is a public, fully annotated dataset for 2D echocardiographic assessment that
-                contains 500 images from 2D apical four-champers and two-champers view sequences. <br>
-                All the details of the CAMUS dataset are available on the official website (https://www.creatis.insa-lyon.fr/Challenge/camus/index.html).
-                We split CAMUS dataset into 70% (350 images) for training, 15% (50 images for validation), and 15% (50 images) for testing.
+              <h3>Three different datasets of cardiac imaging are used for our experiments:
+                the CAMUS dataset, the Unity dataset, and the consensus testing dataset.<br><br>
+                <b>CAMUS dataset</b> is a public, fully annotated dataset for 2D echocardiographic assessment.
+                  All the details of the CAMUS dataset are available on the official website (https://www.creatis.insa-lyon.fr/Challenge/camus/index.html).
+
 
                 <br><br>
                 <b>Unity dataset</b>is a private dataset extracted from 1224 videos of the apical four-chamber echocardiographic view retrieved
@@ -120,6 +115,9 @@
                 It contains 2800 images sampled from different points in the cardiac cycle and labelled by a pool of
                 experts using our in-house online labelling platform (https://unityimaging.net).
                 This dataset was used for model developments (i.e., training and validation) and split into 70% for training, 15% for validation and 15% for testing.
+                <br><br>
+
+                <b>Consensus dataset:</b> It was utilised for the testing and was curated from a series of investigations conducted over three working days in 2019, years away from the development dataset. The testing dataset consisted of 100 A4C videos, from which 200 end-diastolic and end-systolic frames were selected automatically using a previously developed model. 11 human experts labelled each image using the same platform, mutually blinded to the labels of the others. The average of these 11 annotations was used for each image to create its GT. This provided high-quality consensus reference annotations, which served as a uniquely robust and representative benchmark for performance evaluations.
                   </h3>
               <br>
             </div>
@@ -132,25 +130,13 @@
       <div class = "project-architecture">
 
           <div class="container">
-            <hr>
             <div class="row justify-content-left">
               <div class="col-12">
               <h2><b>Network Architecture</b></h2>
             </div>
               <div class="col-12 col-md-12 col-lg-6 col-xl-6">
                 <div align="justify">
-                  <h3><br><br>The customised Bayesian U-Net architecture is illustrated in Fig. 2.
-                    First, we used Conv2D with a kernel size of 3x3, Batch normalisation, and a "RELU" activation function for
-                    the encoder blocks, followed by Maxpooling 2x2. Then, a Dropout layer is added with a Dropout probability
-                    of 0.1.
-                    At the centre, Bottleneck,  two Conv2D followed by a Dropout layer with a Dropout probability of 0.25 are used.
-                     Next, for the decoder blocks, we used Conv2DTranspose with a kernel size of 2x2, followed by a
-                     concatenation layer, a Dropout layer with a Dropout probability of 0.1, Batch normalisation, and a
-                     "RELU" activation. Then, two Conv2D with a kernel size of 3x3, Batch normalisation, and a "RELU"
-                     activation. Finally, a Conv2D with a kernel size of 1x1 with "Sigmoid" activation is added for the
-                     output layer.
-
-
+                  <h3><br><br>The network architecture utilised in this study is the Monte Carlo dropout (MCD) U-Net with a depth of 5, designed explicitly for Bayesian AL in LV segmentation tasks. The overall architecture is depicted in the above figure. This architecture integrates dropout layers throughout the network to facilitate MCD for uncertainty estimation. The MCD U-Net was used as the baseline model for all of the following studies.
                    </h3>
                  </div>
                 </div>
@@ -161,83 +147,72 @@
                     <!-- <figcaption>        Fig. 2 The customised Bayesian U-Net architecture </figcaption> -->
 
                 </div>
+                <br><br>
+              
               </div>
             </div>
           </div>
 
-        <!-- ======= Project Implementation ======= -->
-        <div class = "project-implementation">
+      <!-- ======= Project Study 1 ======= -->
+      <div class = "project-study-one">
           <div class="container">
             <hr>
+            <div class="col-12">
+                <h2><b>Study 1: Active learning for left ventricle segmentation</b></h2>
+              </div>
+              <br>
+                <div align="justify">
+                  <h3>This study evaluates existing AL approaches ( uncertainty and representativeness methods), establishing a valuable baseline for comparing different strategies.
+                   </h3>
+                </div>
             <div class="row justify-content-left">
               <div class="col-12">
+                <br>
+              <h2><b>Datasets and Methods</b></h2>
+            </div>
+              <div class="col-12 col-md-12 col-lg-6 col-xl-6">
                 <div align="justify">
-              <!--  <hr> -->
-                <h2>Implementation</h2>
-                <h3>A standard Active Learning (AL) methodology is applied throughout,  encompassing four steps: training the
-                  U-Net model on the initial annotated data (L),
-                  calculating the model uncertainty scores or representativeness scores on the unlabeled pool of data (U),
-                  selecting the top-ranked batch of images (K) to obtain their labels from oracle and add them to L and remove
-                   them from U, and finally retrain the model on the updated L.
-                   These steps are repeated until the optimal number of AL iterations is reached. <br>
-                   Random sampling and a variety of different selective sampling approaches are used for
-                   selecting the next batch of images from the unlabelled pool.
-                   The most common AL selection strategy is uncertainty sampling, where the most uncertain unlabelled images are
-                   quiried for annotation. Such uncertainty methods include: Classification Uncertainty (Pixel-wise), Predictive entropy,
-                   and Monte Carlo droupout ensemble-based methods using entropy, variance (Var), variation ratio (Var_ratio),
-                   standard diviation (STD), Coeffcient of variation (Coef_var),
-                   and Bayesian active learning with disagreement (BALD).<br><br>
-                   <b> Training settings: </b> Tensorflow and Keras frameworks are used for the development of DL models, and training was conducted using an Nvidia RTX3090 GPU. U-Net was trained using binary cross-entropy loss and ADAM optimiser with a learning rate of 0.0001 for 200 epochs. Images were resized to 512x512, and a fixed batch size of 8 was applied.
-                  For small datasets A and B, we selected 10% of the initial training data as L, and U will be the remaining 90%.
-                  For the larger dataset, we chose 4% as the initial L, and the remaining is for the U, which will be
-                  used as an oracle. Finally, to have a fair comparison between methods, we trained the model on the
-                  initially labelled data of
-                  the three datasets and used the same model's weights for training the following AL iterations.</h3>
+                  <h3><br>
+                    Unity and CAMUS datasets were used in this study for model development and testing.
+                    <br><br> A pool-based AL methodology is applied throughout, encompassing four steps: training the U-Net model on the initial annotated data (L), calculating the model uncertainty scores or representativeness scores on the unlabelled pool of data (U), selecting the top-ranked batch of images (K) to obtain their labels from oracle and add them to L and remove them from U, and finally retrain the model on the updated L. These steps are repeated until the optimal number of AL iterations is reached.
+                  <br><br>
+                    Random sampling and a variety of different selective sampling approaches are used for selecting the next batch of images from the unlabelled pool. The most common AL selection strategy is uncertainty sampling, where the most uncertain unlabelled images are queried for annotation. Such uncertainty methods include: Pixel-wise, Max_Entropy, and MCD ensemble-based methods using MCD_Eentropy, variance (MCD_Var), and Bayesian active learning with disagreement (BALD).
+                  </h3>
+                 </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-6 col-xl-6">
 
+                     <img class="img-fluid" src="assets/img/projects/Efficient_Annotations/Da.jpg" alt="IMAGE PLACEHOLDER" >
+                     <!-- <div class="caption" >Fig. 2 The customised Bayesian U-Net architecture</div> -->
+                    <!-- <figcaption>        Fig. 2 The customised Bayesian U-Net architecture </figcaption> -->
 
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      <!-- ======= Project Evaluation ======= -->
-      <div class = "project-evaluation">
-        <div class="container align-middle">
+                <br><br>
 
-          <div class="row">
-
-            <!-- <div class="col-12 col-lg-6 col-md-6 text-center">
-            < <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
-            </div> -->
-
-            <div class="row justify-content-left">
               <div class="col-12">
-                <hr>
-                <h2>Evaluation</h2>
                 <div align="justify">
-                <h3>We evaluated the model after every AL iteration using the Dice-Coefficient (DC) metric,
-                  and it is computed between the ground truth and the inferred prediction for each image in
-                  the testing dataset. Then the mean of Dice scores of all images is calculated to present the
-                  model's accuracy. Each AL selection strategy is trained three times,
-                  and the average of the DC at each AL iteration is computed and used to plot the results. </h3>
+                <h2><b>Implementation</b></h2>
+                <h3>Tensorflow and Keras frameworks are used for the development of DL models, and training was conducted using an Nvidia RTX3090 GPU. U-Net was trained using binary cross-entropy loss and ADAM optimiser with a learning rate of 0.0001 for 200 epochs with early stopping and a patience of 10. Images were resized to 512x512, and a fixed batch size of 8 was applied. For the CAMUS dataset, we selected 10% of the initial training data as L, and U will be the remaining 90%. For the Unity dataset, we chose 4% as the initial L, and the remaining is for the U, which will be used as an oracle.</h3>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <h2><b>Evaluation</b></h2>
+                <div align="justify">
+                <h3>The model was evaluated using the Dice-Coefficient (DC) metric, and it is computed between the ground truth and the inferred prediction for each image in the testing dataset. Then the mean of Dice scores of all images was calculated to present the model's accuracy. </h3>
                 </div>
                 <div class="text-left">
                   <br>
                 <!--  <a class="btn btn-primary" href="" role="button">Download the code</a>-->
                 </div>
               </div>
-            </div>
 
-          </div>
-        </div>
-      </div>
 
-      <!-- ======= Project Results ======= -->
-
-      <div class = "project-results">
-        <div class="container">
-          <hr>
-          <div class="row justify-content-left">
+              <div class="row justify-content-left">
+                <div align="justify">
+              <h2><b>Results: </b></h2>
+                </div>
+      
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
 
 
@@ -248,45 +223,228 @@
 
             </div>
             <div class="col-6 col-md-6 col-lg-6 col-xl-6">
-                <div align="justify">
-              <h2><b>Results: </b></h2>
               <div align="justify">
 
               <h3>Fig. 3 shows the performance of uncertainty sampling techniques compared to random selection on CAMUS and Unity datasets.
-                The horizontal black dashed line presents the performance of the entire labelled dataset. Our experiments show that the predictive Entropy is the best uncertainty strategy compared
-                to others on CAMUS and Unity datasets (see Fig. 3). For example, the predictive Entropy achieved 97.7% of the
-                entire dataset performance on CAMUS using 25% of the annotated dataset. At the same time,
-                the other policies ( BALD, Var, Var-ratio, Coef-var, STD, pixel-wise) required approximately
-                35% to approach that performance. Thus, it reduced the annotation cost by 10% to get
-                that performance. Moreover, it kept converging to the maximum performance achieving 98%
-                and 99% of the whole dataset performance using 35% and 40% of labels, respectively. <br>
-              Coef-Var achieved 98% of the entire dataset performance on the CAMUS dataset using 40%
-              of the annotations, outperforming random,pixel-wise and MDC-Entropy methods and almost
-              performing similarly to other methods. After using 60% of the labels, Predictive Entropy,
-              Coef-Var, Var-ratio, and BALD converged to the maximum performance outperforming other
-              selection policies.
-              For the Unity dataset, the predictive Entropy significantly outperformed all the other
-              methods from the early stages of AL achieving 98.3% and ~ 99% of the entire dataset performance
-              using only 7% and 20%  of the labels, respectively. At the same time, Coef-Var, pixel-wise, Var-ratio,
-              Var and BALD needed 15% of the annotation to get 98% of the maximum performance. After using 27% of
-              the annotations. Pixel-wise almost converged to the ultimate performance outperforming all other
-              uncertainty techniques.  <br><br>
-              Out experiments shows that most MCD ensemble methods usually do not converge till the end, such as
-              Var, BALD and Var-ratio. However, some of them perform well at the early AL stages. In addition,
-              our investigations show that our newly added method, Coef-Var, can perform well for some datasets.
-              Thus, we recommend adding it to the heuristic uncertainty selection strategies when using ensemble techniques.  <br>
-              Our experiments demonstrate the performance of various uncertainty sampling strategies varies
-              amongst different datasets from the same domain.
+                Our experiments show that the Max_Entropy is the best uncertainty strategy compared to others on CAMUS and Unity datasets. It achieved 97.7% of the entire dataset performance on CAMUS using 25% of the annotated dataset. At the same time, the other methods required approximately 35% to approach similar performance. Thus, it reduced the annotation cost by 10% to get that performance.
+                <br><br> For the Unity dataset, the Max_Entropy significantly outperformed all the other methods from the early stages of AL achieving 98.3% and ~ 99% of the entire dataset performance using only 7% and 20% of the labels, respectively.
+                                
               </h3>
+              </div>
               </div>
 
 
             </div>
 
+            </div><br><br>
+
+            <div class="text-center">
+            <img class="img-fluid" src="assets/img/projects/Efficient_Annotations/Picture2.jpg" alt="model" style="width: 65%; height: auto;">
             </div>
-          </div>
-        </div>
-      </div>
+
+            <br><br>
+            <h3> More details on this study can be found at: https://www.sciencedirect.com/science/article/pii/S016926072400107X
+            </h3>
+            
+          </div>      
+         </div>
+      
+      <!-- ======= Project Study 2 ======= -->
+      <div class = "project-study-two">
+          <div class="container">
+            <hr>
+            <div class="col-12">
+                <h2><b>Study 2: Ensembles-based active learning for LV Segmentation</b></h2>
+              </div>
+              <br>
+                <div align="justify">
+                  <h3>This study explores the use of established loss functions in ensemble-based AL for LV segmentation compared to the MCD ensemble-based, and different network architectures ensemble-based methods. </h3>
+                </div>
+            <div class="row justify-content-left">
+              <div class="col-12">
+                <br>
+              <h2><b>Datasets and Methods</b></h2>
+            </div>
+              <div class="col-12">
+                <div align="justify">
+                  <h3><br>
+                    Unity and CAMUS datasets were used in this study for model development and testing. 
+                    <br><br> The MCD U-Net model with dropout layers is used as the baseline model. Additionally, ResUnet and ResUnet++ are used for the ensemble-based method with different DL architectures. We customised their implementation by adding a dropout layer with a dropout probability of 0.3 after each encoder to have stochastic models. 
+                  <br><br>
+                    A pool-based AL and different sampling methods were used for selecting the samples, including random and various uncertainty approaches, maximum entropy, variance, and BALD.
+                  <br><br>
+                    Ensemble-based AL approaches:
+                    <br>
+                    <ul>
+                      <li> MCD ensemble-based:  MCD U-Net was trained on labelled data and used to predict each image from the unlabelled pool, with 100 predictions to measure its uncertainty. </li>
+                      <li> Multiple architectures ensemble-based:  U-Net, ResUnet, and Re sUnet++ were trained on labelled data to predict unlabelled samples, with the predictions used to calculate uncertainty scores for each image. </li>
+                      <li> Different loss functions ensemble-based Three ensembles of the U-Net with three different loss functions (Binary cross entropy (BCE), Dice, and BCE + Dice) were trained.</li>
+                    </ul>
+                  
+                  </h3>
+                 </div>
+                </div>
+                <br>
+
+              <div class="col-12">
+                <div align="justify">
+                <h2><b>Implementation and Evaluation</b></h2>
+                <h3>Implementation, training settings, and evaluation were conducted like the previous study. </h3>
+                </div>
+              </div>
+
+
+              <div class="row justify-content-left">
+                <div align="justify">
+                  <h2><b>Results: </b></h2>
+                  <h3>The U-Net baseline was trained on the whole dataset, achieving a mean DC of 0.946 and 0.914 for the CAMUS and Unity testing datasets, respectively. As shown in the following figure, the results show that the proposed method (using three loss functions) outperformed the random, MCD, and multiple architecture ensemble-based methods for all the uncertainty sampling techniques on both datasets. The figure demonstrates that our proposed ensemble-based AL approach on CA MUS crossed 98% of the maximum performance using less than 30% of annotations for all uncertainty methods. However, 50% and 40% of annotations are needed for entropy and BALD, respectively, to achieve that performance using other ensemble-based methods. </h3>
+                </div>
+
+                <div class="text-center">
+                  <img class="img-fluid" src="assets/img/projects/Efficient_Annotations/Picture3.jpg" alt="model" style="width: 75%; height: auto;">
+                  <div class="caption" >Ensemble-based results for the CAMUS dataset</div>
+                </div>
+                <br><br>
+                <h3><br> The following figure shows that the introduced method outperformed the alternatives on Unity, achieving 98% of the maximum performance utilising 7% of annotations. However, more than 10% of annotations, 208 images, are used to reach that performance using other approaches for all uncertainty strategies. </h3>
+                
+                <div class="text-center">
+                  <img class="img-fluid" src="assets/img/projects/Efficient_Annotations/Picture4.jpg" alt="model" style="width: 75%; height: auto;">
+                  <div class="caption" >Ensemble-based results for the UNITY dataset</div>
+                </div>
+                <br><br>
+
+                <h3><br> More details on this study can be found at: https://www.pure.ed.ac.uk/ws/portalfiles/portal/409667993/9782832512319_1_.PDF#page=103</h3>
+
+            </div>
+
+            </div>
+            
+            
+          </div>      
+         </div>
+
+      <!-- ======= Project Study 3 ======= -->
+      <div class = "project-study-three">
+          <div class="container">
+            <hr>
+            <div class="col-12">
+                <h2><b>Study 3: Semi-supervised Active Learning SSAL for LV Segmentation</b></h2>
+              </div>
+              <br>
+                <div align="justify">
+                  <h3>This study investigates semi-supervised active learning for LV segmentation in echocardiography, aiming to reduce the need for extensive manual expert annotations. A novel technique for identifying reliable pseudo-labels is proposed.</h3>
+                </div>
+            <div class="row justify-content-left">
+              <div class="col-12">
+                <br>
+              <h2><b>Datasets and Methods</b></h2>
+            </div>
+              <div class="col-12">
+                <div align="justify">
+                  <h3><br>
+                    In this study, the Unity data set was used for model development, while the Consensus dataset was used for model testing. 
+                    <br><br> The SSAL method selects reliable pseudo-labels from the mid-range of uncertainty scores in the unlabelled pool, representing the majority of samples, alongside expert labels of uncertain images to optimise annotation. A validation step is applied to choose the most confident pseudo-labels. 
+                  <br><br>
+                    The phases of our method are as follows:
+                    <br>
+                    <ul>
+                      <li> The U-Net model is initially trained on the initial labelled data. At each AL iteration, uncertainty scores are computed for every image in the unlabelled pool using the model’s prediction. Then, images are ranked based on these scores, and the most uncertain samples are queried for annotation. </li>
+                      <li> Uncertainty scores for remaining unlabelled samples are normalised; The highest frequency bin in the uncertainty histogram determines the range of images as candidate pseudo labels. </li>
+                      <li> A threshold-shifting is applied to validate candidate pseudo-label quality. We analysed masks created at 0.4, 0.5, and 0.6 thresholds, focusing on variance. Low variance indicates strong model confidence, signifying stable segmentation across threshold adjustments. Reliable pseudo-labels are chosen from the low variance of the predictions, with post-processing applied before training.</li>
+                      <li> The final batch including expert annotations for uncertain images and reliable pseudo-labels is transferred from the unlabelled set to the labelled set, and the model is fine-tuned with the updated labelled data. These steps are iterated until AL iterations are met.</li>
+                    </ul>
+                  
+                  </h3>
+                 </div>
+                </div>
+                <br>
+
+              <div class="col-12">
+                <div align="justify">
+                <h2><b>Implementation and Evaluation</b></h2>
+                <h3>Implementation, training settings, and evaluation were conducted in a similar way to the previous study.</h3>
+                </div>
+              </div>
+
+
+              <div class="row justify-content-left">
+                <div align="justify">
+                  <h2><b>Results: </b></h2>
+                  <h3>Results show a significant reduction in annotation efforts by up to 93%, achieving 99% of the maximum accuracy using only 7% of labelled data. The study contributes to efficient annotation strategies in medical image segmentation.</h3>
+                </div>
+
+                <div class="text-center">
+                  <img class="img-fluid" src="assets/img/projects/Efficient_Annotations/Picture5.png" alt="model" style="width: 75%; height: auto;">
+                </div>
+                <br><br>
+
+                <h3><br> More details on this study can be found at: https://openreview.net/pdf?id=g9T6yLuMJR</h3>
+
+            </div>
+            </div>
+            
+            
+          </div>      
+         </div>
+
+      <!-- ======= Project Study 4 ======= -->
+      <div class = "project-study-four">
+          <div class="container">
+            <hr>
+            <div class="col-12">
+                <h2><b>Study 4: Diversity Sampling using Clustering-based AL in Echocardiography</b></h2>
+              </div>
+              <br>
+                <div align="justify">
+                  <h3>This study introduces an optimised clustering approach using Fuzzy cmeans (Fcmean) for diversity sampling in  AL. The proposed method was compared against the benchmark Greedy K-Center and random sampling methods to evaluate its effectiveness. Additionally, different feature extraction methods were applied, and PCA was employed to reduce the dimensionality of the extracted features, facilitating efficient clustering and similarity measurement. This introduced methodology aims to enhance the efficiency and effectiveness of AL in the high-dimensional context of LV segmentation in echocardiography.</h3>
+                </div>
+            <div class="row justify-content-left">
+              <div class="col-12">
+                <br>
+              <h2><b>Datasets and Methods</b></h2>
+            </div>
+              <div class="col-12">
+                <div align="justify">
+                  <h3><br>
+                    In this study, the Unity data set was used for model development, while the Consensus dataset was used for model testing.  
+                    <br><br> A typical pool-based AL framework is applied. Random, Entropy, two different clustering-based diversity sampling (Greedy K-Center and the optimised Fcmeans clustering), and hybrid approaches (diversity and uncertainty) were used to select the next batch of images from the unlabelled pool for annotation.
+                    <br>
+                  </h3>
+                 </div>
+                </div>
+                <br>
+
+              <div class="col-12">
+                <div align="justify">
+                <h2><b>Implementation and Evaluation</b></h2>
+                <h3>Implementation, training settings, and evaluation were conducted in a similar way to the previous study. </h3>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div align="justify">
+                <h2><b>Results</b></h2>
+                <h3>The results of this study will be published soon and more details and the link will be provided once published.</h3>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div align="justify">
+                <h2><b>Future Work</b></h2>
+                <h3>The future work of this study is a promising opportunity for future PhD research.
+                <br>
+                Integrating AL with Semi-Supervised and Self-Supervised Learning by developing methodologies to utilise unlabelled data during the AL process under very few label regimes is a promising research direction. Additionally, verification techniques should be developed to ensure the quality of pseudo-labels in SSAL frameworks.
+                <br>
+                Handling the noisy labels by applying effective techniques to tackle the noisy labels and integrating these algorithms with AL for a more robust model with fewer and high-quality annotations.
+                </h3>
+                </div>
+              </div>
+
+            </div>
+            
+            
+          </div>      
+         </div>      
 
               <div class="container">
                 <hr>
@@ -295,11 +453,11 @@
                     <div class="col-12">
                       <div class="text-left">
                         <h1> <b> Project Team <b></h1> <br>
-                          <h6> <a href="https://www.researchgate.net/profile/Eman-Alajrami" target="_blank" rel="noopener noreferrer"> Eman Alajrami </a> </h6>
-
-                          <h6>  <a href="https://twitter.com/intsav_?lang=en-gb" target="_blank" rel="noopener noreferrer"> Jevgeni Jevsikov</a></h6>
-                          <h6> <a href="https://elisabethlane.github.io/" target="_blank" rel="noopener noreferrer"> Elisabeth S Lane  </a></h6>
-                          <h6> <a href="https://www.uwl.ac.uk/staff/massoud-zolgharni" target="_blank" rel="noopener noreferrer"> Massoud Zolgharni  </a></h6>
+                          <h6> <a href="https://www.uwl.ac.uk/staff/massoud-zolgharni" target="_blank" rel="noopener noreferrer"> Professor Massoud Zolgharni  </a></h6>
+                          <h6> <a href="https://www.uwl.ac.uk/staff/nasim-dadashi-serej" target="_blank" rel="noopener noreferrer"> Dr Nasim Dadashi Serej  </a></h6>
+                          <h6> <a href="https://www.researchgate.net/profile/Eman-Alajrami" target="_blank" rel="noopener noreferrer"> Dr Eman Alajrami </a> </h6>
+                          <h6>  <a href="https://twitter.com/intsav_?lang=en-gb" target="_blank" rel="noopener noreferrer"> Dr Jevgeni Jevsikov</a></h6>
+                          
 
                       </div>
                     </div>
@@ -313,7 +471,12 @@
               <div class="row justify-content-left">
                 <div class="col-12">
                   <div class="text-left">
-                    <h1>  <b> References </b></h1>
+                    <h1>  <b> References </b></h1><br>
+                      <h6>  <a href="https://www.sciencedirect.com/science/article/pii/S016926072400107X" target="_blank" rel="noopener noreferrer"></a></h6>
+                      <h6>  <a href="https://www.pure.ed.ac.uk/ws/portalfiles/portal/409667993/9782832512319_1_.PDF#page=103" target="_blank" rel="noopener noreferrer"></a></h6>
+                      <h6>  <a href="https://openreview.net/pdf?id=g9T6yLuMJR" target="_blank" rel="noopener noreferrer"></a></h6>
+
+                    
 
                   </div>
                 </div>
