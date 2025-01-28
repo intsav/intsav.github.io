@@ -223,8 +223,6 @@
 
             </div>
             <div class="col-6 col-md-6 col-lg-6 col-xl-6">
-                <div align="justify">
-              <h2><b>Results: </b></h2>
               <div align="justify">
 
               <h3>Fig. 3 shows the performance of uncertainty sampling techniques compared to random selection on CAMUS and Unity datasets.
@@ -233,6 +231,7 @@
                                 
               </h3>
               </div>
+              </div>
 
 
             </div>
@@ -240,112 +239,212 @@
             </div><br><br>
 
             <div class="text-center">
-            <img class="img-fluid" src="assets/img/projects/Biobank/Alignment/Rotation-2.png" alt="model" style="width: 75%; height: auto;">
+            <img class="img-fluid" src="assets/img/projects/Efficient_Annotations/Picture2.jpg" alt="model" style="width: 75%; height: auto;">
             </div>
             <h3> More details on this study can be found at: https://www.sciencedirect.com/science/article/pii/S016926072400107X
-            <br><br><b> Study 2: Ensembles-based active learning for LV Segmentation </b>
-            <br><br> This study explores the use of established loss functions in ensemble-based AL for LV segmentation compared to the MCD ensemble-based, and different network architectures ensemble-based methods. 
             </h3>
             
-          </div>
-              
-              
-              </div>
-            </div>
-          </div>
-
-
-
+          </div>      
+         </div>
       
-
-        <!-- ======= Project Implementation ======= -->
-        <div class = "project-implementation">
+      <!-- ======= Project Study 2 ======= -->
+      <div class = "project-study-two">
           <div class="container">
             <hr>
+            <div class="col-12">
+                <h2><b>Study 2: Ensembles-based active learning for LV Segmentation</b></h2>
+              </div>
+              <br>
+                <div align="justify">
+                  <h3>This study explores the use of established loss functions in ensemble-based AL for LV segmentation compared to the MCD ensemble-based, and different network architectures ensemble-based methods. </h3>
+                </div>
             <div class="row justify-content-left">
               <div class="col-12">
+                <br>
+              <h2><b>Datasets and Methods</b></h2>
+            </div>
+              <div class="col-12 col-md-12 col-lg-6 col-xl-6">
                 <div align="justify">
-              <!--  <hr> -->
-                <h2><b>Implementation</b></h2>
-                <h3>Tensorflow and Keras frameworks are used for the development of DL models, and training was conducted using an Nvidia RTX3090 GPU. U-Net was trained using binary cross-entropy loss and ADAM optimiser with a learning rate of 0.0001 for 200 epochs with early stopping and a patience of 10. Images were resized to 512x512, and a fixed batch size of 8 was applied. For the CAMUS dataset, we selected 10% of the initial training data as L, and U will be the remaining 90%. For the Unity dataset, we chose 4% as the initial L, and the remaining is for the U, which will be used as an oracle.</h3>
+                  <h3><br>
+                    Unity and CAMUS datasets were used in this study for model development and testing. 
+                    <br><br> The MCD U-Net model with dropout layers is used as the baseline model. Additionally, ResUnet and ResUnet++ are used for the ensemble-based method with different DL architectures. We customised their implementation by adding a dropout layer with a dropout probability of 0.3 after each encoder to have stochastic models. 
+                  <br><br>
+                    A pool-based AL and different sampling methods were used for selecting the samples, including random and various uncertainty approaches, maximum entropy, variance, and BALD.
+                  <br><br>
+                    Ensemble-based AL approaches:
+                    <br>
+                    <ul>
+                      <li> MCD ensemble-based:  MCD U-Net was trained on labelled data and used to predict each image from the unlabelled pool, with 100 predictions to measure its uncertainty. </li>
+                      <li> Multiple architectures ensemble-based:  U-Net, ResUnet, and Re sUnet++ were trained on labelled data to predict unlabelled samples, with the predictions used to calculate uncertainty scores for each image. </li>
+                      <li> Different loss functions ensemble-based Three ensembles of the U-Net with three different loss functions (Binary cross entropy (BCE), Dice, and BCE + Dice) were trained.</li>
+                    </ul>
+                  
+                  </h3>
+                 </div>
+                </div>
+                <br>
 
-
+              <div class="col-12">
+                <div align="justify">
+                <h2><b>Implementation and Evaluation</b></h2>
+                <h3>Implementation, training settings, and evaluation were conducted like the previous study. </h3>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      <!-- ======= Project Evaluation ======= -->
-      <div class = "project-evaluation">
-        <div class="container align-middle">
 
-          <div class="row">
 
-            <!-- <div class="col-12 col-lg-6 col-md-6 text-center">
-            < <img class="img-fluid" src="" alt="IMAGE PLACEHOLDER">
-            </div> -->
-
-            <div class="row justify-content-left">
-              <div class="col-12">
-                <hr>
-                <h2><b>Evaluation</b></h2>
+              <div class="row justify-content-left">
                 <div align="justify">
-                <h3>The model was evaluated using the Dice-Coefficient (DC) metric, and it is computed between the ground truth and the inferred prediction for each image in the testing dataset. Then the mean of Dice scores of all images was calculated to present the model's accuracy. </h3>
-                </div>
-                <div class="text-left">
+                  <h2><b>Results: </b></h2>
                   <br>
-                <!--  <a class="btn btn-primary" href="" role="button">Download the code</a>-->
+                  <h3>The U-Net baseline was trained on the whole dataset, achieving a mean DC of 0.946 and 0.914 for the CAMUS and Unity testing datasets, respectively. As shown in the following figure, the results show that the proposed method (using three loss functions) outperformed the random, MCD, and multiple architecture ensemble-based methods for all the uncertainty sampling techniques on both datasets. The figure demonstrates that our proposed ensemble-based AL approach on CA MUS crossed 98% of the maximum performance using less than 30% of annotations for all uncertainty methods. However, 50% and 40% of annotations are needed for entropy and BALD, respectively, to achieve that performance using other ensemble-based methods. </h3>
+                </div>
+
+                <div class="text-center">
+                  <img class="img-fluid" src="assets/img/projects/Efficient_Annotations/Picture3.jpg" alt="model" style="width: 75%; height: auto;">
+                  <div class="caption" >Ensemble-based results for the CAMUS dataset</div>
+                </div>
+                <br>
+                <h3> The following figure shows that the introduced method outperformed the alternatives on Unity, achieving 98% of the maximum performance utilising 7% of annotations. However, more than 10% of annotations, 208 images, are used to reach that performance using other approaches for all uncertainty strategies. </h3>
+                
+                <div class="text-center">
+                  <img class="img-fluid" src="assets/img/projects/Efficient_Annotations/Picture4.jpg" alt="model" style="width: 75%; height: auto;">
+                  <div class="caption" >Ensemble-based results for the UNITY dataset</div>
+                </div>
+                <br>
+
+                <h3> More details on this study can be found at: https://www.pure.ed.ac.uk/ws/portalfiles/portal/409667993/9782832512319_1_.PDF#page=103</h3>
+
+            </div>
+
+            </div>
+            
+            
+          </div>      
+         </div>
+
+      <!-- ======= Project Study 3 ======= -->
+      <div class = "project-study-three">
+          <div class="container">
+            <hr>
+            <div class="col-12">
+                <h2><b>Study 3: Semi-supervised Active Learning SSAL for LV Segmentation</b></h2>
+              </div>
+              <br>
+                <div align="justify">
+                  <h3>This study investigates semi-supervised active learning for LV segmentation in echocardiography, aiming to reduce the need for extensive manual expert annotations. A novel technique for identifying reliable pseudo-labels is proposed.</h3>
+                </div>
+            <div class="row justify-content-left">
+              <div class="col-12">
+                <br>
+              <h2><b>Datasets and Methods</b></h2>
+            </div>
+              <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                <div align="justify">
+                  <h3><br>
+                    In this study, the Unity data set was used for model development, while the Consensus dataset was used for model testing. 
+                    <br><br> The SSAL method selects reliable pseudo-labels from the mid-range of uncertainty scores in the unlabelled pool, representing the majority of samples, alongside expert labels of uncertain images to optimise annotation. A validation step is applied to choose the most confident pseudo-labels. 
+                  <br><br>
+                    The phases of our method are as follows:
+                    <br>
+                    <ul>
+                      <li> The U-Net model is initially trained on the initial labelled data. At each AL iteration, uncertainty scores are computed for every image in the unlabelled pool using the model’s prediction. Then, images are ranked based on these scores, and the most uncertain samples are queried for annotation. </li>
+                      <li> Uncertainty scores for remaining unlabelled samples are normalised; The highest frequency bin in the uncertainty histogram determines the range of images as candidate pseudo labels. </li>
+                      <li> A threshold-shifting is applied to validate candidate pseudo-label quality. We analysed masks created at 0.4, 0.5, and 0.6 thresholds, focusing on variance. Low variance indicates strong model confidence, signifying stable segmentation across threshold adjustments. Reliable pseudo-labels are chosen from the low variance of the predictions, with post-processing applied before training.</li>
+                      <li> The final batch including expert annotations for uncertain images and reliable pseudo-labels is transferred from the unlabelled set to the labelled set, and the model is fine-tuned with the updated labelled data. These steps are iterated until AL iterations are met.</li>
+                    </ul>
+                  
+                  </h3>
+                 </div>
+                </div>
+                <br>
+
+              <div class="col-12">
+                <div align="justify">
+                <h2><b>Implementation and Evaluation</b></h2>
+                <h3>Implementation, training settings, and evaluation were conducted in a similar way to the previous study.</h3>
                 </div>
               </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- ======= Project Results ======= -->
-
-      <div class = "project-results">
-        <div class="container">
-          <hr>
-          <div class="row justify-content-left">
-            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
 
 
-              <img class="img-fluid" src="assets\img\projects\Efficient_Annotations\Merge_unc_5.jpg" alt="IMAGE PLACEHOLDER">
-              <div class="caption" >Fig. 3 Active learning performance on CAMUS and Unity datasets</div>
-            <!--  <figcaption> Fig. 3 Active learning performance on CAMUS and Unity datasets</figcaption> -->
-
-
-            </div>
-            <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+              <div class="row justify-content-left">
                 <div align="justify">
-              <h2><b>Results: </b></h2>
-              <div align="justify">
+                  <h2><b>Results: </b></h2>
+                  <br>
+                  <h3>Results show a significant reduction in annotation efforts by up to 93%, achieving 99% of the maximum accuracy using only 7% of labelled data. The study contributes to efficient annotation strategies in medical image segmentation.</h3>
+                </div>
 
-              <h3>Fig. 3 shows the performance of uncertainty sampling techniques compared to random selection on CAMUS and Unity datasets.
-                Our experiments show that the Max_Entropy is the best uncertainty strategy compared to others on CAMUS and Unity datasets. It achieved 97.7% of the entire dataset performance on CAMUS using 25% of the annotated dataset. At the same time, the other methods required approximately 35% to approach similar performance. Thus, it reduced the annotation cost by 10% to get that performance.
-                <br><br> For the Unity dataset, the Max_Entropy significantly outperformed all the other methods from the early stages of AL achieving 98.3% and ~ 99% of the entire dataset performance using only 7% and 20% of the labels, respectively.
-                                
-              </h3>
+                <div class="text-center">
+                  <img class="img-fluid" src="assets/img/projects/Efficient_Annotations/Picture5.png" alt="model" style="width: 75%; height: auto;">
+                </div>
+                <br>
+
+                <h3> More details on this study can be found at: https://openreview.net/pdf?id=g9T6yLuMJR</h3>
+
+            </div>
+            </div>
+            
+            
+          </div>      
+         </div>
+
+      <!-- ======= Project Study 4 ======= -->
+      <div class = "project-study-four">
+          <div class="container">
+            <hr>
+            <div class="col-12">
+                <h2><b>Study 4: Diversity Sampling using Clustering-based AL in Echocardiography</b></h2>
+              </div>
+              <br>
+                <div align="justify">
+                  <h3>This study introduces an optimised clustering approach using Fuzzy cmeans (Fcmean) for diversity sampling in  AL. The proposed method was compared against the benchmark Greedy K-Center and random sampling methods to evaluate its effectiveness. Additionally, different feature extraction methods were applied, and PCA was employed to reduce the dimensionality of the extracted features, facilitating efficient clustering and similarity measurement. This introduced methodology aims to enhance the efficiency and effectiveness of AL in the high-dimensional context of LV segmentation in echocardiography.</h3>
+                </div>
+            <div class="row justify-content-left">
+              <div class="col-12">
+                <br>
+              <h2><b>Datasets and Methods</b></h2>
+            </div>
+              <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                <div align="justify">
+                  <h3><br>
+                    In this study, the Unity data set was used for model development, while the Consensus dataset was used for model testing.  
+                    <br><br> A typical pool-based AL framework is applied. Random, Entropy, two different clustering-based diversity sampling (Greedy K-Center and the optimised Fcmeans clustering), and hybrid approaches (diversity and uncertainty) were used to select the next batch of images from the unlabelled pool for annotation.
+                    <br>
+                  </h3>
+                 </div>
+                </div>
+                <br>
+
+              <div class="col-12">
+                <div align="justify">
+                <h2><b>Implementation and Evaluation</b></h2>
+                <h3>Implementation, training settings, and evaluation were conducted in a similar way to the previous study. </h3>
+                </div>
               </div>
 
+              <div class="col-12">
+                <div align="justify">
+                <h2><b>Results</b></h2>
+                <h3>The results of this study will be published soon and more details and the link will be provided once published.</h3>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div align="justify">
+                <h2><b>Future Work</b></h2>
+                <h3>The future work of this study is a promising opportunity for future PhD research.
+                <br>
+                Integrating AL with Semi-Supervised and Self-Supervised Learning by developing methodologies to utilise unlabelled data during the AL process under very few label regimes is a promising research direction. Additionally, verification techniques should be developed to ensure the quality of pseudo-labels in SSAL frameworks.
+                <br>
+                Handling the noisy labels by applying effective techniques to tackle the noisy labels and integrating these algorithms with AL for a more robust model with fewer and high-quality annotations.
+                </h3>
+                </div>
+              </div>
 
             </div>
-
-            </div><br><br>
-
-            <div class="text-center">
-            <img class="img-fluid" src="assets/img/projects/Biobank/Alignment/Rotation-2.png" alt="model" style="width: 75%; height: auto;">
-            </div>
-            <h3> More details on this study can be found at: https://www.sciencedirect.com/science/article/pii/S016926072400107X
-            <br><br><b> Study 2: Ensembles-based active learning for LV Segmentation </b>
-            <br><br> This study explores the use of established loss functions in ensemble-based AL for LV segmentation compared to the MCD ensemble-based, and different network architectures ensemble-based methods. 
-            </h3>
             
-          </div>
-        </div>
-      </div>
+            
+          </div>      
+         </div>      
 
               <div class="container">
                 <hr>
