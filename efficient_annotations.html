@@ -102,7 +102,7 @@
               <h2><b>Dataset</b></h2>
               <h3>Three different datasets of cardiac imaging are used for our experiments:
                 the CAMUS dataset, the Unity dataset, and the consensus testing dataset.<br><br>
-                <b>CAMUS dataset</b> is a public, fully annotated dataset for 2D echocardiographic assessment. view sequences. <br>
+                <b>CAMUS dataset</b> is a public, fully annotated dataset for 2D echocardiographic assessment.
                   All the details of the CAMUS dataset are available on the official website (https://www.creatis.insa-lyon.fr/Challenge/camus/index.html).
 
 
@@ -130,7 +130,6 @@
       <div class = "project-architecture">
 
           <div class="container">
-            <hr>
             <div class="row justify-content-left">
               <div class="col-12">
               <h2><b>Network Architecture</b></h2>
@@ -161,18 +160,19 @@
             <div class="col-12">
                 <h2><b>Study 1: Active learning for left ventricle segmentation</b></h2>
               </div>
-              <br><br>
+              <br>
                 <div align="justify">
                   <h3>This study evaluates existing AL approaches ( uncertainty and representativeness methods), establishing a valuable baseline for comparing different strategies.
                    </h3>
                 </div>
             <div class="row justify-content-left">
               <div class="col-12">
+                <br>
               <h2><b>Datasets and Methods</b></h2>
             </div>
               <div class="col-12 col-md-12 col-lg-6 col-xl-6">
                 <div align="justify">
-                  <h3><br><br>
+                  <h3><br>
                     Unity and CAMUS datasets were used in this study for model development and testing.
                     <br><br> A pool-based AL methodology is applied throughout, encompassing four steps: training the U-Net model on the initial annotated data (L), calculating the model uncertainty scores or representativeness scores on the unlabelled pool of data (U), selecting the top-ranked batch of images (K) to obtain their labels from oracle and add them to L and remove them from U, and finally retrain the model on the updated L. These steps are repeated until the optimal number of AL iterations is reached.
                   <br><br>
@@ -191,14 +191,12 @@
 
               <div class="col-12">
                 <div align="justify">
-              <!--  <hr> -->
                 <h2><b>Implementation</b></h2>
                 <h3>Tensorflow and Keras frameworks are used for the development of DL models, and training was conducted using an Nvidia RTX3090 GPU. U-Net was trained using binary cross-entropy loss and ADAM optimiser with a learning rate of 0.0001 for 200 epochs with early stopping and a patience of 10. Images were resized to 512x512, and a fixed batch size of 8 was applied. For the CAMUS dataset, we selected 10% of the initial training data as L, and U will be the remaining 90%. For the Unity dataset, we chose 4% as the initial L, and the remaining is for the U, which will be used as an oracle.</h3>
                 </div>
               </div>
 
               <div class="col-12">
-                <hr>
                 <h2><b>Evaluation</b></h2>
                 <div align="justify">
                 <h3>The model was evaluated using the Dice-Coefficient (DC) metric, and it is computed between the ground truth and the inferred prediction for each image in the testing dataset. Then the mean of Dice scores of all images was calculated to present the model's accuracy. </h3>
@@ -211,6 +209,10 @@
 
 
               <div class="row justify-content-left">
+                <div align="justify">
+              <h2><b>Results: </b></h2>
+                </div>
+      
             <div class="col-12 col-md-12 col-lg-6 col-xl-6">
 
 
