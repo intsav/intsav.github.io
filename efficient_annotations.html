@@ -48,7 +48,7 @@
       <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
         <div class="row">
           <div class="col-12 text-left">
-            <h1>Deep Active Learning for Left Ventricle Segmentation in Echocardiography</h1>
+            <h1>Active Learning for creating a Biobank of expert annotations in Echocardiography</h1>
           <!--  <h2><i> Eman Alajrami <sup>1</sup>, Elisabeth S Lane <sup>1</sup>, Jevgeni Jevsikov <sup>1</sup>, James P Howard <sup>2</sup>, Matthew J Shun-shin <sup>2</sup>, Graham D Cole <sup>2</sup>, Darrel P Francis <sup>2</sup>, Massoud Zolgharni <sup>1,2</sup><i></h2>
               <h3><sup>1</sup> School of Computing and Engineering, University of West London, London, United Kingdom<h3>
               <h3><sup>2</sup> National Heart and Lung Institute, Imperial College, London, United Kingdom<h3> -->
@@ -71,17 +71,13 @@
             <div class="col-12">
                   <div align="justify">
               <hr>
-              <h1><b>Project Introduction </b> </h1>
+              <h1><b>Introduction </b> </h1>
               <br>
-              <h3> The training of advanced deep learning algorithms for medical image interpretation requires precisely
-                annotated datasets, which is laborious and expensive. Therefore, this research investigates state-of-the-art
-                active learning methods for utilising limited annotations when performing automated left ventricle
-                segmentation in echocardiography. Our experiments reveal that the performance of different sampling strategies varies between datasets from the same domain. Further, an optimised method for representativeness sampling is introduced, combining images from feature-based outliers to the most representative samples for label acquisition. The proposed method significantly outperforms the current literature and demonstrates convergence with minimal annotations. We demonstrate that careful
-                selection of images can reduce the number of images needed to be annotated by up to 70%. This research can
-                therefore present a cost-effective approach to handling datasets with limited expert annotations in
-                echocardiography.
+              <h3> This project addresses the challenge of scarce annotations; using deep learning and active learning (AL) techniques to reduce annotation costs and efforts while maintaining high segmentation accuracy and improving clinical workflow efficiency.
               </h3>
-            </div>
+              <h3> This work presents several AL methods, contributing to the cost-effective medical image annotation. The first project comprehensively evaluates existing AL approaches, establishing a valuable baseline for comparing different strategies. The second project explores ensemble-based AL techniques, leveraging different loss functions and uncertainty scoring methods. In the third project, a novel semi-supervised active learning method is developed, combining pseudo-labels from model predictions with expert annotations. The final project introduces an optimised clustering method using Fuzzy C-means for diversity sampling. </h3>
+              <h3> The outcome of the AL study was utilised to create a biobank of echo images for several projects to rank images and videos based on diversity. This method ensures that clinicians focus on labelling the images that will most effectively improve the AI model's performance, reducing the overall number of images that need to be annotated.</h3>
+                </div>
           </div>
         </div>
 
@@ -104,12 +100,11 @@
             <div class="col-6 col-md-6 col-lg-6 col-xl-6">
                 <div align="justify">
               <h2><b>Dataset</b></h2>
-              <h3>Two different datasets of cardiac imaging are used for our experiments:
-                the CAMUS dataset and the Unity dataset.<br><br>
-                <b>CAMUS dataset</b> is a public, fully annotated dataset for 2D echocardiographic assessment that
-                contains 500 images from 2D apical four-champers and two-champers view sequences. <br>
-                All the details of the CAMUS dataset are available on the official website (https://www.creatis.insa-lyon.fr/Challenge/camus/index.html).
-                We split CAMUS dataset into 70% (350 images) for training, 15% (50 images for validation), and 15% (50 images) for testing.
+              <h3>Three different datasets of cardiac imaging are used for our experiments:
+                the CAMUS dataset, the Unity dataset, and the consensus testing dataset.<br><br>
+                <b>CAMUS dataset</b> is a public, fully annotated dataset for 2D echocardiographic assessment. view sequences. <br>
+                  All the details of the CAMUS dataset are available on the official website (https://www.creatis.insa-lyon.fr/Challenge/camus/index.html).
+
 
                 <br><br>
                 <b>Unity dataset</b>is a private dataset extracted from 1224 videos of the apical four-chamber echocardiographic view retrieved
@@ -120,6 +115,9 @@
                 It contains 2800 images sampled from different points in the cardiac cycle and labelled by a pool of
                 experts using our in-house online labelling platform (https://unityimaging.net).
                 This dataset was used for model developments (i.e., training and validation) and split into 70% for training, 15% for validation and 15% for testing.
+                <br><br>
+
+                <b>Consensus dataset:</b> It was utilised for the testing and was curated from a series of investigations conducted over three working days in 2019, years away from the development dataset. The testing dataset consisted of 100 A4C videos, from which 200 end-diastolic and end-systolic frames were selected automatically using a previously developed model. 11 human experts labelled each image using the same platform, mutually blinded to the labels of the others. The average of these 11 annotations was used for each image to create its GT. This provided high-quality consensus reference annotations, which served as a uniquely robust and representative benchmark for performance evaluations.
                   </h3>
               <br>
             </div>
@@ -139,18 +137,7 @@
             </div>
               <div class="col-12 col-md-12 col-lg-6 col-xl-6">
                 <div align="justify">
-                  <h3><br><br>The customised Bayesian U-Net architecture is illustrated in Fig. 2.
-                    First, we used Conv2D with a kernel size of 3x3, Batch normalisation, and a "RELU" activation function for
-                    the encoder blocks, followed by Maxpooling 2x2. Then, a Dropout layer is added with a Dropout probability
-                    of 0.1.
-                    At the centre, Bottleneck,  two Conv2D followed by a Dropout layer with a Dropout probability of 0.25 are used.
-                     Next, for the decoder blocks, we used Conv2DTranspose with a kernel size of 2x2, followed by a
-                     concatenation layer, a Dropout layer with a Dropout probability of 0.1, Batch normalisation, and a
-                     "RELU" activation. Then, two Conv2D with a kernel size of 3x3, Batch normalisation, and a "RELU"
-                     activation. Finally, a Conv2D with a kernel size of 1x1 with "Sigmoid" activation is added for the
-                     output layer.
-
-
+                  <h3><br><br>The network architecture utilised in this study is the Monte Carlo dropout (MCD) U-Net with a depth of 5, designed explicitly for Bayesian AL in LV segmentation tasks. The overall architecture is depicted in the above figure. This architecture integrates dropout layers throughout the network to facilitate MCD for uncertainty estimation. The MCD U-Net was used as the baseline model for all of the following studies.
                    </h3>
                  </div>
                 </div>
@@ -295,11 +282,11 @@
                     <div class="col-12">
                       <div class="text-left">
                         <h1> <b> Project Team <b></h1> <br>
-                          <h6> <a href="https://www.researchgate.net/profile/Eman-Alajrami" target="_blank" rel="noopener noreferrer"> Eman Alajrami </a> </h6>
-
-                          <h6>  <a href="https://twitter.com/intsav_?lang=en-gb" target="_blank" rel="noopener noreferrer"> Jevgeni Jevsikov</a></h6>
-                          <h6> <a href="https://elisabethlane.github.io/" target="_blank" rel="noopener noreferrer"> Elisabeth S Lane  </a></h6>
-                          <h6> <a href="https://www.uwl.ac.uk/staff/massoud-zolgharni" target="_blank" rel="noopener noreferrer"> Massoud Zolgharni  </a></h6>
+                          <h6> <a href="https://www.uwl.ac.uk/staff/massoud-zolgharni" target="_blank" rel="noopener noreferrer"> Professor Massoud Zolgharni  </a></h6>
+                          <h6> <a href="https://www.uwl.ac.uk/staff/nasim-dadashi-serej" target="_blank" rel="noopener noreferrer"> Dr Nasim Dadashi Serej  </a></h6>
+                          <h6> <a href="https://www.researchgate.net/profile/Eman-Alajrami" target="_blank" rel="noopener noreferrer"> Dr Eman Alajrami </a> </h6>
+                          <h6>  <a href="https://twitter.com/intsav_?lang=en-gb" target="_blank" rel="noopener noreferrer"> Dr Jevgeni Jevsikov</a></h6>
+                          
 
                       </div>
                     </div>
@@ -313,7 +300,12 @@
               <div class="row justify-content-left">
                 <div class="col-12">
                   <div class="text-left">
-                    <h1>  <b> References </b></h1>
+                    <h1>  <b> References </b></h1><br>
+                      <h6>  <a href="https://www.sciencedirect.com/science/article/pii/S016926072400107X" target="_blank" rel="noopener noreferrer"></a></h6>
+                      <h6>  <a href="https://www.pure.ed.ac.uk/ws/portalfiles/portal/409667993/9782832512319_1_.PDF#page=103" target="_blank" rel="noopener noreferrer"></a></h6>
+                      <h6>  <a href="https://openreview.net/pdf?id=g9T6yLuMJR" target="_blank" rel="noopener noreferrer"></a></h6>
+
+                    
 
                   </div>
                 </div>
