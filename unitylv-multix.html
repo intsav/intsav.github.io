@@ -100,27 +100,24 @@
                              <ul>
                                <li> An ‘Images’ folder containing 200 images (100 end-diastole and 100 end-systole).</li>
                                 <br>
-                               <li> user-labels-all.csv<br>
-                                 <h3>The file <b>user-labels-all.csv</b> contains annotations for an external test dataset comprising 100 studies. Each study consists of end-diastolic (ED) and end-systolic (ES) frames, annotated by 11 experts.<br>
-                                 For each image, the label <b>curve-lv-endo</b> is used to represent the left ventricular endocardial contour. Each study includes two frames: the ED frame appears first, followed by the ES frame.<br>
+                               <li>UnityLV_multiX_annotations.json<br>
+                                  <h3></h3>
+                                  <h3>The file contains annotations for an external test dataset comprising 100 studies. Each study consists of end-diastolic (ED) and end-systolic (ES) frames, annotated by 11 experts.<br>
+                                  Each study includes two frames: the ED frame appears first, followed by the ES frame.<br></h3>
+                                  <h3>
                                  For example:<br>
                                  02-008cb0fa74df88e44971367a2291e4a2969741e21bafbeffdb27a0b0b72e29d3-0003.png<br>
                                  02-008cb0fa74df88e44971367a2291e4a2969741e21bafbeffdb27a0b0b72e29d3-0041.png<br>
                                  In this example, 02-008cb0fa74df88e44971367a2291e4a2969741e21bafbeffdb27a0b0b72e29d3 represents the unique identifier for the study (video), while <b>0003</b> and <b>0041</b> are the frame numbers corresponding to the ED and ES phases, respectively.<br>
-                                 The coordinates for the curve-lv-endo either begin at the end of the basal inferoseptal or the basal anterolateral, depending on the direction in which the clinician starts annotating the LV border. As part of the data preprocessing, it is recommended to reorder the points. For convenience, we have provided the reordered points in JSON format below. However, we encourage utilizing the raw data from clinical experts, available in the CSV file.<br></h3>
-                               </li>
-                                  <br>
-                               <li>UnityLV_multiX_annotations_point_order_corrected.json<br>
-                                 <h3>This JSON file, generated from the <b>curve-lv-endo</b> data in user-labels-all.csv, contains ([X],[Y]) coordinate tuples for multiple experts. The coordinates have been reordered to start from the basal inferoseptal point for consistency. The JSON is organised by image name corresponding to the Images folder.</h3>
+                                 </h3>
+                                 <h3>This JSON file contains ([X],[Y]) coordinate tuples for multiple experts. The JSON is organised by image name corresponding to the Images folder. For each image, it has coordinates for each userId (anonymized).</h3>
                                </li>
                                 <br>
                                <li>UnityLV_multiX_consensus_curves.json<br>
+                                  <h3></h3>
                                  <h3>This file contains the consensus (average) label represented as ([X],[Y]) coordinate tuples for each image in the Images folder. The JSON file is organized by image names, which correspond to the files in the Images folder.</h3>
                                </li>
                                 <br>
-                                <li>Rankings.json<br>
-                                 <h3>This file provides the rankings of 200 images, sorted from the highest to the lowest level of agreement among expert annotations. Each entry is keyed by the image name, corresponding to the files in the Images folder.</h3>  
-                               </li>
                              </ul>
                            </h2>
                         </div>
