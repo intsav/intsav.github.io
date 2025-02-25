@@ -43,44 +43,47 @@
       <div class="row justify-content-left">
         <div class="col-12">
           <div class="text-left">
-            <h1><b>MSc Project: Understanding Model Failures in Echocardiographic Image Analysis</b></h1>
+            <h1><b>MSc Project Proposal: Understanding Model Uncertainty and Failure Cases in Echocardiographic Image Analysis</b></h1>
             <hr>
             <h2>Project Summary</h2>
-            <h3>This project investigates why deep learning models fail in echocardiographic image classification by analyzing uncertainty, feature space representation, and dataset biases. The goal is to improve model reliability by identifying failure cases and implementing strategies to mitigate them.</h3>
+            <h3>Deep learning models are increasingly used in echocardiography for disease classification, segmentation, and cardiac function analysis. However, these models often fail on certain images due to uncertainty, feature misalignment, or dataset biases. This project aims to systematically investigate why deep learning models struggle with specific echocardiographic images and develop a framework to detect and analyze failure cases. By understanding these failures, we can improve model reliability and interpretability.</h3>
             
             <h2>Objectives</h2>
             <h3>
-              - Analyze model confidence to detect overconfident misclassifications and low-confidence cases.
-              <br>- Compare feature representations of correctly classified vs. difficult cases.
-              <br>- Use heatmaps (e.g., Grad-CAM) to examine where the model is focusing during decision-making.
-              <br>- Investigate differences in image characteristics (e.g., contrast, noise, brightness) between easy and hard cases.
-              <br>- Propose and test solutions (e.g., improved preprocessing, data augmentation, fine-tuning) to reduce failure cases.
-            </h3>
-            
-            <h2>Methodology</h2>
-            <h3>
-              - Train a deep learning model on an echocardiographic dataset.
-              <br>- Identify and log misclassified and low-confidence images.
-              <br>- Apply dimensionality reduction (PCA, t-SNE) to visualize feature distributions.
-              <br>- Use Grad-CAM to analyze attention patterns in correct vs. incorrect predictions.
-              <br>- Assess the impact of image quality on model performance.
-              <br>- Implement corrective strategies and evaluate performance improvements.
+              1️⃣ Check Model Confidence and Identify Uncertain Predictions<br>
+              - Measure the model’s confidence scores for each prediction.<br>
+              - Identify misclassified images with high confidence (overconfidence problem).<br>
+              - Detect low-confidence predictions (cases where the model is unsure).<br><br>
+              2️⃣ Compare Feature Representations of Easy vs. Difficult Images<br>
+              - Extract deep feature vectors from all images.<br>
+              - Use clustering methods (t-SNE, PCA) to visualize where difficult images fall in feature space.<br>
+              - Identify if failure cases are outliers, meaning the model has not learned those patterns well.<br><br>
+              3️⃣ Analyze Model Attention Using Heatmaps<br>
+              - Apply Grad-CAM or attention heatmaps to visualize which parts of the image the model focuses on.<br>
+              - Check if misclassified images highlight irrelevant areas (noise, artifacts) instead of cardiac structures.<br><br>
+              4️⃣ Compare Image Characteristics of Easy vs. Difficult Cases<br>
+              - Analyze brightness, contrast, noise levels, and sharpness.<br>
+              - Determine whether the model struggles with low-resolution, shadowed, or blurry images.<br>
+              - Investigate if the model performs worse on certain echocardiographic views (e.g., parasternal vs. apical 4-chamber).<br><br>
+              5️⃣ Propose Strategies to Reduce Failure Cases<br>
+              - Suggest methods like data augmentation, contrast enhancement, or fine-tuning.<br>
+              - Experiment with different approaches and measure performance improvements.<br>
             </h3>
             
             <h2>Expected Outcomes</h2>
             <h3>
-              - Identification of common failure cases in echocardiographic image analysis.
-              <br>- Insights into how feature representations affect model performance.
-              <br>- A framework to diagnose and reduce errors in deep learning models.
-              <br>- Improved model accuracy through targeted refinements.
+              ✅ A framework to detect and analyze failure cases in deep learning models for echocardiography.<br>
+              ✅ Insights into why models struggle with certain images (overconfidence, noise, artifacts, view variation, etc.).<br>
+              ✅ Visualization tools to explain model decisions (Grad-CAM, t-SNE feature mapping).<br>
+              ✅ Strategies to reduce errors and improve model reliability in clinical applications.<br>
             </h3>
             
             <h2>Skills & Tools Required</h2>
             <h3>
-              - Deep learning frameworks (PyTorch, TensorFlow)
-              <br>- Data visualization (PCA, t-SNE, Grad-CAM)
-              <br>- Medical imaging analysis (echocardiography)
-              <br>- Python, OpenCV, scikit-learn
+              🛠 Python, PyTorch/TensorFlow, OpenCV<br>
+              📊 Deep learning (CNNs, ResNet, EfficientNet)<br>
+              📈 Data visualization (t-SNE, PCA, Grad-CAM)<br>
+              🩺 Medical image analysis (echocardiography)<br>
             </h3>
             
             <h3>For more information, please contact <a href="https://www.uwl.ac.uk/staff/massoud-zolgharni" target="_blank" rel="noopener noreferrer">Professor Massoud Zolgharni</a></h3>
@@ -89,15 +92,5 @@
       </div>
     </div>
   </main>
-
-  <footer id="footer">
-    <div class="container d-md-flex py-4">
-      <div class="me-md-auto text-center text-md-start">
-        <div class="copyright">
-          &copy; Copyright <strong><span>IntSaV</span></strong>. All Rights Reserved
-        </div>
-      </div>
-    </div>
-  </footer>
 </body>
 </html>
