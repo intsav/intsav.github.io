@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Uncertainty</title>
+  <link href="assets/img/logo.png" rel="icon">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="">Home</a></li>
+          <li><a class="nav-link scrollto" href="#projects">Projects</a></li>
+          <li><a class="nav-link scrollto" href="#team">People</a></li>
+          <li><a class="nav-link scrollto" href="#resources">Resources</a></li>
+          <li><a class="nav-link scrollto" href="#funding">Funding</a></li>
+          <li><a class="nav-link scrollto" href="#partners">Partners</a></li>
+          <li><a class="nav-link scrollto" href="#workwithus">Vacancies</a></li>
+          <li><a class="nav-link scrollto" href="#footer">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main id="project-main">
+    <div class="container">
+      <hr>
+      <div class="row justify-content-left">
+        <div class="col-12">
+          <div class="text-left">
+            <h1><b>MSc Project: Understanding Model Failures in Echocardiographic Image Analysis</b></h1>
+            <hr>
+            <h2>Project Summary</h2>
+            <h3>This project investigates why deep learning models fail in echocardiographic image classification by analyzing uncertainty, feature space representation, and dataset biases. The goal is to improve model reliability by identifying failure cases and implementing strategies to mitigate them.</h3>
+            
+            <h2>Objectives</h2>
+            <h3>
+              - Analyze model confidence to detect overconfident misclassifications and low-confidence cases.
+              <br>- Compare feature representations of correctly classified vs. difficult cases.
+              <br>- Use heatmaps (e.g., Grad-CAM) to examine where the model is focusing during decision-making.
+              <br>- Investigate differences in image characteristics (e.g., contrast, noise, brightness) between easy and hard cases.
+              <br>- Propose and test solutions (e.g., improved preprocessing, data augmentation, fine-tuning) to reduce failure cases.
+            </h3>
+            
+            <h2>Methodology</h2>
+            <h3>
+              - Train a deep learning model on an echocardiographic dataset.
+              <br>- Identify and log misclassified and low-confidence images.
+              <br>- Apply dimensionality reduction (PCA, t-SNE) to visualize feature distributions.
+              <br>- Use Grad-CAM to analyze attention patterns in correct vs. incorrect predictions.
+              <br>- Assess the impact of image quality on model performance.
+              <br>- Implement corrective strategies and evaluate performance improvements.
+            </h3>
+            
+            <h2>Expected Outcomes</h2>
+            <h3>
+              - Identification of common failure cases in echocardiographic image analysis.
+              <br>- Insights into how feature representations affect model performance.
+              <br>- A framework to diagnose and reduce errors in deep learning models.
+              <br>- Improved model accuracy through targeted refinements.
+            </h3>
+            
+            <h2>Skills & Tools Required</h2>
+            <h3>
+              - Deep learning frameworks (PyTorch, TensorFlow)
+              <br>- Data visualization (PCA, t-SNE, Grad-CAM)
+              <br>- Medical imaging analysis (echocardiography)
+              <br>- Python, OpenCV, scikit-learn
+            </h3>
+            
+            <h3>For more information, please contact <a href="https://www.uwl.ac.uk/staff/massoud-zolgharni" target="_blank" rel="noopener noreferrer">Professor Massoud Zolgharni</a></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer">
+    <div class="container d-md-flex py-4">
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>IntSaV</span></strong>. All Rights Reserved
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
