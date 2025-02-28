@@ -43,50 +43,50 @@
       <div class="row justify-content-left">
         <div class="col-12">
           <div class="text-left">
+            <hr>
             <h1><b>MSc Project Proposal: Understanding Model Uncertainty and Failure Cases in Echocardiographic Image Analysis</b></h1>
             <hr>
             <h2>Project Summary</h2>
-            <h3>Deep learning models are increasingly used in echocardiography for disease classification, segmentation, and cardiac function analysis. However, these models often fail on certain images due to uncertainty, feature misalignment, or dataset biases. This project aims to systematically investigate why deep learning models struggle with specific echocardiographic images and develop a framework to detect and analyze failure cases. By understanding these failures, we can improve model reliability and interpretability.</h3>
+            <h3>Deep learning models are increasingly used in echocardiography for disease classification, segmentation, and cardiac function analysis. However, these models often fail on certain images due to uncertainty, feature misalignment, or dataset biases. This project aims to systematically investigate why deep learning models struggle with specific echocardiographic images and develop a framework to detect and analyse failure cases. By understanding these failures, we can improve model reliability and interpretability.</h3>
             
             <h2>Objectives</h2>
             <h3>
-              1️⃣ Check Model Confidence and Identify Uncertain Predictions<br>
+              1️. Check Model Confidence and Identify Uncertain Predictions<br>
               - Measure the model’s confidence scores for each prediction.<br>
               - Identify misclassified images with high confidence (overconfidence problem).<br>
               - Detect low-confidence predictions (cases where the model is unsure).<br><br>
-              2️⃣ Compare Feature Representations of Easy vs. Difficult Images<br>
+              2️. Compare Feature Representations of Easy vs. Difficult Images<br>
               - Extract deep feature vectors from all images.<br>
-              - Use clustering methods (t-SNE, PCA) to visualize where difficult images fall in feature space.<br>
+              - Use clustering methods (t-SNE, PCA) to visualise where difficult images fall in feature space.<br>
               - Identify if failure cases are outliers, meaning the model has not learned those patterns well.<br><br>
-              3️⃣ Analyze Model Attention Using Heatmaps<br>
-              - Apply Grad-CAM or attention heatmaps to visualize which parts of the image the model focuses on.<br>
+              3️. Analyse Model Attention Using Heatmaps<br>
+              - Apply Grad-CAM or attention heatmaps to visualise which parts of the image the model focuses on.<br>
               - Check if misclassified images highlight irrelevant areas (noise, artifacts) instead of cardiac structures.<br><br>
-              4️⃣ Compare Image Characteristics of Easy vs. Difficult Cases<br>
-              - Analyze brightness, contrast, noise levels, and sharpness.<br>
+              4️. Compare Image Characteristics of Easy vs. Difficult Cases<br>
               - Determine whether the model struggles with low-resolution, shadowed, or blurry images.<br>
               - Investigate if the model performs worse on certain echocardiographic views (e.g., parasternal vs. apical 4-chamber).<br><br>
-              5️⃣ Propose Strategies to Reduce Failure Cases<br>
+              5️. Propose Strategies to Reduce Failure Cases<br>
               - Suggest methods like data augmentation, contrast enhancement, or fine-tuning.<br>
               - Experiment with different approaches and measure performance improvements.<br>
             </h3>
             
             <h2>Expected Outcomes</h2>
             <h3>
-              ✅ A framework to detect and analyze failure cases in deep learning models for echocardiography.<br>
+              ✅ A framework to detect and analyse failure cases in deep learning models for echocardiography.<br>
               ✅ Insights into why models struggle with certain images (overconfidence, noise, artifacts, view variation, etc.).<br>
-              ✅ Visualization tools to explain model decisions (Grad-CAM, t-SNE feature mapping).<br>
+              ✅ Visualisation tools to explain model decisions (Grad-CAM, t-SNE feature mapping).<br>
               ✅ Strategies to reduce errors and improve model reliability in clinical applications.<br>
             </h3>
             
             <h2>Skills & Tools Required</h2>
             <h3>
-              🛠 Python, PyTorch/TensorFlow, OpenCV<br>
-              📊 Deep learning (CNNs, ResNet, EfficientNet)<br>
-              📈 Data visualization (t-SNE, PCA, Grad-CAM)<br>
-              🩺 Medical image analysis (echocardiography)<br>
+              🛠 Essential: Python, PyTorch/TensorFlow, OpenCV<br>
+              📊 Essential: Deep learning (CNNs, ResNet, EfficientNet)<br>
+              📈 Preferable: Data visualisation (t-SNE, PCA, Grad-CAM)<br>
+              🩺 Preferable: Medical image analysis (echocardiography)<br>
             </h3>
             
-            <h3>For more information, please contact <a href="https://www.uwl.ac.uk/staff/massoud-zolgharni" target="_blank" rel="noopener noreferrer">Professor Massoud Zolgharni</a></h3>
+            <h3>For more information, please contact <a href="https://www.uwl.ac.uk/staff/massoud-zolgharni" target="_blank" rel="noopener noreferrer">Professor Massoud Zolgharni</a> or <a href="https://www.uwl.ac.uk/staff/nasim-dadashi-serej" target="_blank" rel="noopener noreferrer">Dr Nasim Dadashi</a></h3>
           </div>
         </div>
       </div>
