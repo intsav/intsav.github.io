@@ -29,11 +29,13 @@
         }
 
         .project-img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
+    width: 100%;  /* Makes the image take the full width of its container */
+    height: auto; /* Maintains aspect ratio */
+    display: block;
+    margin: 0 auto;
+    object-fit: cover; /* Ensures the image doesn't get squeezed */
+}
+
     </style>
 </head>
 
