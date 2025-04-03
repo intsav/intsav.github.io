@@ -83,21 +83,19 @@
                     <div class="container">
                       <div class="row justify-content-left">
                         <div class="col-12">
+                          <div align="justify">
                           <hr>
                           <h1>PROJECT DESCRIPTION</h1>
                           <br>
                           <h2>Background:</h2>
-                          <br>
                           <h3>Vertebral compression fractures are among the most common osteoporotic fractures in the elderly population. While many patients experience favourable outcomes following an acute osteoporotic vertebral fracture, a significant subset will undergo <b>progressive vertebral collapse</b> over time. This collapse can lead to chronic back pain, pronounced spinal deformity (kyphosis), and associated comorbidities that severely diminish quality of life. Early identification of patients at risk for progressive collapse is crucial, so that preventive interventions (such as medications, bracing or surgical consultation) can be implemented promptly. However, clinicians currently lack effective tools to <b>predict which acute vertebral fractures will progressively worsen</b>. Existing fracture risk calculators – <b>FRAX</b> (Fracture Risk Assessment Tool) and QFracture – estimate long-term osteoporotic fracture risk based on clinical factors, but they do not address the imminent risk of an existing vertebral fracture collapsing further. Additionally, these tools do not incorporate detailed imaging features of the fracture itself, potentially overlooking critical indicators of structural weakness. </h3>
                           <br>
                           <h2>Research Objective:</h2>
-                          <br>
                           <h3>Earlier studies by our team and others suggest that the <b>initial severity of vertebral injury</b> significantly predicts later collapse. For example, the degree of vertebral height loss or endplate disruption in initial X-rays may be linked to the likelihood of developing progressive deformity. Building on this knowledge, this project aims to create an <b>AI-based prognostic system</b> that combines multimodal imaging and clinical data to accurately forecast progressive vertebral damage. The ultimate objective is to establish a personalised prediction tool that outperforms traditional risk models (FRAX and QFracture) in this specific clinical context, providing clinicians with a new decision-support alternative. </h3>
                           <br>
                           <h2>Methodology:</h2>
-                          <br>
                           <h3><b>Multimodal Data Integration:</b> The project will leverage a rich, multimodal dataset for each patient, including: </h3>
-                          <br><br>
+                          <br>
                              <ul>
                                <li><b>X-ray Imaging:</b> Plain radiographs (especially lateral spine X-rays) of the fractured vertebra, which reveal vertebral shape, alignment, and any acute deformity. These images will be used to extract morphometric features such as vertebral height loss, wedge angle, or endplate irregularities.</li>
                                 <br>
@@ -109,18 +107,16 @@
                              </ul>
                           <br><br>
                           <h2>AI Modelling Approach:</h2>
-                          <br>
                           <h3>Using this multimodal input, we will design a <b>deep learning framework</b> to predict vertebral fracture outcomes. Convolutional neural networks (CNNs) or similar architectures will be employed to automatically extract meaningful features from X-ray and CT images (for example, detecting subtle shape changes or density patterns that correlate with instability). The imaging networks will be combined with a parallel network or feature input for clinical factors, creating a fused model that considers both imaging and non-imaging data. We will explore architectures for multimodal fusion – such as combining feature vectors from image models with clinical variables in a fully connected layer or using attention mechanisms to weigh each data modality’s contribution. The model’s output will be a risk score or probability that the patient’s vertebral fracture will progress (collapse further or require intervention) within a defined follow-up period.</h3>
                           <br>
                           <h2>Training and Validation:</h2>
-                          <br>
                           <h3>A retrospective dataset of osteoporotic fracture patients will be utilised to train the AI system. Each case will be labelled based on the outcome – The Ground Truth (e.g., whether significant vertebral collapse or new fractures occurred during follow-up). The training process will involve standard practices such as data augmentation (particularly for X-ray images, to account for variability in imaging conditions) and cross-validation to ensure robustness. Model performance will be evaluated on a hold-out test set and, if possible, through cross-site validation (to ensure generalisability). Key evaluation metrics will include <b>prediction accuracy</b>, <b>sensitivity and specificity in identifying high-risk patients</b>, and <b>positive predictive value</b> for collapse outcomes.</h3>
                           <br>
                           <h3><b>Comparison with Existing Tools:</b> To gauge the value of this AI approach, its predictions will be quantitatively compared against FRAX and QFracture risk outputs for the same patients. We expect the AI model, with its rich imaging input, to more precisely identify high-risk individuals than conventional tools. For example, if FRAX classifies a patient as moderate risk based only on age and BMD, but the AI detects severe vertebral damage on the X-ray/CT, the model might correctly flag them as high risk for collapse – a nuance FRAX would miss. Through such comparisons, the project will demonstrate the <b>added predictive power of incorporating imaging via AI</b>. Early studies in the field have hinted that deep learning on spinal X-rays can surpass FRAX in fracture risk prediction, supporting the premise that our integrated approach will be effective. (https://digitalcommons.library.tmc.edu/baylor_docs/2550)</h3>
                           <br>
                           <h2>Expected Outcomes and Impact:</h2>
-                          <br>
                           <h3>By the end of the project, we plan to deliver a validated prototype of an AI-assisted clinical tool for estimating vertebral fracture prognosis. This tool could be utilised at the point of care when an older patient presents with a recent osteoporotic vertebral fracture. The system would analyse the patient’s X-rays, any available CT and DEXA data, as well as their clinical profile, and then provide an assessment of the likelihood that the fracture will worsen over time. A high-risk prediction could prompt physicians to initiate early treatments (such as vertebroplasty, intensive osteoporosis therapy, or physiotherapy focused on spine support) <b>before</b> major collapse and disability occur. This proactive approach represents a significant shift from current practice, where clinicians must essentially “wait and see” if a fracture deteriorates. Ultimately, the project’s innovation lies in offering a <b>novel alternative to FRAX and QFracture</b> that is specifically tailored to vertebral injury prognosis. Such a tool aligns with IntSaV’s mission of applying AI to high-impact healthcare problems, and it holds promise for reducing the burden of osteoporotic spinal injuries through early, AI-guided intervention.</h3>
+                          </div>
                         </div>
                       </div>
                       <div class="text-left">
