@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -15,6 +14,11 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    body, h1, h2, h3, h4, h5, h6, p {
+      color: #000 !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -26,7 +30,7 @@
           <li><a class="nav-link scrollto" href="index.html">Home</a></li>
           <li><a class="nav-link scrollto" href="#footer">Contact</a></li>
         </ul>
-        <i class="biß bi-list mobile-nav-toggle"></i>
+        <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
     </div>
   </header>
@@ -35,9 +39,8 @@
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
       <div class="row">
         <div class="col-12 text-left">
-          <h1>AI for Risk Assessment in Emergency Department Presentations</h1>
+          <h1 style="color:#000;">AI for Risk Assessment in Emergency Department Presentations</h1>
           <h2><i>University of West London – School of Computing and Engineering</i></h2>
-          <h3>In Collaboration with the <a href="https://www.imperial.ac.uk/nhli/" target="_blank" rel="noopener noreferrer">National Heart and Lung Institute</a></h3>
         </div>
       </div>
     </div>
@@ -46,49 +49,77 @@
   <main id="project-main">
     <div class="container">
       <hr>
-      <div class="row justify-content-left">
-        <div class="col-12">
-          <div class="text-left">
-            <h1><b>Supervisory Team</b></h1>
-            <h6><a href="https://www.uwl.ac.uk/staff/massoud-zolgharni" target="_blank">Professor Massoud Zolgharni</a></h6>
-            <h6><a href="https://www.imperial.ac.uk/people/d.francis" target="_blank">Professor Darrel Francis</a></h6>
-          </div>
-        </div>
-      </div>
-
       <section id="project-body">
         <div class="project-intro">
           <div class="container">
             <div class="row justify-content-left">
               <div class="col-12">
-                <hr>
-                <h1>Background:</h1>
-                <h3>The Emergency Department (ED) is a critical setting for rapid clinical decision-making across a wide range of patient presentations. Timely and accurate risk stratification helps ensure appropriate resource use and better patient outcomes. However, clinical assessments are often subjective, and variability in decision-making can impact quality of care. AI offers the potential to standardize and enhance these decisions using data-driven tools.</h3>
+                <h2>Introduction</h2>
+                <p>The emergency department (ED) is a high-pressure, resource-limited environment that manages a wide array of acute presentations, from trauma and cardiac complaints to sepsis and neurological deficits. Accurate and timely risk stratification is vital to prioritize care, allocate resources, and improve outcomes. However, clinical decision-making in the ED often relies on subjective judgment and may lead to diagnostic delays, variability in care, and inappropriate resource utilization.</p>
+                <p>Artificial intelligence (AI) offers a transformative opportunity to enhance risk assessment by uncovering hidden patterns in complex and high-volume clinical data. This research project aims to develop and validate AI-powered decision support tools to improve the risk stratification of patients across a spectrum of ED presentations. By leveraging large-scale, multi-institutional datasets, we will build models that guide clinicians in making informed, timely decisions.</p>
 
-                <h1>Research Questions:</h1>
-                <h3>- Can AI models effectively stratify risk across diverse ED presentations?</h3>
-                <h3>- What clinical patterns and features are most predictive of adverse outcomes in the ED?</h3>
-                <h3>- How can AI-based support tools be integrated into real-time clinical workflows?</h3>
+                <h2>Aim</h2>
+                <p>To develop and evaluate AI-driven diagnostic support systems that stratify risk and predict appropriate clinical pathways for diverse patient presentations in the emergency department.</p>
 
-                <h1>Aim and Objectives:</h1>
-                <h3>This PhD project aims to develop and validate AI-powered systems to enhance clinical risk assessment across Emergency Department scenarios. Specific objectives include:</h3>
-                <h3>- Acquire and harmonize large-scale datasets such as MIMIC-IV-ED, MC-MED, and HCUP NEDS.</h3>
-                <h3>- Develop supervised models to predict outcomes such as admission, imaging needs, or ICU transfer.</h3>
-                <h3>- Evaluate models using AUROC, calibration, and clinical utility analysis.</h3>
-                <h3>- Compare AI models with standard clinical scores and physician judgment.</h3>
+                <h2>Objectives</h2>
+                <h3>1. Data Acquisition and Preparation</h3>
+                <ul>
+                  <li>Use MIMIC-IV-ED, MC-MED, and HCUP NEDS datasets</li>
+                  <li>Assess dataset suitability and standardize data across sources</li>
+                  <li>Clean, preprocess, and engineer features for analysis</li>
+                </ul>
 
-                <h1>Methodology:</h1>
-                <h3>- Retrospective analysis of publicly available emergency datasets.</h3>
-                <h3>- Use of machine learning methods including deep learning and gradient boosting.</h3>
-                <h3>- External validation and generalizability testing across hospital settings.</h3>
-                <h3>- Decision curve analysis to assess real-world clinical utility.</h3>
+                <h3>2. AI Model Development</h3>
+                <ul>
+                  <li>Develop models for risk stratification and prediction of outcomes like admission or ICU transfer</li>
+                  <li>Explore supervised learning, time-to-event models, and unsupervised clustering</li>
+                  <li>Apply cross-validation, regularization, and sensitivity analysis to enhance robustness</li>
+                </ul>
 
-                <h1>Clinical Partners:</h1>
-                <h3>Collaboration with Imperial College London provides clinical relevance, expert feedback, and access to validation cohorts. This partnership ensures model outputs are aligned with real-world ED practices and workflows.</h3>
+                <h3>3. Clinical Validation and Contextualization</h3>
+                <ul>
+                  <li>Evaluate model discrimination (e.g., AUROC), calibration, and clinical utility</li>
+                  <li>Benchmark against existing risk scores and physician judgment</li>
+                  <li>Address generalizability across diverse ED settings</li>
+                </ul>
+
+                <h3>4. Dissemination and Impact</h3>
+                <ul>
+                  <li>Publish in high-impact journals</li>
+                  <li>Present findings at international conferences</li>
+                  <li>Plan for clinical translation and EHR integration</li>
+                </ul>
+
+                <h2>Potential Datasets</h2>
+                <ul>
+                  <li><b>MIMIC-IV-ED:</b> Over 425,000 ED visits from 2011–2019 (Beth Israel Deaconess Medical Center)</li>
+                  <li><b>MC-MED:</b> 118,385 ED visits with physiological waveforms (Stanford, 2020–2022)</li>
+                  <li><b>HCUP NEDS:</b> 30+ million annual ED records across 950+ hospitals</li>
+                </ul>
+
+                <h2>Research Methods</h2>
+                <ul>
+                  <li>Retrospective cohort analysis</li>
+                  <li>Machine learning model training and validation</li>
+                  <li>Comparative effectiveness and clinical utility analysis</li>
+                </ul>
+
+                <h2>Timeline</h2>
+                <ul>
+                  <li><b>Year 1:</b> Literature review, data acquisition and cleaning</li>
+                  <li><b>Year 2:</b> Model development and internal validation</li>
+                  <li><b>Year 3:</b> Clinical testing, dissemination, thesis completion</li>
+                </ul>
+
+                <h2>Expected Outcomes</h2>
+                <ul>
+                  <li>AI models for robust ED risk stratification</li>
+                  <li>Benchmarking against clinical scores</li>
+                  <li>Recommendations for integration into ED workflows</li>
+                </ul>
 
                 <br>
-                <h3>For more information about the project, please contact <a href="https://www.uwl.ac.uk/staff/massoud-zolgharni" target="_blank">Professor Massoud Zolgharni</a></h3>
-                <br>
+                <p>Contact: <a href="https://www.uwl.ac.uk/staff/massoud-zolgharni" target="_blank">Professor Massoud Zolgharni</a></p>
               </div>
             </div>
           </div>
@@ -114,9 +145,6 @@
     </div>
   </footer>
 
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -126,5 +154,4 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
-
 </html>
