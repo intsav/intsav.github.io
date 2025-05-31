@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pulse of Progress: AI in Echocardiography</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 450px;
+            }
+        }
+        .nav-link.active {
+            color: #0284c7;
+            font-weight: 600;
+        }
+        .tab-btn.active {
+            background-color: #0284c7;
+            color: white;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <header class="bg-slate-50/80 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-200">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="font-bold text-xl text-sky-600">🫀 AI in Echocardiography</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#problem-solution" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-sky-600 transition-colors">The Challenge</a>
+                        <a href="#impact" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-sky-600 transition-colors">Impact</a>
+                        <a href="#how-it-works" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-sky-600 transition-colors">How It Works</a>
+                        <a href="#challenges" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-sky-600 transition-colors">Challenges</a>
+                        <a href="#ecosystem" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-sky-600 transition-colors">Ecosystem</a>
+                        <a href="#future" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-sky-600 transition-colors">Future</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="py-20 md:py-28">
+            <div class="max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-slate-900">The Pulse of Progress</h1>
+                <p class="mt-6 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
+                    Artificial Intelligence is revolutionizing echocardiography, transforming a subjective, operator-dependent process into a precise, efficient, and accessible diagnostic tool. This interactive report explores how AI is setting a new standard for cardiovascular care.
+                </p>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                     <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                        <p class="text-3xl font-bold text-sky-600">≤98%</p>
+                        <p class="text-slate-600 mt-1">Accuracy in automated view classification</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                        <p class="text-3xl font-bold text-sky-600">>85%</p>
+                        <p class="text-slate-600 mt-1">Novice-expert agreement with AI guidance</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                        <p class="text-3xl font-bold text-sky-600">70%</p>
+                        <p class="text-slate-600 mt-1">Reduction in measurement & reporting time</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="problem-solution" class="py-20 bg-white border-y border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900">From Challenge to Solution</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">
+                        Traditional echocardiography faces significant hurdles that AI is uniquely positioned to overcome. This section provides an overview of the key problems and the corresponding AI-driven solutions that are improving diagnostic quality and consistency.
+                    </p>
+                </div>
+
+                <div class="mt-16 grid md:grid-cols-2 gap-x-12 gap-y-10">
+                    <div class="space-y-8">
+                        <h3 class="text-2xl font-semibold text-center text-slate-800">The Traditional Challenges</h3>
+                        <div class="space-y-6">
+                            <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
+                                <h4 class="font-semibold text-slate-900">High Operator Dependence & Variability</h4>
+                                <p class="mt-2 text-slate-600">Image quality and measurements vary significantly between operators, with LVEF calculations showing an Intraclass Correlation Coefficient (ICC) as low as 0.187, indicating poor reliability.</p>
+                            </div>
+                             <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
+                                <h4 class="font-semibold text-slate-900">Subjective Quality Assessment</h4>
+                                <p class="mt-2 text-slate-600">Without objective standards, assessing image quality is subjective, leading to inconsistent diagnoses, especially when images are suboptimal due to patient factors or technical issues.</p>
+                            </div>
+                            <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
+                                <h4 class="font-semibold text-slate-900">Inefficient and Time-Consuming Workflows</h4>
+                                <p class="mt-2 text-slate-600">Manual measurements, view selection, and reporting are repetitive, labor-intensive tasks that consume valuable clinician time and slow down patient throughput.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-8">
+                        <h3 class="text-2xl font-semibold text-center text-sky-700">The AI-Powered Solutions</h3>
+                        <div class="space-y-6">
+                            <div class="p-6 bg-sky-50 rounded-lg border border-sky-200">
+                                <h4 class="font-semibold text-sky-900">Automation and Standardization</h4>
+                                <p class="mt-2 text-slate-600">AI automates measurements and view classification, drastically reducing inter-observer variability and ensuring consistent application of diagnostic guidelines.</p>
+                            </div>
+                            <div class="p-6 bg-sky-50 rounded-lg border border-sky-200">
+                                <h4 class="font-semibold text-sky-900">Objective Quality Scoring & Guidance</h4>
+                                <p class="mt-2 text-slate-600">AI models provide objective, quantifiable image quality scores and real-time guidance to operators, helping even novices acquire diagnostic-quality images and improving overall data integrity.</p>
+                            </div>
+                             <div class="p-6 bg-sky-50 rounded-lg border border-sky-200">
+                                <h4 class="font-semibold text-sky-900">Streamlined and Accelerated Workflows</h4>
+                                <p class="mt-2 text-slate-600">AI can complete a full echo analysis in under a minute and reduce reporting time by up to 70%, freeing up clinicians to focus on complex decision-making and patient care.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="impact" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900">Quantifying the Impact</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">
+                       AI's integration into echocardiography delivers measurable improvements in accuracy, efficiency, and consistency. The chart below provides a comparative look at performance metrics, illustrating the clear advantages of AI-augmented analysis over traditional manual methods. Interact with the buttons to explore different facets of this impact.
+                    </p>
+                </div>
+
+                <div class="mt-12">
+                    <div class="chart-container">
+                        <canvas id="impactChart"></canvas>
+                    </div>
+                    <div class="mt-8 flex justify-center space-x-2 md:space-x-4">
+                        <button data-chart="accuracy" class="chart-btn bg-sky-600 text-white px-4 py-2 rounded-lg font-semibold shadow-sm hover:bg-sky-700 transition-colors">Accuracy</button>
+                        <button data-chart="consistency" class="chart-btn bg-slate-200 text-slate-700 px-4 py-2 rounded-lg font-semibold hover:bg-slate-300 transition-colors">Consistency</button>
+                        <button data-chart="efficiency" class="chart-btn bg-slate-200 text-slate-700 px-4 py-2 rounded-lg font-semibold hover:bg-slate-300 transition-colors">Efficiency</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="how-it-works" class="py-20 bg-white border-y border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900">How It Works: The AI Pipeline</h2>
+                     <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">
+                        AI transforms raw ultrasound video into actionable clinical insights through a sophisticated, multi-stage process. This simplified pipeline shows the key steps from image capture to final analysis, demonstrating how AI brings structure and automation to the workflow.
+                    </p>
+                </div>
+                <div class="mt-16 relative">
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-300 -translate-y-8"></div>
+                    <div class="relative grid grid-cols-1 md:grid-cols-5 gap-8 text-center">
+                        <div class="flex flex-col items-center">
+                            <div class="flex items-center justify-center w-16 h-16 rounded-full bg-sky-600 text-white font-bold text-2xl shadow-lg z-10">1</div>
+                            <h4 class="mt-4 font-semibold text-slate-900">Image Acquisition</h4>
+                            <p class="mt-2 text-sm text-slate-600">An operator acquires echo videos. AI can provide real-time guidance to ensure optimal view and quality.</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="flex items-center justify-center w-16 h-16 rounded-full bg-sky-600 text-white font-bold text-2xl shadow-lg z-10">2</div>
+                            <h4 class="mt-4 font-semibold text-slate-900">View Classification</h4>
+                            <p class="mt-2 text-sm text-slate-600">A Convolutional Neural Network (CNN) automatically identifies the anatomical view (e.g., A4C, PLAX) from thousands of frames.</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="flex items-center justify-center w-16 h-16 rounded-full bg-sky-600 text-white font-bold text-2xl shadow-lg z-10">3</div>
+                            <h4 class="mt-4 font-semibold text-slate-900">Quality Assessment</h4>
+                            <p class="mt-2 text-sm text-slate-600">The model scores the image quality based on objective criteria like border clarity and structure visibility, flagging poor quality images.</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="flex items-center justify-center w-16 h-16 rounded-full bg-sky-600 text-white font-bold text-2xl shadow-lg z-10">4</div>
+                            <h4 class="mt-4 font-semibold text-slate-900">Segmentation & Quantification</h4>
+                            <p class="mt-2 text-sm text-slate-600">AI automatically segments key structures (like the left ventricle) and calculates critical metrics like LVEF and volumes.</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="flex items-center justify-center w-16 h-16 rounded-full bg-sky-600 text-white font-bold text-2xl shadow-lg z-10">5</div>
+                            <h4 class="mt-4 font-semibold text-slate-900">Automated Reporting</h4>
+                            <p class="mt-2 text-sm text-slate-600">The results are compiled into a structured report, often integrated directly into the PACS or EHR system, saving significant time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="challenges" class="py-20">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900">Challenges and Considerations</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">
+                        While powerful, the integration of AI into clinical practice is not without its hurdles. Successfully navigating these technical, ethical, and logistical challenges is crucial for responsible and effective deployment. Select a topic to learn more.
+                    </p>
+                </div>
+                <div id="accordion-container" class="mt-12 space-y-4">
+                    <div class="bg-white border border-slate-200 rounded-lg">
+                        <button class="accordion-toggle w-full flex justify-between items-center p-5 text-left font-semibold">
+                            <span>Data Requirements & Algorithmic Bias</span>
+                            <span class="accordion-icon transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-5 pt-0 text-slate-600">
+                                <p>AI models require vast, diverse, and well-annotated datasets for training. A lack of diversity in training data can lead to algorithmic bias, where models perform poorly on underrepresented populations, potentially worsening health disparities. Ensuring fairness and generalizability is a primary ethical and technical challenge.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white border border-slate-200 rounded-lg">
+                        <button class="accordion-toggle w-full flex justify-between items-center p-5 text-left font-semibold">
+                            <span>Interoperability with Healthcare Systems</span>
+                            <span class="accordion-icon transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-5 pt-0 text-slate-600">
+                                <p>For AI to be useful, it must seamlessly integrate with existing hospital infrastructure like Electronic Health Records (EHR) and Picture Archiving and Communication Systems (PACS). The lack of standardization across these systems creates a significant technical barrier to adoption, often called the "last mile" problem of implementation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white border border-slate-200 rounded-lg">
+                        <button class="accordion-toggle w-full flex justify-between items-center p-5 text-left font-semibold">
+                            <span>Ethical, Legal, and Trust Issues</span>
+                            <span class="accordion-icon transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-5 pt-0 text-slate-600">
+                                <p>Key questions remain about data privacy, security, and accountability for AI-driven decisions. The "black box" nature of some models can hinder clinical trust. Establishing clear regulatory frameworks, ensuring transparency (Explainable AI), and defining human oversight are essential for building confidence among clinicians and patients.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ecosystem" class="py-20 bg-white border-y border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900">The AI Echocardiography Ecosystem</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">
+                        A vibrant ecosystem of commercial companies, academic institutions, and public datasets is driving innovation. This section highlights the key players and resources that are shaping the future of AI in cardiac imaging.
+                    </p>
+                </div>
+                <div class="mt-12">
+                    <div class="flex justify-center border-b border-slate-300">
+                        <button class="ecosystem-tab-btn tab-btn active px-6 py-3 font-semibold text-slate-600" data-tab="companies">Companies</button>
+                        <button class="ecosystem-tab-btn tab-btn px-6 py-3 font-semibold text-slate-600" data-tab="research">Research Centers</button>
+                        <button class="ecosystem-tab-btn tab-btn px-6 py-3 font-semibold text-slate-600" data-tab="datasets">Public Datasets</button>
+                    </div>
+                    <div id="ecosystem-content" class="mt-8">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="future" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900">The Future is Augmented</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">
+                       The evolution of AI in echocardiography is heading towards a future of "augmented intelligence," where technology enhances, rather than replaces, human expertise. The goal is to create a symbiotic partnership that delivers more proactive, personalized, and precise cardiovascular care.
+                    </p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-100">
+                        <h4 class="text-xl font-semibold text-slate-900">Advanced Clinical Decision Support</h4>
+                        <p class="mt-3 text-slate-600">Future AI will integrate imaging data with EHR records, labs, and genetics to predict outcomes, suggest diagnoses, and identify subtle disease markers, acting as a powerful prognostic tool for clinicians.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-100">
+                        <h4 class="text-xl font-semibold text-slate-900">Democratization via POCUS</h4>
+                        <p class="mt-3 text-slate-600">AI will be increasingly integrated into portable Point-of-Care Ultrasound (POCUS) devices, empowering a wider range of healthcare providers to perform high-quality cardiac screening in any setting.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-100">
+                        <h4 class="text-xl font-semibold text-slate-900">Fully Autonomous Acquisition</h4>
+                        <p class="mt-3 text-slate-600">Robotic ultrasound systems guided by AI algorithms could one day perform fully autonomous scans, completely standardizing image acquisition and freeing sonographers for more complex interpretive tasks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-slate-800 text-slate-400">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p>Interactive report generated based on a synthesis of research on AI in Echocardiography.</p>
+            <p class="mt-2">This is a conceptual web application for informational purposes.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const appData = {
+                impactChart: {
+                    accuracy: {
+                        labels: ['View Classification', 'LV Segmentation (IoU)', 'Diagnostic Concordance (Novice)'],
+                        manual: [65, 60, 70],
+                        ai: [98, 85, 96]
+                    },
+                    consistency: {
+                        labels: ['LVEF (ICC)', 'Area Measurement (RSD %)'],
+                        manual: [0.19, 15.4],
+                        ai: [0.82, 5.0]
+                    },
+                    efficiency: {
+                        labels: ['Full Study Analysis (min)', 'Reporting Time Reduction (%)'],
+                        manual: [30, 0],
+                        ai: [1, 70]
+                    },
+                },
+                ecosystem: {
+                    companies: [
+                        { name: 'Us2.ai', desc: 'Leading innovator in fully automated echo analysis, focusing on workflow and reporting efficiency.' },
+                        { name: 'Ultromics Ltd.', desc: 'University of Oxford spin-out with multiple FDA clearances for LV analysis and disease detection.' },
+                        { name: 'DESKi (HeartFocus)', desc: 'Provides FDA-cleared AI software with real-time acquisition guidance for novice users.' },
+                        { name: 'Siemens Healthineers', desc: 'Integrates AI-powered tools for automated EF, volume, and strain analysis into its platforms.' },
+                        { name: 'GE Healthcare', desc: 'Offers a suite of AI tools to automate measurements and improve workflow on its ultrasound systems.' },
+                        { name: 'Dia Imaging Analysis', desc: 'Develops solutions for automated EF calculation and standard view identification.' },
+                    ],
+                    research: [
+                        { name: 'Stanford University', desc: 'Creator of foundational public datasets like EchoNet-Dynamic, driving AI model development.' },
+                        { name: 'Cedars-Sinai Medical Center', desc: 'A key center for large-scale data curation and the clinical validation of AI models.' },
+                        { name: 'Oxford University', desc: 'A hub for cardiovascular AI research and the originating institution for Ultromics.' },
+                        { name: 'Emory University', desc: 'Focuses on translational research, developing and evaluating novel AI applications with industry partners.' },
+                        { name: 'VGH-UBC AI Echo Core Lab', desc: 'Specializes in third-party interpretation for trials and developing in-house machine learning models.' },
+                    ],
+                    datasets: [
+                        { name: 'EchoNet-Dynamic', desc: 'Large public dataset with over 10,000 annotated A4C videos, essential for LVEF model training.' },
+                        { name: 'EchoNet-LVH', desc: 'Contains 12,000 parasternal long-axis videos for studying left ventricular hypertrophy.' },
+                        { name: 'RVENet', desc: 'Includes over 3,500 A4C videos with 3D echo-derived RVEF labels and image quality scores.' },
+                        { name: 'CAMUS Dataset', desc: 'An open-source dataset widely used for training and testing segmentation and quality assessment models.' },
+                        { name: 'MIMIC-EchoNotes', desc: 'A dataset of echo reports used for developing Natural Language Processing (NLP) applications.' },
+                    ]
+                }
+            };
+
+            let impactChartInstance = null;
+            const ctx = document.getElementById('impactChart').getContext('2d');
+
+            const chartConfigs = {
+                accuracy: {
+                    title: 'Diagnostic Accuracy: Manual vs. AI',
+                    yAxisLabel: 'Performance (%)'
+                },
+                consistency: {
+                    title: 'Measurement Consistency: Manual vs. AI',
+                    yAxisLabel: 'Score (ICC) / Variability (RSD%)'
+                },
+                efficiency: {
+                    title: 'Workflow Efficiency: Manual vs. AI',
+                    yAxisLabel: 'Value'
+                }
+            };
+            
+            function createOrUpdateChart(dataType = 'accuracy') {
+                const data = appData.impactChart[dataType];
+                const config = chartConfigs[dataType];
+
+                if (impactChartInstance) {
+                    impactChartInstance.destroy();
+                }
+
+                impactChartInstance = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: data.labels,
+                        datasets: [
+                            {
+                                label: 'Manual Method',
+                                data: data.manual,
+                                backgroundColor: 'rgba(100, 116, 139, 0.6)',
+                                borderColor: 'rgba(100, 116, 139, 1)',
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'AI-Powered Method',
+                                data: data.ai,
+                                backgroundColor: 'rgba(2, 132, 199, 0.6)',
+                                borderColor: 'rgba(2, 132, 199, 1)',
+                                borderWidth: 1
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: config.title,
+                                font: { size: 18, weight: '600' },
+                                color: '#1e293b',
+                                padding: { top: 10, bottom: 20 }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.y !== null) {
+                                            label += context.parsed.y;
+                                            if(dataType === 'accuracy') label += '%';
+                                            if(dataType === 'efficiency' && context.datasetIndex === 1 && context.dataIndex === 1) label += '%';
+                                            if(dataType === 'efficiency' && context.datasetIndex === 0 && context.dataIndex === 0) label += ' min';
+                                            if(dataType === 'efficiency' && context.datasetIndex === 1 && context.dataIndex === 0) label += ' min';
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: config.yAxisLabel,
+                                    font: { weight: '500' }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            const chartButtons = document.querySelectorAll('.chart-btn');
+            chartButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    chartButtons.forEach(btn => {
+                        btn.classList.remove('bg-sky-600', 'text-white');
+                        btn.classList.add('bg-slate-200', 'text-slate-700');
+                    });
+                    button.classList.add('bg-sky-600', 'text-white');
+                    button.classList.remove('bg-slate-200', 'text-slate-700');
+                    createOrUpdateChart(button.dataset.chart);
+                });
+            });
+
+            createOrUpdateChart('accuracy');
+
+            const accordionToggles = document.querySelectorAll('.accordion-toggle');
+            accordionToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const content = toggle.nextElementSibling;
+                    const icon = toggle.querySelector('.accordion-icon');
+                    const isExpanded = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+                    document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = '0px');
+                    document.querySelectorAll('.accordion-icon').forEach(i => i.style.transform = 'rotate(0deg)');
+
+                    if (!isExpanded) {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+            
+            const ecosystemTabs = document.querySelectorAll('.ecosystem-tab-btn');
+            const ecosystemContentEl = document.getElementById('ecosystem-content');
+
+            function updateEcosystemContent(tabType = 'companies') {
+                const items = appData.ecosystem[tabType];
+                let html = '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">';
+                items.forEach(item => {
+                    html += `
+                        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                            <h4 class="font-semibold text-slate-900">${item.name}</h4>
+                            <p class="mt-2 text-slate-600">${item.desc}</p>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+                ecosystemContentEl.innerHTML = html;
+            }
+            
+            ecosystemTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    ecosystemTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    updateEcosystemContent(tab.dataset.tab);
+                });
+            });
+            
+            updateEcosystemContent('companies');
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('main section');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.3
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('href').substring(1) === entry.target.id);
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
