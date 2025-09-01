@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>SHAPE — Segmentation, Hybrid, And Point‑based Evaluation for LV Border Extraction in Echocardiography (A4C)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{
+      --bg:#f8fafc;
+      --fg:#0f172a;
+      --muted:#475569;
+      --accent:#2563eb;
+      --card:#ffffff;
+      --border:#e2e8f0;
+    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";line-height:1.55}
+    .page{max-width:980px;margin:48px auto;padding:0 24px 64px}
+    header{background:linear-gradient(135deg,#eff6ff,#ffffff);border:1px solid var(--border);padding:28px 24px;border-radius:16px}
+    h1{margin:0 0 8px 0;font-size:clamp(26px,3.6vw,36px);line-height:1.2}
+    .subtitle{color:var(--muted);font-size:clamp(14px,2.2vw,16px)}
+    .badge{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:6px 12px;font-weight:600;letter-spacing:.2px;margin:8px 0}
+    nav{margin:28px 0 8px}
+    nav a{display:inline-block;margin:6px 10px 0 0;color:var(--accent);text-decoration:none;border:1px solid var(--border);background:var(--card);padding:6px 10px;border-radius:8px}
+    section{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;margin:16px 0}
+    h2{margin-top:0}
+    h3{margin:18px 0 8px}
+    ul{margin:8px 0 8px 20px}
+    .grid{display:grid;gap:12px}
+    @media(min-width:820px){.grid-2{grid-template-columns:1fr 1fr}}
+    .muted{color:var(--muted)}
+    .code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;background:#0b1220;color:#e5e7eb;border-radius:10px;padding:12px;overflow:auto}
+    .callout{border-left:4px solid var(--accent);background:#f1f5ff;padding:12px 14px;border-radius:8px}
+    .kpi{display:flex;gap:16px;flex-wrap:wrap}
+    .kpi div{flex:1 1 220px;background:#f9fafb;border:1px solid var(--border);border-radius:12px;padding:12px}
+    table{width:100%;border-collapse:separate;border-spacing:0;margin:8px 0}
+    th,td{border-bottom:1px solid var(--border);padding:10px 8px;text-align:left;vertical-align:top}
+    thead th{background:#f8fafc;font-weight:600}
+    .footnotes{font-size:0.92rem;color:var(--muted)}
+    .small{font-size:0.95rem}
+    .btn{display:inline-block;margin-top:8px;color:#fff;background:var(--accent);padding:8px 12px;border-radius:8px;text-decoration:none}
+    @media print{
+      body{background:#fff}
+      header,section{break-inside:avoid}
+      nav{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <span class="badge">SHAPE</span>
+      <h1>Segmentation, Hybrid, And Point‑based Evaluation for LV Border Extraction in Echocardiography (A4C)</h1>
+      <p class="subtitle">MSc Project Proposal • Comparative analysis of deep learning strategies for left ventricular (LV) border extraction in the Apical Four‑Chamber view</p>
+      <nav>
+        <a href="#summary">Summary</a>
+        <a href="#aim">Aim & Questions</a>
+        <a href="#methodology">Methodology</a>
+        <a href="#data">Data & Annotations</a>
+        <a href="#evaluation">Evaluation</a>
+      </nav>
+    </header>
+
+    <section id="summary">
+      <h2>1) Introduction & Background</h2>
+      <p>
+        Accurate and reproducible delineation of the LV endocardial border in two‑dimensional echocardiography is essential for
+        deriving LV area, volumes (EDV/ESV), LVID<sub>d/s</sub>, and ultimately LVEF. Manual tracing is labour‑intensive and subject to
+        inter‑observer variability, while echo images often suffer from low contrast and speckle noise. Deep learning offers routes to
+        automation, typically via (i) pixel‑wise <strong>segmentation</strong>, (ii) <strong>point‑based</strong> landmark detection (apex and annulus points),
+        or (iii) <strong>hybrid multitask</strong> models combining both. This project focuses on the Apical Four‑Chamber (A4C) view, a primary
+        plane for biplane volumetry and routine clinical reporting.
+      </p>
+      <div class="kpi">
+        <div><strong>Clinical target</strong><br/><span class="muted">Reliable A4C borders for area, LVID, and single‑plane Simpson volumes</span></div>
+        <div><strong>Comparators</strong><br/><span class="muted">Segmentation vs Point‑based vs Hybrid (mask+keypoints)</span></div>
+        <div><strong>Outcome</strong><br/><span class="muted">Which strategy yields the most clinically useful and robust borders?</span></div>
+      </div>
+    </section>
+
+    <section id="aim">
+      <h2>2) Aim & Research Questions</h2>
+      <p><strong>Aim.</strong> Compare segmentation‑only, point‑based landmark, and hybrid multitask approaches for LV border extraction in A4C, evaluating clinical utility, robustness on low‑quality frames, and generalisation across imaging conditions.</p>
+      <h3>Key questions</h3>
+      <ul>
+        <li><strong>Clinical utility:</strong> Which approach yields the most accurate borders for LV area, LVID<sub>d/s</sub>, and A4C‑based volumes?</li>
+        <li><strong>Robustness:</strong> Do explicit landmarks (apex, septal/lateral annulus) improve performance on low‑quality frames?</li>
+        <li><strong>Generalisation:</strong> Does multitask supervision (mask+keypoints) generalise better across vendors/sites?</li>
+      </ul>
+    </section>
+
+    <section id="methodology">
+      <h2>3) Methodology (A4C‑only)</h2>
+
+      <div class="grid grid-2">
+        <div>
+          <h3>Track A — Segmentation</h3>
+          <ul>
+            <li><strong>Model:</strong> U‑Net/UNet++/nnU‑Net (PyTorch/MONAI).</li>
+            <li><strong>Loss:</strong> Dice + Cross‑Entropy + <em>contour‑aware term</em> (e.g., distance transform / Chamfer) to sharpen borders.</li>
+            <li><strong>Output:</strong> LV mask → contour via marching squares / border tracing.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Track B — Point‑based (Landmarks)</h3>
+          <ul>
+            <li><strong>Model:</strong> Heatmap regression (e.g., HRNet / stacked hourglass).</li>
+            <li><strong>Targets:</strong> Apex, septal annulus, lateral annulus.</li>
+            <li><strong>Post‑proc:</strong> Spline or snake initialised by landmarks to form a smooth border.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid grid-2">
+        <div>
+          <h3>Track C — Hybrid Multitask</h3>
+          <ul>
+            <li><strong>Backbone:</strong> Shared encoder; two heads (mask &amp; heatmaps).</li>
+            <li><strong>Composite loss:</strong>
+              <span class="small">
+                &lambda;<sub>1</sub>(Dice+CE) + &lambda;<sub>2</sub>MSE<sub>heatmaps</sub> + &lambda;<sub>3</sub> (Chamfer/Hausdorff on final contour)
+                + optional landmark‑contour consistency.
+              </span>
+            </li>
+            <li><strong>Fusion:</strong> Combine predicted mask + landmarks (graph shortest‑path or snake) &rarr; final contour.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Pre‑/Post‑processing</h3>
+          <ul>
+            <li>Standardise pixel spacing; crop ROI around LV; intensity normalisation.</li>
+            <li>Augmentations: rotation (±10&deg;), scale, gamma, mild elastic, compression artefacts.</li>
+            <li>ED/ES selection provided or detected via area curve from coarse segmentation.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>Note on clinical plausibility.</strong> Landmark constraints (apex &amp; annulus line) can regularise contours and reduce anatomically implausible shapes on noisy frames.
+      </div>
+    </section>
+
+    <section id="data">
+      <h2>4) Data & Annotation Strategy (General)</h2>
+      <p>
+        The study will use <strong>A4C cine frames</strong> and corresponding ED/ES images sourced from <em>either</em> open datasets (subject to licence)
+        <em>or</em> institutional repositories under an approved governance protocol. Exact sources are flexible to local availability; the experimental
+        design does not depend on a specific dataset brand.
+      </p>
+      <h3>Ground truth (two label types)</h3>
+      <ul>
+        <li><strong>Masks:</strong> Expert endocardial tracings (ED &amp; ES).</li>
+        <li><strong>Landmarks:</strong> Apex; septal and lateral annulus points (mitral hinge line).</li>
+      </ul>
+      <h3>When only one label type is available</h3>
+      <ul>
+        <li><strong>Derive landmarks from masks:</strong> (i) estimate annulus line by detecting valve‑hinge boundary intersections;
+          (ii) define apex as farthest point from the annulus line along the contour; (iii) optional curvature checks.</li>
+        <li><strong>Derive weak masks from landmarks:</strong> fit a spline through landmarks, rasterise to a thin mask, optionally dilate (2–3 px)
+          for supervision in low‑label settings.</li>
+      </ul>
+      <h3>Quality control</h3>
+      <ul>
+        <li>Dual annotation on 10–15% to estimate inter‑observer variability (used as non‑inferiority margin).</li>
+        <li>Manual validation of automatically derived landmarks on a stratified subset.</li>
+      </ul>
+    </section>
+
+    <section id="evaluation">
+      <h2>5) Evaluation Plan</h2>
+      <div class="grid grid-2">
+        <div>
+          <h3>Contour quality</h3>
+          <ul>
+            <li>Dice, IoU (overlap)</li>
+            <li>Hausdorff95, mean surface distance, point‑to‑curve error (mm)</li>
+            <li>Landmark error (mm) at apex/annuli</li>
+          </ul>
+          <h3>Robustness &amp; generalisation</h3>
+          <ul>
+            <li>Stratify by image quality, vendor/site (if available), and stress tests (noise, blur, rotation)</li>
+            <li>Uncertainty: test‑time augmentation / MC‑dropout; calibration (ECE/AUCE)</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Clinical accuracy (A4C)</h3>
+          <ul>
+            <li>LV area (ED/ES), long‑axis length (annulus–apex), single‑plane Simpson EDV/ESV</li>
+            <li>Agreement vs clinician: Bland–Altman, MAE/RMSE, Pearson/Spearman, 95% LoA coverage</li>
+            <li>Failure rate on low‑quality frames; time‑per‑frame</li>
+          </ul>
+          <h3>Statistics</h3>
+          <ul>
+            <li>Paired tests across methods (Wilcoxon/t‑test); effect sizes &amp; 95% CI</li>
+            <li>Non‑inferiority vs inter‑observer variability</li>
+          </ul>
+        </div>
+      </div>
+      <h3>Primary endpoint</h3>
+      <p>Lowest EDV/ESV MAE (A4C single‑plane Simpson) and narrowest limits of agreement, or equivalent performance with fewer labelled masks (data‑efficiency advantage).</p>
+    </section>
+
+
+
+ 
+  </div>
+</body>
+</html>
